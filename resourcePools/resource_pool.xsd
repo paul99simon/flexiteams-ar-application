@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="resourcePool">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resource" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="photo" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="URI" type="xs:anyURI"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="name" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string"/>
+                        <xs:attribute name="age" type="xs:duration"/>
+                        <xs:attribute name="profession" type="xs:string"/>
+                        <xs:attribute name="workExperience" type="xs:duration"/>
+                        <xs:attribute name="trainingDuration" type="xs:duration"/>
+                        <xs:attribute name="weeklyHours" type="xs:duration"/>
+                        <xs:attribute name="overTime" type="xs:duration"/>
+                        <xs:attribute name="yearlyTimeOf" type="xs:duration"/>
+                        <xs:attribute name="arrivalTime" type="xs:duration"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

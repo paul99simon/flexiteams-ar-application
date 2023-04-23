@@ -1,93 +1,133 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ResourcePool>
-    <Resource id="RESOURCE_1">
+<resourcePool>
+    <resource id="RESOURCE_1" age="P32Y" maritalStatus="Verheiratet"
+              profession="Stationsschwester" workExperience="P13Y>" trainigDuration="P3Y" weeklyHours="PT35H" overtime="PT50H" yearlyTimeOf="P28D" yearlyEducation="P5D" arrivalTime="PT20M">
+        
+        <photo URI="..\\images\\Resource_1.jpg"/>
+        <name>
+            <firstName v="Anna"/>
+            <lastName v="Schmidt"/>
+        </name>
+        <prefferedCoworker>
+        </prefferedCoworker>
+        <conflictCoworker>
+        </conflictCoworker>
+        <children>
+            <child age="5"/>
+            <child age="3"/>
+            <info v="Beide Kinder gehen in die Krankenhaus-Kita"/>
+        </children>
+        
+        <departments>
+            <department v="Onkologie"/>
+        </departments>
+        <additionalTrainig>
+            <training v="NotfallMedizin"/>
+            <training v="Anästhesie"/>
+        </additionalTrainig>
+        <additionalQualifications>
+            <Qualification v="Ausbildung als Labortechnikerin"/>
+        </additionalQualifications>
+        <workAgreements>
+            <workAgreement v="Nachtschicht"/>
+            <workAgreement v="Frühschicht"/>
+            <workAgreement v="kein Wochenenddienst"/>
+        </workAgreements>
+        <studies>
+            <Studie v="berufsbegleitendes Studium der Medizin" location="Mainz"/>
+        </studies>
+        <additionalJobs>
+            <Job v="Mitglied im Personalrat"/>
+        </additionalJobs>
+        <meansOfTransport>
+            <vehicle v="öffentliche Verkehrsmittel"/>
+            <vehicle v="Fahrrad"/>
+        </meansOfTransport>
+        
+        <skills>
+            <skill n="Medikamentierung"/>
+            <skill n="Diagn. Schnelltest"/>
+            <skill n="Dokumentation"/>
+        </skills>
+        
+        <charaterTraits>
+            <trait n="Zuverlässigkeit" v="85"/>
+            <trait n="Entscheidungsvermögen" v="25"/>
+            <trait n="Belastungsfähigkeit" v="65"/>
+            <trait n="Veränderungsbereitschaft" v="85"/>
+        </charaterTraits>
+    </resource>
+    <resource id="RESOURCE_2" age="P41Y" maritalStatus="Verheiratet"
+              profession="Oberärztin" workExperience="P14Y>" trainigDuration="P10Y" weeklyHours="PT20H" overtime="PT150H" yearlyTimeOf="P20D" yearlyEducation="P10D" arrivalTime="PT30M">
 
-        <personalBackground>
-            <fistName>Anna</fistName>
-            <lastName>Schmidt</lastName>
-            <age>32</age>
-            <photo></photo>
-            <prefferedTeam>
-                <ResourceID></ResourceID>
-            </prefferedTeam>
-            <conflictTeam>
-                <ResourceID></ResourceID>
-            </conflictTeam>
-            <maritalStatus>Verheiratet</maritalStatus>
-            <children>
-                <child>
-                    <age>3</age>
-                </child>
-                <child>
-                    <age>5</age>
-                </child>
-                <additionalInfo>Beide Kinder gehen in die Krankenhaus-Kita</additionalInfo>
-            </children>
-        </personalBackground>
-
-        <professionalBackground>
-            <profession>Stationsschwester</profession>
-            <department>Onkologie</department>
-            <workExperience>13</workExperience>
-            <trainingDuraton>3</trainingDuraton>
-            <additionalTrainig>
-                <training>NotfallMedizin</training>
-                <training>Anästhesie</training>
-            </additionalTrainig>
-            <additionalQualifications>
-                <Qualification>Ausbildung als Labortechnikerin</Qualification>
-            </additionalQualifications>
-            <weeklyHours>35</weeklyHours>
-            <overtime>50</overtime>
-            <workAgreements>
-                <workAgreement>Nacht und Frühschicht</workAgreement>
-                <workAgreement>kein Wochenenddienst</workAgreement>
-            </workAgreements>
-            <yearlyEducation type="Days">5</yearlyEducation>
-            <yearlyTimeOf type= "Days">28</yearlyTimeOf>
-            <Studies>
-                <Studie>
-                    <name>berufsbegleitendes Studium der Medizin</name>
-                    <location>Mainz</location>
-                </Studie>
-            </Studies>
-            <additionalJobs>
-                <Job>Mitglied im Personalrat</Job>
-            </additionalJobs>
-            <arrivalTime>20</arrivalTime>
-            <meansOfTransport>
-                <vehicle>öffentliche Verkehrsmittel</vehicle>
-                <vehicle>Fahrrad</vehicle>
-            </meansOfTransport>
-        </professionalBackground>
+        <photo url="..\\images\\Resource_2.jpg"/>
+        <name>
+            <firstName v="Erika"/>
+            <lastName v="Müller"/>
+        </name>
+        <children>
+            <child age="P11Y"/>
+        </children>
+        <stressors>
+            <stressFactor v="Pflege der kranken Eltern"/>
+        </stressors>
+        
+        <departments>
+            <department v="Onkologie"/>
+        </departments>
+        <workAgreements>
+            <workAgreement v="Frühschicht"/>
+            <workAgreement v="Wochenenddienst"/>
+        </workAgreements>
+        <additionalJobs>
+            <Job v="Wissenschaftlicher Beirat" yearlyRequiredDays="P5D"/>
+        </additionalJobs>
 
         <skills>
-            <skill>Medikamentierung</skill>
-            <skill>Diagn. Schnelltest</skill>
-            <skill>Dokumentation</skill>
+            <skill n="Tumorentfernung"/>
+            <skill n="Anamese"/>
+            <skill n="Nachkontrolle"/>
+            <skill n="Dokumetation"/>
         </skills>
 
         <charaterTraits>
-            <Trait>
-                <name>Zuverlässsigkeit</name>
-                <percentage>85</percentage>
-            </Trait>
-            <Trait>
-                <name>Entscheidungsvermögen</name>
-                <percentage>25</percentage>
-            </Trait>
-            <Trait>
-                <name>Belastungsfähigkeit</name>
-                <percentage>65</percentage>
-            </Trait>
-            <Trait>
-                <name>Veränderungsbereitschaft</name>
-                <percentage>85</percentage>
-            </Trait>
+            <trait n="Zuverlässigkeit" v="75"/>
+            <trait n="Entscheidungsvermögen" v="95"/>
+            <trait n="Belastungsfähigkeit" v="30"/>
+            <trait n="Veränderungsbereitschaft" v="10"/>
         </charaterTraits>
-    </Resource>
+    </resource>
+    <resource id="RESOURCE_3"  age="P48Y" maritalStatus="Geschieden"
+              profession="Verwaltungsfachangestellte" workExperience="P35Y>" trainigDuration="P3Y" weeklyHours="PT15H" overtime="PT10H" yearlyTimeOf="P18D" yearlyEducation="P3D" arrivalTime="PT35M">
+        <photo url="..\\images\\Resource_3.jpg"/>
+        <name>
+            <firstName v="Hilde"/>
+            <lastName v="Mayer"/>
+        </name>
+        <children>
+            <child age="P21Y"/>
+        </children>
 
-    <Resource id="RESOURCE_2">
+        <departments>
+            <department v="Onkologie"/>
+            <department v="Geriatrie"/>
+        </departments>
+        <workAgreements>
+            <workAgreement v="Frühschicht"/>
+            <workAgreement v="Wochenenddienst"/>
+        </workAgreements>
+        
+        <skills>
+            <skill v="Schichtplanerstellung"/>
+            <skill v="Registratur"/>
+            <skill v="SAP-Abrechnungssystem Medikamente"/>
+        </skills>
 
-    </Resource>
-</ResourcePool>
+        <charaterTraits>
+            <trait n="Zuverlässigkeit" v="90"/>
+            <trait n="Entscheidungsvermögen" v="15"/>
+            <trait n="Belastungsfähigkeit" v="15"/>
+            <trait n="Veränderungsbereitschaft" v="10"/>
+        </charaterTraits>
+    </resource>
+</resourcePool>
