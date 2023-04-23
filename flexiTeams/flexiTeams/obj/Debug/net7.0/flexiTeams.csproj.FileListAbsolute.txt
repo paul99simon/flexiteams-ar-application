@@ -1,0 +1,15 @@
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\bin\Debug\net7.0\flexiTeams.exe
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\bin\Debug\net7.0\flexiTeams.deps.json
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\bin\Debug\net7.0\flexiTeams.runtimeconfig.json
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\bin\Debug\net7.0\flexiTeams.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\bin\Debug\net7.0\flexiTeams.pdb
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.csproj.AssemblyReference.cache
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.AssemblyInfoInputs.cache
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.AssemblyInfo.cs
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.csproj.CoreCompileInputs.cache
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\refint\flexiTeams.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.pdb
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\flexiTeams.genruntimeconfig.cache
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\flexiTeams\obj\Debug\net7.0\ref\flexiTeams.dll
