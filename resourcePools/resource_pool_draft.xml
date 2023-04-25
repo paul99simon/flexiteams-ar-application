@@ -1,133 +1,97 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<resourcePool>
+
+<resourcePool   xmlns="https://www.uni-trier.de/universitaet/fachbereiche-faecher/fachbereich-iv/faecher/informatikwissenschaften/professuren/wirtschaftsinformatik-2/forschung/projekte/ebls4industry/flexiteams-methoden-der-kuenstlichen-intelligenz-zur-unterstuet-zung-der-flexiblen-reorganisation-von-arbeitsteams"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="./resource_pool.xsd">
+    
     <resource id="RESOURCE_1" age="P32Y" maritalStatus="Verheiratet"
-              profession="Stationsschwester" workExperience="P13Y>" trainigDuration="P3Y" weeklyHours="PT35H" overtime="PT50H" yearlyTimeOf="P28D" yearlyEducation="P5D" arrivalTime="PT20M">
+              profession="Stationsschwester" workExperience="P13Y" trainingDuration="P3Y" weeklyHours="PT35H" overtime="PT50H" yearlyTimeOf="P28D" yearlyEducation="P5D" arrivalTime="PT20M">
         
+        <!--Personal Background-->
         <photo URI="..\\images\\Resource_1.jpg"/>
-        <name>
-            <firstName v="Anna"/>
-            <lastName v="Schmidt"/>
-        </name>
-        <prefferedCoworker>
-        </prefferedCoworker>
-        <conflictCoworker>
-        </conflictCoworker>
-        <children>
-            <child age="5"/>
-            <child age="3"/>
-            <info v="Beide Kinder gehen in die Krankenhaus-Kita"/>
-        </children>
+        <firstName v="Anna"/>
+        <lastName v="Schmidt"/>
+        <child age="P5Y"/>
+        <child age="P3Y"/>
+        <personalInfo v="Beide Kinder gehen in die Krankenhaus-Kita"/>
         
-        <departments>
-            <department v="Onkologie"/>
-        </departments>
-        <additionalTrainig>
-            <training v="NotfallMedizin"/>
-            <training v="Anästhesie"/>
-        </additionalTrainig>
-        <additionalQualifications>
-            <Qualification v="Ausbildung als Labortechnikerin"/>
-        </additionalQualifications>
-        <workAgreements>
-            <workAgreement v="Nachtschicht"/>
-            <workAgreement v="Frühschicht"/>
-            <workAgreement v="kein Wochenenddienst"/>
-        </workAgreements>
-        <studies>
-            <Studie v="berufsbegleitendes Studium der Medizin" location="Mainz"/>
-        </studies>
-        <additionalJobs>
-            <Job v="Mitglied im Personalrat"/>
-        </additionalJobs>
-        <meansOfTransport>
-            <vehicle v="öffentliche Verkehrsmittel"/>
-            <vehicle v="Fahrrad"/>
-        </meansOfTransport>
+        <!--Professsional Background-->
+        <department v="Onkologie"/>
+        <training v="NotfallMedizin"/>
+        <training v="Anästhesie"/>
+        <qualification v="Ausbildung als Labortechnikerin"/>
+        <workAgreement v="Nachtschicht"/>
+        <workAgreement v="Frühschicht"/>
+        <workAgreement v="kein Wochenenddienst"/>
+        <studies v="berufsbegleitendes Studium der Medi
+        zin" location="Mainz"/>
+        <additionalJob v="Mitglied im Personalrat"/>
+        <meansOfTransport v="öffentliche Verkehrsmittel"/>
+        <meansOfTransport v="Fahrrad"/>
+
+        <!--Skills-->
+        <skill v="Medikamentierung"/>
+        <skill v="Diagn. Schnelltest"/>
+        <skill v="Dokumentation"/>
         
-        <skills>
-            <skill n="Medikamentierung"/>
-            <skill n="Diagn. Schnelltest"/>
-            <skill n="Dokumentation"/>
-        </skills>
-        
-        <charaterTraits>
-            <trait n="Zuverlässigkeit" v="85"/>
-            <trait n="Entscheidungsvermögen" v="25"/>
-            <trait n="Belastungsfähigkeit" v="65"/>
-            <trait n="Veränderungsbereitschaft" v="85"/>
-        </charaterTraits>
+        <!--Character Traits-->
+        <trait n="Zuverlässigkeit" v="85"/>
+        <trait n="Entscheidungsvermögen" v="25"/>
+        <trait n="Belastungsfähigkeit" v="65"/>
+        <trait n="Veränderungsbereitschaft" v="85"/>
     </resource>
     <resource id="RESOURCE_2" age="P41Y" maritalStatus="Verheiratet"
-              profession="Oberärztin" workExperience="P14Y>" trainigDuration="P10Y" weeklyHours="PT20H" overtime="PT150H" yearlyTimeOf="P20D" yearlyEducation="P10D" arrivalTime="PT30M">
+              profession="Oberärztin" workExperience="P14Y" trainingDuration="P10Y" weeklyHours="PT20H" overtime="PT150H" yearlyTimeOf="P20D" yearlyEducation="P10D" arrivalTime="PT30M">
 
-        <photo url="..\\images\\Resource_2.jpg"/>
-        <name>
-            <firstName v="Erika"/>
-            <lastName v="Müller"/>
-        </name>
-        <children>
-            <child age="P11Y"/>
-        </children>
-        <stressors>
-            <stressFactor v="Pflege der kranken Eltern"/>
-        </stressors>
+        <!--Personal Background-->
+        <photo URI="..\\images\\Resource_2.jpg"/>
+        <firstName v="Erika"/>
+        <lastName v="Müller"/>
+        <child age="P11Y"/>
+        <stressor v="Pflege der kranken Eltern"/>
         
-        <departments>
-            <department v="Onkologie"/>
-        </departments>
-        <workAgreements>
-            <workAgreement v="Frühschicht"/>
-            <workAgreement v="Wochenenddienst"/>
-        </workAgreements>
-        <additionalJobs>
-            <Job v="Wissenschaftlicher Beirat" yearlyRequiredDays="P5D"/>
-        </additionalJobs>
+        <!--Professsional Background-->
+        <department v="Onkologie"/>
+        <workAgreement v="Frühschicht"/>
+        <workAgreement v="Wochenenddienst"/>
+        <additionalJob v="Wissenschaftlicher Beirat" yearlyRequiredDays="P5D"/>
 
-        <skills>
-            <skill n="Tumorentfernung"/>
-            <skill n="Anamese"/>
-            <skill n="Nachkontrolle"/>
-            <skill n="Dokumetation"/>
-        </skills>
-
-        <charaterTraits>
-            <trait n="Zuverlässigkeit" v="75"/>
-            <trait n="Entscheidungsvermögen" v="95"/>
-            <trait n="Belastungsfähigkeit" v="30"/>
-            <trait n="Veränderungsbereitschaft" v="10"/>
-        </charaterTraits>
+        <!--Skills-->
+        <skill v="Tumorentfernung"/>
+        <skill v="Anamese"/>
+        <skill v="Nachkontrolle"/>
+        <skill v="Dokumetation"/>
+        
+        <!--Character Traits-->
+        <trait n="Zuverlässigkeit" v="75"/>
+        <trait n="Entscheidungsvermögen" v="95"/>
+        <trait n="Belastungsfähigkeit" v="30"/>
+        <trait n="Veränderungsbereitschaft" v="10"/>
     </resource>
     <resource id="RESOURCE_3"  age="P48Y" maritalStatus="Geschieden"
-              profession="Verwaltungsfachangestellte" workExperience="P35Y>" trainigDuration="P3Y" weeklyHours="PT15H" overtime="PT10H" yearlyTimeOf="P18D" yearlyEducation="P3D" arrivalTime="PT35M">
-        <photo url="..\\images\\Resource_3.jpg"/>
-        <name>
-            <firstName v="Hilde"/>
-            <lastName v="Mayer"/>
-        </name>
-        <children>
-            <child age="P21Y"/>
-        </children>
-
-        <departments>
-            <department v="Onkologie"/>
-            <department v="Geriatrie"/>
-        </departments>
-        <workAgreements>
-            <workAgreement v="Frühschicht"/>
-            <workAgreement v="Wochenenddienst"/>
-        </workAgreements>
+              profession="Verwaltungsfachangestellte" workExperience="P35Y" trainingDuration="P3Y" weeklyHours="PT15H" overtime="PT10H" yearlyTimeOf="P18D" yearlyEducation="P3D" arrivalTime="PT35M">
         
-        <skills>
-            <skill v="Schichtplanerstellung"/>
-            <skill v="Registratur"/>
-            <skill v="SAP-Abrechnungssystem Medikamente"/>
-        </skills>
+        <!--Personal Background-->
+        <photo URI="..\\images\\Resource_3.jpg"/>
+        <firstName v="Hilde"/>
+        <lastName v="Mayer"/>
+        <child age="P21Y"/>
+        
+        <!--Professsional Background-->
+        <department v="Onkologie"/>
+        <department v="Geriatrie"/>
+        <workAgreement v="Frühschicht"/>
+        <workAgreement v="Wochenenddienst"/>
 
-        <charaterTraits>
-            <trait n="Zuverlässigkeit" v="90"/>
-            <trait n="Entscheidungsvermögen" v="15"/>
-            <trait n="Belastungsfähigkeit" v="15"/>
-            <trait n="Veränderungsbereitschaft" v="10"/>
-        </charaterTraits>
+        <!--Skills-->
+        <skill v="Schichtplanerstellung"/>
+        <skill v="Registratur"/>
+        <skill v="SAP-Abrechnungssystem Medikamente"/>
+
+        <!--Character Traits-->
+        <trait n="Zuverlässigkeit" v="90"/>
+        <trait n="Entscheidungsvermögen" v="15"/>
+        <trait n="Belastungsfähigkeit" v="15"/>
+        <trait n="Veränderungsbereitschaft" v="10"/>
     </resource>
 </resourcePool>
