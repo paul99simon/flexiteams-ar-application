@@ -7,7 +7,13 @@ class XmlTest
     {
         XmlDocument doc = new XmlDocument();
         doc.Load("..\\..\\..\\..\\..\\resourcePools\\resource_pool_draft.xml");
-        XmlNode node = doc.DocumentElement.SelectSingleNode("/resourcePool/resource/name/firstName[@v='Erika']/../..");
-        Console.WriteLine(node.Attributes.GetNamedItem("age").Value);
+        XmlNodeList nodes = doc.DocumentElement.SelectNodes("/resourcePool/resource/firstName[text()='Erika']/../workAgreement");
+
+        int i = 0;
+        foreach (XmlNode node in nodes)
+        {
+            Console.WriteLine(node.InnerText);
+        }
+
     }
 }
