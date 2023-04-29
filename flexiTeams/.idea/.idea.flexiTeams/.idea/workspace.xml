@@ -4,7 +4,18 @@
     <projectFile>flexiTeams/flexiTeams.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="" />
+    <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resourcePools/resource_pool.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../resourcePools/resource_pool.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resourcePools/resource_pool_draft.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../resourcePools/resource_pool_draft.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,9 +46,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\paul9\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\Paul\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Paul\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Paul\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -70,6 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682255558101</updated>
       <workItem from="1682255559309" duration="223000" />
+      <workItem from="1682465031919" duration="6825000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682255696745</created>
