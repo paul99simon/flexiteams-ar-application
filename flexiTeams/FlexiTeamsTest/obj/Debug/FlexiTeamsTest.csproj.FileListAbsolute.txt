@@ -1,0 +1,9 @@
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\obj\Debug\FlexiTeamsTest.csproj.AssemblyReference.cache
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\obj\Debug\FlexiTeamsTest.csproj.CoreCompileInputs.cache
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\bin\Debug\FlexiTeamsTest.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\bin\Debug\FlexiTeamsTest.pdb
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\bin\Debug\nunit.framework.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\bin\Debug\nunit.framework.xml
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\obj\Debug\FlexiTeamsTest.csproj.CopyComplete
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\obj\Debug\FlexiTeamsTest.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTest\obj\Debug\FlexiTeamsTest.pdb
