@@ -5,141 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Child.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Profession.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/WorkAgreement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Util/ISO_639-1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Util/Map.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/System.Net.Http.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net7.0/FlexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CopyComplete" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/FlexiTeam.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/FlexiTeam.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/FlexiTeam.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/FlexiTeam.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/FlexiTeam.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/ref/flexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/refint/flexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsDataTests/FlexiTeamsDataTests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsDataTests/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsDataTests/Tests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsDataTests/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsDataTests/obj/Debug/FlexiTeamsDataTests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsDataTests/packages.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/FlexiTeamsTest.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/Profession.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/bin/Debug/FlexiTeamsTest.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/bin/Debug/FlexiTeamsTest.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/bin/Debug/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/bin/Debug/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/FlexiTeamsTest.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/FlexiTeamsTest.csproj.CopyComplete" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/FlexiTeamsTest.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/FlexiTeamsTest.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/FlexiTeamsTest.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/FlexiTeamsTest.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/obj/Debug/TestProject1.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTest/packages.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/ISO_639-1_Tests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/MapTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/ProfessionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.CopyComplete" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/packages.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/.signature.p7s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/CHANGES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/NOTICES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/NUnit.3.5.0.nupkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/dotnet/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/dotnet/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net20/NUnit.System.Linq.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net20/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net20/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net35/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net35/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net40/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net40/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net45/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/net45/nunit.framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10/nunit.framework.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/NUnit.3.5.0/lib/portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10/nunit.framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams.sln" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/.idea/.idea.flexiTeams.dir/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/.idea/.idea.flexiTeams.dir/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/.idea/.idea.flexiTeams.dir/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/.idea/.idea.flexiTeams.dir/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/.idea/.idea.flexiTeams.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/.idea/.idea.flexiTeams.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/.idea/.idea.flexiTeams.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/.idea/.idea.flexiTeams.dir/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/bin/Debug/net7.0/flexiTeams.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net7.0/flexiTeams.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/bin/Debug/net7.0/flexiTeams.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/bin/Debug/net7.0/flexiTeams.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/bin/Debug/net7.0/flexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net7.0/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/bin/Debug/net7.0/flexiTeams.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/flexiTeams.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/FlexiTeams.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.GlobalUsings.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/FlexiTeam.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/flexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net7.0/flexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/ref/flexiTeams.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/Debug/net7.0/refint/flexiTeams.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeam.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeam.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/flexiTeams.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeam.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams/xmlTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +31,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Child.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FlexiTeamsDataTests/Tests.cs" root0="SKIP_HIGHLIGHTING" />
@@ -245,6 +121,7 @@
       <workItem from="1682465031919" duration="6825000" />
       <workItem from="1683291218247" duration="7609000" />
       <workItem from="1683298926181" duration="16480000" />
+      <workItem from="1683323209776" duration="384000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682255696745</created>
@@ -253,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682255696745</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="small bugfix">
+      <created>1683323410785</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683323410785</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +156,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/develop" />
+                        <option value="develop" />
                       </list>
                     </value>
                   </entry>
@@ -303,7 +187,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="small bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="small bugfix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
