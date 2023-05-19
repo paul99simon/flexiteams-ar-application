@@ -5,19 +5,14 @@ namespace FlexiTeams.Data;
 
 public class ResourcePool
 {
-    private List<Resource> _resources;
+    private List<Resource> _resources = new();
 
-    public ResourcePool(String path)
+    public ResourcePool(XmlReader reader)
     {
-        XmlDocument doc = new XmlDocument();
-        doc.Load(path);
-        
-        Console.Write(doc.InnerXml);
-    }
-    
-    public static void main()
-    {
-        String path = "../../../../../resourcePools/resource_pool_draft.xml";
-        ResourcePool rp = new ResourcePool(path);
+        while (reader.ReadToFollowing("resource"))
+        {
+            XmlReader temp = reader.ReadSubtree();
+            _resources.Add(new Resource(temp));
+        }
     }
 }

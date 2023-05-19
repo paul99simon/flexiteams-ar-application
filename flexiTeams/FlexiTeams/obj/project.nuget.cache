@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "V0C7hZXnDTUrIJ5YcSBa2pUbPQZqSLnrNbdtuyr7yCa63nPzOsFdpQEqWjImQJMYMxhAA+hzyAGpVY0J3Gg8eQ==",
+  "dgSpecHash": "dEoC11eEknVXR80qV/QGk9kq8m7rMHPlrWL6CWrrd6h6XSDT+KPKcCjAaF6zL+S2ybN/InjB1cOa7/3IckZjoA==",
   "success": true,
   "projectFilePath": "C:\\Users\\paul9\\OneDrive\\FlexiTeams\\flexiteams_ar-application\\flexiTeams\\FlexiTeams\\FlexiTeams.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\paul9\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\paul9\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net471\\1.0.3\\microsoft.netframework.referenceassemblies.net471.1.0.3.nupkg.sha512",
     "C:\\Users\\paul9\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\paul9\\.nuget\\packages\\system.net.http\\4.3.4\\system.net.http.4.3.4.nupkg.sha512",
     "C:\\Users\\paul9\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",

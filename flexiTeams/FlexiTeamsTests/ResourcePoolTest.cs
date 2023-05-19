@@ -1,4 +1,5 @@
 using System;
+using System.Xml;
 using FlexiTeams.Data;
 using NUnit.Framework;
 
@@ -10,7 +11,9 @@ public class ResourcePoolTest
     [Test]
     public void getResoucePool()
     {
-        Uri uri = new Uri("../../resourcePools/resource_pool_draft.xml");
-        ResourcePool rp = new ResourcePool(uri);
+        String path = "../../../../resourcePools/resource_pool_draft.xml";
+
+        XmlReader reader = XmlReader.Create(path);
+        ResourcePool rp = new ResourcePool(reader);
     }
 }
