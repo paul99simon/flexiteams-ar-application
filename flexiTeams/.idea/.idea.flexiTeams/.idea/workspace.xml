@@ -7,58 +7,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="Changes:&#10;- Wrappers added">
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/AdditionalJob.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Age.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ArrivalTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Department.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/FirstName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/LastName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/MaritalStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/MeansOfTransport.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Overtime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Photo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Prefix.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Qualification.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skill.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Stressor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Studies.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Training.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/TrainingDuration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Trait.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WeeklyHours.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkExperience.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/YearlyEducation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/YearlyTimeOf.cs" afterDir="false" />
+    <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FlexiTeams/Util/TimeInterval.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Child.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Child.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Profession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Profession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/ResourcePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/ResourcePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/WorkAgreement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkAgreement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkAgreement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkAgreement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeams.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeams.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/ResourcePoolTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/ResourcePoolTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +172,9 @@
       <workItem from="1684412308378" duration="6399000" />
       <workItem from="1684445743813" duration="248000" />
       <workItem from="1684446009435" duration="5043000" />
-      <workItem from="1684492030316" duration="4884000" />
+      <workItem from="1684492030316" duration="5447000" />
+      <workItem from="1684506404266" duration="44000" />
+      <workItem from="1684529527135" duration="7044000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682255696745</created>
@@ -241,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684420543089</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Changes&#10;- Wrappers added">
+      <created>1684497526414</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684497526414</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +271,8 @@
     <MESSAGE value="small bugfix" />
     <MESSAGE value="commit" />
     <MESSAGE value="Changes:&#10;- Wrappers added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- Wrappers added" />
+    <MESSAGE value="Changes&#10;- Wrappers added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes&#10;- Wrappers added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

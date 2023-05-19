@@ -1,28 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15903e97_002D9dec_002D460b_002Dbdd3_002D7560503fd064/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;And&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ISO_639_1_Tests&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.MapTests.CollectionTypeInitialization&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.MapTests&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-      &lt;Not&gt;&#xD;
-        &lt;And&gt;&#xD;
-          &lt;TestAncestor&gt;&#xD;
-            &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ISO_639_1_Tests&lt;/TestId&gt;&#xD;
-            &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.MapTests.CollectionTypeInitialization&lt;/TestId&gt;&#xD;
-            &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.MapTests&lt;/TestId&gt;&#xD;
-          &lt;/TestAncestor&gt;&#xD;
-          &lt;TestAncestor&gt;&#xD;
-            &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.MapTests&lt;/TestId&gt;&#xD;
-          &lt;/TestAncestor&gt;&#xD;
-        &lt;/And&gt;&#xD;
-      &lt;/Not&gt;&#xD;
-    &lt;/And&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ResourcePoolTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
