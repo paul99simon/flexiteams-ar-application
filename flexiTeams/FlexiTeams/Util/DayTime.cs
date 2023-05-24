@@ -9,23 +9,16 @@ public class DayTime
     private readonly int _minutes;
     private readonly int _seconds;
     
-    private static readonly string _pattern_HH_MM = "^([01][0-9]|2[0-3]):([0-5][0-9])$";
-    private static readonly string _pattern_HH_MM_SS = "^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
+    private static readonly string _pattern_HH_MM = "^[0-9]{2}:[0-9]{2}$";
+    private static readonly string _pattern_HH_MM_SS = "^[0-9]{2}:[0-9]{2}:[0-9]{2}$";
 
-    public DayTime(int hours, int minutes)
+    public DayTime(int hours, int minutes) : this(hours, minutes, 0)
     {
-        if (!(hours >= 0 & hours < 24)) throw new ArgumentException("hours must be between 0 and 23");
-        if (!(minutes >= 0 & minutes < 60)) throw new ArgumentException("minutes must be between 0 and 59");
-        _hours = hours;
-        _minutes = minutes;
-        _seconds = 0;
     }
 
     public DayTime(int hours, int minutes, int seconds)
     {
-        if (!(hours >= 0 & hours < 24)) throw new ArgumentException("hours must be between 0 and 23");
-        if (!(minutes >= 0 & minutes < 60)) throw new ArgumentException("minutes must be between 0 and 59");
-        if (!(seconds >= 0 & minutes < 60)) throw new ArgumentException("seconds must be between 0 and 59");
+        CheckIfTime(hours, minutes, seconds);
         _hours = hours;
         _minutes = minutes;
         _seconds = seconds;
@@ -37,10 +30,21 @@ public class DayTime
             new ArgumentException("param format must either be hh:mm or hh:mm:ss");
         
         string[] splits = param.Split(':');
-        _hours = int.Parse(splits[0]);
-        _minutes = int.Parse(splits[1]);
+        int hours = int.Parse(splits[0]);
+        int minutes = int.Parse(splits[1]);
+        int seconds = Regex.IsMatch(param, _pattern_HH_MM) ? 0 : int.Parse(splits[2]);
+        
+        CheckIfTime(hours, minutes, seconds);
+        _hours = hours;
+        _minutes = minutes;
+        _seconds = seconds;
+    }
 
-        _seconds = Regex.IsMatch(param, _pattern_HH_MM) ? 0 : int.Parse(splits[2]);
+    private static void CheckIfTime(int hours, int minutes, int seconds)
+    {
+        if (!(hours >= 0 & hours < 24)) throw new ArgumentException("hours must be between 0 and 23");
+        if (!(minutes >= 0 & minutes < 60)) throw new ArgumentException("minutes must be between 0 and 59");
+        if (!(seconds >= 0 & seconds < 60)) throw new ArgumentException("seconds must be between 0 and 59");
     }
 
     public override string ToString()
@@ -67,26 +71,38 @@ public class DayTime
 
     public bool Equals(DayTime other)
     {
-        return ((_hours == other._hours) & (_minutes == other._minutes));
+        return (_hours == other._hours) & (_minutes == other._minutes) & (_seconds == other._seconds);
     }
     
     public static bool operator <(DayTime t1, DayTime t2)
     {
-        throw new NotImplementedException();
+        if (t1._hours < t2._hours) return true;
+        if (t1._hours > t2._hours) return false;
+        if (t1._minutes < t2._minutes) return true;
+        if (t1._minutes > t2._minutes) return false;
+        if (t1._seconds < t2._seconds) return true;        
+        if (t1._seconds > t2._seconds) return false;
+        return false;
     }
 
     public static bool operator <=(DayTime t1, DayTime t2)
     {
-        throw new NotImplementedException();
+        return t1 < t2 | t1.Equals(t2);
     }
 
     public static bool operator >(DayTime t1, DayTime t2)
     {
-        throw new NotImplementedException();
+        if (t1._hours > t2._hours) return true;
+        if (t1._hours < t2._hours) return false;
+        if (t1._minutes > t2._minutes) return true;
+        if (t1._minutes < t2._minutes) return false;
+        if (t1._seconds > t2._seconds) return true;        
+        if (t1._seconds < t2._seconds) return false;
+        return false;
     }
     
     public static bool operator >=(DayTime t1, DayTime t2)
     {
-        throw new NotImplementedException();
+        return t1 > t2 | t1.Equals(t2);
     }
 }
