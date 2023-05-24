@@ -44,6 +44,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DayTimeTest.cs" />
         <Compile Include="ISO_639-1_Tests.cs" />
         <Compile Include="MapTests.cs" />
         <Compile Include="ProfessionTests.cs" />

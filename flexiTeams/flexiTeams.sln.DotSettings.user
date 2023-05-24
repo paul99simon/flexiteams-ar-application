@@ -2,6 +2,17 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15903e97_002D9dec_002D460b_002Dbdd3_002D7560503fd064/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5a0ae19c_002D7888_002D4e57_002D90ea_002Ddfac755c9e05/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ToStringTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.ToStringTest1&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5e1fefa5_002D0279_002D4ce9_002Da55c_002D8957aaa88f3b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ToStringTest1 #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.ToStringTest1&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

@@ -8,16 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Util/TimeInterval.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlexiTeams/Util/DayTime.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/DayTimeTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkAgreement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkAgreement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Util/TimeInterval.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Util/TimeInterval.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" afterDir="false" />
@@ -41,8 +42,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4b76c3e709534801a173f34a1d6b3dfc522790/eb/3845d4d1/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Child.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/38/be884b82/SetUpTearDownCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -174,7 +174,8 @@
       <workItem from="1684446009435" duration="5043000" />
       <workItem from="1684492030316" duration="5447000" />
       <workItem from="1684506404266" duration="44000" />
-      <workItem from="1684529527135" duration="7044000" />
+      <workItem from="1684529527135" duration="7188000" />
+      <workItem from="1684923087812" duration="6518000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682255696745</created>
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684497526414</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changes:&#10;- TimeInterval.cs added">
+      <created>1684536763451</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684536763451</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +280,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="Changes:&#10;- Wrappers added" />
     <MESSAGE value="Changes&#10;- Wrappers added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes&#10;- Wrappers added" />
+    <MESSAGE value="Changes:&#10;- TimeInterval.cs added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- TimeInterval.cs added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -282,6 +291,12 @@
             <option name="internal" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="System.IndexOutOfRangeException" isInternal="false" displayValue="IndexOutOfRangeException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

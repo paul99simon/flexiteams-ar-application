@@ -8,62 +8,21 @@ namespace FlexiTeamsTests;
 [TestFixture]
 public class TimeIntervalTest
 {
-    [Test]
-    public void ToStringTest1()
-    {
-        var ti = new TimeInterval("12:00", "14:30");
-        
-        Assert.AreEqual("[12:00, 14:30]", ti.ToString());
-    }
-
-    [Test]
-    public void ToStringTest2()
-    {
-        
-        var ti = new TimeInterval("[12:00, 14:00]");
-        
-        Assert.AreEqual("[12:00, 14:00]", ti.ToString());
-
-    }
-
-    [Test]
-    public void IllegalRegexTest1()
-    {
-        //Assert
-        ArgumentException ex = Assert.Throws<ArgumentException>(() =>
-        {
-            TimeInterval ti = new TimeInterval("a", "12:00");
-        });
-        
-        Assert.AreEqual(ex.Message, "\"a\" doesnt match \"HH:MM\" format");
-    }
     
     [Test]
-    public void IllegalRegexTest2()
+    public void ContainsTest1()
     {
-        //Assert
-        ArgumentException ex = Assert.Throws<ArgumentException>(() =>
-        {
-            TimeInterval ti = new TimeInterval("12:00", "a");
-        });
+        //Arrange
+        TimeInterval ti1 = new TimeInterval("[06:00, 12:00]");
+        TimeInterval ti2 = new TimeInterval("[07:00, 11:00]");
+        bool result;
+
+        //Act
+        result = ti1.Contains(ti2);
         
-        Assert.AreEqual(ex.Message, "\"a\" doesnt match \"HH:MM\" format");
+        //Assert
+        Assert.AreEqual(true, result);
     }
     
-    [Test]
-    public void IllegalRegexTest3()
-    {
-        //Assert
-        ArgumentException ex = Assert.Throws<ArgumentException>(() =>
-        {
-            TimeInterval ti = new TimeInterval("a12:00", "14:00");
-        });
-        
-        Assert.AreEqual(ex.Message, "\"a12:00\" doesnt match \"HH:MM\" format");
-    }
-
-    public void NullParamTest1()
-    {
-        
-    }
+    
 }
