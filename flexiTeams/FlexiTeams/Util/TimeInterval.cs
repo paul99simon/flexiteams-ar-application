@@ -65,4 +65,9 @@ public class TimeInterval
         if (other._begin < other._end) return other._end <= _end;
         return _begin <= other._begin & other._end <= _end;
     }
+
+    public DayTime GetLength()
+    {
+        throw new NotImplementedException();
+    }
 }

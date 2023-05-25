@@ -142,4 +142,142 @@ public class DayTimeTest
             var b = ti1 >= ti5;
         });
     }
+
+    [Test]
+    public void plusTest()
+    {
+        //Hours
+        //Arrange
+        const string param1 = "06:00";
+        const string param2 = "18:00";
+        var dt1 = new DayTime(param1);
+        var dt2 = new DayTime(param2);
+        
+        const string ex1 = "00:00";
+        const string ex2 = "12:00";
+        var dte1 = new DayTime(ex1);
+        var dte2 = new DayTime(ex2);
+        
+        //Act
+        var result1 = dt1 + dt1;
+        var result2 = dt1 + dt2;
+        var result3 = dt2 + dt2;
+        
+        //Assert
+        Assert.AreEqual(true, result1.Equals(dte2));
+        Assert.AreEqual(true, result2.Equals(dte1));
+        Assert.AreEqual(true, result3.Equals(dte2));
+
+        //Minutes
+        //Arrange
+        const string param3 = "23:15";
+        const string param4 = "00:15";
+        const string param5 = "00:45";
+        var dt3 = new DayTime(param3);
+        var dt4 = new DayTime(param4);
+        var dt5 = new DayTime(param5);
+        
+        const string ex3 = "23:30";
+        const string ex4 = "00:00";
+        var dte3 = new DayTime(ex3);
+        var dte4 = new DayTime(ex4);
+        
+        //Act
+        var result4 = dt3 + dt4;
+        var result5 = dt3 + dt5;
+        
+        //Assert
+        Assert.AreEqual(true, result4.Equals(dte3));
+        Assert.AreEqual(true, result5.Equals(dte4));
+        
+        //Seconds
+        //Arrange
+        const string param6 = "23:59:15";
+        const string param7 = "00:00:15";
+        const string param8 = "00:00:45";
+        var dt6 = new DayTime(param6);
+        var dt7 = new DayTime(param7);
+        var dt8 = new DayTime(param8);
+        
+        const string ex5 = "23:59:30";
+        const string ex6 = "00:00:00";
+        var dte5 = new DayTime(ex5);
+        var dte6 = new DayTime(ex6);
+        
+        //Act
+        var result6 = dt6 + dt7;
+        var result7 = dt6 + dt8;
+        
+        //Assert
+        Assert.AreEqual(true, result6.Equals(dte5));
+        Assert.AreEqual(true, result7.Equals(dte6));
+    }
+
+    [Test]
+    public void minusTest()
+    {
+        //Hours
+        //Arrange
+        const string param1 = "06:00";
+        const string param2 = "12:00";
+        var dt1 = new DayTime(param1);
+        var dt2 = new DayTime(param2);
+
+        const string ex1 = "18:00";
+        const string ex2 = "06:00";
+        var dte1 = new DayTime(ex1);
+        var dte2 = new DayTime(ex2);
+        
+        //Act
+        var result1 = dt1 - dt2;
+        var result2 = dt2 - dt1;
+        
+        //Assert
+        Assert.AreEqual(true, result1.Equals(dte1));
+        Assert.AreEqual(true, result2.Equals(dte2));
+
+        //Minutes
+        //Arrange
+        const string param3 = "00:30";
+        const string param4 = "00:15";
+        const string param5 = "00:45";
+        var dt3 = new DayTime(param3);
+        var dt4 = new DayTime(param4);
+        var dt5 = new DayTime(param5);
+        
+        const string ex3 = "00:15";
+        const string ex4 = "23:45";
+        var dte3 = new DayTime(ex3);
+        var dte4 = new DayTime(ex4);
+        
+        //Act
+        var result3 = dt3 - dt4;
+        var result4 = dt3 - dt5;
+        
+        //Assert
+        Assert.AreEqual(true, result3.Equals(dte3));
+        Assert.AreEqual(true, result4.Equals(dte4));
+
+        //Seconds
+        //Arrange
+        const string param6 = "00:00:30";
+        const string param7 = "00:00:15";
+        const string param8 = "00:00:45";
+        var dt6 = new DayTime(param6);
+        var dt7 = new DayTime(param7);
+        var dt8 = new DayTime(param8);
+        
+        const string ex5 = "00:00:15";
+        const string ex6 = "23:59:45";
+        var dte5 = new DayTime(ex5);
+        var dte6 = new DayTime(ex6);
+        
+        //Act
+        var result5 = dt6 - dt7;
+        var result6 = dt6 - dt8;
+        
+        //Assert
+        Assert.AreEqual(true, result5.Equals(dte5));
+        Assert.AreEqual(true, result6.Equals(dte6));
+    }
 }

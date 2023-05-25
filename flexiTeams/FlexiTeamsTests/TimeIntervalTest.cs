@@ -119,4 +119,31 @@ public class TimeIntervalTest
         Assert.AreEqual(false, ti7.Contains(ti11));
         Assert.AreEqual(false, ti7.Contains(ti12));
     }
+
+    [Test]
+    public void GetLengthTest()
+    {
+        //Arrange
+        const string param1 = "[06:00, 12:00]";
+        const string param2 = "[22:00, 06:00]";
+
+        const string expected1 = "06:00";
+        const string expected2 = "08:00";
+       
+
+        var ti1 = new TimeInterval(param1);
+        var ti2 = new TimeInterval(param2);
+
+        var dtex1 = new DayTime(expected1);
+        var dtex2 = new DayTime(expected2);
+
+        //Act
+
+        var dt1 = ti1.GetLength();
+        var dt2 = ti2.GetLength();
+
+        //Assert
+        Assert.AreEqual(true, dt1.Equals(dtex1));  
+        Assert.AreEqual(true, dt2.Equals(dtex2));
+    }
 }
