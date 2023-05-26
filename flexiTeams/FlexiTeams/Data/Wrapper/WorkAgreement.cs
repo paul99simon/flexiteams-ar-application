@@ -4,6 +4,7 @@ namespace flexiTeams.Data.Wrapper;
 
 public class WorkAgreement
 {
-    private readonly int _weekDay;
-    private readonly TimeInterval _timeInterval;
+    private List<TimeInterval>[] _schedule = new List<TimeInterval>[7];
+    
+    
 }

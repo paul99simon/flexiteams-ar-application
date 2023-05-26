@@ -5,30 +5,17 @@
     &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.minusTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15903e97_002D9dec_002D460b_002Dbdd3_002D7560503fd064/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=12e71fa3_002Dfd70_002D42e8_002Db7ec_002Db5030b6dcc53/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6bb4d97_002Db30d_002D43fc_002D864c_002D81207cb9f585/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ContainsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.ContainsTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.IntersectsTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5a0ae19c_002D7888_002D4e57_002D90ea_002Ddfac755c9e05/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ToStringTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.ToStringTest1&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5e1fefa5_002D0279_002D4ce9_002Da55c_002D8957aaa88f3b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ToStringTest1 #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.plusTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ff18619_002D2390_002D45bf_002Da515_002D208684ed5eb8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LessThenGreaterThenTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.ToStringTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.IllegalRegexTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.NullParamTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
 	</wpf:ResourceDictionary>

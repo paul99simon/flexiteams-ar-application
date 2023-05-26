@@ -7,25 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Util/DayTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Util/DayTime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Util/TimeInterval.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Util/TimeInterval.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/DayTimeTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/DayTimeTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" afterDir="false" />
-    </list>
+    <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +22,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeams/Util/DayTime.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,27 +39,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\paul9\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\paul9\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Static Method.FlexiTeams.Data.ResourcePool.main">
     <configuration name="flexiTeams" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -173,7 +156,7 @@
       <workItem from="1684529527135" duration="7188000" />
       <workItem from="1684923087812" duration="6567000" />
       <workItem from="1684941770832" duration="14997000" />
-      <workItem from="1685025189581" duration="4793000" />
+      <workItem from="1685025189581" duration="4934000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682255696745</created>
@@ -238,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684962800181</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Changes:&#10;- DayTime &quot;+&quot; operator implemented">
+      <created>1685030882630</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685030882630</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +237,21 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/develop" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -268,21 +273,6 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/develop" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -295,7 +285,8 @@
     <MESSAGE value="Changes:&#10;- TimeInterval.cs added" />
     <MESSAGE value="Changes:&#10;- DayTime.cs added" />
     <MESSAGE value="Changes:&#10;- TimeInterval.cs implemented&#10;- TimeIntervalTest.cs implemented&#10;- DayTime.cs implemented&#10;- DayTimeTest.cs implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- TimeInterval.cs implemented&#10;- TimeIntervalTest.cs implemented&#10;- DayTime.cs implemented&#10;- DayTimeTest.cs implemented" />
+    <MESSAGE value="Changes:&#10;- DayTime &quot;+&quot; operator implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- DayTime &quot;+&quot; operator implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

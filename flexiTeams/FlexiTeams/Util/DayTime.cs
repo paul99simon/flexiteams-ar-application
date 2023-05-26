@@ -135,10 +135,35 @@ public class DayTime
         return new DayTime(hours, minutes, seconds);
     }
     
-    public static DayTime operator -(DayTime ti1, DayTime t2)
+    public static DayTime operator -(DayTime t1, DayTime t2)
     {
         int hours = 0;
         int minutes = 0;
         int seconds = 0;
+
+        seconds = t1._seconds - t2._seconds;
+        
+        if (seconds < 0)
+        {
+            minutes++;
+            seconds = 60 + seconds;
+        }
+
+        minutes = t1._minutes - t2._minutes - minutes;
+
+        if (minutes < 0)
+        {
+            hours++;
+            minutes = 60 + minutes;
+        }
+
+        
+        hours = t1._hours - t2._hours - hours;
+        if (hours < 0)
+        {
+            hours = 24 + hours;
+        }
+        
+        return new DayTime(hours, minutes, seconds);
     }
 }
