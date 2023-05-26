@@ -11,7 +11,6 @@ public class TimeInterval
     public TimeInterval(DayTime begin, DayTime end)
     {
         if (begin == null || end == null) throw new ArgumentNullException();
-        CheckIfEqual(begin, end);
         _begin = begin;
         _end = end;
     }
@@ -39,15 +38,8 @@ public class TimeInterval
         DayTime begin = new DayTime(splits[0]);
         DayTime end = new DayTime(splits[1]);
         
-        CheckIfEqual(begin, end);
-
         _begin = begin;
         _end = end;
-    }
-
-    private static void CheckIfEqual(DayTime t1, DayTime t2)
-    {
-        if (t1.Equals(t2)) throw new ArgumentException("begin time must differ from end time");
     }
     
     public override string ToString()
@@ -57,17 +49,38 @@ public class TimeInterval
 
     public bool Contains(TimeInterval other)
     {
-        if (_begin < _end)
+        if (_begin <= _end)
         {
-            if(other._begin < other ._end) return _begin <= other._begin & other._end <= _end;
+            if(other._begin <= other._end) return _begin <= other._begin & other._end <= _end;
             return false;
         }
-        if (other._begin < other._end) return other._end <= _end;
-        return _begin <= other._begin & other._end <= _end;
+        
+        var dtbegin = new DayTime(0, 0);
+        var dtend = new DayTime(23, 59, 59);
+            
+        var temp1 = new TimeInterval(_begin, dtend);
+        var temp2 = new TimeInterval(dtbegin, _end);
+            
+        if (other._begin <= other._end) return temp1.Contains(other) | temp2.Contains(other);
+            
+        var othertemp1 = new TimeInterval(other._begin, dtend);
+        var othertemp2 = new TimeInterval(dtbegin, other._end);
+        return temp1.Contains(othertemp1) & temp2.Contains(othertemp2);
+    }
+
+    public bool Intersects(TimeInterval other)
+    {
+        if (other._begin < _begin & other._end > _end) return other.Intersects(this);
+        
+        var begin = new TimeInterval(other._begin, other._begin);
+        var end = new TimeInterval(other._end, other._end);
+
+        return (Contains(begin) | Contains(end));
+
     }
 
     public DayTime GetLength()
-    {
-        throw new NotImplementedException();
+    { 
+        return _end - _begin;
     }
 }

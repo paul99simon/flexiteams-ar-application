@@ -8,59 +8,53 @@ namespace FlexiTeamsTests;
 public class ISO_639_1_Tests
 {
     [Test]
-    public void GetLanguage()
+    public void GetLanguageTest()
     {
-        Assert.AreEqual("german", ISO_639_1.GetLanguage("DE"));
-    }
-    
-    [Test]
-    public void GetCode()
-    {
-        Assert.AreEqual( "de", ISO_639_1.GetCode("German"));
-    }
-    
-    [Test]
-    public void GetLanguageNull()
-    {
+        //Arrange
+        const string param1 = "DE";
+        const string param2 = null;
+        const string param3 = "";
+        
+        //Act
+        string result1 = ISO_639_1.GetLanguage(param1);
+        
         //Assert
-        ArgumentNullException ex = Assert.Throws<ArgumentNullException>(() =>
+        Assert.AreEqual("german", result1);
+        Assert.Throws<ArgumentNullException>(() =>
         {
-            ISO_639_1.GetLanguage(null);
+            ISO_639_1.GetLanguage(param2);
         });
-    }
-
-    [Test]
-    public void GetCodeNull()
-    {
-        //Assert
-        ArgumentNullException ex = Assert.Throws<ArgumentNullException>(() =>
+        Assert.Throws<ArgumentNullException>(() =>
         {
-            ISO_639_1.GetCode(null);
+            ISO_639_1.GetLanguage(param3);
         });
     }
     
     [Test]
-    public void GetLanguageEmptyString()
+    public void GetCodeTest()
     {
+        //Arrange
+        const string param1 = "German";
+        const string param2 = null;
+        const string param3 = "";
+        
+        //Act
+        string result1 = ISO_639_1.GetCode(param1);
+        
         //Assert
-        ArgumentNullException ex = Assert.Throws<ArgumentNullException>(() =>
+        Assert.AreEqual("de", result1);
+        Assert.Throws<ArgumentNullException>(() =>
         {
-            ISO_639_1.GetLanguage("");
+            ISO_639_1.GetCode(param2);
+        });
+        Assert.Throws<ArgumentNullException>(() =>
+        {
+            ISO_639_1.GetCode(param3);
         });
     }
     
     [Test]
-    public void GetCodeEmptyString()
-    {
-        //Assert
-        ArgumentNullException ex = Assert.Throws<ArgumentNullException>(() =>
-        {
-            ISO_639_1.GetCode("");
-        });
-    }
-    
-    [Test]
-    public void IsValidLanguage()
+    public void IsValidLanguageTest()
     {
         Assert.IsTrue(ISO_639_1.IsValidLanguage("german"));
     }
