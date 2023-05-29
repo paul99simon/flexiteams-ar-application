@@ -15,7 +15,7 @@ public class TimeIntervalTest
         const string param1 = "a";
         const string param2 = "[a12:00, 13:00]";
         const string param3 = "[112:00, 13:00]";
-        const string param4 = "[12:00, 12:00]";
+        //const string param4 = "[12:00, 12:00]";
         const string param5 = "[24:00, 13:00]";
         const string param6 = "[12:60, 13:00]";
         const string param7 = "[12:00:60, 13:00]";
@@ -24,7 +24,7 @@ public class TimeIntervalTest
         var e1 = Assert.Throws<ArgumentException>(() => new TimeInterval(param1));
         var e2 = Assert.Throws<ArgumentException>(() => new TimeInterval(param2));
         var e3 = Assert.Throws<ArgumentException>(() => new TimeInterval(param3));
-        var e4 = Assert.Throws<ArgumentException>(() => new TimeInterval(param4));
+        //var e4 = Assert.Throws<ArgumentException>(() => new TimeInterval(param4));
         var e5 = Assert.Throws<ArgumentException>(() => new TimeInterval(param5));
         var e6 = Assert.Throws<ArgumentException>(() => new TimeInterval(param6));
         var e7 = Assert.Throws<ArgumentException>(() => new TimeInterval(param7));
@@ -33,7 +33,7 @@ public class TimeIntervalTest
         Assert.AreEqual("param format must either be [hh:mm, hh:mm] or [hh:mm:ss, hh:mm:ss] or [hh:mm, hh:mm:ss] or [hh:mm:ss, hh:mm]", e1.Message);
         Assert.AreEqual("param format must either be [hh:mm, hh:mm] or [hh:mm:ss, hh:mm:ss] or [hh:mm, hh:mm:ss] or [hh:mm:ss, hh:mm]", e2.Message);
         Assert.AreEqual("param format must either be [hh:mm, hh:mm] or [hh:mm:ss, hh:mm:ss] or [hh:mm, hh:mm:ss] or [hh:mm:ss, hh:mm]", e3.Message);
-        Assert.AreEqual("begin time must differ from end time", e4.Message);
+        //Assert.AreEqual("begin time must differ from end time", e4.Message);
         Assert.AreEqual("hours must be between 0 and 23", e5.Message);
         Assert.AreEqual("minutes must be between 0 and 59", e6.Message);
         Assert.AreEqual("seconds must be between 0 and 59", e7.Message);

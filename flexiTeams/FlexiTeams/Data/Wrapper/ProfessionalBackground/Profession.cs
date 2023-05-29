@@ -1,4 +1,4 @@
-﻿namespace flexiTeams.Data.Wrapper;
+﻿namespace FlexiTeams.Data.Wrapper;
 
 public class Profession
 {

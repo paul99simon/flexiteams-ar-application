@@ -1,8 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=115a7676_002D0c01_002D49b4_002Dad61_002Df5672d4493e0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="plusTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=115a7676_002D0c01_002D49b4_002Dad61_002Df5672d4493e0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="plusTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.plusTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.DayTimeTest.minusTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.GetLengthTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=12e71fa3_002Dfd70_002D42e8_002Db7ec_002Db5030b6dcc53/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -10,8 +11,8 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6bb4d97_002Db30d_002D43fc_002D864c_002D81207cb9f585/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ContainsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.ContainsTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest.IntersectsTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.WorkAgreementTest.IsAgreedTimeTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	

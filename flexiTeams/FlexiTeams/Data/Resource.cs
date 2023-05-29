@@ -1,41 +1,39 @@
-﻿using System.Xml;
-using flexiTeams.Data.Wrapper;
-using FlexiTeams.Data.Wrapper;
+﻿using FlexiTeams.Data.Wrapper;
 
 namespace flexiTeams.Data;
 
 public class Resource
 {
-    public Resource(XmlReader reader)
-    {
-        while(reader.Read()) Console.Write(reader.ReadInnerXml());
-    }
-    
     //personal Info
-    private Photo _photo;
-    private Age _age;
-    private Prefix _prefix;
-    private List<FirstName> _firstNames;
-    private List<LastName> _lastNames;
-    private List<MaritalStatus> _maritalStatus;
-    private List<Child> _children;
-    private List<Stressor> _stressors;
-    private List<PersonalInfo> _personalInfos;
+    public Photo? Photo { get; set; }
+    public Age? Age { get; set; }
+    public Prefix? Prefix { get; set; }
+    public FirstNames FirstNames { get; set; }
+    public LastNames? LastNames { get; set; }
+    public MaritalStates? MaritalStates { get; set; }
+    public Children? Children { get; set; }
+    public Stressors? Stressors { get; set; }
+    public PersonalInfos? PersonalInfos { get; set; }
 
     //professional Info
-    private List<Profession> _professions;
-    private List<Department> _departments;
-    private WorkExperience _workExperience;
-    private TrainingDuration _trainingDuration;
-    private WeeklyHours _weeklyHours;
-    private Overtime _overtime;
-    private YearlyEducation _yearlyEducation;
-    private List<Training> _trainings;
-    private List<Qualification> _qualifications;
-    private List<WorkAgreement> _workAgreements;
-
+    public Professions? Professions { get; set; }
+    public Departments? Departments { get; set; }
+    public WorkExperience? WorkExperience { get; set; }
+    public TrainingDuration? TrainingDuration { get; set; }
+    public WeeklyHours? WeeklyHours { get; set; }
+    public Overtime? Overtime { get; set; }
+    public YearlyTimeOf YearlyTimeOf { get; set; }
+    public YearlyEducation? YearlyEducation { get; set; }
+    public Trainings? Trainings { get; set; }
+    public Qualifications? Qualifications { get; set; }
+    public WorkAgreement? WorkAgreements { get; set; }
+    public Studies? Studies { get; set; }
+    public AdditionalJobs? AdditionalJobs { get; set; }
+    public ArrivalTime? ArrivalTime { get; set; }
+    public MeansOfTransport? MeansOfTransport { get; set; }
+    public ProfessionalInfos? ProfessionalInfos { get; set; }
     //skills
-    private List<Skill> _skills;
+    public Skills? Skills { get; set; }
     //traits
-    private List<Trait> _traits;
+    public Traits? Traits { get; set; }
 }

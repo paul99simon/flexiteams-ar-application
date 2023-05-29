@@ -9,10 +9,6 @@ public class ResourcePool
 
     public ResourcePool(XmlReader reader)
     {
-        while (reader.ReadToFollowing("resource"))
-        {
-            XmlReader temp = reader.ReadSubtree();
-            _resources.Add(new Resource(temp));
-        }
+        
     }
 }

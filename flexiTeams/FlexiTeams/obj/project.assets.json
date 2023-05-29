@@ -545,7 +545,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\paul9\\.nuget\\packages\\": {}
+    "C:\\Users\\paul9\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -556,13 +557,19 @@
       "packagesPath": "C:\\Users\\paul9\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\paul9\\OneDrive\\FlexiTeams\\flexiteams_ar-application\\flexiTeams\\FlexiTeams\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\paul9\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\paul9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net471"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -586,7 +593,7 @@
             "version": "[4.3.4, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\paul9\\.dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

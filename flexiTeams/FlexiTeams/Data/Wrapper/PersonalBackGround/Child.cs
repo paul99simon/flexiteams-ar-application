@@ -1,6 +1,4 @@
-﻿using System.Xml;
-
-namespace flexiTeams.Data;
+﻿namespace FlexiTeams.Data.Wrapper;
 
 public class Child
 {
