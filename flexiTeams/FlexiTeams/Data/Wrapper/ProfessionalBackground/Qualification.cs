@@ -2,22 +2,12 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Qualification
 {
-    private readonly string _lang;
-    private readonly string _qualification;
+    public string Language { get; }
+    public string Get { get; }
 
-    public Qualification(string lang, string qualification)
+    public Qualification(string language, string qualification)
     {
-        _lang = lang;
-        _qualification = qualification;
-    }
-
-    public string Get()
-    {
-        return _qualification;
-    }
-
-    public string Language()
-    {
-        return _lang;
+        Language = language;
+        Get = qualification;
     }
 }

@@ -8,72 +8,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1992d95-26d4-4ce4-a373-9d3e7d4fc780" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/IResourceBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/ResourceBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/ResourceDirector.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Children.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/FirstNames.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/LastNames.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/MaritalState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/MaritalStates.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/PersonalInfos.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Stressors.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/AdditionalJobs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Departments.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ProfessionalInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ProfessionalInfos.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Professions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Qualifications.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Studies.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Trainings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WorkAgreement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skills/Skills.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Traits/Traits.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeams/FlexiTeams.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/WorkAgreementTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Photos.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Vehicle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlexiTeamsTests/ResourceDirectorTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.flexiTeams/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/IResourceBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/IResourceBuilder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/ResourceBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/ResourceBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/ResourceDirector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/ResourceDirector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/ResourcePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/ResourcePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/AdditionalJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/AdditionalJob.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Age.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Age.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ArrivalTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ArrivalTime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Child.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Child.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Department.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Department.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/FirstName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/FirstName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/LastName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/LastName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/MaritalStatus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/MeansOfTransport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/MeansOfTransport.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Overtime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Overtime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/PersonalInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Photo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Photo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Prefix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Prefix.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Profession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Profession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Qualification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Qualification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skills/Skill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Stressor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Stressor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Studies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Study.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Training.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Training.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/TrainingDuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/TrainingDuration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Trait.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Traits/Trait.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WeeklyHours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WeeklyHours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkAgreement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/WorkExperience.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WorkExperience.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/YearlyEducation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/YearlyEducation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/YearlyTimeOf.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/YearlyTimeOf.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Age.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Age.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Child.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Child.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Children.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Children.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/FirstName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/FirstName.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/FirstNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/FirstNames.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/LastName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/LastName.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/LastNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/LastNames.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/MaritalState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/MaritalState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/MaritalStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/MaritalStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/PersonalInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/PersonalInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/PersonalInfos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/PersonalInfos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Photo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Photo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Prefix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Prefix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Stressor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Stressor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Stressors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/PersonalBackGround/Stressors.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/AdditionalJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/AdditionalJob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/AdditionalJobs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/AdditionalJobs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ArrivalTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ArrivalTime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Department.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Department.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Departments.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Departments.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/MeansOfTransport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/MeansOfTransport.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Overtime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Overtime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Profession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Profession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ProfessionalInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ProfessionalInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ProfessionalInfos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/ProfessionalInfos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Professions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Professions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Qualification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Qualification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Qualifications.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Qualifications.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Studies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Studies.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Study.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Study.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Training.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Training.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/TrainingDuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/TrainingDuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Trainings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/Trainings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WeeklyHours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WeeklyHours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WorkAgreement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WorkAgreement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WorkExperience.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/WorkExperience.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/YearlyEducation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/YearlyEducation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/YearlyTimeOf.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/YearlyTimeOf.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skills/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skills/Skill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skills/Skills.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Skills/Skills.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Traits/Trait.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Traits/Trait.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Traits/Traits.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/Data/Wrapper/Traits/Traits.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/bin/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/Debug/net471/FlexiTeams.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeams.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/FlexiTeams.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/flexiTeams.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeams/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeams/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/FlexiTeamsTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/TimeIntervalTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/WorkAgreementTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/WorkAgreementTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeams.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/bin/Debug/FlexiTeamsTests.dll" afterDir="false" />
@@ -83,6 +75,7 @@
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FlexiTeamsTests/obj/Debug/FlexiTeamsTests.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/flexiTeams.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resourcePools/resource_pool_draft.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../resourcePools/resource_pool_draft.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,14 +90,22 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Resource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/12/713795bf/SetUpTearDownCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/3e/bec9e7ae/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/89/aeb2e800/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/bb/4c428616/WorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/fc/fafcf76d/SimpleWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4b76c3e709534801a173f34a1d6b3dfc522790/48/4a4ca15e/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4b76c3e709534801a173f34a1d6b3dfc522790/90/3e0e9b6f/DateTimeParse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9e4992465ee24dc8915fd9be20badb7d281d48/97/9dfd6378/XmlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/FlexiTeams/Data/Wrapper/ProfessionalBackground/MeansOfTransport.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="SWEA" />
   </component>
   <component name="ProjectId" id="2OpRV5yPFMWefa7dhhiqdbdT48a" />
   <component name="ProjectLevelVcsManager">
@@ -114,27 +115,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\paul9\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\paul9\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\paul9\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Static Method.FlexiTeams.Data.ResourcePool.main">
     <configuration name="flexiTeams" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -234,7 +236,9 @@
       <workItem from="1685025189581" duration="4934000" />
       <workItem from="1685059516137" duration="246000" />
       <workItem from="1685113565427" duration="4498000" />
-      <workItem from="1685361557250" duration="18974000" />
+      <workItem from="1685361557250" duration="19173000" />
+      <workItem from="1685459530003" duration="6178000" />
+      <workItem from="1685537114289" duration="21864000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682255696745</created>
@@ -327,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685059705264</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Changes:&#10;- IResourceBuilder.cs added&#10;- ResourceBuilder.cs added&#10;- ResourceDirector.cs added">
+      <created>1685390426575</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685390426575</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +397,8 @@
     <MESSAGE value="Changes:&#10;- TimeInterval.cs implemented&#10;- TimeIntervalTest.cs implemented&#10;- DayTime.cs implemented&#10;- DayTimeTest.cs implemented" />
     <MESSAGE value="Changes:&#10;- DayTime &quot;+&quot; operator implemented" />
     <MESSAGE value="Changes:&#10;- fixed TimeInterval.cs Contains() Method&#10;- implemented TimeInterval.cs Intersects() Method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- fixed TimeInterval.cs Contains() Method&#10;- implemented TimeInterval.cs Intersects() Method" />
+    <MESSAGE value="Changes:&#10;- IResourceBuilder.cs added&#10;- ResourceBuilder.cs added&#10;- ResourceDirector.cs added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes:&#10;- IResourceBuilder.cs added&#10;- ResourceBuilder.cs added&#10;- ResourceDirector.cs added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -403,6 +415,19 @@
           </properties>
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/FlexiTeamsTests/ResourceDirectorTest.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeamsTests\ResourceDirectorTest.cs" initialLine="23" containingFunctionPresentation="method 'ConstructFromXmlReaderTest'">
+            <startOffsets>
+              <option value="631" />
+            </startOffsets>
+            <endOffsets>
+              <option value="679" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

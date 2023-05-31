@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FlexiTeams.Data.Wrapper;
 using flexiTeams.Util;
@@ -16,17 +17,14 @@ public class WorkAgreementTest
 
         var ti = new TimeInterval(param);
         
-        var monday = new List<TimeInterval>(){ti};
-        var tuesday = new List<TimeInterval>(){ti};
-        var wednesday = new List<TimeInterval>(){ti};
-        var thursday = new List<TimeInterval>(){ti};
-        var friday = new List<TimeInterval>(){ti};
-        var saturday = new List<TimeInterval>();
-        var sunday = new List<TimeInterval>();
+        var workagreement = new WorkAgreement();
         
-        var schedule = new[] {monday, tuesday, wednesday, thursday, friday, saturday, sunday};
+        workagreement.Add(0 ,ti);
+        workagreement.Add(1, ti);
+        workagreement.Add(2, ti);
+        workagreement.Add(3, ti);
+        workagreement.Add(4, ti);
         
-        var workagreement = new WorkAgreement(schedule);
         
         const int MONDAY = 0;
         const int TUESDAY = 1;
@@ -61,5 +59,33 @@ public class WorkAgreementTest
         Assert.AreEqual(false, result3);
         Assert.AreEqual(false, result4);
         Assert.AreEqual(false, result5);
+    }
+
+    [Test]
+    public void ToStringTest()
+    {
+        //Arrange
+        const string param = "[06:00, 14:00]";
+
+        var ti = new TimeInterval(param);
+        
+        var workagreement = new WorkAgreement();
+        
+        workagreement.Add(0 ,ti);
+        workagreement.Add(1, ti);
+        workagreement.Add(2, ti);
+        workagreement.Add(3, ti);
+        workagreement.Add(4, ti);
+
+        Assert.AreEqual(
+            "monday: [06:00, 14:00]\n" +
+                    "tuesday: [06:00, 14:00]\n"+
+                    "wednesday: [06:00, 14:00]\n"+
+                    "thursday: [06:00, 14:00]\n"+
+                    "friday: [06:00, 14:00]\n"+
+                    "saturday: \n" +
+                    "sunday: ",
+                workagreement.ToString()
+        );
     }
 }

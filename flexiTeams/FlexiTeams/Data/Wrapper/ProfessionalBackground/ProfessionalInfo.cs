@@ -2,22 +2,12 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class ProfessionalInfo
 {
-    private readonly string _lang;
-    private readonly string _professionalInfo;
+    public string Language { get; }
+    public string Get { get; }
 
-    public ProfessionalInfo(string lang, string professionalInfo)
+    public ProfessionalInfo(string language, string professionalInfo)
     {
-        _lang = lang;
-        _professionalInfo = professionalInfo;
-    }
-
-    public string Get()
-    {
-        return _professionalInfo;
-    }
-
-    public string Language()
-    {
-        return _lang;
+        Language = language;
+        Get = professionalInfo;
     }
 }

@@ -7,7 +7,7 @@
     <resource id="RESOURCE_1">
         <!--Personal Background-->
         <photo>
-            <URI>..\\images\\Resource_1.jpg</URI>
+            <URI>../images/Resource_1.jpg</URI>
         </photo>
         <age>P32Y</age>
         <firstName>Anna</firstName>
@@ -32,7 +32,7 @@
         <training xml:lang="de">Notfall Medizin</training>
         <training xml:lang="de">Anästhesie</training>
         <qualification xml:lang="de">Ausbildung als Labortechnikerin</qualification>
-        <workAgreement>0-06:00-22:00</workAgreement>
+        <workAgreement>0-22:00-06:00</workAgreement>
         <workAgreement>1-22:00-06:00</workAgreement>
         <workAgreement>2-22:00-06:00</workAgreement>
         <workAgreement>3-22:00-06:00</workAgreement>
@@ -56,7 +56,7 @@
         <!--Skills-->
         <skill xml:lang="de">Medikamentierung</skill>
         <skill xml:lang="de">Diagn. Schnelltest</skill>
-        <skill xml:lang="de">Medikamentierung</skill>
+        <skill xml:lang="de">Dokumentation</skill>
         
         <!--Character Traits-->
         <trait xml:lang="de">

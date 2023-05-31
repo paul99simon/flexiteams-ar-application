@@ -9,10 +9,28 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=12e71fa3_002Dfd70_002D42e8_002Db7ec_002Db5030b6dcc53/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6bb4d97_002Db30d_002D43fc_002D864c_002D81207cb9f585/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ContainsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=322d2b3e_002Dbf3b_002D4185_002D8c23_002Dca6ce2be336f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ConstructFromXmlNodeTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ResourceDirectorTest.ConstructFromXmlNodeTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.WorkAgreementTest.IsAgreedTimeTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.WorkAgreementTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6608ba8b_002D713f_002D4467_002D8e0a_002Df519f7688ff9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ConstructFromXmlReaderTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ResourceDirectorTest.ConstructFromXmlReaderTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=be2ea6e8_002D00d0_002D4589_002D9b62_002D6bacd5d576fd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ConstructFromXmlReaderTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ResourceDirectorTest.ConstructFromXmlNodeTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6bb4d97_002Db30d_002D43fc_002D864c_002D81207cb9f585/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ContainsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.TimeIntervalTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.WorkAgreementTest.IsAgreedTimeTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::81162269-9161-4DB7-85E6-D82F06DE2768::.NETFramework,Version=v4.7.1::FlexiTeamsTests.ResourceDirectorTest.ConstructFromXmlReaderTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	

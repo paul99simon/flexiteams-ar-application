@@ -1,11 +1,24 @@
+using System.Collections;
+
 namespace FlexiTeams.Data.Wrapper;
 
-public class Skills
+public class Skills : IEnumerable<Skill>
 {
-    private readonly List<Skill> _skills;
+    public List<Skill> List { get; } = new();
+    public Skill this[int index] => List[index];
 
-    public Skills(List<Skill> skills)
+    public void Add(Skill skill)
     {
-        _skills = skills;
+        List.Add(skill);
+    }
+    
+    public IEnumerator<Skill> GetEnumerator()
+    {
+        return List.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }

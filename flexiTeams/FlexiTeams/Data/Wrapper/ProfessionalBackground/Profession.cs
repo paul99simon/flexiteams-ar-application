@@ -2,22 +2,12 @@
 
 public class Profession
 {
-    private readonly string _lang;
-    private readonly string _profession;
+    public string Language { get; }
+    public string Get { get; }
     
-    public Profession(string lang, string profession)
+    public Profession(string language, string profession)
     {
-        _lang = lang;
-        _profession = profession;
-    }
-
-    public string Get()
-    {
-        return _profession;
-    }
-
-    public string Language()
-    {
-        return _lang;
+        Language = language;
+        Get = profession;
     }
 }

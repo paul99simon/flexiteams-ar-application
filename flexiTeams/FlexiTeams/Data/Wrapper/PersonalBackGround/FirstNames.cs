@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class FirstNames : IEnumerable<FirstName>
 {
-    private readonly List<FirstName> _firstNames;
+    public List<FirstName> List { get; } = new();
+    public FirstName this[int index] => List[index];
 
-    public FirstNames(List<FirstName> firstNames)
+    public void Add(FirstName firstName)
     {
-        _firstNames = firstNames;
-    }
+        List.Add(firstName);
+    } 
 
     public IEnumerator<FirstName> GetEnumerator()
     {
-        return _firstNames.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

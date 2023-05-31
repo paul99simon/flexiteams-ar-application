@@ -2,37 +2,21 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class AdditionalJob
 {
-    private readonly string _lang;
-    private readonly string _additionalJob;
-    private readonly int? _yearlyRequiredDays;
+    public string Language { get; }
+    public string Get { get; }
+    public int? YearlyRequiredDays { get; }
 
-    public AdditionalJob(string lang, string additionalJob, int yearlyRequiredDays)
+    public AdditionalJob(string language, string additionalJob, int yearlyRequiredDays)
     {
-        _lang = lang;
-        _additionalJob = additionalJob;
-        _yearlyRequiredDays = yearlyRequiredDays;
+        Language = language;
+        Get = additionalJob;
+        YearlyRequiredDays = yearlyRequiredDays;
     }
     
-    public AdditionalJob(string lang, string additionalJob)
+    public AdditionalJob(string language, string additionalJob)
     {
-        _lang = lang;
-        _additionalJob = additionalJob;
-        _yearlyRequiredDays = null;
-    }
-
-    public string Get()
-    {
-        return _additionalJob;
-    }
-
-
-    public string Language()
-    {
-        return _lang;
-    }
-
-    public int? YearlyRequiredDays()
-    {
-        return _yearlyRequiredDays;
+        Language = language;
+        Get = additionalJob;
+        YearlyRequiredDays = null;
     }
 }

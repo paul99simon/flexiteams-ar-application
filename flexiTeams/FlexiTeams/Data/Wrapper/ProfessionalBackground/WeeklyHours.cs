@@ -2,15 +2,10 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class WeeklyHours
 {
-    private readonly int _weeklyHours;
+    public int Get { get; }
 
     public WeeklyHours(int weeklyHours)
     {
-        _weeklyHours = weeklyHours;
-    }
-
-    public int Get()
-    {
-        return _weeklyHours;
+        Get = weeklyHours;
     }
 }

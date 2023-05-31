@@ -2,21 +2,12 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class MaritalState
 {
-    private readonly string _lang;
-    private readonly string _maritalState;
+    public string Language { get; }
+    public string Get { get; }
 
-    public MaritalState(string maritalState)
+    public MaritalState(string language, string maritalState)
     {
-        _maritalState = maritalState;
-    }
-
-    public string Get()
-    {
-        return _maritalState;
-    }
-
-    public string Language()
-    {
-        return _lang;
+        Get = maritalState;
+        Language = language;
     }
 }

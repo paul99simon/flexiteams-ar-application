@@ -1,13 +1,13 @@
 namespace FlexiTeams.Data.Wrapper;
 
-public class Stressor
+public class Vehicle
 {
     public string Language { get; }
     public string Get { get; }
 
-    public Stressor(string language, string stressor)
+    public Vehicle(string language, string vehicle)
     {
-        Get = stressor;
         Language = language;
+        Get = vehicle;
     }
 }

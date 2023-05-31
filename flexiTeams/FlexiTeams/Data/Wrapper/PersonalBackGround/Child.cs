@@ -2,15 +2,10 @@
 
 public class Child
 {
-    private readonly int _age;
+    public int Age{ get; }
 
     public Child(int age)
     {
-        _age = age;
-    }
-
-    public int Get()
-    {
-        return _age;
+        Age = age;
     }
 }

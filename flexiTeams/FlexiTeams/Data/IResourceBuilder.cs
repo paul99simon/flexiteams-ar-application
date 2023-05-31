@@ -1,4 +1,3 @@
-using flexiTeams.Data;
 using FlexiTeams.Data.Wrapper;
 
 namespace FlexiTeams.Data;
@@ -9,7 +8,7 @@ public interface IResourceBuilder
     public void Reset();
     public Resource GetResource();
     
-    public void SetPhoto(Photo photo);
+    public void SetPhotos(Photos? photos);
     public void SetAge(Age age);
     public void SetPrefix(Prefix prefix);
     public void SetFirstNames(FirstNames firstNames);
@@ -30,6 +29,10 @@ public interface IResourceBuilder
     public void SetTrainings(Trainings training);
     public void SetQualifications(Qualifications qualifications);
     public void SetWorkAgreement(WorkAgreement workAgreement);
+    public void SetStudies(Studies sttudies);
+    public void SetAdditionalJobs(AdditionalJobs additionalJobs);
+    public void SetArrivalTime(ArrivalTime arrivalTime);
+    public void SetMeansOfTransport(MeansOfTransport meansOfTransport);
     public void SetProfessionalInfos(ProfessionalInfos professionalInfos);
 
     public void SetSkills(Skills skills);

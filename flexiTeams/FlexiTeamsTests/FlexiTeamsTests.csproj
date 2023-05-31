@@ -49,6 +49,7 @@
         <Compile Include="MapTests.cs" />
         <Compile Include="ProfessionTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ResourceDirectorTest.cs" />
         <Compile Include="ResourcePoolTest.cs" />
         <Compile Include="TimeIntervalTest.cs" />
         <Compile Include="WorkAgreementTest.cs" />

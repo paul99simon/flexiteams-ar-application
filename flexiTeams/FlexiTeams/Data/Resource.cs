@@ -1,11 +1,11 @@
 ﻿using FlexiTeams.Data.Wrapper;
 
-namespace flexiTeams.Data;
+namespace FlexiTeams.Data;
 
 public class Resource
 {
     //personal Info
-    public Photo? Photo { get; set; }
+    public Photos? Photos { get; set; }
     public Age? Age { get; set; }
     public Prefix? Prefix { get; set; }
     public FirstNames FirstNames { get; set; }
@@ -26,7 +26,7 @@ public class Resource
     public YearlyEducation? YearlyEducation { get; set; }
     public Trainings? Trainings { get; set; }
     public Qualifications? Qualifications { get; set; }
-    public WorkAgreement? WorkAgreements { get; set; }
+    public WorkAgreement? WorkAgreement { get; set; }
     public Studies? Studies { get; set; }
     public AdditionalJobs? AdditionalJobs { get; set; }
     public ArrivalTime? ArrivalTime { get; set; }

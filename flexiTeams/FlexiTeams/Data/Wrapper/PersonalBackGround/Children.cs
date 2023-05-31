@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Children : IEnumerable<Child>
 {
-    private readonly List<Child> _children;
-
-    public Children(List<Child> children)
+    public List<Child> List { get; } = new();
+    public Child this[int index] => List[index];
+    
+    public void Add(Child child)
     {
-        _children = children;
+        List.Add(child);
     }
-
+    
     public IEnumerator<Child> GetEnumerator()
     {
-        return _children.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

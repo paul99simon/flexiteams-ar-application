@@ -1,19 +1,21 @@
 using System.Collections;
+using System.ComponentModel;
 
 namespace FlexiTeams.Data.Wrapper;
 
 public class Qualifications : IEnumerable<Qualification>
 {
-    private readonly List<Qualification> _qualifications;
+    public List<Qualification> List { get; } = new ();
+    public Qualification this[int index] => List[index];
 
-    public Qualifications(List<Qualification> qualifications)
+    public void Add(Qualification qualification)
     {
-        _qualifications = qualifications;
+        List.Add(qualification);
     }
 
     public IEnumerator<Qualification> GetEnumerator()
     {
-        return _qualifications.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

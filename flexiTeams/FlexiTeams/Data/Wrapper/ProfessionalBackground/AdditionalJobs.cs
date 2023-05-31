@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class AdditionalJobs : IEnumerable<AdditionalJob>
 {
-    private readonly List<AdditionalJob> _additionalJobs;
+   public List<AdditionalJob> List { get; } = new();
+   public AdditionalJob this[int index] => List[index];
 
-    public AdditionalJobs(List<AdditionalJob> additionalJobs)
-    {
-        _additionalJobs = additionalJobs;
-    }
+   public void Add(AdditionalJob additionalJob)
+   {
+       List.Add(additionalJob);
+   }
     
     public IEnumerator<AdditionalJob> GetEnumerator()
     {
-        return _additionalJobs.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

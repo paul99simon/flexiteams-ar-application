@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class MaritalStates : IEnumerable<MaritalState>
 {
-    private readonly List<MaritalState> _maritalStates;
-
-    public MaritalStates(List<MaritalState> states)
+    public List<MaritalState> List { get; } = new();
+    public MaritalState this[int index] => List[index];
+    
+    public void Add(MaritalState maritalState)
     {
-        _maritalStates = states;
+        List.Add(maritalState);
     }
-
+    
     public IEnumerator<MaritalState> GetEnumerator()
     {
-        return _maritalStates.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

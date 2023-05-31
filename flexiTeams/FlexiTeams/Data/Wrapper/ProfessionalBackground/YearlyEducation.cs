@@ -2,15 +2,10 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class YearlyEducation
 {
-    private readonly int _yearlyEducation;
+    public int Get { get; }
 
     public YearlyEducation(int yearlyEducation)
     {
-        _yearlyEducation = yearlyEducation;
-    }
-
-    public int Get()
-    {
-        return _yearlyEducation;
+        Get = yearlyEducation;
     }
 }

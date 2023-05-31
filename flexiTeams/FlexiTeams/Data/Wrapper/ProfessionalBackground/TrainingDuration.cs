@@ -2,15 +2,10 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class TrainingDuration
 {
-    private readonly int _trainingDuration;
+    public int Get { get; }
 
     public TrainingDuration(int trainingDuration)
     {
-        _trainingDuration = trainingDuration;
-    }
-
-    public int Get()
-    {
-        return _trainingDuration;
+        Get = trainingDuration;
     }
 }

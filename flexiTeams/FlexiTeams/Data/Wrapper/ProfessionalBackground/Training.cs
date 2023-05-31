@@ -2,22 +2,12 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Training
 {
-    private readonly string _lang;
-    private readonly string _training;
+    public string Language { get; }
+    public string Get { get; }
 
-    public Training(string lang, string training)
+    public Training(string language, string training)
     {
-        _lang = lang;
-        _training = training;
-    }
-
-    public string Get()
-    {
-        return _training;
-    }
-
-    public string Language()
-    {
-        return _lang;
+        Language = language;
+        Get = training;
     }
 }

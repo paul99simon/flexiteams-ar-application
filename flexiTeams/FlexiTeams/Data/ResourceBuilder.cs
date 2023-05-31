@@ -1,4 +1,3 @@
-using flexiTeams.Data;
 using FlexiTeams.Data.Wrapper;
 
 namespace FlexiTeams.Data;
@@ -19,9 +18,9 @@ public class ResourceBuilder : IResourceBuilder
         return resource;
     }
 
-    public void SetPhoto(Photo photo)
+    public void SetPhotos(Photos? photos)
     {
-        _resource.Photo = photo;
+        _resource.Photos = photos;
     }
     public void SetAge(Age age)
     {
@@ -97,7 +96,23 @@ public class ResourceBuilder : IResourceBuilder
     }
     public void SetWorkAgreement(WorkAgreement workAgreement)
     {
-        _resource.WorkAgreements = workAgreement;
+        _resource.WorkAgreement = workAgreement;
+    }
+    public void SetStudies(Studies studies)
+    {
+        _resource.Studies = studies;
+    }
+    public void SetAdditionalJobs(AdditionalJobs additionalJobs)
+    {
+        _resource.AdditionalJobs = additionalJobs;
+    }
+    public void SetArrivalTime(ArrivalTime arrivalTime)
+    {
+        _resource.ArrivalTime = arrivalTime;
+    }
+    public void SetMeansOfTransport(MeansOfTransport meansOfTransport)
+    {
+        _resource.MeansOfTransport = meansOfTransport;
     }
     public void SetProfessionalInfos(ProfessionalInfos professionalInfos)
     {

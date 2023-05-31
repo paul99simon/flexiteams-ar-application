@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Departments : IEnumerable<Department>
 {
-    private readonly List<Department> _departments;
+    public List<Department> List;
+    public Department this[int index] => List[index];
 
-    public Departments(List<Department> departments)
+    public void Add(Department department)
     {
-        _departments = departments;
+        List.Add(department);
     }
-
+    
     public IEnumerator<Department> GetEnumerator()
     {
-        return _departments.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

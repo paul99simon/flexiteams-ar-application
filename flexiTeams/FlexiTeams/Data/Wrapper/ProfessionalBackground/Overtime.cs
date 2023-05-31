@@ -2,15 +2,10 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Overtime
 {
-    private readonly int _overtime;
+    public int Get { get; }
 
     public Overtime(int overtime)
     {
-        _overtime = overtime;
-    }
-
-    public int Get()
-    {
-        return _overtime;
+        Get = overtime;
     }
 }

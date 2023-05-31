@@ -1,23 +1,25 @@
+using System.Collections;
+
 namespace FlexiTeams.Data.Wrapper;
 
-public class MeansOfTransport
+public class MeansOfTransport : IEnumerable<Vehicle>
 {
-    private readonly string _lang;
-    private readonly string _meansOfTransport;
+    public List<Vehicle> List { get; } = new();
+    public Vehicle this[int index] => List[index];
+    
 
-    public MeansOfTransport(string lang, string meansOfTransport)
+    public void Add(Vehicle vehicle)
     {
-        _lang = lang;
-        _meansOfTransport = meansOfTransport;
+        List.Add(vehicle);
     }
     
-    public string Get()
+    public IEnumerator<Vehicle> GetEnumerator()
     {
-        return _meansOfTransport;
+        return List.GetEnumerator();
     }
 
-    public string Language()
+    IEnumerator IEnumerable.GetEnumerator()
     {
-        return _lang;
+        return GetEnumerator();
     }
 }

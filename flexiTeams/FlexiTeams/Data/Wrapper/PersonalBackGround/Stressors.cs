@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Stressors : IEnumerable<Stressor>
 {
-    private readonly List<Stressor> _stressors;
+    public List<Stressor> List { get; } = new ();
+    public Stressor this[int index] => List[index];
 
-    public Stressors(List<Stressor> stressors)
+    public void Add(Stressor stressor)
     {
-        _stressors = stressors;
+        List.Add(stressor);
     }
 
     public IEnumerator<Stressor> GetEnumerator()
     {
-        return _stressors.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

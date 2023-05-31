@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class ProfessionalInfos : IEnumerable<ProfessionalInfo>
 {
-    private readonly List<ProfessionalInfo> _professionalInfos;
+    public List<ProfessionalInfo> List { get; } = new();
+    public ProfessionalInfo this[int index] => List[index];
 
-    public ProfessionalInfos(List<ProfessionalInfo> professionalInfos)
+    public void Add(ProfessionalInfo professionalInfo)
     {
-        _professionalInfos = professionalInfos;
+        List.Add(professionalInfo);
     }
-
+    
     public IEnumerator<ProfessionalInfo> GetEnumerator()
     {
-        return _professionalInfos.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

@@ -2,15 +2,10 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class YearlyTimeOf
 {
-    private readonly int _yearlyTimeOf;
+    public int Get { get; }
 
     public YearlyTimeOf(int yearlyTimeOf)
     {
-        _yearlyTimeOf = yearlyTimeOf;
-    }
-
-    public int Get()
-    {
-        return _yearlyTimeOf;
+        Get = yearlyTimeOf;
     }
 }

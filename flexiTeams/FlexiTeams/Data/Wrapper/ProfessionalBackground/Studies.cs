@@ -4,16 +4,17 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Studies : IEnumerable<Study>
 {
-    private readonly List<Study> _studies;
+    public List<Study> List { get; } = new();
+    public Study this[int index] => List[index];
 
-    public Studies(List<Study> studies)
+    public void Add(Study study)
     {
-        _studies = studies;
+        List.Add(study);
     }
     
     public IEnumerator<Study> GetEnumerator()
     {
-        return _studies.GetEnumerator();
+        return List.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

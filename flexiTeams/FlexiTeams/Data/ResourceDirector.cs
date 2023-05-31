@@ -7,33 +7,34 @@ public class ResourceDirector
 {
     
     //Xml-Construction
-    public void ConstructFromXmlReader(IResourceBuilder builder, XmlReader reader)
+    public void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)
     {
-        var photo = GetPhoto(reader);
-        var age = GetAge(reader);
-        var prefix = GetPrefix(reader);
-        var firstNames = GetFirstNames(reader);
-        var lastNames = GetLastNames(reader);
-        var maritalStates = GetMaritalStates(reader);
-        var children = GetChildren(reader);
-        var stressors = GetStressors(reader);
-        var personalInfos = GetPersonalInfos(reader);
-        var professions = GetProfessions(reader);
-        var departments = GetDepartments(reader);
-        var workExperience = getWorkExperience(reader);
-        var traingingDuration = getTrainingDuration(reader);
-        var weeklyHours = GetWeeklyHours(reader);
-        var overTime = GetOvertime(reader);
-        var yearlyTimeOf = GetYearlyTimeOf(reader);
-        var yearlyEducation = GetYearlyEducation(reader);
-        var trainings = GetTrainings(reader);
-        var qualifications = GetQualifications(reader);
-        var workAgreement = GetWorkAgreement(reader);
-        var professionalInfos = GetProfessionalInfos(reader);
-        var skills = GetSkills(reader);
-        var traits = GetTraits(reader);
-            
-        builder.SetPhoto(photo);
+        var photos = GetPhotos();
+        var age = GetAge();
+        var  prefix = GetPrefix();
+        var firstNames = GetFirstNames();
+        var lastNames = GetLastNames();
+        var  maritalStates = GetMaritalStates();
+        var children = GetChildren();
+        var stressors = GetStressors();
+        /*var personalInfos = GetPersonalInfos();
+        var professions = GetProfessions();
+        var departments = GetDepartments();
+        var workExperience = GetWorkExperience();
+        var trainingDuration = GetTrainingDuration();
+        var weeklyHours = GetWeeklyHours();
+        var overTime = GetOvertime();
+        var yearlyTimeOf = GetYearlyTimeOf();
+        var yearlyEducation = GetYearlyEducation();
+        var trainings = GetTrainings();
+        var qualifications = GetQualifications();
+        var workAgreement = GetWorkAgreement();
+        var professionalInfos = GetProfessionalInfos();
+        var skills = GetSkills();
+        var traits = GetTraits();*/
+         
+        
+        builder.SetPhotos(photos);
         builder.SetAge(age);
         builder.SetPrefix(prefix);
         builder.SetFirstNames(firstNames);
@@ -41,11 +42,11 @@ public class ResourceDirector
         builder.SetMaritalStates(maritalStates);
         builder.SetChildren(children);
         builder.SetStressors(stressors);
-        builder.SetPersonalInfos(personalInfos);
+        /*builder.SetPersonalInfos(personalInfos);
         builder.SetProfessions(professions);
         builder.SetDepartments(departments);
         builder.SetWorkExperience(workExperience);
-        builder.SetTrainingDuration(traingingDuration);
+        builder.SetTrainingDuration(trainingDuration);
         builder.SetWeeklyHours(weeklyHours);
         builder.SetOvertime(overTime);
         builder.SetYearlyTimeOf(yearlyTimeOf);
@@ -55,101 +56,160 @@ public class ResourceDirector
         builder.SetWorkAgreement(workAgreement);
         builder.SetProfessionalInfos(professionalInfos);
         builder.SetSkills(skills);
-        builder.SetTraits(traits);
-    }
-
-    private Photo GetPhoto(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Age GetAge(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Prefix GetPrefix(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private FirstNames GetFirstNames(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private LastNames GetLastNames(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private MaritalStates GetMaritalStates(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Children GetChildren(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Stressors GetStressors(XmlReader reader)
-    {
+        builder.SetTraits(traits);*/
         
-        throw new NotImplementedException();
-    }
-    private PersonalInfos GetPersonalInfos(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Professions GetProfessions(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Departments GetDepartments(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private WorkExperience getWorkExperience(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private TrainingDuration getTrainingDuration(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private WeeklyHours GetWeeklyHours(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Overtime GetOvertime(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
+        Photos? GetPhotos()
+        {
+            var photoNodes = resource.SelectNodes("photo");
+            var temp = new Photos();
 
-    private YearlyTimeOf GetYearlyTimeOf(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private YearlyEducation GetYearlyEducation(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Trainings GetTrainings(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Qualifications GetQualifications(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private WorkAgreement GetWorkAgreement(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private ProfessionalInfos GetProfessionalInfos(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Skills GetSkills(XmlReader reader)
-    {
-        throw new NotImplementedException();
-    }
-    private Traits GetTraits(XmlReader reader)
-    {
-        throw new NotImplementedException();
+            if (photoNodes != null)
+            {
+                foreach (XmlNode photo in photoNodes)
+                {
+                    var URI = photo.SelectSingleNode("URI");
+                    temp.Add(new Photo(URI.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
+        }
+        Age GetAge()
+        {
+            var ageNode = resource.SelectSingleNode("age");
+            var timespan = XmlConvert.ToTimeSpan(ageNode.InnerText);
+
+            return new Age(timespan.Days / 365);
+        }
+        Prefix? GetPrefix()
+        {
+            var prefixNode = resource.SelectSingleNode("prefix");
+            return prefixNode == null ? null : new Prefix(prefixNode.InnerText);
+        }
+        FirstNames GetFirstNames()
+        {
+            var firstNameNodes = resource.SelectNodes("firstName");
+            var temp = new FirstNames();
+            
+            foreach (XmlNode firstName in firstNameNodes)
+            {
+                temp.Add(new FirstName(firstName.InnerText));
+            }
+            
+            return temp;
+        }
+        LastNames GetLastNames()
+        {
+            var lastNameNodes = resource.SelectNodes("lastName");
+            var temp = new LastNames();
+            
+            foreach (XmlNode lastName in lastNameNodes)
+            {
+                temp.Add(new LastName(lastName.InnerText));
+            }
+            
+            return temp;
+        }
+        MaritalStates GetMaritalStates()
+        {
+            var maritalStateNode = resource.SelectNodes("maritalStatus");
+            var temp = new MaritalStates();
+            
+            foreach (XmlNode maritalState in maritalStateNode)
+            {
+                temp.Add(new MaritalState(maritalState.Attributes.GetNamedItem("xml:lang").InnerText, maritalState.InnerText));
+            }
+            
+            return temp;
+        }
+        Children? GetChildren()
+        {
+            var childNotes = resource.SelectNodes("child");
+            var temp = new Children();
+
+            if (childNotes != null)
+            {
+                foreach (XmlNode child in childNotes)
+                {
+                    var ageNode = child.SelectSingleNode("age");
+                    var timespan = XmlConvert.ToTimeSpan(ageNode.InnerText);
+                    temp.Add(new Child(timespan.Days/365));
+                }
+            }
+            return temp.Any() ? temp : null;
+        }
+        Stressors? GetStressors()
+        {
+            var stressorNodes = resource.SelectNodes("stressor");
+            var temp = new Stressors();
+
+            if (stressorNodes != null)
+            {
+                foreach (XmlNode stressor in stressorNodes)
+                {
+                    temp.Add(new Stressor(stressor.Attributes.GetNamedItem("xml:lang").InnerText, stressor.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
+        }
+        PersonalInfos GetPersonalInfos()
+        {
+            throw new NotImplementedException();
+        }
+        Professions GetProfessions()
+        {
+            throw new NotImplementedException();
+        }
+        Departments GetDepartments()
+        {
+            throw new NotImplementedException();
+        }
+        WorkExperience GetWorkExperience()
+        {
+            throw new NotImplementedException();
+        }
+        TrainingDuration GetTrainingDuration()
+        {
+            throw new NotImplementedException();
+        }
+        WeeklyHours GetWeeklyHours()
+        {
+            throw new NotImplementedException();
+        }
+        Overtime GetOvertime()
+        {
+            throw new NotImplementedException();
+        }
+        YearlyTimeOf GetYearlyTimeOf()
+        {
+            throw new NotImplementedException();
+        }
+        YearlyEducation GetYearlyEducation()
+        {
+            throw new NotImplementedException();
+        }
+        Trainings GetTrainings()
+        {
+            throw new NotImplementedException();
+        }
+        Qualifications GetQualifications()
+        {
+            throw new NotImplementedException();
+        }
+        WorkAgreement GetWorkAgreement()
+        {
+            throw new NotImplementedException();
+        }
+        ProfessionalInfos GetProfessionalInfos()
+        {
+            throw new NotImplementedException();
+        }
+        Skills GetSkills()
+        {
+            throw new NotImplementedException();
+        }
+        Traits GetTraits()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
