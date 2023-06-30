@@ -1,4 +1,5 @@
 using System.Xml;
+using flexiTeams.Util;
 using FlexiTeams.Data.Wrapper;
 
 namespace FlexiTeams.Data;
@@ -8,66 +9,45 @@ public class ResourceDirector
     
     //Xml-Construction
     public void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)
-    {
-        var photos = GetPhotos();
-        var age = GetAge();
-        var  prefix = GetPrefix();
-        var firstNames = GetFirstNames();
-        var lastNames = GetLastNames();
-        var  maritalStates = GetMaritalStates();
-        var children = GetChildren();
-        var stressors = GetStressors();
-        /*var personalInfos = GetPersonalInfos();
-        var professions = GetProfessions();
-        var departments = GetDepartments();
-        var workExperience = GetWorkExperience();
-        var trainingDuration = GetTrainingDuration();
-        var weeklyHours = GetWeeklyHours();
-        var overTime = GetOvertime();
-        var yearlyTimeOf = GetYearlyTimeOf();
-        var yearlyEducation = GetYearlyEducation();
-        var trainings = GetTrainings();
-        var qualifications = GetQualifications();
-        var workAgreement = GetWorkAgreement();
-        var professionalInfos = GetProfessionalInfos();
-        var skills = GetSkills();
-        var traits = GetTraits();*/
-         
-        
-        builder.SetPhotos(photos);
-        builder.SetAge(age);
-        builder.SetPrefix(prefix);
-        builder.SetFirstNames(firstNames);
-        builder.SetLastNames(lastNames);
-        builder.SetMaritalStates(maritalStates);
-        builder.SetChildren(children);
-        builder.SetStressors(stressors);
-        /*builder.SetPersonalInfos(personalInfos);
-        builder.SetProfessions(professions);
-        builder.SetDepartments(departments);
-        builder.SetWorkExperience(workExperience);
-        builder.SetTrainingDuration(trainingDuration);
-        builder.SetWeeklyHours(weeklyHours);
-        builder.SetOvertime(overTime);
-        builder.SetYearlyTimeOf(yearlyTimeOf);
-        builder.SetYearlyEducation(yearlyEducation);
-        builder.SetTrainings(trainings);
-        builder.SetQualifications(qualifications);
-        builder.SetWorkAgreement(workAgreement);
-        builder.SetProfessionalInfos(professionalInfos);
-        builder.SetSkills(skills);
-        builder.SetTraits(traits);*/
+    {        
+        builder.SetPhotos(GetPhotos());
+        builder.SetAge(GetAge());
+        builder.SetPrefix(GetPrefix());
+        builder.SetFirstNames(GetFirstNames());
+        builder.SetLastNames(GetLastNames());
+        builder.SetMaritalStates(GetMaritalStates());
+        builder.SetChildren(GetChildren());
+        builder.SetStressors(GetStressors());
+        builder.SetPersonalInfos(GetPersonalInfos());
+        builder.SetProfessions(GetProfessions());
+        builder.SetDepartments(GetDepartments());
+        builder.SetWorkExperience(GetWorkExperience());
+        builder.SetTrainingDuration(GetTrainingDuration());
+        builder.SetWeeklyHours(GetWeeklyHours());
+        builder.SetOvertime(GetOvertime());
+        builder.SetYearlyTimeOf(GetYearlyTimeOf());
+        builder.SetYearlyEducation(GetYearlyEducation());
+        builder.SetTrainings(GetTrainings());
+        builder.SetQualifications(GetQualifications());
+        builder.SetWorkAgreement(GetWorkAgreement());
+        builder.SetStudies(GetStudies());
+        builder.SetAdditionalJobs(GetAdditionalJobs());
+        builder.SetArrivalTime(GetArrivalTime());
+        builder.SetMeansOfTransport(GetMeansOfTransport());
+        builder.SetProfessionalInfos(GetProfessionalInfos());
+        builder.SetSkills(GetSkills());
+        builder.SetTraits(GetTraits());
         
         Photos? GetPhotos()
         {
-            var photoNodes = resource.SelectNodes("photo");
+            var nodes = resource.SelectNodes("photo");
             var temp = new Photos();
 
-            if (photoNodes != null)
+            if (nodes != null)
             {
-                foreach (XmlNode photo in photoNodes)
+                foreach (XmlNode node in nodes)
                 {
-                    var URI = photo.SelectSingleNode("URI");
+                    var URI = node.SelectSingleNode("URI");
                     temp.Add(new Photo(URI.InnerText));
                 }
             }
@@ -75,62 +55,62 @@ public class ResourceDirector
         }
         Age GetAge()
         {
-            var ageNode = resource.SelectSingleNode("age");
-            var timespan = XmlConvert.ToTimeSpan(ageNode.InnerText);
+            var node = resource.SelectSingleNode("age");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
 
             return new Age(timespan.Days / 365);
         }
         Prefix? GetPrefix()
         {
-            var prefixNode = resource.SelectSingleNode("prefix");
-            return prefixNode == null ? null : new Prefix(prefixNode.InnerText);
+            var node = resource.SelectSingleNode("prefix");
+            return node == null ? null : new Prefix(node.InnerText);
         }
         FirstNames GetFirstNames()
         {
-            var firstNameNodes = resource.SelectNodes("firstName");
+            var nodes = resource.SelectNodes("firstName");
             var temp = new FirstNames();
             
-            foreach (XmlNode firstName in firstNameNodes)
+            foreach (XmlNode node in nodes)
             {
-                temp.Add(new FirstName(firstName.InnerText));
+                temp.Add(new FirstName(node.InnerText));
             }
             
             return temp;
         }
         LastNames GetLastNames()
         {
-            var lastNameNodes = resource.SelectNodes("lastName");
+            var nodes = resource.SelectNodes("lastName");
             var temp = new LastNames();
             
-            foreach (XmlNode lastName in lastNameNodes)
+            foreach (XmlNode node in nodes)
             {
-                temp.Add(new LastName(lastName.InnerText));
+                temp.Add(new LastName(node.InnerText));
             }
             
             return temp;
         }
         MaritalStates GetMaritalStates()
         {
-            var maritalStateNode = resource.SelectNodes("maritalStatus");
+            var nodes = resource.SelectNodes("maritalStatus");
             var temp = new MaritalStates();
             
-            foreach (XmlNode maritalState in maritalStateNode)
+            foreach (XmlNode node in nodes)
             {
-                temp.Add(new MaritalState(maritalState.Attributes.GetNamedItem("xml:lang").InnerText, maritalState.InnerText));
+                temp.Add(new MaritalState(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
             }
             
             return temp;
         }
         Children? GetChildren()
         {
-            var childNotes = resource.SelectNodes("child");
+            var nodes = resource.SelectNodes("child");
             var temp = new Children();
 
-            if (childNotes != null)
+            if (nodes != null)
             {
-                foreach (XmlNode child in childNotes)
+                foreach (XmlNode node in nodes)
                 {
-                    var ageNode = child.SelectSingleNode("age");
+                    var ageNode = node.SelectSingleNode("age");
                     var timespan = XmlConvert.ToTimeSpan(ageNode.InnerText);
                     temp.Add(new Child(timespan.Days/365));
                 }
@@ -139,77 +119,243 @@ public class ResourceDirector
         }
         Stressors? GetStressors()
         {
-            var stressorNodes = resource.SelectNodes("stressor");
+            var nodes = resource.SelectNodes("stressor");
             var temp = new Stressors();
 
-            if (stressorNodes != null)
+            if (nodes != null)
             {
-                foreach (XmlNode stressor in stressorNodes)
+                foreach (XmlNode node in nodes)
                 {
-                    temp.Add(new Stressor(stressor.Attributes.GetNamedItem("xml:lang").InnerText, stressor.InnerText));
+                    temp.Add(new Stressor(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
                 }
             }
             return temp.Any() ? temp : null;
         }
-        PersonalInfos GetPersonalInfos()
+        PersonalInfos? GetPersonalInfos()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("personalInfo");
+            var temp = new PersonalInfos();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new PersonalInfo(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
         }
         Professions GetProfessions()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("profession");
+            var temp = new Professions();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Profession(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp;
         }
         Departments GetDepartments()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("department");
+            var temp = new Departments();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Department(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp;
         }
-        WorkExperience GetWorkExperience()
+        WorkExperience? GetWorkExperience()
         {
-            throw new NotImplementedException();
+            var node = resource.SelectSingleNode("workExperience");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new WorkExperience(timespan.Days / 365);
         }
-        TrainingDuration GetTrainingDuration()
+        TrainingDuration? GetTrainingDuration()
         {
-            throw new NotImplementedException();
+            var node = resource.SelectSingleNode("trainingDuration");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new TrainingDuration(timespan.Days / 365);
         }
         WeeklyHours GetWeeklyHours()
         {
-            throw new NotImplementedException();
+            var node = resource.SelectSingleNode("weeklyHours");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new WeeklyHours((int) timespan.TotalHours);
         }
-        Overtime GetOvertime()
+        Overtime? GetOvertime()
         {
-            throw new NotImplementedException();
+            var node = resource.SelectSingleNode("overtime");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new Overtime((int)timespan.TotalHours);
         }
-        YearlyTimeOf GetYearlyTimeOf()
+        YearlyTimeOf? GetYearlyTimeOf()
         {
-            throw new NotImplementedException();
+            var node = resource.SelectSingleNode("yearlyTimeOf");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new YearlyTimeOf((int)timespan.TotalDays);
         }
-        YearlyEducation GetYearlyEducation()
+        YearlyEducation? GetYearlyEducation()
         {
-            throw new NotImplementedException();
+            var node = resource.SelectSingleNode("yearlyEducation");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new YearlyEducation((int)timespan.TotalDays);
         }
-        Trainings GetTrainings()
+        Trainings? GetTrainings()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("training");
+            var temp = new Trainings();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Training(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
         }
-        Qualifications GetQualifications()
+        Qualifications? GetQualifications()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("qualification");
+            var temp = new Qualifications();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Qualification(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
         }
-        WorkAgreement GetWorkAgreement()
+        WorkAgreement? GetWorkAgreement()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("workAgreement");
+            var temp = new WorkAgreement();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    string[] xml = node.InnerText.Split('-');
+                    temp.Add(int.Parse(xml[0]), new TimeInterval(new DayTime(xml[1]), new DayTime(xml[2])));
+                }
+            }
+            return temp.Any() ? temp : null;
         }
-        ProfessionalInfos GetProfessionalInfos()
+        Studies? GetStudies()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("studies");
+            var temp = new Studies();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Study(node.Attributes.GetNamedItem("xml:lang").InnerText, node.SelectSingleNode("name").InnerText, node.SelectSingleNode("location").InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
+        }
+        AdditionalJobs? GetAdditionalJobs()
+        {
+            var nodes = resource.SelectNodes("additionalJob");
+            var temp = new AdditionalJobs();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new AdditionalJob(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
+        }
+        ArrivalTime GetArrivalTime()
+        {
+            var node = resource.SelectSingleNode("arrivalTime");
+            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+
+            return new ArrivalTime((int)timespan.TotalMinutes);
+        }
+        MeansOfTransport GetMeansOfTransport()
+        {
+            var nodes = resource.SelectNodes("meansOfTransport");
+            var temp = new MeansOfTransport();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Vehicle(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
+        }
+        ProfessionalInfos? GetProfessionalInfos()
+        {
+            var nodes = resource.SelectNodes("professionalInfo");
+            var temp = new ProfessionalInfos();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new ProfessionalInfo(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp.Any() ? temp : null;
         }
         Skills GetSkills()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("skill");
+            var temp = new Skills();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(new Skill(node.Attributes.GetNamedItem("xml:lang").InnerText, node.InnerText));
+                }
+            }
+            return temp;
         }
         Traits GetTraits()
         {
-            throw new NotImplementedException();
+            var nodes = resource.SelectNodes("trait");
+            var temp = new Traits();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    temp.Add(
+                        new Trait(
+                            node.Attributes.GetNamedItem("xml:lang").InnerText,
+                            new KeyValuePair<string, int>(
+                                node.SelectSingleNode("name").InnerText,
+                                int.Parse(node.SelectSingleNode("value").InnerText)
+                                )
+                            )
+                        );
+                }
+            }
+            return temp;
         }
     }
 }

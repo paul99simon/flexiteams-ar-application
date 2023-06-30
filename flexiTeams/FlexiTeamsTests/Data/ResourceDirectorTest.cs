@@ -39,12 +39,12 @@ public class ResourceDirectorTest
         Assert.AreEqual(3, resource.Children[1].Age);
         
         Assert.AreEqual(null, resource.Stressors);
-        
-        /*Assert.AreEqual("de", resource.PersonalInfos[0].Language);
-        Assert.AreEqual("Beide Kinder gehen in die Krankenhaus-Kita", resource.PersonalInfos[0].Get);
-        
-        Assert.AreEqual("de", resource.Professions[0].Language);
-        Assert.AreEqual("Stationsschwester", resource.Professions[0].Get);
+
+        Assert.AreEqual("de", (object)resource.PersonalInfos[0].Language);
+        Assert.AreEqual("Beide Kinder gehen in die Krankenhaus-Kita", (object)resource.PersonalInfos[0].Get);
+
+        Assert.AreEqual("de", (object)resource.Professions[0].Language);
+        Assert.AreEqual("Stationsschwester", (object)resource.Professions[0].Get);
 
         Assert.AreEqual("de", resource.Departments[0].Language);
         Assert.AreEqual("Onkologie", resource.Departments[0].Get);
@@ -94,7 +94,7 @@ public class ResourceDirectorTest
         Assert.AreEqual("de", resource.MeansOfTransport[1].Language);
         Assert.AreEqual("Fahrrad", resource.MeansOfTransport[1].Get);
         
-        Assert.AreEqual(null, resource.PersonalInfos);
+        Assert.AreEqual(null, resource.ProfessionalInfos);
         
         Assert.AreEqual("de", resource.Skills[0].Language);
         Assert.AreEqual("Medikamentierung", resource.Skills[0].Get);
@@ -104,12 +104,12 @@ public class ResourceDirectorTest
         Assert.AreEqual("Dokumentation", resource.Skills[2].Get);
         
         Assert.AreEqual("de", resource.Traits[0].Language);
-        Assert.AreEqual("Zuverlässigkeit", resource.Traits[0].Get);
+        Assert.AreEqual("[Zuverlässigkeit, 85]", resource.Traits[0].Get.ToString());
         Assert.AreEqual("de", resource.Traits[1].Language);
-        Assert.AreEqual("Entscheidungsvermögen",resource.Traits[1].Get);
+        Assert.AreEqual("[Entscheidungsvermögen, 25]",resource.Traits[1].Get.ToString());
         Assert.AreEqual("de", resource.Traits[2].Language);
-        Assert.AreEqual("Belastungsfähigkeit", resource.Traits[2].Get);
+        Assert.AreEqual("[Belastungsfähigkeit, 65]", resource.Traits[2].Get.ToString());
         Assert.AreEqual("de", resource.Traits[3].Language);
-        Assert.AreEqual("Veränderungsbereitschaft", resource.Traits[3].Get);*/
+        Assert.AreEqual("[Veränderungsbereitschaft, 85]", resource.Traits[3].Get.ToString());
     }
 }

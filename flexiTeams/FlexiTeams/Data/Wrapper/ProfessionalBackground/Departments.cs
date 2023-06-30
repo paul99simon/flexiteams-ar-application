@@ -4,7 +4,7 @@ namespace FlexiTeams.Data.Wrapper;
 
 public class Departments : IEnumerable<Department>
 {
-    public List<Department> List;
+    public List<Department> List { get; } = new();
     public Department this[int index] => List[index];
 
     public void Add(Department department)

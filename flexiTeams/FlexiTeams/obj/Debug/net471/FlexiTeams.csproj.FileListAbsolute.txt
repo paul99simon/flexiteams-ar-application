@@ -1,11 +1,11 @@
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\bin\Debug\net471\FlexiTeams.dll
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\bin\Debug\net471\FlexiTeams.pdb
+C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\bin\Debug\net471\System.Net.Http.dll
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.csproj.AssemblyReference.cache
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.AssemblyInfoInputs.cache
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.AssemblyInfo.cs
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.csproj.CoreCompileInputs.cache
-C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\bin\Debug\net471\FlexiTeams.dll
-C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\bin\Debug\net471\FlexiTeams.pdb
-C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\bin\Debug\net471\System.Net.Http.dll
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.csproj.CopyComplete
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.dll
 C:\Users\paul9\OneDrive\FlexiTeams\flexiteams_ar-application\flexiTeams\FlexiTeams\obj\Debug\net471\FlexiTeams.pdb
