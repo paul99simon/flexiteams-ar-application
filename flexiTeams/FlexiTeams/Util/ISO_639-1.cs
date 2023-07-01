@@ -5,7 +5,7 @@ namespace flexiTeams.Util;
 //https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 public static class ISO_639_1
 {
-    private static Dictionary<string, string> dict = new()
+    private static Dictionary<string, string> _dictLang = new()
     {
         {"abkhazian", "ab"},
         {"afar", "aa"},
@@ -222,23 +222,215 @@ public static class ISO_639_1
         {"zulu", "zu"}
     };
     
-    public static string GetISO_639_Code(string lang)
+    private static Dictionary<string, string> _dictCode = new()
     {
-        return dict[lang.Trim().ToLower()];
+        {"ab", "abkhazian"},
+        {"aa", "afar"},
+        {"af", "afrikaans"},
+        {"ak", "akan"},
+        {"sq", "albanian"},
+        {"am", "amharic"},
+        {"ar", "arabic"},
+        {"an", "aragonese"},
+        {"hy", "armenian"},
+        {"as", "assamese"},
+        {"av", "avaric"},
+        {"ae", "avestan"},
+        {"ay", "aymara"},
+        {"az", "azerbaijani"},
+        {"bm", "bambara"},
+        {"ba", "bashkir"},
+        {"eu", "basque"},
+        {"be", "belarusian"},
+        {"bn", "bengali"},
+        {"bi", "bislama"},
+        {"bs", "bosnian"},
+        {"br", "breton"},
+        {"bg", "bulgarian"},
+        {"my", "burmese"},
+        {"ca", "catalan , valencian"},
+        {"ch", "chamorro"},
+        {"ce", "chechen"},
+        {"ny", "chichewa, chewa, nyanja"},
+        {"zh", "chinese"},
+        {"cu", "church slavonic, old slavonic, old church slavonic"},
+        {"cv", "chuvash"},
+        {"kw", "cornish"},
+        {"co", "corsican"},
+        {"cr", "cree"},
+        {"hr", "croatian"},
+        {"cs", "czech"},
+        {"da", "danish"},
+        {"dv", "divehi, dhivehi, maldivian"},
+        {"nl", "dutch, flemish"},
+        {"dz", "dzongkha"},
+        {"en", "english"},
+        {"eo", "esperanto"},
+        {"et", "estonian"},
+        {"ee", "ewe"},
+        {"fo", "faroese"},
+        {"fj", "fijian"},
+        {"fi", "finnish"},
+        {"fr", "french"},
+        {"fy", "westernfrisian"},
+        {"ff", "fulah"},
+        {"gd", "gaelic, scottishgaelic"},
+        {"gl", "galician"},
+        {"lg", "ganda"},
+        {"ka", "georgian"},
+        {"de", "german"},
+        {"el", "greek"},
+        {"kl", "kalaallisut, greenlandic"},
+        {"gn", "guarani"},
+        {"gu", "gujarati"},
+        {"ht", "haitian, haitiancreole"},
+        {"ha", "hausa"},
+        {"he", "hebrew"},
+        {"hz", "herero"},
+        {"hi", "hindi"},
+        {"ho", "hirimotu"},
+        {"hu", "hungarian"},
+        {"is", "icelandic"},
+        {"io", "ido"},
+        {"ig", "igbo"},
+        {"id", "indonesian"},
+        {"ia", "interlingua"},
+        {"ie", "interlingue, occidental"},
+        {"iu", "inuktitut"},
+        {"ik", "inupiaq"},
+        {"ga", "irish"},
+        {"it", "italian"},
+        {"ja", "japanese"},
+        {"jv", "javanese"},
+        {"kn", "kannada"},
+        {"kr", "kanuri"},
+        {"ks", "kashmiri"},
+        {"kk", "kazakh"},
+        {"km", "centralkhmer"},
+        {"ki", "kikuyu, gikuyu"},
+        {"rw", "kinyarwanda"},
+        {"ky", "kirghiz, kyrgyz"},
+        {"kv", "komi"},
+        {"kg", "kongo"},
+        {"ko", "korean"},
+        {"kj", "kuanyama, kwanyama"},
+        {"ku", "kurdish"},
+        {"lo", "lao"},
+        {"la", "latin"},
+        {"lv", "latvian"},
+        {"li", "limburgan, limburger, limburgish"},
+        {"ln", "lingala"},
+        {"lt", "lithuanian"},
+        {"lu", "luba-katanga"},
+        {"lb", "luxembourgish, letzeburgesch"},
+        {"mk", "macedonian"},
+        {"mg", "malagasy"},
+        {"ms", "malay"},
+        {"ml", "malayalam"},
+        {"mt", "maltese"},
+        {"gv", "manx"},
+        {"mi", "maori"},
+        {"mr", "marathi"},
+        {"mh", "marshallese"},
+        {"mn", "mongolian"},
+        {"na", "nauru"},
+        {"nv", "navajo, navaho"},
+        {"nd", "northndebele"},
+        {"nr", "southndebele"},
+        {"ng", "ndonga"},
+        {"ne", "nepali"},
+        {"no", "norwegian"},
+        {"nb", "norwegianbokmål"},
+        {"nn", "norwegiannynorsk"},
+        {"ii", "sichuanyi, nuosu"},
+        {"oc", "occitan"},
+        {"oj", "ojibwa"},
+        {"or", "oriya"},
+        {"om", "oromo"},
+        {"os", "ossetian, ossetic"},
+        {"pi", "pali"},
+        {"ps", "pashto, pushto"},
+        {"fa", "persian"},
+        {"pl", "polish"},
+        {"pt", "portuguese"},
+        {"pa", "punjabi, panjabi"},
+        {"qu", "quechua"},
+        {"ro", "romanian, moldavian, moldovan"},
+        {"rm", "romansh"},
+        {"rn", "rundi"},
+        {"ru", "russian"},
+        {"se", "northernsami"},
+        {"sm", "samoan"},
+        {"sg", "sango"},
+        {"sa", "sanskrit"},
+        {"sc", "sardinian"},
+        {"sr", "serbian"},
+        {"sn", "shona"},
+        {"sd", "sindhi"},
+        {"si", "sinhala, sinhalese"},
+        {"sk", "slovak"},
+        {"sl", "slovenian"},
+        {"so", "somali"},
+        {"st", "southernsotho"},
+        {"es", "spanish, castilian"},
+        {"su", "sundanese"},
+        {"sw", "swahili"},
+        {"ss", "swati"},
+        {"sv", "swedish"},
+        {"tl", "tagalog"},
+        {"ty", "tahitian"},
+        {"tg", "tajik"},
+        {"ta", "tamil"},
+        {"tt", "tatar"},
+        {"te", "telugu"},
+        {"th", "thai"},
+        {"bo", "tibetan"},
+        {"ti", "tigrinya"},
+        {"to", "tonga"},
+        {"ts", "tsonga"},
+        {"tn", "tswana"},
+        {"tr", "turkish"},
+        {"tk", "turkmen"},
+        {"tw", "twi"},
+        {"ug", "uighur, uyghur"},
+        {"uk", "ukrainian"},
+        {"ur", "urdu"},
+        {"uz", "uzbek"},
+        {"ve", "venda"},
+        {"vi", "vietnamese"},
+        {"vo", "volapük"},
+        {"wa", "walloon"},
+        {"cy", "welsh"},
+        {"wo", "wolof"},
+        {"xh", "xhosa"},
+        {"yi", "yiddish"},
+        {"yo", "yoruba"},
+        {"za", "zhuang, chuang"},
+        {"zu", "zulu"}
+    };
+    
+    public static string GetCode(string lang )
+    {
+        if (lang == null || String.IsNullOrWhiteSpace(lang)) throw new ArgumentNullException();
+        return _dictLang[lang.Trim().ToLower()];
     }
     
-    public static List<string> GetISO_639_LanguageNames(string code)
+    public static String GetLanguage(string code)
     {
-        List<string> lang = new List<string>();
-        
-        code = code.Trim().ToLower();
-        foreach (KeyValuePair<string, string> pair in dict)
-        {
-            if(pair.Value.Equals(code)) lang.Add(pair.Key);
-        }
-
-        return lang;
+        if (code == null || String.IsNullOrWhiteSpace(code)) throw new ArgumentNullException();
+        return _dictCode[code.Trim().ToLower()];
     }
 
+    public static bool IsValidLanguage(String lang)
+    {
+        if (lang == null || String.IsNullOrWhiteSpace(lang)) throw new ArgumentNullException();
+        return _dictLang.ContainsKey(lang.Trim().ToLower());
+    }
+
+    public static bool IsValidCode(String code)
+    {       
+        if (code == null || String.IsNullOrWhiteSpace(code)) throw new ArgumentNullException();
+        return _dictCode.ContainsKey(code.Trim().ToLower());
+    }
     
 }
