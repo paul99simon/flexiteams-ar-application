@@ -8,7 +8,7 @@ public class ResourceDirector
 {
     
     //Xml-Construction
-    public void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)
+    public static void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)
     {        
         builder.SetPhotos(GetPhotos());
         builder.SetAge(GetAge());

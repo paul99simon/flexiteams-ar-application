@@ -14,6 +14,9 @@ public class ResourcePoolTest
         String path = "../../../../resourcePools/resource_pool_draft.xml";
 
         XmlReader reader = XmlReader.Create(path);
-        ResourcePool rp = new ResourcePool(reader);
+        ResourceBuilder builder = new ResourceBuilder();
+        ResourcePool rp = new ResourcePool(builder, reader);
+
+        Assert.AreEqual(3, rp.Size());
     }
 }

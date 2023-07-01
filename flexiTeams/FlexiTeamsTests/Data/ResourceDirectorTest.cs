@@ -12,13 +12,12 @@ public class ResourceDirectorTest
     {
         //Arrange
         var builder = new ResourceBuilder();
-        var director = new ResourceDirector();
         var doc = new XmlDocument();
         doc.Load("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/resourcePools/resource_pool_draft.xml");
         var node = doc.DocumentElement.SelectSingleNode("//resourcePool/resource");
-        
+
         //Act
-        director.ConstructFromXmlNode(builder, node);
+        ResourceDirector.ConstructFromXmlNode(builder, node);
         var resource = builder.GetResource();
         
         //Assert
