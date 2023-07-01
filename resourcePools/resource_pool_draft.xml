@@ -4,7 +4,7 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:noNamespaceSchemaLocation="./resource_pool.xsd">
     
-    <resource id="RESOURCE_1">
+    <resource xml:id="RESOURCE_1">
         <!--Personal Background-->
         <photo>
             <URI>..\\images\\Resource_1.jpg</URI>
@@ -76,7 +76,7 @@
             <value>85</value>
         </trait>
     </resource>
-    <resource id="RESOURCE_2">
+    <resource xml:id="RESOURCE_2">
         <!--Personal Background-->
         <photo>
             <URI>..\\images\\Resource_2.jpg</URI>
@@ -136,7 +136,7 @@
             <value>10</value>
         </trait>
     </resource>
-    <resource id="RESOURCE_3">
+    <resource xml:id="RESOURCE_3">
         <!--Personal Background-->
         <photo>
             <URI>..\\images\\Resource_3.jpg</URI>
