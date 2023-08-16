@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace flexiTeams.Util;
+﻿namespace FlexiTeams.Util;
 
 //https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 public static class ISO_639_1

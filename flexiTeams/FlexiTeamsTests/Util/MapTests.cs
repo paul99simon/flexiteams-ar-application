@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using FlexiTeams.Util;
 using NUnit.Framework;
-using flexiTeams.Util;
 
 namespace FlexiTeamsTests
 {

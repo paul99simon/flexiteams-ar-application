@@ -1,5 +1,5 @@
 using System;
-using flexiTeams.Util;
+using FlexiTeams.Util;
 using NUnit.Framework;
 
 namespace FlexiTeamsTests;

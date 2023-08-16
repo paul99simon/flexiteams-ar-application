@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace flexiTeams.Util;
+namespace FlexiTeams.Util;
 
 public class Map<T1, T2> : IEnumerable where T1 : notnull where T2 : notnull 
 {

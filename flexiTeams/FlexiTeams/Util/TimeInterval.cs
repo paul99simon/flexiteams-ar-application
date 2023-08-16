@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace flexiTeams.Util;
+namespace FlexiTeams.Util;
 
 public class TimeInterval
 {
