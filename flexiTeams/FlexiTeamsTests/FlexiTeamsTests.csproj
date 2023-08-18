@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="ConstructionClasses\CSVGraphDirectorTest.cs" />
     <Compile Include="ConstructionClasses\XMLResourceDirectorTest.cs" />
+    <Compile Include="Util\DataPoolXmlWriterTest.cs" />
     <Compile Include="Util\DayTimeTest.cs" />
     <Compile Include="Util\ISO_639-1_Tests.cs" />
     <Compile Include="Util\MapTests.cs" />

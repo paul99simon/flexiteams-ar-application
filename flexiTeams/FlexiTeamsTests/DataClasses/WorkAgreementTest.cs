@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.Util;
 using NUnit.Framework;
@@ -17,14 +18,25 @@ public class WorkAgreementTest
 
         var ti = new TimeInterval(param);
         
-        var workagreement = new WorkAgreement();
+        var workagreement = new List<TimeInterval>[]
+        {
+            new List<TimeInterval>(),
+            new List<TimeInterval>(),
+            new List<TimeInterval>(),
+            new List<TimeInterval>(),
+            new List<TimeInterval>(),
+            new List<TimeInterval>(),
+            new List<TimeInterval>()
+        };
         
-        workagreement.Add(0 ,ti);
-        workagreement.Add(1, ti);
-        workagreement.Add(2, ti);
-        workagreement.Add(3, ti);
-        workagreement.Add(4, ti);
-        
+        workagreement[0].Add(ti);
+        workagreement[1].Add(ti);
+        workagreement[2].Add(ti);
+        workagreement[3].Add(ti);
+        workagreement[4].Add(ti);
+
+        var resource = new Resource();
+        resource.AddRange(workagreement);
         
         const int MONDAY = 0;
         const int TUESDAY = 1;
@@ -46,12 +58,12 @@ public class WorkAgreementTest
 
         
         //Act
-        bool result1 = workagreement.IsAgreedTime(MONDAY, ti1);
-        bool result2 = workagreement.IsAgreedTime(MONDAY, ti2);
-        bool result3 = workagreement.IsAgreedTime(MONDAY, ti3);
-        bool result4 = workagreement.IsAgreedTime(MONDAY, ti4);
+        bool result1 = resource.IsAgreedTime(MONDAY, ti1);
+        bool result2 = resource.IsAgreedTime(MONDAY, ti2);
+        bool result3 = resource.IsAgreedTime(MONDAY, ti3);
+        bool result4 = resource.IsAgreedTime(MONDAY, ti4);
 
-        bool result5 = workagreement.IsAgreedTime(SUNDAY, ti1);
+        bool result5 = resource.IsAgreedTime(SUNDAY, ti1);
         
         //Assert
         Assert.AreEqual(true, result1);
@@ -59,33 +71,5 @@ public class WorkAgreementTest
         Assert.AreEqual(false, result3);
         Assert.AreEqual(false, result4);
         Assert.AreEqual(false, result5);
-    }
-
-    [Test]
-    public void ToStringTest()
-    {
-        //Arrange
-        const string param = "[06:00, 14:00]";
-
-        var ti = new TimeInterval(param);
-        
-        var workagreement = new WorkAgreement();
-        
-        workagreement.Add(0 ,ti);
-        workagreement.Add(1, ti);
-        workagreement.Add(2, ti);
-        workagreement.Add(3, ti);
-        workagreement.Add(4, ti);
-
-        Assert.AreEqual(
-            "monday: [06:00, 14:00]\n" +
-                    "tuesday: [06:00, 14:00]\n"+
-                    "wednesday: [06:00, 14:00]\n"+
-                    "thursday: [06:00, 14:00]\n"+
-                    "friday: [06:00, 14:00]\n"+
-                    "saturday: \n" +
-                    "sunday: ",
-                workagreement.ToString()
-        );
     }
 }

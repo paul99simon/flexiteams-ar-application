@@ -3,11 +3,9 @@ namespace FlexiTeams.DataClasses.Wrapper;
 public class Venue
 {
     public string Get { get; }
-    public string Language { get; }
 
-    public Venue(string venue, string language)
+    public Venue(string venue)
     {
         Get = venue;
-        Language = language;
     }
 }

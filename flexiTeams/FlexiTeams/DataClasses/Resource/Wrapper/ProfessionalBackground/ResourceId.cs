@@ -1,11 +1,11 @@
 namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
-public class Stressor
+public class ResourceId
 {
     public string Get { get; }
 
-    public Stressor(string stressor)
+    public ResourceId(string id)
     {
-        Get = stressor;
+        Get = id;
     }
 }

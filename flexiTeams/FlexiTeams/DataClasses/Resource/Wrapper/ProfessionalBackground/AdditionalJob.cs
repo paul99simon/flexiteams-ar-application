@@ -2,20 +2,17 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class AdditionalJob
 {
-    public string Language { get; }
     public string Get { get; }
     public int? YearlyRequiredDays { get; }
 
-    public AdditionalJob(string language, string additionalJob, int yearlyRequiredDays)
+    public AdditionalJob( string additionalJob, int yearlyRequiredDays)
     {
-        Language = language;
         Get = additionalJob;
         YearlyRequiredDays = yearlyRequiredDays;
     }
     
-    public AdditionalJob(string language, string additionalJob)
+    public AdditionalJob(string additionalJob)
     {
-        Language = language;
         Get = additionalJob;
         YearlyRequiredDays = null;
     }

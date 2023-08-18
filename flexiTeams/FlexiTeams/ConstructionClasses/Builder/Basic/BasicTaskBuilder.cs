@@ -20,33 +20,33 @@ public class BasicTaskBuilder : ITaskBuilder
         return temp;
     }
 
-    public void SetTaskID(TaskId id)
+    public void Set(TaskId id)
     {
-        _task.TaskId = id;
+        _task.Id = id;
     }
 
-    public void SetTaskType(TaskType type)
+    public void Set(Dictionary<string, TaskType> types)
     {
-        _task.TaskType = type;
+        _task.AddRange(types);
     }
 
-    public void SetVenue(Venue venue)
+    public void Set(Dictionary<string, Venue> venues)
     {
-        _task.Venue = venue;
+        _task.AddRange(venues);
     }
 
-    public void SetPriority(Priority priority)
+    public void Set(Priority priority)
     {
         _task.Priority = priority;
     }
 
-    public void SetDuration(Duration duration)
+    public void Set(Duration duration)
     {
         _task.Duration = duration;
     }
-
-    public void SetResourceQualification(Dictionary<Profession, int> resourceQualification)
+    
+    public void Set(Dictionary<string, List<Profession>> requiredProfessions)
     {
-        _task.ResourceQualifications = resourceQualification;
+        _task.AddRange(requiredProfessions);
     }
 }

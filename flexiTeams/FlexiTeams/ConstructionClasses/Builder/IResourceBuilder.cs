@@ -1,38 +1,41 @@
 using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
+using FlexiTeams.Util;
 
-namespace FlexiTeams.ConstructionClasses;
+namespace FlexiTeams.ConstructionClasses.Builder;
 
-public interface IResourceBuilder
+public interface IResourceBuilder : ILanguageObject
 {
     public void Reset();
     public Resource GetResource();
-    public void SetPhotos(Photos? photos);
-    public void SetAge(Age age);
-    public void SetPrefix(Prefix prefix);
-    public void SetFirstNames(FirstNames firstNames);
-    public void SetLastNames(LastNames lastName);
-    public void SetMaritalStates(MaritalStates maritalStatus);
-    public void SetChildren(Children children);
-    public void SetStressors(Stressors stressors);
-    public void SetPersonalInfos(PersonalInfos personalInfos);
-    public void SetProfessions(Professions professions);
-    public void SetDepartments(Departments departments);
-    public void SetWorkExperience(WorkExperience workExperience);
-    public void SetTrainingDuration(TrainingDuration trainingDuration);
-    public void SetWeeklyHours(WeeklyHours weeklyHours);
-    public void SetOvertime(Overtime overtime);
-    public void SetYearlyTimeOf(YearlyTimeOf yearlyTimeOf);
-    public void SetYearlyEducation(YearlyEducation yearlyEducation);
-    public void SetTrainings(Trainings training);
-    public void SetQualifications(Qualifications qualifications);
-    public void SetWorkAgreement(WorkAgreement workAgreement);
-    public void SetStudies(Studies sttudies);
-    public void SetAdditionalJobs(AdditionalJobs additionalJobs);
-    public void SetArrivalTime(ArrivalTime arrivalTime);
-    public void SetMeansOfTransport(MeansOfTransport meansOfTransport);
-    public void SetProfessionalInfos(ProfessionalInfos professionalInfos);
-    public void SetSkills(Skills skills);
-    public void SetTraits(Traits traits);
+
+    public void Set(ResourceId id);
+    public void Set(List<Photo> photos);
+    public void Set(Age age);
+    public void Set(Prefix prefix);
+    public void Set(List<FirstName> firstNames);
+    public void Set(List<LastName> lastName);
+    public void Set(Dictionary<string, MaritalState> maritalStates);
+    public void Set(List<Child> children);
+    public void Set(Dictionary<string, List<Stressor>> stressors);
+    public void Set(Dictionary<string, List<PersonalInfo>> personalInfos);
+    public void Set(Dictionary<string, List<Profession>> professions);
+    public void Set(Dictionary<string, List<Department>> departments);
+    public void Set(WorkExperience workExperience);
+    public void Set(TrainingDuration trainingDuration);
+    public void Set(WeeklyHours weeklyHours);
+    public void Set(Overtime overtime);
+    public void Set(YearlyTimeOf yearlyTimeOf);
+    public void Set(YearlyEducation yearlyEducation);
+    public void Set(Dictionary<string, List<Training>> trainings);
+    public void Set(Dictionary<string, List<Qualification>> qualifications);
+    public void Set(List<TimeInterval>[] workAgreement);
+    public void Set(Dictionary<string, List<Studies>> studies);
+    public void Set(Dictionary<string, List<AdditionalJob>> additionalJobs);
+    public void Set(ArrivalTime arrivalTime);
+    public void Set(Dictionary<string, List<Vehicle>> meansOfTransport);
+    public void Set(Dictionary<string, List<ProfessionalInfo>> professionalInfos);
+    public void Set(Dictionary<string, List<Skill>> skills);
+    public void Set(Dictionary<string, List<Trait>> traits);
 }

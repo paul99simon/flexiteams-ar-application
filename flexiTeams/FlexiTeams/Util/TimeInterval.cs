@@ -55,17 +55,17 @@ public class TimeInterval
             return false;
         }
         
-        var dtbegin = new DayTime(0, 0);
-        var dtend = new DayTime(23, 59, 59);
+        var begin = new DayTime(0, 0);
+        var end = new DayTime(23, 59, 59);
             
-        var temp1 = new TimeInterval(_begin, dtend);
-        var temp2 = new TimeInterval(dtbegin, _end);
+        var temp1 = new TimeInterval(_begin, end);
+        var temp2 = new TimeInterval(begin, _end);
             
         if (other._begin <= other._end) return temp1.Contains(other) | temp2.Contains(other);
             
-        var othertemp1 = new TimeInterval(other._begin, dtend);
-        var othertemp2 = new TimeInterval(dtbegin, other._end);
-        return temp1.Contains(othertemp1) & temp2.Contains(othertemp2);
+        var temp3 = new TimeInterval(other._begin, end);
+        var temp4 = new TimeInterval(begin, other._end);
+        return temp1.Contains(temp3) & temp2.Contains(temp4);
     }
 
     public bool Intersects(TimeInterval other)
@@ -82,5 +82,10 @@ public class TimeInterval
     public DayTime GetLength()
     { 
         return _end - _begin;
+    }
+
+    public bool Equals(TimeInterval other)
+    {
+        return other._begin.Equals(_begin) & other._end.Equals(_end);
     }
 }

@@ -3,12 +3,10 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Skill
 {
-    public string Language { get; }
     public string Get { get; }
 
-    public Skill(string language, string skill)
+    public Skill(string skill)
     {
-        Language = language;
         Get = skill;
     }
 }

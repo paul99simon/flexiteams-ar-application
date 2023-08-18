@@ -1,24 +1,19 @@
-using System.Collections;
-
 namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
-public class Studies : IEnumerable<Study>
+public class Studies
 {
-    public List<Study> List { get; } = new();
-    public Study this[int index] => List[index];
+    public string Get { get; }
+    public string? Location { get;}
 
-    public void Add(Study study)
+    public Studies(string studies, string location)
     {
-        List.Add(study);
+        Get = studies;
+        Location = location;
     }
     
-    public IEnumerator<Study> GetEnumerator()
+    public Studies(string studies)
     {
-        return List.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
+        Get = studies;
+        Location = null;
     }
 }

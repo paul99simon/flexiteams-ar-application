@@ -2,17 +2,15 @@
 
 public class Profession
 {
-    public string Language { get; }
     public string Get { get; }
     
-    public Profession(string language, string profession)
+    public Profession(string profession)
     {
-        Language = language;
         Get = profession;
     }
 
     public bool EqualsTo(Profession profession)
     {
-        return profession.Get.Equals(Get) & profession.Language.Equals(Language);
+        return profession.Get.Equals(Get);
     }
 }

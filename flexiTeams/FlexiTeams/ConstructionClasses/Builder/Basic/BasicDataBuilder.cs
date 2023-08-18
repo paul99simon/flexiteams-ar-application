@@ -19,13 +19,13 @@ public class BasicDataBuilder : IDataBuilder
         return temp;
     }
 
-    public void SetDataID(DataId id)
+    public void Set(DataId id)
     {
-        _data._dataId = id;
+        _data.Id = id;
     }
 
-    public void SetName(Name name)
+    public void Set(Dictionary<string, Name> names)
     {
-        _data.Name = name;
+        _data.AddRange(names);
     }
 }

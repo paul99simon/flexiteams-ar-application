@@ -17,7 +17,7 @@ public class CSVGraphDirectorTest
         using var reader = new StreamReader("C:/Users/paul9/OneDrive/FlexiTeams/Resourcen/workflows.csv");
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
         
-        CSVGraphDirector.ConstructFromCSVReader(reader, new BasicTaskBuilder(), new BasicDataBuilder(),);
+        CSVGraphDirector.ConstructFromCSVReader(csv, new BasicTaskBuilder(), new BasicDataBuilder(),new BasicWorkflowBuilder());
         csv.Read();
         csv.Read();
         while (csv.Read())

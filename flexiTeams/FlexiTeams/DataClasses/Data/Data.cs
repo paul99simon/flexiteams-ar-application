@@ -5,28 +5,33 @@ namespace FlexiTeams.DataClasses.Data;
 
 public class Data : ILanguageObject
 {
-    private string _langCode = "";
-
-    public string Id
+    public DataId Id { get; set; }
+    
+    public Name Name => _names[_langCode];
+    private readonly Dictionary<string, Name> _names = new ();
+    public void Add(string langCode, Name name)
     {
-        get => _dataId.Get;
+        if(! ISO_639_1.IsValidCode(langCode)) return;
+        if(_names.ContainsKey(langCode)) return;
+        _names.Add(langCode, name);
     }
-
-    private DataId _dataId = null;
+    public void AddRange(Dictionary<string, Name> names)
+    {
+        foreach (var pair in names)
+        {
+            if(! _names.ContainsKey(pair.Key)) _names.Add(pair.Key, pair.Value);
+            _names[pair.Key] = pair.Value;
+        }
+    }
     
-    public string Name => _names[_langCode];
-    private readonly Dictionary<string, string> _names = new ();
-    
+    private string _langCode = "";
     public void SetLanguage(string langCode)
     {
         if(! ISO_639_1.IsValidCode(langCode)) return;
         _langCode = langCode;
     }
-    
-    public void AddName(string langCode, string name)
+    public string GetLanguage()
     {
-        if(! ISO_639_1.IsValidCode(langCode)) return;
-        if(_names.ContainsKey(langCode)) return;
-        _names.Add(langCode, name);
+        return _langCode;
     }
 }
