@@ -5,11 +5,20 @@ namespace FlexiTeams.Graph.Nodes;
 public class WorkflowNode : Node
 {
     public Workflow Workflow { get; }
-    public List<TaskNode> StartNodes { get; }
+    public List<TaskNode> StartNodes { get; } = new();
 
-    public WorkflowNode(Workflow workflow, List<TaskNode> nodes)
+    public WorkflowNode(Workflow workflow)
     {
         Workflow = workflow;
-        StartNodes = nodes;
+    }
+
+    public override string GetLanguage()
+    {
+        return Workflow.GetLanguage();
+    }
+
+    public override void SetLanguage(string langCode)
+    {
+        Workflow.SetLanguage(langCode);
     }
 }

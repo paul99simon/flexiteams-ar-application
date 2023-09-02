@@ -15,15 +15,15 @@ namespace FlexiTeamsTests;
 public class DataPoolXmlWriterTest
 {
     [Test]
-    public void createDataPoolXml()
+    public void CreateDataPoolXml()
     {
+        int count = 20;
         List<string> consumedDataList = new ();
 
         
         using var reader = new StreamReader("C:/Users/paul9/OneDrive/FlexiTeams/Resourcen/workflows.csv");
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
         
-        CSVGraphDirector.ConstructFromCSVReader(csv, new BasicTaskBuilder(), new BasicDataBuilder(),new BasicWorkflowBuilder());
         csv.Read();
         csv.Read();
         while (csv.Read())
@@ -37,23 +37,19 @@ public class DataPoolXmlWriterTest
             
             consumedDataList.AddRange(temp);
 
-            Dictionary<string, int> dict = new();
+            List<string> list  = new();
+       
             
             foreach (var s in consumedDataList)
             {
-                if(!dict.ContainsKey(s)) dict.Add(s, 0);
-                dict[s]++;
+                if(!list.Contains(s)) list.Add(s);
             }
 
-            consumedDataList = new List<string>();
-             foreach (var pair in dict)
-             {
-                 if(pair.Value ==  1) consumedDataList.Add(pair.Key); 
-             }
+            consumedDataList = list;
         }
 
-        XmlDocument doc =DataPoolXmlWriter.DataXml(consumedDataList, 50);
-        using TextWriter text = new StreamWriter("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/dataPools/55DataPool.xml");
+        XmlDocument doc =DataPoolXmlWriter.DataXml(consumedDataList, count);
+        using TextWriter text = new StreamWriter("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/dataPools/" + count + "DataPool.xml");
         doc.Save(text);
 
     }

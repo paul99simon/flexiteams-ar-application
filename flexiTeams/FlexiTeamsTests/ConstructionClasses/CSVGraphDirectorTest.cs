@@ -1,9 +1,7 @@
 using System;
-using System.Globalization;
-using System.IO;
-using CsvHelper;
 using FlexiTeams.ConstructionClasses.Builder;
 using FlexiTeams.ConstructionClasses.Diretor;
+using FlexiTeams.FlexiTeamsGraph;
 using NUnit.Framework;
 
 namespace FlexiTeamsTests.ConstructionClasses;
@@ -14,18 +12,15 @@ public class CSVGraphDirectorTest
     [Test]
     public void ConstructFromCSVTest()
     {
-        using var reader = new StreamReader("C:/Users/paul9/OneDrive/FlexiTeams/Resourcen/workflows.csv");
-        using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+        string path = "C:/Users/paul9/OneDrive/FlexiTeams/Resourcen/workflows.csv";
         
-        CSVGraphDirector.ConstructFromCSVReader(csv, new BasicTaskBuilder(), new BasicDataBuilder(),new BasicWorkflowBuilder());
-        csv.Read();
-        csv.Read();
-        while (csv.Read())
-        {
-            string temp = csv.GetField(0);
-            if (temp.Equals("")) continue;
-            Console.WriteLine(temp);
-        }
+
+        AdjListsGraph graph = new AdjListsGraph();
+
+        CSVGraphDirector.ConstructFromCsv(path, graph, new BasicWorkflowBuilder(), new BasicTaskBuilder());
+
+        Console.WriteLine(graph.ToString());
+
     }
     
 }

@@ -10,4 +10,14 @@ public class DataNode : Node
     {
         Data = data;
     }
+
+    public override string GetLanguage()
+    {
+        return Data.GetLanguage();
+    }
+
+    public override void SetLanguage(string langCode)
+    {
+        Data.SetLanguage(langCode);
+    }
 }

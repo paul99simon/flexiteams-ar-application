@@ -11,4 +11,14 @@ public class ResourceNode : Node
     {
         Resource = resource;
     }
+
+    public override string GetLanguage()
+    {
+        return Resource.GetLanguage();
+    }
+
+    public override void SetLanguage(string langCode)
+    {
+        Resource.SetLanguage(langCode);
+    }
 }

@@ -1,13 +1,18 @@
+using FlexiTeams.DataClasses.Wrapper;
+using FlexiTeams.Exceptions;
 using FlexiTeams.Graph.Nodes;
+using FlexiTeams.Util;
+using System.CodeDom.Compiler;
 
 namespace FlexiTeams.FlexiTeamsGraph;
 
 //Graph class is a directed Graph as shown in the Paper:
 //"FlexiTeam: Flexible Team and Work Organization using Process-Oriented Case-Based Reasoning"
 
-public class AdjListsGraph
+public class AdjListsGraph : ILanguageObject
 {
     private readonly Dictionary<Node, List<Node>> _adjLists = new ();
+    private string _lang = "";
     
     public void AddNode(TaskNode v)
     {
@@ -39,8 +44,27 @@ public class AdjListsGraph
         AddEdgeBase(v, u);
     }
 
-    public void AddEdge(ResourceNode v, TaskNode u)
+    public void AddEdge(ResourceNode v, TaskNode u, Profession specifiedProfession)
     {
+        //Checks if the Resource has the specifiedProfession
+        bool hasProfession = false;
+        foreach (var profession in v.Resource.Professions)
+        {
+            if(specifiedProfession.Equals(profession)) hasProfession=true;
+        }
+
+        if (!hasProfession) throw new HasNotRequiredProfessionException(v.Resource, u.Task, specifiedProfession);
+
+        //Checks if the Task requires any more Resources with the specified Profession
+        Dictionary<Profession, int> temp = new();
+        bool requiresMoreResources = false;
+        foreach (var profession in u.Task.RequiredProfessions)
+        {
+
+        }
+
+
+        
         AddEdgeBase(v, u);
         AddEdgeBase(u, v);
     }
@@ -118,6 +142,31 @@ public class AdjListsGraph
         return result;
     }
 
+    public List<TaskNode> GetTaskNodes(WorkflowNode u)
+    {
+        var adj = Adj(u);
+        var temp = new List<TaskNode>();
+
+        foreach(var j  in adj)
+        {
+            if (j is TaskNode node) temp.Add(node);
+        }
+
+        return temp;
+    }
+
+    public List<WorkflowNode> GetWorkflowNodes()
+    {
+        var temp = new List<WorkflowNode>();
+
+        foreach(var pair in _adjLists)
+        {
+            if (pair.Key is WorkflowNode node) temp.Add(node);
+        }
+
+        return temp;
+    }
+
     private void RemoveEdgeBase(Node u, Node v)
     {
         _adjLists[u].Remove(v);
@@ -133,5 +182,19 @@ public class AdjListsGraph
     {
         RemoveEdgeBase(u, v);
         RemoveEdgeBase(v, u);
+    }
+
+    public void SetLanguage(string langCode)
+    {
+        _lang = langCode;
+        foreach(var pair in _adjLists)
+        {
+            pair.Key.SetLanguage(langCode);
+        }
+    }
+
+    public string GetLanguage()
+    {
+        return _lang;
     }
 }

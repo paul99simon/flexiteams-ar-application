@@ -1,5 +1,3 @@
-using System.Data;
-using System.Reflection.Emit;
 using System.Xml;
 using FlexiTeams.ConstructionClasses.Builder;
 using FlexiTeams.DataClasses.Resource.Wrapper;

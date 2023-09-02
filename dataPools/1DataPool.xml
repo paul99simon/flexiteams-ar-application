@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataPool>
+  <Data xml:id="Data_0">
+    <Name xml:lang="en">Sthethescope</Name>
+  </Data>
+  <Data xml:id="Data_1">
+    <Name xml:lang="en">Diet details</Name>
+  </Data>
+  <Data xml:id="Data_2">
+    <Name xml:lang="en">Admission details</Name>
+  </Data>
+  <Data xml:id="Data_3">
+    <Name xml:lang="en">X-ray machine</Name>
+  </Data>
+  <Data xml:id="Data_4">
+    <Name xml:lang="en">lab test</Name>
+  </Data>
+  <Data xml:id="Data_5">
+    <Name xml:lang="en">Patient's file</Name>
+  </Data>
+  <Data xml:id="Data_6">
+    <Name xml:lang="en">Allergy details</Name>
+  </Data>
+  <Data xml:id="Data_7">
+    <Name xml:lang="en">Present medications</Name>
+  </Data>
+  <Data xml:id="Data_8">
+    <Name xml:lang="en">Consent form</Name>
+  </Data>
+  <Data xml:id="Data_9">
+    <Name xml:lang="en">Surgical dress</Name>
+  </Data>
+  <Data xml:id="Data_10">
+    <Name xml:lang="en">Cleaning items</Name>
+  </Data>
+  <Data xml:id="Data_11">
+    <Name xml:lang="en">Anesthesia tools</Name>
+  </Data>
+  <Data xml:id="Data_12">
+    <Name xml:lang="en">Surgical equipments</Name>
+  </Data>
+  <Data xml:id="Data_13">
+    <Name xml:lang="en">Wheelchair/Bed/Strecher</Name>
+  </Data>
+  <Data xml:id="Data_14">
+    <Name xml:lang="en">Anesthesia machine</Name>
+  </Data>
+  <Data xml:id="Data_15">
+    <Name xml:lang="en">Injection syringe</Name>
+  </Data>
+  <Data xml:id="Data_16">
+    <Name xml:lang="en">Ventilator</Name>
+  </Data>
+  <Data xml:id="Data_17">
+    <Name xml:lang="en">Surgical tools</Name>
+  </Data>
+  <Data xml:id="Data_18">
+    <Name xml:lang="en">Blood pressure monitor</Name>
+  </Data>
+  <Data xml:id="Data_19">
+    <Name xml:lang="en">Pulse oximeter</Name>
+  </Data>
+  <Data xml:id="Data_20">
+    <Name xml:lang="en">Exercise details</Name>
+  </Data>
+  <Data xml:id="Data_21">
+    <Name xml:lang="en">Medications</Name>
+  </Data>
+  <Data xml:id="Data_22">
+    <Name xml:lang="en">local anesthetic drug</Name>
+  </Data>
+  <Data xml:id="Data_23">
+    <Name xml:lang="en">Surgical instruments</Name>
+  </Data>
+</DataPool>

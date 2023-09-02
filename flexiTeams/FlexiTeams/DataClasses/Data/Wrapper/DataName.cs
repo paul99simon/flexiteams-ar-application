@@ -1,10 +1,10 @@
 namespace FlexiTeams.DataClasses.Data.Wrapper;
 
-public class Name
+public class DataName
 {
     public string Get { get; }
 
-    public Name(string name)
+    public DataName(string name)
     {
         Get = name;
     }

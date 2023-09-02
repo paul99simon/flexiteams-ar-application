@@ -4,7 +4,7 @@ using FlexiTeams.ConstructionClasses.Builder;
 using FlexiTeams.ConstructionClasses.Diretor;
 using NUnit.Framework;
 
-namespace FlexiTeamsTests;
+namespace FlexiTeamsTests.ConstructionClasses;
 
 [TestFixture]
 public class XMLResourceDirectorTest

@@ -1,3 +1,4 @@
+using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrappper;
 using FlexiTeams.DataClasses.Wrapper;
 using Task = FlexiTeams.DataClasses.Task.Task;
@@ -48,5 +49,20 @@ public class BasicTaskBuilder : ITaskBuilder
     public void Set(Dictionary<string, List<Profession>> requiredProfessions)
     {
         _task.AddRange(requiredProfessions);
+    }
+
+    public void Set(Dictionary<string, List<DataName>> requiredDataNames)
+    {
+        _task.AddRange(requiredDataNames);
+    }
+
+    public void SetLanguage(string langCode)
+    {
+        _task.SetLanguage(langCode);
+    }
+
+    public string GetLanguage()
+    {
+        return _task.GetLanguage();
     }
 }

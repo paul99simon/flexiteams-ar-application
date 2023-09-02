@@ -1,3 +1,4 @@
+using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrappper;
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Util;
@@ -62,7 +63,27 @@ public class Task : ILanguageObject
             _requiredProfessions[pair.Key].AddRange(pair.Value);
         }
     }
-    
+
+    public List<DataName>? RequiredData => _requiredDataNames.ContainsKey(_langcode) ? _requiredDataNames[_langcode] : null;
+    private readonly Dictionary<string, List<DataName>> _requiredDataNames = new();
+    public void Add(string langCode, DataName dataName)
+    {
+        if (!ISO_639_1.IsValidCode(langCode)) return;
+        if (!_requiredDataNames.ContainsKey(langCode))
+        {
+            _requiredDataNames.Add(langCode, new List<DataName>());
+        }
+        _requiredDataNames[langCode].Add(dataName);
+    }
+    public void AddRange(Dictionary<string, List<DataName>> requiredDataNames)
+    {
+        foreach (var pair in requiredDataNames)
+        {
+            if(!_requiredDataNames.ContainsKey(pair.Key)) _requiredDataNames.Add(pair.Key, new List<DataName>());
+            _requiredDataNames[pair.Key].AddRange(pair.Value);
+        }
+    }
+
     private string _langcode = "";
     public void SetLanguage(string langCode)
     {
