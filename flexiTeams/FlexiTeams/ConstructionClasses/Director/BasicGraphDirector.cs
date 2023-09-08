@@ -11,7 +11,7 @@ using System.Runtime;
 
 namespace FlexiTeams.ConstructionClasses.Diretor;
 
-public class CSVGraphDirector
+public class BasicGraphDirector
 {
     private const string _lang = "en";
 

@@ -6,7 +6,7 @@ using FlexiTeams.Util;
 
 namespace FlexiTeams.ConstructionClasses.Diretor;
 
-public class XMLResourceDirector
+public class BasicResourceDirector
 {
     //Xml-Construction
     public static void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)

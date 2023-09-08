@@ -7,7 +7,7 @@ using FlexiTeams.Util;
 
 namespace FlexiTeams.ConstructionClasses.Director
 {
-    public class XMLDataDirector
+    public class BasicDataDirector
     {
 
         public static void ConstructFromXmlNode(IDataBuilder builder, XmlNode data)

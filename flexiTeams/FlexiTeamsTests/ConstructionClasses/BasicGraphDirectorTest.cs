@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace FlexiTeamsTests.ConstructionClasses;
 
 [TestFixture]
-public class CSVGraphDirectorTest
+public class BasicGraphDirectorTest
 {
     [Test]
     public void ConstructFromCSVTest()
@@ -15,9 +15,9 @@ public class CSVGraphDirectorTest
         string path = "C:/Users/paul9/OneDrive/FlexiTeams/Resourcen/workflows.csv";
         
 
-        AdjListsGraph graph = new AdjListsGraph();
+        AdjListsGraph graph = new();
 
-        CSVGraphDirector.ConstructFromCsv(path, graph, new BasicWorkflowBuilder(), new BasicTaskBuilder());
+        BasicGraphDirector.ConstructFromCsv(path, graph, new BasicWorkflowBuilder(), new BasicTaskBuilder());
 
         Console.WriteLine(graph.ToString());
 

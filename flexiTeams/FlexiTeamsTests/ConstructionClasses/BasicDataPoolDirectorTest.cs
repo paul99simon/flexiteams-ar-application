@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using FlexiTeams.Inventory;
 
-namespace FlexiTeamsTests.Inventory
+namespace FlexiTeamsTests.ConstructionClasses
 {
     [TestFixture]
-    public class DataPoolTest
+    public class BasicDataPoolDirectorTest
     {
         [Test]
         public void GetDataPool()
         {
-            String path = "../../../../dataPools/20DataPool.xml";
+            string path = "../../../../dataPools/20DataPool.xml";
 
             BasicDataBuilder builder = new BasicDataBuilder();
             DataPool dp = new DataPool(builder, path);

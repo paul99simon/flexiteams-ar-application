@@ -1,22 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <TargetFramework>net471</TargetFramework>
-        <LangVersion>11</LangVersion>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="CsvHelper" Version="30.0.1" />
-      <PackageReference Include="System.Net.Http" Version="4.3.4" />
-
-
-
-
-    </ItemGroup>
-
-
-
-
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>11</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="30.0.1" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
 </Project>

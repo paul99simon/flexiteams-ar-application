@@ -1,8 +1,8 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexiTeams", "FlexiTeams\FlexiTeams.csproj", "{8DC8A34D-EBEA-4266-A3E5-6C443EB24FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexiTeams", "FlexiTeams\FlexiTeams.csproj", "{8DC8A34D-EBEA-4266-A3E5-6C443EB24FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexiTeamsTests", "FlexiTeamsTests\FlexiTeamsTests.csproj", "{81162269-9161-4DB7-85E6-D82F06DE2768}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexiTeamsTests", "FlexiTeamsTests\FlexiTeamsTests.csproj", "{81162269-9161-4DB7-85E6-D82F06DE2768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

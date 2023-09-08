@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace FlexiTeamsTests.ConstructionClasses;
 
 [TestFixture]
-public class XMLResourceDirectorTest
+public class BasicResourceDirectorTest
 {
     [Test]
     public void ConstructFromXmlNodeTest()
@@ -19,7 +19,7 @@ public class XMLResourceDirectorTest
         var node = doc.DocumentElement.SelectSingleNode("//resourcePool/resource");
 
         //Act
-        XMLResourceDirector.ConstructFromXmlNode(builder, node);
+        BasicResourceDirector.ConstructFromXmlNode(builder, node);
         var resource = builder.GetResource();
         resource.SetLanguage("de");
         

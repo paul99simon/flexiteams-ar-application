@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
-               schemaLocation="https://www.w3.org/2009/01/xml.xsd"/>
-    
-	<xs:element name="resourcePool">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="resource" type="resourceType" maxOccurs="unbounded"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<xs:schema xmlns:xs= "http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+        schemaLocation="file:///C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/resourcePools/xml.xsd"/>
+	
+	<xs:element name= "resourcePool">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="resourceType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 
 	<xs:complexType name="resourceType">
 		<xs:sequence>
@@ -48,7 +48,7 @@
 		</xs:sequence>
 		<xs:attribute ref="xml:id"/>
 	</xs:complexType>
-	
+
 	<xs:complexType name="photoType">
 		<xs:sequence>
 			<xs:element name="URI" type="xs:anyURI"/>
@@ -63,7 +63,7 @@
 
 	<xs:simpleType name="workAgreementType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-6]-(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]"/>
+			<xs:pattern value="[0-6]-(0\d|1\d|2[0-3]):[0-5]\d-(0\d|1\d|2[0-3]):[0-5]\d"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -82,7 +82,7 @@
 		</xs:sequence>
 		<xs:attribute ref="xml:lang" use="required"/>
 	</xs:complexType>
-	
+
 	<xs:complexType name ="traitType">
 		<xs:sequence>
 			<xs:element name="name" type="xs:string"/>

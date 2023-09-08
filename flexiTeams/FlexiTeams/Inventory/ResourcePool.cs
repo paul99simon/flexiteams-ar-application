@@ -12,6 +12,7 @@ namespace FlexiTeams;
 
 public class ResourcePool : IEnumerable<Resource> , ILanguageObject
 {
+
     public List<Resource> List
     {
         get
@@ -50,33 +51,7 @@ public class ResourcePool : IEnumerable<Resource> , ILanguageObject
     }
     private Dictionary<string, Resource> _pool = new Dictionary<string, Resource>();
 
-
-    public ResourcePool(IResourceBuilder builder, XmlReader reader)
-    {
-        XmlDocument doc = new XmlDocument();
-        while (reader.ReadToFollowing("resource"))
-        {
-            XmlNode node = doc.ReadNode(reader);
-            XMLResourceDirector.ConstructFromXmlNode(builder, node);
-
-            Resource resource = builder.GetResource();
-            _pool.Add(resource.Id.Get, resource);
-        }
-    }
-
-    public ResourcePool(IResourceBuilder builder, string path)
-    {
-        XmlReader reader = XmlReader.Create(path);
-        XmlDocument doc = new XmlDocument();
-        while (reader.ReadToFollowing("resource"))
-        {
-            XmlNode node = doc.ReadNode(reader);
-            XMLResourceDirector.ConstructFromXmlNode(builder, node);
-
-            Resource resource = builder.GetResource();
-            _pool.Add(resource.Id.Get, resource);
-        }
-    }
+    public ResourcePool() { }
 
     public void Add(Resource resource)
     {

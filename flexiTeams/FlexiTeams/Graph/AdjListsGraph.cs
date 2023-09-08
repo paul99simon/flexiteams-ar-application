@@ -11,6 +11,7 @@ namespace FlexiTeams.FlexiTeamsGraph;
 
 public class AdjListsGraph : ILanguageObject
 {
+
     private readonly Dictionary<Node, List<Node>> _adjLists = new ();
     private string _lang = "";
     

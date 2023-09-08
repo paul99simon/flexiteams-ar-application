@@ -10,7 +10,6 @@ namespace FlexiTeams.Inventory;
 
 public class DataPool : IEnumerable<Data>, ILanguageObject
 {
-    
     public List<Data> List
     {
         get
@@ -50,7 +49,7 @@ public class DataPool : IEnumerable<Data>, ILanguageObject
         while (reader.ReadToFollowing("Data"))
         {
             XmlNode node = doc.ReadNode(reader);
-            XMLDataDirector.ConstructFromXmlNode(builder, node);
+            BasicDataDirector.ConstructFromXmlNode(builder, node);
             Data data = builder.GetData();
             
             _pool.Add(data.Id.Get, data);
@@ -64,7 +63,7 @@ public class DataPool : IEnumerable<Data>, ILanguageObject
         while (reader.ReadToFollowing("Data"))
         {
             XmlNode node = doc.ReadNode(reader);
-            XMLDataDirector.ConstructFromXmlNode(builder, node);
+            BasicDataDirector.ConstructFromXmlNode(builder, node);
             Data data = builder.GetData();
 
             _pool.Add(data.Id.Get, data);
