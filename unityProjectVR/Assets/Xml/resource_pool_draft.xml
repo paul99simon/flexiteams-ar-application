@@ -2,7 +2,7 @@
 
 <resourcePool   
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:noNamespaceSchemaLocation="./resource_pool.xsd">
+                xsi:noNamespaceSchemaLocation="resource_pool.xsd">
     
     <resource xml:id="RESOURCE_1">
         <!--Personal Background-->

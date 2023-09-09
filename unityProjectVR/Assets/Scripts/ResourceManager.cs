@@ -1,10 +1,9 @@
 using FlexiTeams;
-using FlexiTeams.ConstructionClasses.Builder;
+using FlexiTeams.ConstructionClasses.Director;
 using FlexiTeams.DataClasses.Resource;
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,8 +22,8 @@ public class ResourceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BasicResourceBuilder builder = new();
-        pool = new ResourcePool(builder, path);
+
+        var pool = BasicResourcePoolDirector.ConstructFromXml(path);
         pool.SetLanguage("de");
         pool.List.ForEach(resource => AddResourceButtonObject(resource));
 
