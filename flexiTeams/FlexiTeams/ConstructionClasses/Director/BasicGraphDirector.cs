@@ -1,13 +1,11 @@
 using CsvHelper;
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrappper;
-using FlexiTeams.DataClasses.Workflow;
 using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
 using System.Globalization;
-using System.Runtime;
 
 namespace FlexiTeams.ConstructionClasses.Diretor;
 
@@ -110,6 +108,7 @@ public class BasicGraphDirector
                 tBuilder.Set(GetDuration(duration));
                 tBuilder.Set(GetProfessions(professions));
                 tBuilder.Set(GetDataNames(dataNames));
+                tBuilder.SetLanguage(_lang);
 
                 var t = tBuilder.GetTask();
                 var tNode = new TaskNode(t);
