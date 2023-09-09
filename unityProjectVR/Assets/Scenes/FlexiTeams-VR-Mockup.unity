@@ -1818,7 +1818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 50528eb80d220924a901ec5931175506, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 651fdca3c5c9b4e49b17d9a7c6a18797, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3579,7 +3579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d7b9d2a09beda0345b5ba192e35729f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6dc08b82762504340b2efa6e6ca02bea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8043,7 +8043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ee93fb0a63a7a646a0dab0dfcdac9ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed36194157c9bec43959f02cd6210366, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8479,7 +8479,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ee93fb0a63a7a646a0dab0dfcdac9ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed36194157c9bec43959f02cd6210366, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10175,7 +10175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: afee09b31cf09d145a0612a8305a411f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a496a3e44a511254a9c292e8e5114bc1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13036,9 +13036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65de5062796529442960bee152e4b13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XROrigin: {fileID: 985834991}
-  charController: {fileID: 985834994}
-  driver: {fileID: 985834993}
 --- !u!1 &989451691
 GameObject:
   m_ObjectHideFlags: 0
@@ -14321,7 +14318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72e83986f3e059f4ca154624e550478e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca52d564842878a4181a8599e86b5b55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18007,7 +18004,7 @@ GameObject:
   - component: {fileID: 1400740799}
   - component: {fileID: 1400740798}
   m_Layer: 5
-  m_Name: drag_handle_Image
+  m_Name: clearAll_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18053,7 +18050,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2fb4b15bedc40f243b694e7c5929365d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f04e67d796d39145aa154f97392e6e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25109,7 +25106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.99955, y: 0}
+  m_AnchoredPosition: {x: -16.999546, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956165036
@@ -25706,12 +25703,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2016207245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d3e72c5e2aea549b6ada7ec1a9e16b, type: 3}
+  m_Script: {fileID: 11500000, guid: 15a883ccc3e68cb45bcf88cd437e74e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   path: Assets/Xml/resource_pool_draft.xml
-  nameSprite: {fileID: 21300000, guid: 33b05461a3f158c46b7f60a7b485cbe3, type: 3}
-  roleSprite: {fileID: 21300000, guid: 2fa1b2b4cc98d4a4f944c3c237e0c5f2, type: 3}
+  nameSprite: {fileID: 21300000, guid: 3af8b539c626b0f48ae238b8bafda1be, type: 3}
+  roleSprite: {fileID: 21300000, guid: 761789c495d4d27499cddfa2d224f94d, type: 3}
   backgroundSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   content: {fileID: 1950096470}
 --- !u!114 &2016207248
@@ -26424,7 +26421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0abe0911df3b236428e144d5fa7d94c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c3dab77f1294044ea226cc006a2e3ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27388,7 +27385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 005daec50f86efd40a791cb695c5043e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb35956187bd75f40957b4e8f775a292, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
