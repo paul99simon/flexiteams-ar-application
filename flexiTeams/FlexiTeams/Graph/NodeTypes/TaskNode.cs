@@ -1,4 +1,5 @@
 using FlexiTeams.DataClasses.Data.Wrapper;
+using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
@@ -8,8 +9,8 @@ public class TaskNode : Node
 {
     public Task Task { get; }
 
-    public Dictionary<Profession, int> AssignedProfessions { get; } = new();
-    public Dictionary<DataName, int> AssignedDataNames { get; } = new();
+    public Dictionary<Profession, ResourceId> ResourceAllocation { get; } = new();
+    public Dictionary<DataName, DataId> DataAllocation { get; } = new();
 
     public TaskNode(Task task)
     {
@@ -19,17 +20,18 @@ public class TaskNode : Node
 
     private void Update()
     {
-        AssignedDataNames.Clear();
-        AssignedProfessions.Clear();
+        ResourceAllocation.Clear();
+        DataAllocation.Clear();
 
-        foreach (var dataName in Task.RequiredData)
+        Task.RequiredProfessions.ForEach(profession =>
         {
-            AssignedDataNames.Add(dataName, 0);
-        }
-        foreach (var profession in Task.RequiredProfessions)
+            ResourceAllocation.Add(profession, null);
+        });
+
+        Task.RequiredData.ForEach(dataName =>
         {
-            AssignedProfessions.Add(profession, 0);
-        }
+            DataAllocation.Add(dataName, null);
+        });
     }
 
     public override string GetLanguage()
@@ -40,5 +42,6 @@ public class TaskNode : Node
     public override void SetLanguage(string langCode)
     {
         Task.SetLanguage(langCode);
+        Update();
     }
 }

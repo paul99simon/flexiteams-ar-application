@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<resourcePool
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<resourcePool   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				xsi:noNamespaceSchemaLocation="resource_pool.xsd">
 
 	<resource xml:id="RESOURCE_1">
@@ -10,7 +9,6 @@
 			<URI>../images/Resource_1.jpg</URI>
 		</photo>
 		<age>P32Y</age>
-
 		<firstName>Anna</firstName>
 		<lastName>Schmidt</lastName>
 		<maritalStatus xml:lang="de">Verheiratet</maritalStatus>

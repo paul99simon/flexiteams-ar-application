@@ -39,11 +39,6 @@ public class WorkAgreementTest
         resource.AddRange(workagreement);
         
         const int MONDAY = 0;
-        const int TUESDAY = 1;
-        const int WEDNESDAY = 2;
-        const int THURSDAY = 3;
-        const int FRIDAY = 4;
-        const int SATURDAY = 5;
         const int SUNDAY = 6;
         
         const string param1 = "[08:00, 12:00]";

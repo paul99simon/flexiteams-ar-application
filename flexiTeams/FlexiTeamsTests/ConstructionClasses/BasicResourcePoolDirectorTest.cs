@@ -12,12 +12,7 @@ public class BasicResourcePoolDirectorTest
     public void ConstructFromXmlTest()
     {
         string xmlpath = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/resourcePools/resource_pool_draft.xml";
-        string xsdPath = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/resourcePools/resource_pool.xsd";
-        string xmlxsdPath = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/resourcePools/xml.xsd";
-        ResourcePool pool = new ResourcePool();
-
-        BasicResourcePoolDirector.ConsructFromXML(pool, xmlpath, xsdPath, xmlxsdPath, new BasicResourceBuilder());
-
+        ResourcePool pool = BasicResourcePoolDirector.ConstructFromXml(xmlpath);
         Assert.AreEqual(3, pool.Count);
     }
 }

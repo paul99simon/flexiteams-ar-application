@@ -8,4 +8,9 @@ public class TaskType
     {
         Get = type;
     }
+
+    public override string ToString()
+    {
+        return Get;
+    }
 }

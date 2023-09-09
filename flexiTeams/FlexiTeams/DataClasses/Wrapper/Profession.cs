@@ -13,4 +13,9 @@ public class Profession
     {
         return profession.Get.Equals(Get);
     }
+
+    public override string ToString()
+    {
+        return Get;
+    }
 }

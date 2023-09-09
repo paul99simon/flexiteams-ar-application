@@ -2,7 +2,7 @@ using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Exceptions;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Util;
-using System.CodeDom.Compiler;
+using FlexiTeams.Util.EqualityComperator;
 
 namespace FlexiTeams.FlexiTeamsGraph;
 
@@ -45,29 +45,70 @@ public class AdjListsGraph : ILanguageObject
         AddEdgeBase(v, u);
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="v">ResourceNode <see cref="ResourceNode"/></param>
+    /// <param name="u">TaskNode<see cref="TaskNode"/></param>
+    /// <param name="specifiedProfession"></param>
+    /// <exception cref="HasNotRequiredProfessionException"></exception>
+    /// <exception cref="TaskAlreadySuffentlyStaffedWithProfessionException"></exception>
+    /// <exception cref="TaskDoesntNeedThisProfessionException"></exception>
     public void AddEdge(ResourceNode v, TaskNode u, Profession specifiedProfession)
     {
-        //Checks if the Resource has the specifiedProfession
-        bool hasProfession = false;
-        foreach (var profession in v.Resource.Professions)
-        {
-            if(specifiedProfession.Equals(profession)) hasProfession=true;
-        }
-
-        if (!hasProfession) throw new HasNotRequiredProfessionException(v.Resource, u.Task, specifiedProfession);
-
-        //Checks if the Task requires any more Resources with the specified Profession
-        Dictionary<Profession, int> temp = new();
-        bool requiresMoreResources = false;
-        foreach (var profession in u.Task.RequiredProfessions)
-        {
-
-        }
-
-
-        
+        //Checks if the TaskNode needs the specifiedProfession
+        if(! TaskNeedsSpecifiedProfession()) throw new TaskDoesntNeedThisProfessionException(u.Task, specifiedProfession);
+        if(TaskIsSufficentlyStaffedWithProfession()) throw new TaskAlreadySuffentlyStaffedWithProfessionException(u.Task, specifiedProfession);
+        if(! ResourceHasSpecifiedProfession()) throw new HasNotRequiredProfessionException(v.Resource, u.Task, specifiedProfession);
+         
         AddEdgeBase(v, u);
         AddEdgeBase(u, v);
+
+        bool TaskNeedsSpecifiedProfession()
+        {
+            var comp = new ProfessionEqualityComperator();
+            return u.Task.RequiredProfessions.Contains(specifiedProfession, comp);
+        }
+        bool TaskIsSufficentlyStaffedWithProfession()
+        {
+            var comp = new ProfessionEqualityComperator();
+            Dictionary<Profession, int> requiredProfessions = new(comp);
+
+            u.Task.RequiredProfessions.ForEach(profession =>
+            {
+                if (!requiredProfessions.ContainsKey(profession)) requiredProfessions.Add(profession, 0);
+                requiredProfessions[profession]++;
+            });
+
+            Dictionary<Profession, int> allocatedResources = new(comp);
+            
+            foreach(var pair in u.ResourceAllocation)
+            {
+                if(pair.Value != null)
+                {
+                    if (allocatedResources.ContainsKey(pair.Key)) allocatedResources.Add(pair.Key, 0);
+                    allocatedResources[pair.Key]++;
+                }
+            }
+
+            return allocatedResources[specifiedProfession] < requiredProfessions[specifiedProfession];
+        }
+        bool ResourceHasSpecifiedProfession()
+        {
+            bool hasProfession = false;
+
+            foreach (var profession in v.Resource.Professions)
+            {
+                if (specifiedProfession.Equals(profession)) hasProfession = true;
+            }
+
+            return hasProfession;
+        }
+        void UpdateResourceAllocation()
+        {
+
+        }
     }
 
     public void AddEdge(DataNode v, TaskNode u)
