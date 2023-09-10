@@ -34,39 +34,39 @@ public class DataPool : IEnumerable<Data>, ILanguageObject
 
             foreach (var pair in _pool)
             {
-             if(!temp.ContainsKey(pair.Value.Name.Get)) temp.Add(pair.Value.Name.Get, 0);
-             temp[pair.Value.Name.Get]++;
+             if(!temp.ContainsKey(pair.Value.Name.ToString())) temp.Add(pair.Value.Name.ToString(), 0);
+             temp[pair.Value.Name.ToString()]++;
             }
 
             return temp.ToDictionary(pair => new DataName(pair.Key), pair => pair.Value);
         }
     }
-    private Dictionary<string, Data> _pool = new Dictionary<string, Data>();
+    private readonly Dictionary<string, Data> _pool = new();
 
     public DataPool(IDataBuilder builder, XmlReader reader)
     {
-        XmlDocument doc = new XmlDocument();
+        XmlDocument doc = new ();
         while (reader.ReadToFollowing("Data"))
         {
             XmlNode node = doc.ReadNode(reader);
             BasicDataDirector.ConstructFromXmlNode(builder, node);
             Data data = builder.GetData();
             
-            _pool.Add(data.Id.Get, data);
+            _pool.Add(data.Id.ToString(), data);
         }
     }
 
     public DataPool(IDataBuilder builder, string path)
     {
         XmlReader reader = XmlReader.Create(path);
-        XmlDocument doc = new XmlDocument();
+        XmlDocument doc = new();
         while (reader.ReadToFollowing("Data"))
         {
             XmlNode node = doc.ReadNode(reader);
             BasicDataDirector.ConstructFromXmlNode(builder, node);
             Data data = builder.GetData();
 
-            _pool.Add(data.Id.Get, data);
+            _pool.Add(data.Id.ToString(), data);
         }
     }
     

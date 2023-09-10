@@ -11,9 +11,9 @@ namespace FlexiTeams.Exceptions
         public NoMoreResourcesRequiredException(Task task, Profession profession) : base
             (
             "task \"" +                                                                                                 
-            task.Id.Get +
+            task.Id +
             "\" is already sufficently staffed with Resources that have the Profession \"" + 
-            profession.Get + 
+            profession + 
             "\""
             ) { }
     }

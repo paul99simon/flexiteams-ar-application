@@ -3,10 +3,15 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Skill
 {
-    public string Get { get; }
+    private readonly string Get;
 
     public Skill(string skill)
     {
         Get = skill;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

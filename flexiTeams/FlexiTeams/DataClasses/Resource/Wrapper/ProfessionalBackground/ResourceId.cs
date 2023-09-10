@@ -2,10 +2,15 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class ResourceId
 {
-    public string Get { get; }
+    private readonly string Get;
 
     public ResourceId(string id)
     {
         Get = id;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

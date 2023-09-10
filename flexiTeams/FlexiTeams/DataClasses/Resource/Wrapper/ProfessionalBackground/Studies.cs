@@ -2,7 +2,7 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Studies
 {
-    public string Get { get; }
+    private readonly string Get;
     public string? Location { get;}
 
     public Studies(string studies, string location)
@@ -15,5 +15,10 @@ public class Studies
     {
         Get = studies;
         Location = null;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

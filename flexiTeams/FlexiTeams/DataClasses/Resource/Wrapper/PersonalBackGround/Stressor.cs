@@ -2,10 +2,15 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Stressor
 {
-    public string Get { get; }
+    private readonly string Get;
 
     public Stressor(string stressor)
     {
         Get = stressor;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

@@ -10,7 +10,7 @@ namespace FlexiTeams.Exceptions
     {
         public HasNotRequiredProfessionException() { }
 
-        public HasNotRequiredProfessionException(Resource resource, Task task, Profession profession) : base("\"" + resource.Id.Get + "\" cannot execute Task \"" + task.Id.Get + "\" as \"" + profession.Get + "\"") {
+        public HasNotRequiredProfessionException(Resource resource, Task task, Profession profession) : base("\"" + resource.Id + "\" cannot execute Task \"" + task.Id + "\" as \"" + profession + "\"") {
         
         }
     }

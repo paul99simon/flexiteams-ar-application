@@ -41,22 +41,22 @@ public class ResourcePool : IEnumerable<Resource> , ILanguageObject
                 
                 foreach(var profession in professions)
                 {
-                    if (!temp.ContainsKey(profession.Get)) temp.Add(profession.Get, 0);
-                    temp[profession.Get]++;
+                    if (!temp.ContainsKey(profession.ToString())) temp.Add(profession.ToString(), 0);
+                    temp[profession.ToString()]++;
                 }
             }
 
             return temp.ToDictionary(pair => new Profession(pair.Key), pair => pair.Value);
         }
     }
-    private Dictionary<string, Resource> _pool = new Dictionary<string, Resource>();
+    private readonly Dictionary<string, Resource> _pool = new();
 
     public ResourcePool() { }
 
     public void Add(Resource resource)
     {
-        if (_pool.ContainsKey(resource.Id.Get)) return;
-        _pool.Add(resource.Id.Get, resource);
+        if (_pool.ContainsKey(resource.Id.ToString())) return;
+        _pool.Add(resource.Id.ToString(), resource);
     }
 
     public IEnumerator<Resource> GetEnumerator()

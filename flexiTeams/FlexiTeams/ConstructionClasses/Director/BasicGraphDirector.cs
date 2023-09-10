@@ -1,4 +1,5 @@
 using CsvHelper;
+using FlexiTeams.ConstructionClasses.Builder;
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrappper;
 using FlexiTeams.DataClasses.Workflow.Wrapper;
@@ -13,11 +14,11 @@ public class BasicGraphDirector
 {
     private const string _lang = "en";
 
-    static Dictionary<string, Dictionary<int, TaskNode>> map = new();
-    static Dictionary<string, TaskNode> tMap = new();
-    static Dictionary<string, WorkflowNode> wMap = new();
+    private static  Dictionary<string, Dictionary<int, TaskNode>> map = new();
+    private static  Dictionary<string, TaskNode> tMap = new();
+    private static  Dictionary<string, WorkflowNode> wMap = new();
 
-    static WorkflowNode currentNode = null;
+    private static WorkflowNode currentNode = null;
 
     public static void ConstructFromCsv(string path, AdjListsGraph graph, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
     {
@@ -25,10 +26,32 @@ public class BasicGraphDirector
         GetEdges(path, graph);
         CalcProperties(graph);
 
-        currentNode = null;
+        Reset();
+    }
+    public static AdjListsGraph ConstructFromCsv(string path)
+    {
+        var graph = new AdjListsGraph();
+        var wBuilder = new BasicWorkflowBuilder();
+        var tBuilder = new BasicTaskBuilder();
+
+        GetNodes(path, graph, wBuilder, tBuilder);
+        GetEdges(path, graph);
+        CalcProperties(graph);
+
+        Reset();
+        return graph;
     }
 
-        private static void GetNodes(string path, AdjListsGraph graph, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
+    private static void Reset()
+    {
+        currentNode = null;
+        map = new();
+        tMap = new();
+        wMap = new();
+    }
+
+
+    private static void GetNodes(string path, AdjListsGraph graph, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
         {
             int wCount = 0;
             int tCount = 0;
@@ -84,14 +107,14 @@ public class BasicGraphDirector
                 graph.AddNode(wNode);
                 graph.AddNode(tNode);
 
-                wNode.StartNodes.Add(tNode);
+                wNode.StartNode = tNode;
                 currentNode = wNode;
 
-                map.Add(wNode.Workflow.Id.Get, new Dictionary<int, TaskNode>());
-                map[wNode.Workflow.Id.Get].Add(int.Parse(taskNumber), tNode);
+                map.Add(wNode.Workflow.Id.ToString(), new Dictionary<int, TaskNode>());
+                map[wNode.Workflow.Id.ToString()].Add(int.Parse(taskNumber), tNode);
 
-                tMap.Add(tNode.Task.Id.Get, tNode);
-                wMap.Add(wNode.Workflow.Id.Get, wNode);
+                tMap.Add(tNode.Task.Id.ToString(), tNode);
+                wMap.Add(wNode.Workflow.Id.ToString(), wNode);
             }
             private static void GetTask(CsvReader reader, ITaskBuilder tBuilder, AdjListsGraph graph, int tCount)
             {
@@ -114,8 +137,8 @@ public class BasicGraphDirector
                 var tNode = new TaskNode(t);
                 graph.AddNode(tNode);
 
-                map[currentNode.Workflow.Id.Get].Add(int.Parse(taskNumber), tNode);
-                tMap.Add(tNode.Task.Id.Get, tNode);
+                map[currentNode.Workflow.Id.ToString()].Add(int.Parse(taskNumber), tNode);
+                tMap.Add(tNode.Task.Id.ToString(), tNode);
             }
 
                 private static WorkflowId GetWorkflowId(string workflowId)
@@ -124,17 +147,19 @@ public class BasicGraphDirector
                 }
                 private static Dictionary<string, WorkflowType> GetTypes(string type)
                 {
-                    var temp = new Dictionary<string, WorkflowType>();
-
-                    temp.Add(_lang, new WorkflowType(type));
+                    var temp = new Dictionary<string, WorkflowType>
+                    {
+                        { _lang, new WorkflowType(type) }
+                    };
 
                     return temp;
                 }
                 private static Dictionary<string, Venue> GetVenues(string venue)
                 {
-                    var temp = new Dictionary<string, Venue>();
-
-                    temp.Add(_lang, new Venue(venue));
+                    var temp = new Dictionary<string, Venue>
+                    {
+                        { _lang, new Venue(venue) }
+                    };
 
                     return temp;
                 }
@@ -144,13 +169,14 @@ public class BasicGraphDirector
                 }
                 private static Dictionary<string, TaskType> GetTaskTypes(string type)
                 {
-                    Dictionary<string, TaskType> temp = new();
-
-                    temp.Add(_lang, new TaskType(type));
+                    Dictionary<string, TaskType> temp = new()
+                    {
+                        { _lang, new TaskType(type) }
+                    };
 
                     return temp;
                 }
-                private static Duration GetDuration(string duration)
+                private static Duration? GetDuration(string duration)
                 {
                     if (duration.Equals("")) return null;
                     return new Duration(int.Parse(duration));
@@ -188,15 +214,12 @@ public class BasicGraphDirector
                     return result;
                 }
 
-
     private static void GetEdges(string path, AdjListsGraph graph)
     {
         int wCount = 0;
         int tCount = 0;
 
         string workflowId = "";
-        string taskId = "";
-
         using var streamReader = new StreamReader(path);
         using var reader = new CsvReader(streamReader, CultureInfo.InvariantCulture);
 
@@ -206,6 +229,7 @@ public class BasicGraphDirector
         {
             string temp = reader.GetField(0);
 
+            string taskId;
             if (!temp.Equals(""))
             {
                 workflowId = "WORKFLOW_" + wCount++;
@@ -219,7 +243,7 @@ public class BasicGraphDirector
                 string nextTask = reader.GetField(8);
                 string[] nextTasks = nextTask.Split(',');
 
-                for(int i = 0;i < nextTasks.Length; i++)
+                for (int i = 0; i < nextTasks.Length; i++)
                 {
                     nextTasks[i] = nextTasks[i].Trim('"', ' ');
                     int taskNumber = int.Parse(nextTasks[i]);
@@ -244,7 +268,7 @@ public class BasicGraphDirector
                 {
                     nextTasks[i] = nextTasks[i].Trim('"', ' ');
 
-                    if (! string.IsNullOrEmpty(nextTasks[i]))
+                    if (!string.IsNullOrEmpty(nextTasks[i]))
                     {
                         int taskNumber = int.Parse(nextTasks[i]);
                         graph.AddEdge(tNode, map[workflowId][taskNumber]);
@@ -263,12 +287,15 @@ public class BasicGraphDirector
         {
             List<TaskNode> tNodes = graph.GetTaskNodes(wNode);
             var p = new Procedures(0);
-            Duration d = new Duration(0);
+            Duration d = new(0);
             foreach(var tNode in tNodes)
             {
-
                 p++;
-                tNode.Task.Add(_lang, wNode.Workflow.Venue);
+
+                if (wNode.Workflow.Venue != null)
+                {
+                    tNode.Task.Add(_lang, wNode.Workflow.Venue);
+                }
                 d += tNode.Task.Duration;
             }
 

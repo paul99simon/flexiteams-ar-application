@@ -12,44 +12,76 @@ public class BasicResourceDirector
     public static void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)
     {
         builder.Set(GetResourceId());
-        builder.Set(GetPhotos());
         builder.Set(GetAge());
-        builder.Set(GetPrefix());
         builder.Set(GetFirstNames());
         builder.Set(GetLastNames());
         builder.Set(GetMaritalStates());
-        builder.Set(GetChildren());
-        builder.Set(GetStressors());
-        builder.Set(GetPersonalInfos());
         builder.Set(GetProfessions());
         builder.Set(GetDepartments());
-        builder.Set(GetWorkExperience());
-        builder.Set(GetTrainingDuration());
         builder.Set(GetWeeklyHours());
-        builder.Set(GetOvertime());
-        builder.Set(GetYearlyTimeOf());
-        builder.Set(GetYearlyEducation());
-        builder.Set(GetTrainings());
-        builder.Set(GetQualifications());
         builder.Set(GetWorkAgreement());
-        builder.Set(GetStudies());
-        builder.Set(GetAdditionalJobs());
-        builder.Set(GetArrivalTime());
-        builder.Set(GetMeansOfTransport());
-        builder.Set(GetProfessionalInfos());
         builder.Set(GetSkills());
         builder.Set(GetTraits());
 
+        //Nullable Types
+        var photos = GetPhotos();
+        if(photos != null) builder.Set(photos);
+
+        var children = GetChildren();
+        if(children != null) builder.Set(children);
+
+        var stressors = GetStressors();
+        if(stressors != null) builder.Set(stressors);
+
+        var personalInfos = GetPersonalInfos();
+        if(personalInfos != null) builder.Set(personalInfos);
+
+        var prefix = GetPrefix();
+        if(prefix != null) builder.Set(prefix);
+
+        var workExperience = GetWorkExperience();
+        if(workExperience != null) builder.Set(workExperience);
+
+        var trainingDuration = GetTrainingDuration();
+        if(trainingDuration != null) builder.Set(trainingDuration);
+
+        var overtime = GetOvertime();
+        if(overtime != null) builder.Set(overtime);
+
+        var yearlyTimeOf = GetYearlyTimeOf();
+        if(yearlyTimeOf != null) builder.Set(yearlyTimeOf);
+
+        var yearlyEducation = GetYearlyEducation();
+        if(yearlyEducation != null) builder.Set(yearlyEducation);
+
+        var traingings = GetTrainings();
+        if (traingings != null) builder.Set(traingings);
+
+        var qualifications = GetQualifications();
+        if (qualifications != null) builder.Set(qualifications);
+
+        var studies = GetStudies();
+        if (studies != null) builder.Set(studies);
+
+        var additionalJobs = GetAdditionalJobs();
+        if (additionalJobs != null) builder.Set(additionalJobs);
+
+        var arrivalTime = GetArrivalTime();
+        if (arrivalTime != null) builder.Set(arrivalTime);
+
+        var meansOfTransport = GetMeansOfTransport();
+        if (meansOfTransport != null) builder.Set(meansOfTransport);
+
+        var professionalInfos = GetProfessionalInfos();
+        if (professionalInfos != null) builder.Set(professionalInfos);
+
         ResourceId GetResourceId()
         {
-            var node = resource;
-
             string id = resource.Attributes.GetNamedItem("xml:id").InnerText;
 
             return new ResourceId(id);
         }
-        
-        List<Photo> GetPhotos()
+        List<Photo>? GetPhotos()
         {
             var nodes = resource.SelectNodes("photo");
             var temp = new List<Photo>();
@@ -117,7 +149,7 @@ public class BasicResourceDirector
             
             return temp;
         }
-        List<Child> GetChildren()
+        List<Child>? GetChildren()
         {
             var nodes = resource.SelectNodes("child");
             var temp = new List<Child>();
@@ -133,7 +165,7 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        Dictionary<string, List<Stressor>> GetStressors()
+        Dictionary<string, List<Stressor>>? GetStressors()
         {
             var nodes = resource.SelectNodes("stressor");
             var temp = new Dictionary<string, List<Stressor>>();
@@ -154,7 +186,7 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        Dictionary<string, List<PersonalInfo>> GetPersonalInfos()
+        Dictionary<string, List<PersonalInfo>>? GetPersonalInfos()
         {
             var nodes = resource.SelectNodes("personalInfo");
             var temp = new Dictionary<string, List<PersonalInfo>>();
@@ -250,7 +282,7 @@ public class BasicResourceDirector
 
             return new YearlyEducation((int)timespan.TotalDays);
         }
-        Dictionary<string, List<Training>> GetTrainings()
+        Dictionary<string, List<Training>>? GetTrainings()
         {
             var nodes = resource.SelectNodes("training");
             var temp = new Dictionary<string, List<Training>>();
@@ -267,7 +299,7 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        Dictionary<string, List<Qualification>> GetQualifications()
+        Dictionary<string, List<Qualification>>? GetQualifications()
         {
             var nodes = resource.SelectNodes("qualification");
             var temp = new Dictionary<string, List<Qualification>>();
@@ -311,9 +343,9 @@ public class BasicResourceDirector
                     temp[index].Add(ti);
                 }
             }
-            return temp.Any() ? temp : null;
+            return temp;
         }
-        Dictionary<string, List<Studies>> GetStudies()
+        Dictionary<string, List<Studies>>? GetStudies()
         {
             var nodes = resource.SelectNodes("studies");
             var temp = new Dictionary<string, List<Studies>>();
@@ -332,7 +364,7 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        Dictionary<string, List<AdditionalJob>> GetAdditionalJobs()
+        Dictionary<string, List<AdditionalJob>>? GetAdditionalJobs()
         {
             var nodes = resource.SelectNodes("additionalJob");
             var temp = new Dictionary<string, List<AdditionalJob>>();
@@ -350,14 +382,14 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        ArrivalTime GetArrivalTime()
+        ArrivalTime? GetArrivalTime()
         {
             var node = resource.SelectSingleNode("arrivalTime");
             var timespan = XmlConvert.ToTimeSpan(node.InnerText);
 
             return new ArrivalTime((int)timespan.TotalMinutes);
         }
-        Dictionary<string, List<Vehicle>> GetMeansOfTransport()
+        Dictionary<string, List<Vehicle>>? GetMeansOfTransport()
         {
             var nodes = resource.SelectNodes("meansOfTransport");
             var temp = new Dictionary<string, List<Vehicle>>();
@@ -375,7 +407,7 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        Dictionary<string, List<ProfessionalInfo>> GetProfessionalInfos()
+        Dictionary<string, List<ProfessionalInfo>>? GetProfessionalInfos()
         {
             var nodes = resource.SelectNodes("professionalInfo");
             var temp = new Dictionary<string, List<ProfessionalInfo>>();

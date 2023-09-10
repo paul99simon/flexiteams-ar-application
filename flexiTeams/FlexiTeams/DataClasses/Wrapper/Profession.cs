@@ -2,7 +2,7 @@
 
 public class Profession
 {
-    public string Get { get; }
+    private readonly string Get;
     
     public Profession(string profession)
     {

@@ -15,12 +15,12 @@ namespace FlexiTeams.Util.EqualityComperator
             if (x is null || y is null)
                 return false;
 
-            return y.Get.Equals(x.Get);
+            return y.ToString().Equals(x.ToString());
         }
 
         public int GetHashCode(Profession profession)
         {
-            return profession.Get.GetHashCode();
+            return profession.ToString().GetHashCode();
         }
     }
 }

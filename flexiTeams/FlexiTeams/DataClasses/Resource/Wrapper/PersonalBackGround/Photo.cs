@@ -2,10 +2,15 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Photo
 {
-    public string Path { get; }
+    private readonly string Path;
 
     public Photo(string path)
     {
         Path = path;
+    }
+
+    public override string ToString()
+    {
+        return Path;
     }
 }

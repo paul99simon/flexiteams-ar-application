@@ -3,6 +3,7 @@ using FlexiTeams.Exceptions;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Util;
 using FlexiTeams.Util.EqualityComperator;
+using System.Xml.Linq;
 
 namespace FlexiTeams.FlexiTeamsGraph;
 
@@ -15,6 +16,8 @@ public class AdjListsGraph : ILanguageObject
     private readonly Dictionary<Node, List<Node>> _adjLists = new ();
     private string _lang = "";
     
+
+    //FlexiTeams graph methods
     public void AddNode(TaskNode v)
     {
         AddNodeBase(v);
@@ -183,6 +186,32 @@ public class AdjListsGraph : ILanguageObject
 
         return result;
     }
+    public List<TaskNode> GetPrevTasks(TaskNode v)
+    {
+        WorkflowNode wNode = GetWorkflowNode(v);
+
+        List<TaskNode> taskNodes = GetTaskNodes(wNode);
+
+        List<TaskNode> prevTasks = new();
+
+        foreach(var u in taskNodes)
+        {
+            if(GetNextTasks(u).Contains(v)) prevTasks.Add(u);
+        }
+
+        return prevTasks;
+    }
+
+    public WorkflowNode? GetWorkflowNode(TaskNode v)
+    {
+        var adj = Adj(v);
+        foreach (var j in adj)
+        {
+            if (j is WorkflowNode node) return node;
+        }
+
+        return null;
+    }
 
     public List<TaskNode> GetTaskNodes(WorkflowNode u)
     {
@@ -226,6 +255,7 @@ public class AdjListsGraph : ILanguageObject
         RemoveEdgeBase(v, u);
     }
 
+    //Ilanguage Object
     public void SetLanguage(string langCode)
     {
         _lang = langCode;
@@ -238,5 +268,33 @@ public class AdjListsGraph : ILanguageObject
     public string GetLanguage()
     {
         return _lang;
+    }
+
+    //utility methods
+    public int GetLongestPath()
+    {
+        List<int> workflowLengths = new();
+
+        GetWorkflowNodes().ForEach(
+            wNode => workflowLengths.Add(GetLongestWorkflowPath(wNode.StartNode))
+            );
+
+
+
+        return workflowLengths.Max();
+    }
+    private int GetLongestWorkflowPath(TaskNode taskNode)
+    {
+        List<TaskNode> nextNodes = GetNextTasks(taskNode);
+        if(! nextNodes.Any()) return 1;
+        
+        List<int> lengths = new();
+        foreach(var nextNode in nextNodes)
+        {
+            lengths.Add(1 + GetLongestWorkflowPath(nextNode));
+        }
+
+        return lengths.Max();
+        
     }
 }

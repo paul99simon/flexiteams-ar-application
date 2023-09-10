@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlexiTeams.DataClasses.Data;
 
-namespace FlexiTeams.DataClasses.Data
+namespace FlexiTeams.Util.EqualityComperator
 {
     public class DataEqualityComparer : EqualityComparer<Data>
     {

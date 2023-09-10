@@ -5,7 +5,7 @@ namespace FlexiTeams.Graph.Nodes;
 public class WorkflowNode : Node
 {
     public Workflow Workflow { get; }
-    public List<TaskNode> StartNodes { get; } = new();
+    public TaskNode? StartNode { get; set; }
 
     public WorkflowNode(Workflow workflow)
     {

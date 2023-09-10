@@ -2,10 +2,15 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Department
 {
-    public string Get { get; }
+    private string Get { get; }
 
     public Department(string department)
     {
         Get = department;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

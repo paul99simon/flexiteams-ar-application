@@ -2,7 +2,7 @@ namespace FlexiTeams.DataClasses.Task.Wrappper;
 
 public class TaskType
 {
-    public string Get { get; }
+    private readonly string Get;
 
     public TaskType(string type)
     {

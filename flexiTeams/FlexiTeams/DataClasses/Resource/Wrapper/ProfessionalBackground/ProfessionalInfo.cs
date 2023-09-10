@@ -2,10 +2,15 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class ProfessionalInfo
 {
-    public string Get { get; }
+    private readonly string Get;
 
     public ProfessionalInfo(string professionalInfo)
     {
         Get = professionalInfo;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

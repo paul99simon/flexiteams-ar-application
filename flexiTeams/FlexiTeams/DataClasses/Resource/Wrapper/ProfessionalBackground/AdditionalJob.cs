@@ -2,7 +2,7 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class AdditionalJob
 {
-    public string Get { get; }
+    private readonly string Get;
     public int? YearlyRequiredDays { get; }
 
     public AdditionalJob( string additionalJob, int yearlyRequiredDays)
@@ -15,5 +15,10 @@ public class AdditionalJob
     {
         Get = additionalJob;
         YearlyRequiredDays = null;
+    }
+
+    public override string ToString()
+    {
+        return Get;
     }
 }

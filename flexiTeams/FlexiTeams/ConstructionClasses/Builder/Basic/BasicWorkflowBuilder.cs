@@ -11,7 +11,10 @@ public class BasicWorkflowBuilder : IWorkflowBuilder
 
     public Workflow GetWorkflow()
     {
-        return _workflow;
+        
+        var temp = _workflow;
+        Reset();
+        return temp;
     }
 
     public void Reset()
