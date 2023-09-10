@@ -174,8 +174,8 @@ public class ResourceManager : MonoBehaviour
                 //Concats the first- and lastnames to get the fullname
                 List<string> names = new List<string>();
 
-                resource.FirstNames.ForEach(name => names.Add(name.Get));
-                resource.LastNames.ForEach(name => names.Add(name.Get));
+                resource.FirstNames.ForEach(name => names.Add(name.ToString()));
+                resource.LastNames.ForEach(name => names.Add(name.ToString()));
 
                 string fullName = String.Join(" ", names);
 
@@ -237,7 +237,7 @@ public class ResourceManager : MonoBehaviour
 
                 //Concats the Professions
                 var professions = new List<string>();
-                resource.Professions.ForEach(profession => professions.Add(profession.Get));
+                resource.Professions.ForEach(profession => professions.Add(profession.ToString()));
 
                 string allProfessions = String.Join(" ", professions);
 

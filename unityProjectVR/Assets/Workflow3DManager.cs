@@ -2,15 +2,9 @@ using FlexiTeams.ConstructionClasses.Builder;
 using FlexiTeams.ConstructionClasses.Diretor;
 using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.TerrainTools;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class Workflow3DManager : MonoBehaviour
 {
@@ -61,16 +55,13 @@ public class Workflow3DManager : MonoBehaviour
     [SerializeField]
     private Material edgeMaterial;
 
-    private AdjListsGraph _graph = new AdjListsGraph();
+    private AdjListsGraph _graph = new();
 
     // Start is called before the first frame update
     void Start()
     {
         BasicGraphDirector.ConstructFromCsv(path, _graph, new BasicWorkflowBuilder(), new BasicTaskBuilder());
         Create3DWorkflowLayout();
-
-        _graph.GetWorkflowNodes().ForEach(n => _graph.GetTaskNodes(n).ForEach(x => Debug.Log(x.Task.Type.Get)));
-       
     }
 
     private void Create3DWorkflowLayout()
@@ -80,8 +71,6 @@ public class Workflow3DManager : MonoBehaviour
         //Increment for the workflows position
         float positionincrement = workflowSpacing + taskDimensions.z;
         float startingPosition = - (((wNodes.Count-1) * positionincrement) / 2);
-
-
         float position = startingPosition;
         wNodes.ForEach(node =>
         {
@@ -96,18 +85,63 @@ public class Workflow3DManager : MonoBehaviour
 
     private GameObject CreateWorkflowObject(WorkflowNode wNode)
     {
-        var workflowObject = new GameObject(wNode.Workflow.Id.Get);
+        var workflowObject = new GameObject(wNode.Workflow.Id.ToString());
+        
+        //calculate the length of the Workflow
+        int incrementSteps = _graph.GetLongestPath() -1;
+        float totalLength = incrementSteps * (taskDimensions.x + taskSpacing.x);
+        float startingPosition = - totalLength / 2;
+        float increment = taskDimensions.x + taskSpacing.x;
+        float position = startingPosition;
+        
+        var tNode = wNode.StartNode;
+        var taskObject = CreateTaskObject(tNode);
+        taskObject.transform.SetParent(workflowObject.transform, false);
+        taskObject.transform.SetLocalPositionAndRotation(new Vector3(position,0 ,0), Quaternion.identity);
+        position += increment;
 
-
+        RecursiveTaskCreation(tNode, position, 0);
 
         return workflowObject;
+
+        void RecursiveTaskCreation(TaskNode tNode, float horizontalPosition, float verticalPosition)
+        {
+            if(tNode == null) return;
+            
+            List<TaskNode> tNodes = _graph.GetNextTasks(tNode);
+            
+            int count = tNodes.Count-1;
+            float verticalIncrement = taskDimensions.y + taskSpacing.y;
+            
+            float totalHeigth = count * verticalIncrement;
+            float startingHeight = verticalPosition - totalHeigth / 2;
+            float currentHeight = startingHeight;
+
+
+            tNodes.ForEach(t =>
+            {
+                var tObject = CreateTaskObject(t);
+                tObject.transform.SetParent(workflowObject.transform);
+                tObject.transform.SetLocalPositionAndRotation(new Vector3(horizontalPosition, currentHeight, 0), Quaternion.identity);
+                
+                if (count == 0) RecursiveTaskCreation(t, horizontalPosition + increment, verticalPosition);
+                else
+                {
+                    currentHeight += verticalIncrement;
+                    RecursiveTaskCreation(t, horizontalPosition + increment, currentHeight);
+                }
+
+            });
+
+            return;
+        }
 
     }
 
     private GameObject CreateTaskObject(TaskNode taskNode)
     {
         //Gameobject
-        var cuboidObject = new GameObject(taskNode.Task.Id.Get);
+        var cuboidObject = new GameObject(taskNode.Task.Id.ToString());
         
         //meshfilter
         var meshFilter = cuboidObject.AddComponent<MeshFilter>();
@@ -117,7 +151,7 @@ public class Workflow3DManager : MonoBehaviour
         var meshRenderer = cuboidObject.AddComponent<MeshRenderer>();
         meshRenderer.material = taskMaterial;
 
-        var textObject = CreateTextObject(taskNode.Task.Type.Get);
+        var textObject = CreateTextObject(taskNode.Task.Type.ToString());
         textObject.transform.SetParent(cuboidObject.transform, false);
 
         return cuboidObject;
@@ -235,6 +269,10 @@ public class Workflow3DManager : MonoBehaviour
         //GameObject
         var textObject = new GameObject("Text");
 
+        //RectTansform
+        var tranform = textObject.AddComponent<RectTransform>();
+        tranform.sizeDelta = new Vector2(taskDimensions.x, taskDimensions.y);
+
         //TextMesh
         var textMesh = textObject.AddComponent<TextMeshPro>();
         textMesh.text = text;
@@ -244,6 +282,8 @@ public class Workflow3DManager : MonoBehaviour
 
         textMesh.verticalAlignment = VerticalAlignmentOptions.Middle;
         textMesh.horizontalAlignment = HorizontalAlignmentOptions.Center;
+
+        textMesh.enableWordWrapping = true;
 
         return textObject;
     }

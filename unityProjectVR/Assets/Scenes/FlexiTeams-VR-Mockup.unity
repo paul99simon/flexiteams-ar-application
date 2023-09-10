@@ -25106,7 +25106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.999435, y: 0}
+  m_AnchoredPosition: {x: -16.999538, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956165036
@@ -25580,15 +25580,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workflow3D: {fileID: 1978323999}
-  workflowSpacing: 2
-  taskDimensions: {x: 0.3, y: 0.2, z: 0.2}
-  taskSpacing: {x: 0, y: 0}
+  workflowSpacing: 1
+  taskDimensions: {x: 0.5, y: 0.2, z: 0.1}
+  taskSpacing: {x: 0.1, y: 0.5}
   edgeThickness: 0
   path: Assets/Csv/workflows.csv
   fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   fontStyles: 0
-  fontSize: 1
-  vertexColor: {r: 0, g: 0, b: 0, a: 0}
+  fontSize: 0.5
+  vertexColor: {r: 0, g: 0, b: 0, a: 1}
   taskMaterial: {fileID: 2100000, guid: c03dc79215888d941ac7269258762ed6, type: 2}
   edgeMaterial: {fileID: 0}
 --- !u!4 &1978324001
