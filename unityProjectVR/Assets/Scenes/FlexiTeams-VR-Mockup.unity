@@ -25106,7 +25106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00015640259, y: 0}
+  m_AnchoredPosition: {x: -16.999435, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956165036
@@ -25561,7 +25561,7 @@ GameObject:
   - component: {fileID: 1978324001}
   - component: {fileID: 1978324000}
   m_Layer: 0
-  m_Name: 3DWorkflow
+  m_Name: Workflow 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25579,12 +25579,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c182d3c2beb22f48a3c8152c280adf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskSize: {x: 0, y: 0, z: 0}
-  edgeSize: {x: 0, y: 0}
+  workflow3D: {fileID: 1978323999}
+  workflowSpacing: 2
+  taskDimensions: {x: 0.3, y: 0.2, z: 0.2}
+  taskSpacing: {x: 0, y: 0}
+  edgeThickness: 0
   path: Assets/Csv/workflows.csv
-  fontAsset: {fileID: 0}
-  fontStyle: 0
-  fontSize: 0
+  fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  fontStyles: 0
+  fontSize: 1
   vertexColor: {r: 0, g: 0, b: 0, a: 0}
   taskMaterial: {fileID: 2100000, guid: c03dc79215888d941ac7269258762ed6, type: 2}
   edgeMaterial: {fileID: 0}

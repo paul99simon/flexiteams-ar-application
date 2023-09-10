@@ -4,29 +4,52 @@ using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.TerrainTools;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class Workflow3DManager : MonoBehaviour
 {
     [Header("Layout")]
-    [SerializeField]
-    private Vector3 taskSize;
-    [SerializeField]
-    private Vector2 edgeSize;
+    [Space(5)]
 
+    [SerializeField]
+    private GameObject workflow3D;
+
+    [SerializeField]
+    [Tooltip("This variable represents the spacing of the workflow objects")]
+    private float workflowSpacing;
+
+    [SerializeField]
+    [Tooltip("This variable represents the dimensions of the task nodes (x = width, y = heigth , z = depth )")]
+    private Vector3 taskDimensions;
+    
+    [SerializeField]
+    [Tooltip("This variable represents the spacing of the task Nodes in their respective Workflow (x = horizontal spacing, y = vertival spacing)")]
+    private Vector2 taskSpacing;
+
+    [SerializeField]
+    [Tooltip("this variable represents the Thickness of edges")]
+    private float edgeThickness;
+
+    [Space(5)]
     [Header("Csv Path")]
+    [Space(5)]
     [SerializeField]
     private string path;
 
+    [Space(5)]
     [Header("Font")]
+    [Space(5)]
+
     [SerializeField]
     private TMP_FontAsset fontAsset;
     [SerializeField]
-    private FontStyle fontStyle;
+    private FontStyles fontStyles;
     [SerializeField]
     private float fontSize;
     [SerializeField]
@@ -44,25 +67,36 @@ public class Workflow3DManager : MonoBehaviour
     void Start()
     {
         BasicGraphDirector.ConstructFromCsv(path, _graph, new BasicWorkflowBuilder(), new BasicTaskBuilder());
-        
-        var workflowObject = new GameObject("Workflow");
-        var transform = workflowObject.GetComponent<Transform>();
-        transform.position = Vector3.zero;
-        
-        GameObject taskObject = CreateTaskObject(new Vector3(0,2,0), Vector3.zero);
+        Create3DWorkflowLayout();
 
-        workflowObject.transform.SetParent(taskObject.transform, false);
+        _graph.GetWorkflowNodes().ForEach(n => _graph.GetTaskNodes(n).ForEach(x => Debug.Log(x.Task.Type.Get)));
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Create3DWorkflowLayout()
     {
-        
+        List<WorkflowNode> wNodes = _graph.GetWorkflowNodes();
+
+        //Increment for the workflows position
+        float positionincrement = workflowSpacing + taskDimensions.z;
+        float startingPosition = - (((wNodes.Count-1) * positionincrement) / 2);
+
+
+        float position = startingPosition;
+        wNodes.ForEach(node =>
+        {
+            var workflowObject = CreateWorkflowObject(node);
+            var transform = workflowObject.GetComponent<Transform>();
+            transform.SetParent(workflow3D.transform, false);
+            transform.SetLocalPositionAndRotation(new Vector3(0,0,position), Quaternion.identity);
+            position = position + positionincrement;
+        });
+
     }
 
     private GameObject CreateWorkflowObject(WorkflowNode wNode)
     {
-        var workflowObject = new GameObject(wNode.Workflow.Type.Get);
+        var workflowObject = new GameObject(wNode.Workflow.Id.Get);
 
 
 
@@ -70,40 +104,34 @@ public class Workflow3DManager : MonoBehaviour
 
     }
 
-    private GameObject CreateTaskObject(Vector3 position, Vector3 rotation)
+    private GameObject CreateTaskObject(TaskNode taskNode)
     {
         //Gameobject
-        var cuboidObject = new GameObject("Task");
+        var cuboidObject = new GameObject(taskNode.Task.Id.Get);
         
-        //Transform
-        var transform = cuboidObject.GetComponent<Transform>();
-        cuboidObject.transform.position = position;
-        cuboidObject.transform.rotation = Quaternion.Euler(rotation);
-
         //meshfilter
         var meshFilter = cuboidObject.AddComponent<MeshFilter>();
-        meshFilter.mesh = CreateCuboidMesh(1, 1, 1);
+        meshFilter.mesh = CreateCuboidMesh(taskDimensions);
 
         //meshRenderer
         var meshRenderer = cuboidObject.AddComponent<MeshRenderer>();
         meshRenderer.material = taskMaterial;
-      
 
-        var textObject = CreateTextObject("Test", Color.black, 1);
+        var textObject = CreateTextObject(taskNode.Task.Type.Get);
         textObject.transform.SetParent(cuboidObject.transform, false);
 
         return cuboidObject;
     }
-    private Mesh CreateCuboidMesh(float width, float height, float depth)
+    private Mesh CreateCuboidMesh(Vector3 dimensions)
     {
         var mesh = new Mesh()
         {
             name = "CuboidMesh"
         };
 
-        float deltaWidth = width / 2;
-        float deltaHeight = height / 2;
-        float deltaDepth = depth / 2;
+        float deltaWidth    = dimensions.x / 2;
+        float deltaHeight   = dimensions.y / 2;
+        float deltaDepth    = dimensions.z / 2;
 
         //Front
         var A = new Vector3(-deltaWidth, -deltaHeight, -deltaDepth);
@@ -202,7 +230,7 @@ public class Workflow3DManager : MonoBehaviour
 
         return mesh;
     }
-    private GameObject CreateTextObject(string text, Color color, float fontSize)
+    private GameObject CreateTextObject(string text)
     {
         //GameObject
         var textObject = new GameObject("Text");
@@ -210,8 +238,10 @@ public class Workflow3DManager : MonoBehaviour
         //TextMesh
         var textMesh = textObject.AddComponent<TextMeshPro>();
         textMesh.text = text;
-        textMesh.color = color;
+        textMesh.color = vertexColor;
         textMesh.fontSize = fontSize;
+        textMesh.fontStyle = fontStyles;
+
         textMesh.verticalAlignment = VerticalAlignmentOptions.Middle;
         textMesh.horizontalAlignment = HorizontalAlignmentOptions.Center;
 
