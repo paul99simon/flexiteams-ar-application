@@ -3,6 +3,7 @@ using FlexiTeams.Exceptions;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Util;
 using FlexiTeams.Util.EqualityComperator;
+using System.Net.WebSockets;
 using System.Xml.Linq;
 
 namespace FlexiTeams.FlexiTeamsGraph;
@@ -271,30 +272,51 @@ public class AdjListsGraph : ILanguageObject
     }
 
     //utility methods
-    public int GetLongestPath()
+    /// <summary>
+    /// returns the <see cref="TaskNode"/>'s from a <see cref="WorkflowNode"/> that make up the longestPath
+    /// The taskNodes are stored inside a List <see cref="List{T}"/> and orderd in Order of traversing time.
+    /// </summary>
+    /// <param name="wNode">represents a WorkflowNode <see cref="WorkflowNode"/></param>
+    /// <returns></returns>
+    public List<TaskNode> GetLongestPath(WorkflowNode wNode)
     {
-        List<int> workflowLengths = new();
-
-        GetWorkflowNodes().ForEach(
-            wNode => workflowLengths.Add(GetLongestWorkflowPath(wNode.StartNode))
-            );
-
-
-
-        return workflowLengths.Max();
+        if(wNode.StartNode == null) return new List<TaskNode>();
+        return GetLongestPathRecursive(wNode.StartNode);
     }
-    private int GetLongestWorkflowPath(TaskNode taskNode)
+
+    private List<TaskNode> GetLongestPathRecursive(TaskNode taskNode)
     {
-        List<TaskNode> nextNodes = GetNextTasks(taskNode);
-        if(! nextNodes.Any()) return 1;
-        
-        List<int> lengths = new();
-        foreach(var nextNode in nextNodes)
+        List<TaskNode> nextTasks = GetNextTasks(taskNode);
+
+        if (nextTasks.Count == 0) return new List<TaskNode>() { taskNode };
+        if (nextTasks.Count == 1)
         {
-            lengths.Add(1 + GetLongestWorkflowPath(nextNode));
+            var result = new List<TaskNode>() {taskNode };
+            var nextTask = nextTasks[0];
+            
+            result.AddRange(GetLongestPathRecursive(nextTask));
+            return result;
+        };
+        if (nextTasks.Count > 1)
+        {
+            var result = new List<TaskNode>() { taskNode };
+            var temp = new List<TaskNode>();
+            int max = 0;            
+
+            nextTasks.ForEach(taskNode =>
+            {
+                var longestPath = GetLongestPathRecursive(taskNode);
+                if (longestPath.Count > max)
+                {
+                    temp = longestPath;
+                    max = longestPath.Count;
+                }
+            });
+
+            result.AddRange(temp);
+            return result;
         }
 
-        return lengths.Max();
-        
+        return null;
     }
 }
