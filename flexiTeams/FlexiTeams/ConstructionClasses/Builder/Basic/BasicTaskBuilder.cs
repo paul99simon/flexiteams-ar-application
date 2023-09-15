@@ -13,7 +13,6 @@ public class BasicTaskBuilder : ITaskBuilder
     {
         _task = new Task();
     }
-
     public Task GetTask()
     {
         Task temp = _task;
@@ -25,44 +24,28 @@ public class BasicTaskBuilder : ITaskBuilder
     {
         _task.Id = id;
     }
-
-    public void Set(Dictionary<string, TaskType> types)
+    public void Set(TaskType type)
     {
-        _task.AddRange(types);
+        _task.Type = type;
     }
-
-    public void Set(Dictionary<string, Venue> venues)
+    public void Set(Venue venue)
     {
-        _task.AddRange(venues);
+        _task.Venue = venue;
     }
-
     public void Set(Priority priority)
     {
         _task.Priority = priority;
     }
-
     public void Set(Duration duration)
     {
         _task.Duration = duration;
     }
-    
-    public void Set(Dictionary<string, List<Profession>> requiredProfessions)
+    public void Set(List<Profession> requiredProfessions)
     {
-        _task.AddRange(requiredProfessions);
+        _task.RequiredProfessions.AddRange(requiredProfessions);
     }
-
-    public void Set(Dictionary<string, List<DataName>> requiredDataNames)
+    public void Set(List<DataName> requiredDataNames)
     {
-        _task.AddRange(requiredDataNames);
-    }
-
-    public void SetLanguage(string langCode)
-    {
-        _task.SetLanguage(langCode);
-    }
-
-    public string GetLanguage()
-    {
-        return _task.GetLanguage();
+        _task.RequiredData.AddRange(requiredDataNames);
     }
 }

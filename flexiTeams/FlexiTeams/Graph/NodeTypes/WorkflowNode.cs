@@ -11,14 +11,4 @@ public class WorkflowNode : Node
     {
         Workflow = workflow;
     }
-
-    public override string GetLanguage()
-    {
-        return Workflow.GetLanguage();
-    }
-
-    public override void SetLanguage(string langCode)
-    {
-        Workflow.SetLanguage(langCode);
-    }
 }

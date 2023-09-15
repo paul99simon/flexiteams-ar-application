@@ -11,12 +11,10 @@ namespace FlexiTeams.FlexiTeamsGraph;
 //Graph class is a directed Graph as shown in the Paper:
 //"FlexiTeam: Flexible Team and Work Organization using Process-Oriented Case-Based Reasoning"
 
-public class AdjListsGraph : ILanguageObject
+public class AdjListsGraph 
 {
 
     private readonly Dictionary<Node, List<Node>> _adjLists = new ();
-    private string _lang = "";
-    
 
     //FlexiTeams graph methods
     public void AddNode(TaskNode v)
@@ -254,21 +252,6 @@ public class AdjListsGraph : ILanguageObject
     {
         RemoveEdgeBase(u, v);
         RemoveEdgeBase(v, u);
-    }
-
-    //Ilanguage Object
-    public void SetLanguage(string langCode)
-    {
-        _lang = langCode;
-        foreach(var pair in _adjLists)
-        {
-            pair.Key.SetLanguage(langCode);
-        }
-    }
-
-    public string GetLanguage()
-    {
-        return _lang;
     }
 
     //utility methods

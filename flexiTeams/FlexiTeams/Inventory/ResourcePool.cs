@@ -1,16 +1,11 @@
 using System.Collections;
-using System.Xml;
-using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
-using FlexiTeams.DataClasses.Data.Wrapper;
-using FlexiTeams.DataClasses.Data;
 using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.Util;
 using FlexiTeams.DataClasses.Wrapper;
 
 namespace FlexiTeams;
 
-public class ResourcePool : IEnumerable<Resource> , ILanguageObject
+public class ResourcePool : IEnumerable<Resource>
 {
 
     public List<Resource> List
@@ -29,6 +24,7 @@ public class ResourcePool : IEnumerable<Resource> , ILanguageObject
     }
     public Resource this[int i] => List[i];
     public int Count => List.Count;
+
     public Dictionary<Profession, int> Staff
     {
         get
@@ -51,8 +47,6 @@ public class ResourcePool : IEnumerable<Resource> , ILanguageObject
     }
     private readonly Dictionary<string, Resource> _pool = new();
 
-    public ResourcePool() { }
-
     public void Add(Resource resource)
     {
         if (_pool.ContainsKey(resource.Id.ToString())) return;
@@ -67,21 +61,5 @@ public class ResourcePool : IEnumerable<Resource> , ILanguageObject
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
-    }
-
-    private string _langCode = "";
-    public void SetLanguage(string langCode)
-    {
-        if(!ISO_639_1.IsValidCode(langCode)) return;
-        _langCode = langCode;
-        
-        foreach (var resource in this)
-        {
-            resource.SetLanguage(_langCode);
-        }
-    }
-    public string GetLanguage()
-    {
-        return _langCode;
     }
 }

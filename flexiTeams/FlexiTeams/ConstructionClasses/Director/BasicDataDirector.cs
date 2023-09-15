@@ -13,7 +13,7 @@ namespace FlexiTeams.ConstructionClasses.Director
         public static void ConstructFromXmlNode(IDataBuilder builder, XmlNode data)
         {
             builder.Set(GetDataId());
-            builder.Set(GetNames());
+            builder.Set(GetName());
 
             DataId GetDataId()
             {
@@ -23,21 +23,10 @@ namespace FlexiTeams.ConstructionClasses.Director
 
                 return new DataId(id);
             }
-
-            Dictionary<string, DataName> GetNames()
+            DataName GetName()
             {
-                var nodes = data.SelectNodes("Name");
-                var temp = new Dictionary<string, DataName>();
-
-                foreach (XmlNode node in nodes)
-                {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                    string value = node.InnerText;
-
-                    temp.Add(lang, new DataName(value));
-                }
-
-                return temp;
+                var node = data.SelectSingleNode("Name");
+                return new DataName(node.InnerText);
             }
         }
 

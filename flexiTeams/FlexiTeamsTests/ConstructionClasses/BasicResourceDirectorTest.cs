@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Xml;
 using FlexiTeams.ConstructionClasses;
 using FlexiTeams.ConstructionClasses.Builder;
@@ -21,7 +22,6 @@ public class BasicResourceDirectorTest
         //Act
         BasicResourceDirector.ConstructFromXmlNode(builder, node);
         var resource = builder.GetResource();
-        resource.SetLanguage("de");
         
         //Assert
         Assert.AreEqual("RESOURCE_1", resource.Id.ToString());
@@ -41,7 +41,7 @@ public class BasicResourceDirectorTest
         Assert.AreEqual(5, resource.Children[0].Age);
         Assert.AreEqual(3, resource.Children[1].Age);
         
-        Assert.AreEqual(null, resource.Stressors);
+        Assert.AreEqual(false, resource.Stressors.Any());
 
         Assert.AreEqual("Beide Kinder gehen in die Krankenhaus-Kita", resource.PersonalInfos[0].ToString());
 
@@ -64,7 +64,7 @@ public class BasicResourceDirectorTest
         Assert.AreEqual("Notfall Medizin", resource.Trainings[0].ToString());
         Assert.AreEqual("Anästhesie", resource.Trainings[1].ToString());
         
-        Assert.AreEqual("Ausbildung als Labortechnikerin", resource.Qualification[0].ToString());
+        Assert.AreEqual("Ausbildung als Labortechnikerin", resource.Qualifications[0].ToString());
         
         Assert.AreEqual("berufsbegleitendes Studium der Medizin", resource.Studies[0].ToString());
         Assert.AreEqual("Mainz", resource.Studies[0].Location);
@@ -76,7 +76,7 @@ public class BasicResourceDirectorTest
         Assert.AreEqual("öffentliche Verkehrsmittel", resource.MeansOfTransport[0].ToString());
         Assert.AreEqual("Fahrrad", resource.MeansOfTransport[1].ToString());
         
-        Assert.AreEqual(null, resource.ProfessionalInfos);
+        Assert.AreEqual(false, resource.ProfessionalInfos.Any());
         
         Assert.AreEqual("Medikamentierung", resource.Skills[0].ToString());
         Assert.AreEqual("Diagn. Schnelltest", resource.Skills[1].ToString());

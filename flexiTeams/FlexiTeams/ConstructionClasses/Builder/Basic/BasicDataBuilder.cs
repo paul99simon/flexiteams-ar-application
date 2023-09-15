@@ -24,18 +24,8 @@ public class BasicDataBuilder : IDataBuilder
         _data.Id = id;
     }
 
-    public void Set(Dictionary<string, DataName> names)
+    public void Set(DataName name)
     {
-        _data.AddRange(names);
-    }
-
-    public void SetLanguage(string langCode)
-    {
-        _data.SetLanguage(langCode);
-    }
-
-    public string GetLanguage()
-    {
-        return _data.GetLanguage();
+        _data.Name = name;
     }
 }

@@ -33,15 +33,4 @@ public class TaskNode : Node
             DataAllocation.Add(dataName, null);
         });
     }
-
-    public override string GetLanguage()
-    {
-        return Task.GetLanguage();
-    }
-
-    public override void SetLanguage(string langCode)
-    {
-        Task.SetLanguage(langCode);
-        Update();
-    }
 }

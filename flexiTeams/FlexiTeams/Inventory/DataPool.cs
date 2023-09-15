@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace FlexiTeams.Inventory;
 
-public class DataPool : IEnumerable<Data>, ILanguageObject
+public class DataPool : IEnumerable<Data>
 {
     public List<Data> List
     {
@@ -78,22 +78,5 @@ public class DataPool : IEnumerable<Data>, ILanguageObject
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
-    }
-
-    private string _langCode = "";
-    public void SetLanguage(string langCode)
-    {
-        if(! ISO_639_1.IsValidCode(langCode)) return;
-        _langCode = langCode;
-        
-        foreach (var pair in this)
-        {
-            pair.SetLanguage(_langCode);
-        }
-    }
-
-    public string GetLanguage()
-    {
-        return _langCode;
     }
 }

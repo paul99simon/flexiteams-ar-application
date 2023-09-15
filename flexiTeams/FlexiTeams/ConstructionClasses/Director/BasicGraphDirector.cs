@@ -12,8 +12,6 @@ namespace FlexiTeams.ConstructionClasses.Diretor;
 
 public class BasicGraphDirector
 {
-    private const string _lang = "en";
-
     private static  Dictionary<string, Dictionary<int, TaskNode>> map = new();
     private static  Dictionary<string, TaskNode> tMap = new();
     private static  Dictionary<string, WorkflowNode> wMap = new();
@@ -83,7 +81,6 @@ public class BasicGraphDirector
                 wBuilder.Set(GetWorkflowId(workflowId));
                 wBuilder.Set(GetTypes(type));
                 wBuilder.Set(GetVenues(venue));
-                wBuilder.SetLanguage(_lang);
 
                 //task properties
                 string taskId = "TASK_" + tCount;
@@ -98,7 +95,6 @@ public class BasicGraphDirector
                 tBuilder.Set(GetDuration(duration));
                 tBuilder.Set(GetProfessions(professions));
                 tBuilder.Set(GetDataNames(dataNames));
-                tBuilder.SetLanguage(_lang);
 
                 var w = wBuilder.GetWorkflow();
                 var t = tBuilder.GetTask();
@@ -131,7 +127,6 @@ public class BasicGraphDirector
                 tBuilder.Set(GetDuration(duration));
                 tBuilder.Set(GetProfessions(professions));
                 tBuilder.Set(GetDataNames(dataNames));
-                tBuilder.SetLanguage(_lang);
 
                 var t = tBuilder.GetTask();
                 var tNode = new TaskNode(t);
@@ -145,45 +140,30 @@ public class BasicGraphDirector
                 {
                     return new WorkflowId(workflowId);
                 }
-                private static Dictionary<string, WorkflowType> GetTypes(string type)
+                private static WorkflowType GetTypes(string type)
                 {
-                    var temp = new Dictionary<string, WorkflowType>
-                    {
-                        { _lang, new WorkflowType(type) }
-                    };
-
-                    return temp;
+                    return new WorkflowType(type);
                 }
-                private static Dictionary<string, Venue> GetVenues(string venue)
+                private static Venue GetVenues(string venue)
                 {
-                    var temp = new Dictionary<string, Venue>
-                    {
-                        { _lang, new Venue(venue) }
-                    };
-
-                    return temp;
+                    return new Venue(venue);
                 }
                 private static TaskId GetTaskId(string taskId)
                 {
                     return new TaskId(taskId);
                 }
-                private static Dictionary<string, TaskType> GetTaskTypes(string type)
+                private static TaskType GetTaskTypes(string type)
                 {
-                    Dictionary<string, TaskType> temp = new()
-                    {
-                        { _lang, new TaskType(type) }
-                    };
-
-                    return temp;
+                    return new TaskType(type);
                 }
                 private static Duration? GetDuration(string duration)
                 {
                     if (duration.Equals("")) return null;
                     return new Duration(int.Parse(duration));
                 }
-                private static Dictionary<string, List<Profession>> GetProfessions(string professions)
+                private static List<Profession> GetProfessions(string professions)
                 {
-                    Dictionary<string, List<Profession>> result = new();
+                    var result = new List<Profession>();
 
                     string[] temp = professions.Split(',');
 
@@ -191,24 +171,21 @@ public class BasicGraphDirector
                     {
                         s.Trim('"', ' ');
 
-                        if (!result.ContainsKey(_lang)) result.Add(_lang, new List<Profession>());
-                        result[_lang].Add(new Profession(s));
+                        result.Add(new Profession(s));
                     }
 
                     return result;
                 }
-                private static Dictionary<string, List<DataName>> GetDataNames(string dataNames)
+                private static List<DataName> GetDataNames(string dataNames)
                 {
-                    Dictionary<string, List<DataName>> result = new();
+                    var result = new List<DataName>();
 
                     string[] temp = dataNames.Split(',');
 
                     foreach (string s in temp)
                     {
                         s.Trim('"', ' ');
-
-                        if (!result.ContainsKey(_lang)) result.Add(_lang, new List<DataName>());
-                        result[_lang].Add(new DataName(s));
+                        result.Add(new DataName(s));
                     }
 
                     return result;
@@ -294,7 +271,7 @@ public class BasicGraphDirector
 
                 if (wNode.Workflow.Venue != null)
                 {
-                    tNode.Task.Add(_lang, wNode.Workflow.Venue);
+                    tNode.Task.Venue = wNode.Workflow.Venue;
                 }
                 d += tNode.Task.Duration;
             }

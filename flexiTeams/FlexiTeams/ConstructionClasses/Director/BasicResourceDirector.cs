@@ -15,7 +15,6 @@ public class BasicResourceDirector
         builder.Set(GetAge());
         builder.Set(GetFirstNames());
         builder.Set(GetLastNames());
-        builder.Set(GetMaritalStates());
         builder.Set(GetProfessions());
         builder.Set(GetDepartments());
         builder.Set(GetWeeklyHours());
@@ -27,8 +26,11 @@ public class BasicResourceDirector
         var photos = GetPhotos();
         if(photos != null) builder.Set(photos);
 
+        var maritalState = GetMaritalState();
+        if (maritalState != null) builder.Set(maritalState); 
+
         var children = GetChildren();
-        if(children != null) builder.Set(children);
+        if (children != null) builder.Set(children);
 
         var stressors = GetStressors();
         if(stressors != null) builder.Set(stressors);
@@ -134,20 +136,10 @@ public class BasicResourceDirector
             
             return temp;
         }
-        Dictionary<string, MaritalState> GetMaritalStates()
+        MaritalState? GetMaritalState()
         {
-            var nodes = resource.SelectNodes("maritalStatus");
-            var temp = new Dictionary<string, MaritalState>();
-            
-            foreach (XmlNode node in nodes)
-            {
-                string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                string value = node.InnerText;
-                
-                temp.Add(lang, new MaritalState(value));
-            }
-            
-            return temp;
+            var node = resource.SelectSingleNode("maritalStatus");
+            return node is null ? null : new MaritalState(node.InnerText);
         }
         List<Child>? GetChildren()
         {
@@ -165,77 +157,58 @@ public class BasicResourceDirector
             }
             return temp.Any() ? temp : null;
         }
-        Dictionary<string, List<Stressor>>? GetStressors()
+        List<Stressor> GetStressors()
         {
             var nodes = resource.SelectNodes("stressor");
-            var temp = new Dictionary<string, List<Stressor>>();
+            var temp = new List<Stressor>();
             
-            if (nodes != null)
+            foreach (XmlNode node in nodes)
             {
-                foreach (XmlNode node in nodes)
-                {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                    string value = node.InnerText;
-                    
-                    if (!temp.ContainsKey(lang))
-                    {
-                        temp.Add(lang, new List<Stressor>());
-                    }
-                    temp[lang].Add(new Stressor(value));
-                }
+                string value = node.InnerText;
+                temp.Add(new Stressor(value));
             }
-            return temp.Any() ? temp : null;
+            
+            return temp;
         }
-        Dictionary<string, List<PersonalInfo>>? GetPersonalInfos()
+        List<PersonalInfo> GetPersonalInfos()
         {
             var nodes = resource.SelectNodes("personalInfo");
-            var temp = new Dictionary<string, List<PersonalInfo>>();
+            var temp = new List<PersonalInfo>();
 
-            if (nodes != null)
+            foreach (XmlNode node in nodes)
             {
-                foreach (XmlNode node in nodes)
-                {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                    string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<PersonalInfo>());
-                    temp[lang].Add(new PersonalInfo(value));
-                }
+                string value = node.InnerText;
+                temp.Add(new PersonalInfo(value));
             }
-            return temp.Any() ? temp : null;
+            
+            return temp;
         }
-        Dictionary<string, List<Profession>> GetProfessions()
+        List<Profession> GetProfessions()
         {
             var nodes = resource.SelectNodes("profession");
-            var temp = new Dictionary<string, List<Profession>>();
+            var temp = new List<Profession>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
                     string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Profession>()); 
-                    temp[lang].Add(new Profession(value));
+                    temp.Add(new Profession(value));
                 }
             }
             return temp;
         }
-        Dictionary<string, List<Department>> GetDepartments()
+        List<Department> GetDepartments()
         {
             var nodes = resource.SelectNodes("department");
-            var temp = new Dictionary<string, List<Department>>();
+            var temp = new List<Department>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
                     string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Department>());
-                    temp[lang].Add(new Department(value));
+                    temp.Add(new Department(value));
                 }
             }
             return temp;
@@ -282,40 +255,35 @@ public class BasicResourceDirector
 
             return new YearlyEducation((int)timespan.TotalDays);
         }
-        Dictionary<string, List<Training>>? GetTrainings()
+        List<Training> GetTrainings()
         {
             var nodes = resource.SelectNodes("training");
-            var temp = new Dictionary<string, List<Training>>();
+            var temp = new List<Training>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
                     string value = node.InnerText;
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Training>());
-                    temp[lang].Add(new Training(value));
+                    temp.Add(new Training(value));
                 }
             }
-            return temp.Any() ? temp : null;
+            return temp;
         }
-        Dictionary<string, List<Qualification>>? GetQualifications()
+        List<Qualification> GetQualifications()
         {
             var nodes = resource.SelectNodes("qualification");
-            var temp = new Dictionary<string, List<Qualification>>();
+            var temp = new List<Qualification>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
                     string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Qualification>());
-                    temp[lang].Add(new Qualification(value));
+                    temp.Add(new Qualification(value));
                 }
             }
-            return temp.Any() ? temp : null;
+            return temp;
         }
         List<TimeInterval>[] GetWorkAgreement()
         {
@@ -345,42 +313,32 @@ public class BasicResourceDirector
             }
             return temp;
         }
-        Dictionary<string, List<Studies>>? GetStudies()
+        List<Studies> GetStudies()
         {
             var nodes = resource.SelectNodes("studies");
-            var temp = new Dictionary<string, List<Studies>>();
+            var temp = new List<Studies>();
 
-            if (nodes != null)
+            foreach (XmlNode node in nodes)
             {
-                foreach (XmlNode node in nodes)
-                {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                    string name = node.SelectSingleNode("name").InnerText;
-                    string location = node.SelectSingleNode("location").InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Studies>());
-                    temp[lang].Add(new Studies(name, location));
-                }
+                string name = node.SelectSingleNode("name").InnerText;
+                string location = node.SelectSingleNode("location").InnerText;
+                temp.Add(new Studies(name, location));
             }
-            return temp.Any() ? temp : null;
+
+            return temp;
         }
-        Dictionary<string, List<AdditionalJob>>? GetAdditionalJobs()
+        List<AdditionalJob> GetAdditionalJobs()
         {
             var nodes = resource.SelectNodes("additionalJob");
-            var temp = new Dictionary<string, List<AdditionalJob>>();
+            var temp = new List<AdditionalJob>();
 
-            if (nodes != null)
-            {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
                     string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<AdditionalJob>());
-                    temp[lang].Add(new AdditionalJob(value));
+                    temp.Add(new AdditionalJob(value));
                 }
-            }
-            return temp.Any() ? temp : null;
+            
+            return temp;
         }
         ArrivalTime? GetArrivalTime()
         {
@@ -389,75 +347,63 @@ public class BasicResourceDirector
 
             return new ArrivalTime((int)timespan.TotalMinutes);
         }
-        Dictionary<string, List<Vehicle>>? GetMeansOfTransport()
+        List<Vehicle> GetMeansOfTransport()
         {
             var nodes = resource.SelectNodes("meansOfTransport");
-            var temp = new Dictionary<string, List<Vehicle>>();
+            var temp = new List<Vehicle>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
                     string value = node.InnerText;
-                    
-                    if(!temp.ContainsKey(lang)) temp.Add(lang, new List<Vehicle>());
-                    temp[lang].Add(new Vehicle(value));
-                }
-            }
-            return temp.Any() ? temp : null;
-        }
-        Dictionary<string, List<ProfessionalInfo>>? GetProfessionalInfos()
-        {
-            var nodes = resource.SelectNodes("professionalInfo");
-            var temp = new Dictionary<string, List<ProfessionalInfo>>();
-
-            if (nodes != null)
-            {
-                foreach (XmlNode node in nodes)
-                {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                    string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<ProfessionalInfo>());
-                    temp[lang].Add(new ProfessionalInfo(value));
-                }
-            }
-            return temp.Any() ? temp : null;
-        }
-        Dictionary<string, List<Skill>> GetSkills()
-        {
-            var nodes = resource.SelectNodes("skill");
-            var temp = new Dictionary<string, List<Skill>>();
-
-            if (nodes != null)
-            {
-                foreach (XmlNode node in nodes)
-                {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
-                    string value = node.InnerText;
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Skill>());
-                    temp[lang].Add(new Skill(value));
+                    temp.Add(new Vehicle(value));
                 }
             }
             return temp;
         }
-        Dictionary<string, List<Trait>> GetTraits()
+        List<ProfessionalInfo> GetProfessionalInfos()
         {
-            var nodes = resource.SelectNodes("trait");
-            var temp = new Dictionary<string, List<Trait>>();
+            var nodes = resource.SelectNodes("professionalInfo");
+            var temp = new List<ProfessionalInfo>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string lang = node.Attributes.GetNamedItem("xml:lang").InnerText;
+                    string value = node.InnerText;
+                    temp.Add(new ProfessionalInfo(value));
+                }
+            }
+            return temp;
+        }
+        List<Skill> GetSkills()
+        {
+            var nodes = resource.SelectNodes("skill");
+            var temp = new List<Skill>();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    string value = node.InnerText;
+                    temp.Add(new Skill(value));
+                }
+            }
+            return temp;
+        }
+        List<Trait> GetTraits()
+        {
+            var nodes = resource.SelectNodes("trait");
+            var temp = new List<Trait>();
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
                     string name = node.SelectSingleNode("name").InnerText;
                     int value = int.Parse(node.SelectSingleNode("value").InnerText);
-                    
-                    if(! temp.ContainsKey(lang)) temp.Add(lang, new List<Trait>());
-                    temp[lang].Add(new Trait(new KeyValuePair<string, int>(name, value)));
+                    temp.Add(new Trait(new KeyValuePair<string, int>(name, value)));
                 }
             }
             return temp;

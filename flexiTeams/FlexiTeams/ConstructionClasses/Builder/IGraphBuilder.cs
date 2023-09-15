@@ -11,5 +11,4 @@ public interface IGraphBuilder
     public void SetControllFlow(ITaskBuilder taskBuilder);
     public void SetDataNodes(IDataBuilder dataBuilder);
     public void SetResourceNodes(IResourceBuilder builder);
-    
 }

@@ -24,149 +24,112 @@ public class BasicResourceBuilder : IResourceBuilder
     {
         _resource.Id = id;
     }
-    
     public void Set(List<Photo> photos)
     {
-        _resource.Photos = photos;
+        _resource.Photos.AddRange(photos);
     }
-
     public void Set(Age age)
     {
         _resource.Age = age;
     }
-
     public void Set(Prefix prefix)
     {
         _resource.Prefix = prefix;
     }
-
     public void Set(List<FirstName> firstNames)
     {
-        _resource.FirstNames = firstNames;
+        _resource.FirstNames.AddRange(firstNames);
     }
-
     public void Set(List<LastName> lastName)
     {
-        _resource.LastNames = lastName;
+        _resource.LastNames.AddRange(lastName);
     }
-
-    public void Set(Dictionary<string, MaritalState> maritalStates)
+    public void Set(MaritalState maritalState)
     {
-        _resource.AddRange(maritalStates);
+        _resource.MaritalState = maritalState;
     }
-
     public void Set(List<Child> children)
     {
-        _resource.Children = children;
+        _resource.Children.AddRange(children);
     }
-
-    public void Set(Dictionary<string, List<Stressor>> stressors)
+    public void Set(List<Stressor> stressors)
     {
-        _resource.AddRange(stressors);
+        _resource.Stressors.AddRange(stressors);
     }
-
-    public void Set(Dictionary<string, List<PersonalInfo>> personalInfos)
+    public void Set(List<PersonalInfo> personalInfos)
     {
-        _resource.AddRange(personalInfos);
+        _resource.PersonalInfos.AddRange(personalInfos);
     }
-
-    public void Set(Dictionary<string, List<Profession>> professions)
+    public void Set(List<Profession> professions)
     {
-        _resource.AddRange(professions);
+        _resource.Professions.AddRange(professions);
     }
-
-    public void Set(Dictionary<string, List<Department>> departments)
+    public void Set(List<Department> departments)
     {
-        _resource.AddRange(departments);
+        _resource.Departments.AddRange(departments);
     }
-
     public void Set(WorkExperience workExperience)
     {
         _resource.WorkExperience = workExperience;
     }
-
     public void Set(TrainingDuration trainingDuration)
     {
         _resource.TrainingDuration = trainingDuration;
     }
-
     public void Set(WeeklyHours weeklyHours)
     {
         _resource.WeeklyHours = weeklyHours;
     }
-
     public void Set(Overtime overtime)
     {
         _resource.Overtime = overtime;
     }
-
     public void Set(YearlyTimeOf yearlyTimeOf)
     {
         _resource.YearlyTimeOf = yearlyTimeOf;
     }
-
     public void Set(YearlyEducation yearlyEducation)
     {
         _resource.YearlyEducation = yearlyEducation;
     }
-
-    public void Set(Dictionary<string, List<Training>> trainings)
+    public void Set(List<Training> trainings)
     {
-        _resource.AddRange(trainings);
+        _resource.Trainings.AddRange(trainings);
     }
-
-    public void Set(Dictionary<string, List<Qualification>> qualifications)
+    public void Set(List<Qualification> qualifications)
     {
-        _resource.AddRange(qualifications);
+        _resource.Qualifications.AddRange(qualifications);
     }
-
     public void Set(List<TimeInterval>[] workAgreement)
     {
         _resource.AddRange(workAgreement);
     }
-
-    public void Set(Dictionary<string, List<Studies>> studies)
+    public void Set(List<Studies> studies)
     {
-        _resource.AddRange(studies);
+        _resource.Studies.AddRange(studies);
     }
-
-    public void Set(Dictionary<string, List<AdditionalJob>> additionalJobs)
+    public void Set(List<AdditionalJob> additionalJobs)
     {
-        _resource.AddRange(additionalJobs);
+        _resource.AdditionalJobs.AddRange(additionalJobs);
     }
-
     public void Set(ArrivalTime arrivalTime)
     {
         _resource.ArrivalTime = arrivalTime;
     }
-
-    public void Set(Dictionary<string, List<Vehicle>> meansOfTransport)
+    public void Set(List<Vehicle> meansOfTransport)
     {
-        _resource.AddRange(meansOfTransport);
+        _resource.MeansOfTransport.AddRange(meansOfTransport);
     }
-
-    public void Set(Dictionary<string, List<ProfessionalInfo>> professionalInfos)
+    public void Set(List<ProfessionalInfo> professionalInfos)
     {
-        _resource.AddRange(professionalInfos);
+        _resource.ProfessionalInfos.AddRange(professionalInfos);
     }
-
-    public void Set(Dictionary<string, List<Skill>> skills)
+    public void Set(List<Skill> skills)
     {
-        _resource.AddRange(skills);
+        _resource.Skills.AddRange(skills);
     }
-
-    public void Set(Dictionary<string, List<Trait>> traits)
+    public void Set(List<Trait> traits)
     {
-        _resource.AddRange(traits);
-    }
-
-    public void SetLanguage(string langCode)
-    {
-        _resource.SetLanguage(langCode);
-    }
-
-    public string GetLanguage()
-    {
-        return _resource.GetLanguage();
+        _resource.Traits.AddRange(traits);
     }
 }

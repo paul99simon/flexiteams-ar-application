@@ -6,7 +6,6 @@ namespace FlexiTeams.ConstructionClasses.Builder;
 
 public class BasicWorkflowBuilder : IWorkflowBuilder
 {
-
     private Workflow _workflow = new();
 
     public Workflow GetWorkflow()
@@ -16,7 +15,6 @@ public class BasicWorkflowBuilder : IWorkflowBuilder
         Reset();
         return temp;
     }
-
     public void Reset()
     {
         _workflow = new Workflow();
@@ -26,34 +24,20 @@ public class BasicWorkflowBuilder : IWorkflowBuilder
     {
         _workflow.Id = id;
     }
-
-    public void Set(Dictionary<string, WorkflowType> types)
+    public void Set(WorkflowType type)
     {
-        _workflow.AddRange(types);
+        _workflow.Type = type;
     }
-
     public void Set(Duration duration)
     {
         _workflow.Duration = duration;
     }
-
-    public void Set(Dictionary<string, Venue> venues)
+    public void Set(Venue venues)
     {
-        _workflow.AddRange(venues);
+        _workflow.Venue = venues;
     }
-
     public void Set(Procedures procedures)
     {
         _workflow.Procedures = procedures;
-    }
-    
-    public void SetLanguage(string langCode)
-    {
-        _workflow.SetLanguage(langCode);
-    }
-
-    public string GetLanguage()
-    {
-        return _workflow.GetLanguage();
     }
 }
