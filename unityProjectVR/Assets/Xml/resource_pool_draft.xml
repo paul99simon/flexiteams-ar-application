@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<resourcePool   
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="resource_pool.xsd">
+    
+    <resource xml:id="RESOURCE_1">
+        <!--Personal Background-->
+        <photo>
+            <URI>../images/Resource_1.jpg</URI>
+        </photo>
+        <age>P32Y</age>
+        <firstName>Anna</firstName>
+        <lastName>Schmidt</lastName>
+        <maritalStatus xml:lang="de">Verheiratet</maritalStatus>
+        <child>
+            <age>P5Y</age>
+        </child>
+        <child>
+            <age>P3Y</age>
+        </child>
+        <personalInfo xml:lang="de">Beide Kinder gehen in die Krankenhaus-Kita</personalInfo>
+        <!--Professional Background-->
+        <profession xml:lang="de">Stationsschwester</profession>
+        <department xml:lang="de">Onkologie</department>
+        <workExperience>P13Y</workExperience>
+        <trainingDuration>P3Y</trainingDuration>
+        <weeklyHours>PT35H</weeklyHours>
+        <overtime>PT50H</overtime>
+        <yearlyTimeOf>P28D</yearlyTimeOf>
+        <yearlyEducation>P5D</yearlyEducation>
+        <training xml:lang="de">Notfall Medizin</training>
+        <training xml:lang="de">Anästhesie</training>
+        <qualification xml:lang="de">Ausbildung als Labortechnikerin</qualification>
+        <workAgreement>0-22:00-06:00</workAgreement>
+        <workAgreement>1-22:00-06:00</workAgreement>
+        <workAgreement>2-22:00-06:00</workAgreement>
+        <workAgreement>3-22:00-06:00</workAgreement>
+        <workAgreement>4-22:00-06:00</workAgreement>
+        <workAgreement>0-06:00-12:00</workAgreement>
+        <workAgreement>1-06:00-12:00</workAgreement>
+        <workAgreement>2-06:00-12:00</workAgreement>
+        <workAgreement>3-06:00-12:00</workAgreement>
+        <workAgreement>4-06:00-12:00</workAgreement>
+        <studies xml:lang="de">
+            <name>berufsbegleitendes Studium der Medizin</name>
+            <location>Mainz</location>
+        </studies>
+        <additionalJob xml:lang="de">
+            <name>Mitglied im Personalrat</name>
+        </additionalJob>
+        <arrivalTime>PT20M</arrivalTime>
+        <meansOfTransport xml:lang="de">öffentliche Verkehrsmittel</meansOfTransport>
+        <meansOfTransport xml:lang="de">Fahrrad</meansOfTransport>
+
+        <!--Skills-->
+        <skill xml:lang="de">Medikamentierung</skill>
+        <skill xml:lang="de">Diagn. Schnelltest</skill>
+        <skill xml:lang="de">Dokumentation</skill>
+        
+        <!--Character Traits-->
+        <trait xml:lang="de">
+            <name>Zuverlässigkeit</name>
+            <value>85</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Entscheidungsvermögen</name>
+            <value>25</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Belastungsfähigkeit</name>
+            <value>65</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Veränderungsbereitschaft</name>
+            <value>85</value>
+        </trait>
+    </resource>
+    <resource xml:id="RESOURCE_2">
+        <!--Personal Background-->
+        <photo>
+            <URI>..\\images\\Resource_2.jpg</URI>
+        </photo>
+        <age>P41Y</age>
+        <firstName>Erika</firstName>
+        <lastName>Müller</lastName>
+        <maritalStatus xml:lang="de">Verheiratet</maritalStatus>
+        <child>
+            <age>P11Y</age>
+        </child>
+        <stressor xml:lang="de">Pflege der kranken Eltern</stressor>
+        
+        <!--Professional Background-->
+        <profession xml:lang="de">Oberärztin</profession>
+        <department xml:lang="de">Onkologie</department>
+        <workExperience>P14Y</workExperience>
+        <trainingDuration>P10Y</trainingDuration>
+        <weeklyHours>PT20H</weeklyHours>
+        <overtime>PT150H</overtime>
+        <yearlyTimeOf>P20D</yearlyTimeOf>
+        <yearlyEducation>P10D</yearlyEducation>
+        <workAgreement>0-06:00-12:00</workAgreement>
+        <workAgreement>1-06:00-12:00</workAgreement>
+        <workAgreement>2-06:00-12:00</workAgreement>
+        <workAgreement>3-06:00-12:00</workAgreement>
+        <workAgreement>4-06:00-12:00</workAgreement>
+        <workAgreement>5-06:00-12:00</workAgreement>
+        <workAgreement>6-06:00-12:00</workAgreement>
+        <additionalJob xml:lang="de">
+            <name>Wissenschaftlicher Beirat</name>
+            <yearlyRequiredDays>P5D</yearlyRequiredDays>
+        </additionalJob>
+        <arrivalTime>PT30M</arrivalTime>
+
+        <!--Skills-->
+        <skill xml:lang="de">Tumorentfernung</skill>
+        <skill xml:lang="de">Anamese</skill>
+        <skill xml:lang="de">Nachkontrolle</skill>
+        <skill xml:lang="de">Dokumetation</skill>
+        
+        <!--Character Traits-->
+        <trait xml:lang="de">
+            <name>Zuverlässigkeit</name>
+            <value>85</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Entscheidungsvermögen</name>
+            <value>95</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Belastungsfähigkeit</name>
+            <value>30</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Veränderungsbereitschaft</name>
+            <value>10</value>
+        </trait>
+    </resource>
+    <resource xml:id="RESOURCE_3">
+        <!--Personal Background-->
+        <photo>
+            <URI>..\\images\\Resource_3.jpg</URI>
+        </photo>
+        <age>P48Y</age>
+        <firstName>Hilde</firstName>
+        <lastName>Mayer</lastName>
+        <maritalStatus xml:lang="de">Geschieden</maritalStatus>
+        <child>
+            <age>P21Y</age>
+        </child>
+        
+        <!--Professional Background-->
+        <profession xml:lang="de">Verwaltungsfachangestellte</profession>
+        <department xml:lang="de">Onkologie</department>
+        <department xml:lang="de">Geriatrie</department>
+        <workExperience>P35Y</workExperience>
+        <trainingDuration>P3Y</trainingDuration>
+        <weeklyHours>PT15H</weeklyHours>
+        <overtime>PT10H</overtime>
+        <yearlyTimeOf>P18D</yearlyTimeOf>
+        <yearlyEducation>P3D</yearlyEducation>
+        <workAgreement>0-06:00-12:00</workAgreement>
+        <workAgreement>1-06:00-12:00</workAgreement>
+        <workAgreement>2-06:00-12:00</workAgreement>
+        <arrivalTime>PT35M</arrivalTime>
+
+        <!--Skills-->
+        <skill xml:lang="de">Schichtplanerstellung</skill>
+        <skill xml:lang="de">Registratur</skill>
+        <skill xml:lang="de">SAP-Abrechnungssystem Medikamente</skill>
+        
+        <!--Character Traits-->
+        <trait xml:lang="de">
+            <name>Zuverlässigkeit</name>
+            <value>90</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Entscheidungsvermögen</name>
+            <value>15</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Belastungsfähigkeit</name>
+            <value>15</value>
+        </trait>
+        <trait xml:lang="de">
+            <name>Veränderungsbereitschaft</name>
+            <value>10</value>
+        </trait>
+    </resource>
+</resourcePool>
