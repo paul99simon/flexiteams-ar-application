@@ -24925,19 +24925,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978323999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c182d3c2beb22f48a3c8152c280adf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4335f1daccc7c6342b5a796de0175196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   workflow3D: {fileID: 1978323999}
   workflowSpacing: 1
-  taskDimensions: {x: 0.2, y: 0.1, z: 0.01}
-  taskSpacing: {x: 0.1, y: 0.1}
+  taskDimensions: {x: 0.2, y: 0.1, z: 0.05}
+  taskSpacing: {x: 0.2, y: 0.2}
   edgeWidth: 0.01
   path: Assets/Csv/workflows.csv
   fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   fontStyles: 0
   fontSize: 0.2
-  vertexColor: {r: 1, g: 1, b: 1, a: 1}
+  vertexColor: {r: 0, g: 0, b: 0, a: 1}
   taskMaterial: {fileID: 2100000, guid: c03dc79215888d941ac7269258762ed6, type: 2}
   edgeMaterial: {fileID: 2100000, guid: 9fb49737cfd4d0849bb0c37e5dbf7f56, type: 2}
 --- !u!4 &1978324001
