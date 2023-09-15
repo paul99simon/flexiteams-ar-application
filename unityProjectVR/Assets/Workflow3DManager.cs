@@ -36,7 +36,7 @@ public class Workflow3DManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("this variable represents the Thickness of edges")]
-    private float edgeThickness;
+    private float edgeWidth;
 
     [Space(5)]
     [Header("Csv Path")]
@@ -207,14 +207,40 @@ public class Workflow3DManager : MonoBehaviour
 
         foreach(var edge in layout.Edges)
         {
+            float sourceX = RoundAndConvert(edge.SourcePort.Location.X);
+            float sourceY = RoundAndConvert(edge.SourcePort.Location.Y);
+            float targetX = RoundAndConvert(edge.TargetPort.Location.X);
+            float targetY = RoundAndConvert(edge.TargetPort.Location.Y);
 
-            float targetX = RoundAndConvert(edge.EdgeGeometry.TargetPort.Location.X);
-            float targetY = RoundAndConvert(edge.EdgeGeometry.TargetPort.Location.Y);
+            float xPos = (sourceX + targetX) / 2;
+            float yPos = (sourceY + targetY) / 2;
 
-            float sourceX = RoundAndConvert(edge.EdgeGeometry.SourcePort.Location.X);
-            float sourceY = RoundAndConvert(edge.EdgeGeometry.SourcePort.Location.Y);
+            float edgeLength = (targetX - sourceX) - taskDimensions.x;
+            float edgeHeigth = (sourceY - targetY);
 
-            Debug.Log("(" + sourceX + ", " + sourceY + "), (" + targetX + ", " + targetY + ")");
+            var sourcePort = new Vector3(0,0,0);
+            var targetPort = new Vector3(0,0,0);
+
+            var frontLinePositions = new Vector3[]
+            {
+                new Vector3(-edgeLength /2 , edgeHeigth / 2, 0),
+                new Vector3(0, edgeHeigth / 2, 0),
+                new Vector3(0, - edgeHeigth / 2, 0),
+                new Vector3(edgeLength / 2, -edgeHeigth/2 ,  0)
+            };
+
+            var backLinePositions = new Vector3[]
+            {
+                new Vector3(edgeLength /2 , edgeHeigth / 2, 0),
+                new Vector3(0, edgeHeigth / 2, 0),
+                new Vector3(0, - edgeHeigth / 2, 0),
+                new Vector3(-edgeLength / 2, -edgeHeigth/2 ,  0)
+            };
+
+            var edgeObject = CreateEdgeObject(edge, frontLinePositions, backLinePositions);
+
+            edgeObject.transform.SetParent(workflowObject.transform, false);
+            edgeObject.transform.SetLocalPositionAndRotation(new Vector3(xPos, yPos, 0), Quaternion.identity);
         }
 
         return workflowObject;
@@ -244,7 +270,7 @@ public class Workflow3DManager : MonoBehaviour
 
         //RectTansform
         var tranform = textObject.AddComponent<RectTransform>();
-        tranform.sizeDelta = new Vector2(taskDimensions.x, taskDimensions.y);
+        tranform.sizeDelta = new Vector2(taskDimensions.x - edgeWidth, taskDimensions.y);
 
         //TextMesh
         var textMesh = textObject.AddComponent<TextMeshPro>();
@@ -259,6 +285,51 @@ public class Workflow3DManager : MonoBehaviour
         textMesh.enableWordWrapping = true;
 
         return textObject;
+    }
+    private GameObject CreateEdgeObject(Edge edge, Vector3[] frontPositions, Vector3[] backPositions)
+    {
+        //GameObjects
+        var edgeObject = new GameObject("Edge");
+        var frontLineObject = new GameObject("Line");
+        var backLineObject = new GameObject("Line");
+
+        //Transform        
+        frontLineObject.transform.SetParent(edgeObject.transform, false);
+        backLineObject.transform.SetParent(edgeObject.transform, false);
+        frontLineObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+        backLineObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0, 180, 0)));
+
+        //FrontLineObject LineRenderer
+        var frontLineRenderer = frontLineObject.AddComponent<LineRenderer>();
+        frontLineRenderer.positionCount = 4;
+        frontLineRenderer.SetPositions(frontPositions);
+        frontLineRenderer.alignment = LineAlignment.TransformZ;
+        frontLineRenderer.useWorldSpace = false;
+        frontLineRenderer.material = edgeMaterial;
+
+        AnimationCurve frontCurve = new AnimationCurve();
+        frontCurve.AddKey(0, edgeWidth);
+        frontCurve.AddKey(1, edgeWidth);
+        frontLineRenderer.widthCurve = frontCurve;
+        frontLineRenderer.numCapVertices = 5;
+        frontLineRenderer.numCornerVertices = 5;
+
+        //backLineObject LineRenderer
+        var backLineRenderer = backLineObject.AddComponent<LineRenderer>();
+        backLineRenderer.positionCount = 4;
+        backLineRenderer.SetPositions(backPositions);
+        backLineRenderer.alignment = LineAlignment.TransformZ;
+        backLineRenderer.useWorldSpace = false;
+        backLineRenderer.material = edgeMaterial;
+
+        AnimationCurve backCurve = new AnimationCurve();
+        backCurve.AddKey(0, edgeWidth);
+        backCurve.AddKey(1, edgeWidth);
+        backLineRenderer.widthCurve = backCurve;
+        backLineRenderer.numCapVertices = 5;
+        backLineRenderer.numCornerVertices = 5;
+
+        return edgeObject;
     }
 
     //----------------------------------------------------------------
