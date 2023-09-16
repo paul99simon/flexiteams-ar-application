@@ -1,14 +1,14 @@
-using FlexiTeams.DataClasses.Workflow;
+using FlexiTeams.DataClasses.Workflow.Wrapper;
 
 namespace FlexiTeams.Graph.Nodes;
 
 public class WorkflowNode : Node
 {
-    public Workflow Workflow { get; }
+    public WorkflowId Id { get; }
     public TaskNode? StartNode { get; set; }
 
-    public WorkflowNode(Workflow workflow)
+    public WorkflowNode(WorkflowId id)
     {
-        Workflow = workflow;
+        Id = id;
     }
 }

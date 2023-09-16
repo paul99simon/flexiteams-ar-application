@@ -16,7 +16,7 @@ public class BasicResourceDirectorTest
         //Arrange
         var builder = new BasicResourceBuilder();
         var doc = new XmlDocument();
-        doc.Load("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/resourcePools/resource_pool_draft.xml");
+        doc.Load("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/resource_pool_draft.xml");
         var node = doc.DocumentElement.SelectSingleNode("//resourcePool/resource");
 
         //Act

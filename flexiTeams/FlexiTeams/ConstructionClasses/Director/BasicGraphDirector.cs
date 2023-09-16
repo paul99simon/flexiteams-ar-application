@@ -6,31 +6,41 @@ using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
+using FlexiTeams.Inventory;
+using FlexiTeams.Util.EqualityComperator;
 using System.Globalization;
 
 namespace FlexiTeams.ConstructionClasses.Diretor;
 
 public class BasicGraphDirector
 {
-    private static  Dictionary<string, Dictionary<int, TaskNode>> map = new();
-    private static  Dictionary<string, TaskNode> tMap = new();
-    private static  Dictionary<string, WorkflowNode> wMap = new();
+    private static  Dictionary<WorkflowId, Dictionary<int, TaskNode>> map = new(new WorkflowIdEqualityComparer());
+    private static  Dictionary<TaskId, TaskNode> tMap = new(new TaskIdEqualityComparer());
+    private static  Dictionary<WorkflowId, WorkflowNode> wMap = new(new WorkflowIdEqualityComparer());
+
+    private static WorkFlowPool _wPool;
+    private static TaskPool _tPool;
 
     private static WorkflowNode currentNode = null;
 
-    public static void ConstructFromCsv(string path, AdjListsGraph graph, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
+    public static void ConstructFromCsv(string path, AdjListsGraph graph, WorkFlowPool wPool, TaskPool tPool, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
     {
+        _wPool = wPool;
+        _tPool = tPool;
         GetNodes(path, graph, wBuilder, tBuilder);
         GetEdges(path, graph);
         CalcProperties(graph);
 
         Reset();
     }
-    public static AdjListsGraph ConstructFromCsv(string path)
+    public static AdjListsGraph ConstructFromCsv(string path, WorkFlowPool wPool, TaskPool tPool)
     {
         var graph = new AdjListsGraph();
         var wBuilder = new BasicWorkflowBuilder();
         var tBuilder = new BasicTaskBuilder();
+
+        _wPool = wPool;
+        _tPool = tPool;
 
         GetNodes(path, graph, wBuilder, tBuilder);
         GetEdges(path, graph);
@@ -43,9 +53,11 @@ public class BasicGraphDirector
     private static void Reset()
     {
         currentNode = null;
-        map = new();
-        tMap = new();
-        wMap = new();
+        map = new(new WorkflowIdEqualityComparer());
+        tMap = new(new TaskIdEqualityComparer());
+        wMap = new(new WorkflowIdEqualityComparer());
+        _wPool = null;
+        _tPool = null;
     }
 
 
@@ -98,19 +110,23 @@ public class BasicGraphDirector
 
                 var w = wBuilder.GetWorkflow();
                 var t = tBuilder.GetTask();
-                var wNode = new WorkflowNode(w);
-                var tNode = new TaskNode(t);
+                var wNode = new WorkflowNode(w.Id);
+
+                _wPool.Add(w);
+                _tPool.Add(t);
+
+                var tNode = new TaskNode(t.Id);
                 graph.AddNode(wNode);
                 graph.AddNode(tNode);
 
                 wNode.StartNode = tNode;
                 currentNode = wNode;
 
-                map.Add(wNode.Workflow.Id.ToString(), new Dictionary<int, TaskNode>());
-                map[wNode.Workflow.Id.ToString()].Add(int.Parse(taskNumber), tNode);
+                map.Add(wNode.Id, new Dictionary<int, TaskNode>());
+                map[wNode.Id].Add(int.Parse(taskNumber), tNode);
 
-                tMap.Add(tNode.Task.Id.ToString(), tNode);
-                wMap.Add(wNode.Workflow.Id.ToString(), wNode);
+                tMap.Add(tNode.Id, tNode);
+                wMap.Add(wNode.Id, wNode);
             }
             private static void GetTask(CsvReader reader, ITaskBuilder tBuilder, AdjListsGraph graph, int tCount)
             {
@@ -129,11 +145,14 @@ public class BasicGraphDirector
                 tBuilder.Set(GetDataNames(dataNames));
 
                 var t = tBuilder.GetTask();
-                var tNode = new TaskNode(t);
+                var tNode = new TaskNode(t.Id);
+
+                _tPool.Add(t);
+
                 graph.AddNode(tNode);
 
-                map[currentNode.Workflow.Id.ToString()].Add(int.Parse(taskNumber), tNode);
-                tMap.Add(tNode.Task.Id.ToString(), tNode);
+                map[currentNode.Id].Add(int.Parse(taskNumber), tNode);
+                tMap.Add(tNode.Id, tNode);
             }
 
                 private static WorkflowId GetWorkflowId(string workflowId)
@@ -212,8 +231,8 @@ public class BasicGraphDirector
                 workflowId = "WORKFLOW_" + wCount++;
                 taskId = "TASK_" + tCount++;
 
-                WorkflowNode wNode = wMap[workflowId];
-                TaskNode tNode = tMap[taskId];
+                WorkflowNode wNode = wMap[new WorkflowId(workflowId)];
+                TaskNode tNode = tMap[new TaskId(taskId)];
 
                 graph.AddEdge(tNode, wNode);
 
@@ -225,7 +244,7 @@ public class BasicGraphDirector
                     nextTasks[i] = nextTasks[i].Trim('"', ' ');
                     int taskNumber = int.Parse(nextTasks[i]);
 
-                    graph.AddEdge(tNode, map[workflowId][taskNumber]);
+                    graph.AddEdge(tNode, map[new WorkflowId(workflowId)][taskNumber]);
                 }
 
             }
@@ -233,8 +252,8 @@ public class BasicGraphDirector
             {
                 taskId = "TASK_" + tCount++;
 
-                WorkflowNode wNode = wMap[workflowId];
-                TaskNode tNode = tMap[taskId];
+                WorkflowNode wNode = wMap[new WorkflowId(workflowId)];
+                TaskNode tNode = tMap[new TaskId(taskId)];
 
                 graph.AddEdge(tNode, wNode);
 
@@ -248,7 +267,7 @@ public class BasicGraphDirector
                     if (!string.IsNullOrEmpty(nextTasks[i]))
                     {
                         int taskNumber = int.Parse(nextTasks[i]);
-                        graph.AddEdge(tNode, map[workflowId][taskNumber]);
+                        graph.AddEdge(tNode, map[new WorkflowId(workflowId)][taskNumber]);
                     }
 
                 }
@@ -269,15 +288,16 @@ public class BasicGraphDirector
             {
                 p++;
 
-                if (wNode.Workflow.Venue != null)
+                var venue = _wPool[wNode.Id].Venue;
+                if (venue != null)
                 {
-                    tNode.Task.Venue = wNode.Workflow.Venue;
+                    _tPool[tNode.Id].Venue = venue;
                 }
-                d += tNode.Task.Duration;
+                d += _tPool[tNode.Id].Duration;
             }
 
-            wNode.Workflow.Procedures = p;
-            wNode.Workflow.Duration = d; 
+            _wPool[wNode.Id].Procedures = p;
+            _wPool[wNode.Id].Duration = d; 
         }
     }
 }

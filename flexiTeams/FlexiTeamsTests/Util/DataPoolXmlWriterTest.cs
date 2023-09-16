@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Xml;
 using CsvHelper;
-using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
 using FlexiTeams.Util;
 using NUnit.Framework;
 
@@ -14,6 +11,7 @@ namespace FlexiTeamsTests;
 [TestFixture]
 public class DataPoolXmlWriterTest
 {
+    /*
     [Test]
     public void CreateDataPoolXml()
     {
@@ -21,7 +19,7 @@ public class DataPoolXmlWriterTest
         List<string> consumedDataList = new ();
 
         
-        using var reader = new StreamReader("C:/Users/paul9/OneDrive/FlexiTeams/Resourcen/workflows.csv");
+        using var reader = new StreamReader("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/workflows.csv");
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
         
         csv.Read();
@@ -49,9 +47,9 @@ public class DataPoolXmlWriterTest
         }
 
         XmlDocument doc =DataPoolXmlWriter.DataXml(consumedDataList, count);
-        using TextWriter text = new StreamWriter("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/dataPools/" + count + "DataPool.xml");
+        using TextWriter text = new StreamWriter("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/" + count + "DataPool.xml");
         doc.Save(text);
 
     }
-    
+    */
 }

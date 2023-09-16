@@ -26,4 +26,9 @@
   <ItemGroup>
     <Folder Include="Inventory\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\data_pool.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 </Project>

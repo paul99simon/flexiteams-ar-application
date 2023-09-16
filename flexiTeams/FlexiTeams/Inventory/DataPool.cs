@@ -2,7 +2,9 @@ using FlexiTeams.ConstructionClasses.Builder;
 using FlexiTeams.ConstructionClasses.Director;
 using FlexiTeams.DataClasses.Data;
 using FlexiTeams.DataClasses.Data.Wrapper;
+using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.Util;
+using FlexiTeams.Util.EqualityComperator;
 using System.Collections;
 using System.Xml;
 
@@ -24,50 +26,30 @@ public class DataPool : IEnumerable<Data>
             return temp;
         }
     }
-    public Data this[int i] => List[i];
     public int Count => List.Count;
+    private readonly Dictionary<DataId, Data> _pool = new(new DataIdEqualityComparer());
+    public Data this[DataId id] => _pool[id];
+
     public Dictionary<DataName, int> Stock
     {
         get
         {
-            var temp = new Dictionary<string, int>();
+            var temp = new Dictionary<DataName, int>(new DataNameEqualityComparer());
 
             foreach (var pair in _pool)
             {
-             if(!temp.ContainsKey(pair.Value.Name.ToString())) temp.Add(pair.Value.Name.ToString(), 0);
-             temp[pair.Value.Name.ToString()]++;
+                if (!temp.ContainsKey(pair.Value.Name)) temp.Add(pair.Value.Name, 0);
+                temp[pair.Value.Name]++;
             }
 
-            return temp.ToDictionary(pair => new DataName(pair.Key), pair => pair.Value);
-        }
-    }
-    private readonly Dictionary<string, Data> _pool = new();
-
-    public DataPool(IDataBuilder builder, XmlReader reader)
-    {
-        XmlDocument doc = new ();
-        while (reader.ReadToFollowing("Data"))
-        {
-            XmlNode node = doc.ReadNode(reader);
-            BasicDataDirector.ConstructFromXmlNode(builder, node);
-            Data data = builder.GetData();
-            
-            _pool.Add(data.Id.ToString(), data);
+            return temp;
         }
     }
 
-    public DataPool(IDataBuilder builder, string path)
+    public void Add(Data data)
     {
-        XmlReader reader = XmlReader.Create(path);
-        XmlDocument doc = new();
-        while (reader.ReadToFollowing("Data"))
-        {
-            XmlNode node = doc.ReadNode(reader);
-            BasicDataDirector.ConstructFromXmlNode(builder, node);
-            Data data = builder.GetData();
-
-            _pool.Add(data.Id.ToString(), data);
-        }
+        if (_pool.ContainsKey(data.Id)) return;
+        _pool.Add(data.Id, data);
     }
     
     public IEnumerator<Data> GetEnumerator()

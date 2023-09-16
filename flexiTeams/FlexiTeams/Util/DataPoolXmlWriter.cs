@@ -13,6 +13,9 @@ public class DataPoolXmlWriter
         using (var writer = doc.CreateNavigator()?.AppendChild())
         {
             writer.WriteStartElement("DataPool");
+            writer.WriteAttributeString("xml", "en", "en");
+            writer.WriteAttributeString("xsi", "noNamespaceSchemaLocation", "data_pool.xsd");
+
             foreach (var s in data)
             {
                 for(int i = 0 ; i < count ; i++)
@@ -20,7 +23,6 @@ public class DataPoolXmlWriter
                     writer.WriteStartElement("Data");
                     writer.WriteAttributeString("xml", "id", null, "Data_" + id++);
                     writer.WriteStartElement("Name");
-                    writer.WriteAttributeString("xml", "lang", null, "en");
                     writer.WriteString(s);
                     writer.WriteEndElement();
                     writer.WriteEndElement();

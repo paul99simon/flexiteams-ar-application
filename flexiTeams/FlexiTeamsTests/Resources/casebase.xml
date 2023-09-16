@@ -1,0 +1,2244 @@
+<cdop:ObjectPool xmlns:cdol="http://cake.wi2.uni-trier.de/xml/cdol"
+  xmlns:nest="http://cake.wi2.uni-trier.de/xml/ft_nest"
+  xmlns:cdop="http://cake.wi2.uni-trier.de/xml/ft_cdop"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cake.wi2.uni-trier.de/xml/cdol cdol.xsd http://cake.wi2.uni-trier.de/xml/rwfl rwfl.xsd http://cake.wi2.uni-trier.de/xml/ft_cdop ft_cdop.xsd http://cake.wi2.uni-trier.de/xml/ft_nest ft_nest.xsd">
+  <nest:NESTFlexiteamsWorkflow id="W01" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="General Surgery" />
+          <cdol:AA n="venue" v="Major OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Medical examination" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Doctor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Instructions to patient" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Diet details" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Admission details" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Pre-operative test" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="X-ray machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" lab test" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Lab technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Review patient's health history" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Patient's file" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Allergy details" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Present medications" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Pre-operative counselling and get consent from patient " />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Consent form" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Signed consent form" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Counsellor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_14" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_15" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Doctor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="8" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_16" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="9" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_17" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_18" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="10" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_19" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_20" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_21" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_22" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_12" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Doctor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_13" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="11" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to post-surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_23" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_14" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="12" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_24" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_15" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="13" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to intensive care room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_25" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_16" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="14" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Medical examination" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_26" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_27" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_28" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_17" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Doctor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_18" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="15" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Post-surgery instructions to Patient" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_29" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Diet details" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_30" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Exercise details" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_31" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Medications" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_19" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Doctor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_20" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_14" pre="3" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_15" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_16" pre="DATA_4" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_17" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="DATA_5" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_19" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_21" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_23" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_24" pre="DATA_6" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_26" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_28" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_29" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_31" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_34" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_35" pre="5" post="DATA_10" c="NESTDataflowEdge" />
+      <nest:Edge id="e_36" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_37" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_38" pre="6" post="8" c="NESTControlflowEdge" />
+      <nest:Edge id="e_39" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="DATA_11" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_41" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="7" post="8" c="NESTControlflowEdge" />
+      <nest:Edge id="e_44" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="DATA_12" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_46" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_47" pre="DATA_13" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_48" pre="DATA_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="DATA_14" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_50" pre="DATA_15" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_51" pre="DATA_15" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_52" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_53" pre="8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_54" pre="8" post="9" c="NESTControlflowEdge" />
+      <nest:Edge id="e_55" pre="DATA_16" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_56" pre="DATA_16" post="8" c="NESTDataflowEdge" />
+      <nest:Edge id="e_57" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_58" pre="9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_59" pre="9" post="10" c="NESTControlflowEdge" />
+      <nest:Edge id="e_60" pre="DATA_17" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_61" pre="DATA_17" post="9" c="NESTDataflowEdge" />
+      <nest:Edge id="e_62" pre="DATA_18" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_63" pre="DATA_18" post="9" c="NESTDataflowEdge" />
+      <nest:Edge id="e_64" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_65" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_66" pre="10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_67" pre="10" post="11" c="NESTControlflowEdge" />
+      <nest:Edge id="e_68" pre="10" post="12" c="NESTControlflowEdge" />
+      <nest:Edge id="e_69" pre="DATA_19" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_70" pre="DATA_19" post="10" c="NESTDataflowEdge" />
+      <nest:Edge id="e_71" pre="DATA_20" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_72" pre="DATA_20" post="10" c="NESTDataflowEdge" />
+      <nest:Edge id="e_73" pre="DATA_21" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_74" pre="DATA_21" post="10" c="NESTDataflowEdge" />
+      <nest:Edge id="e_75" pre="DATA_22" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_76" pre="DATA_22" post="10" c="NESTDataflowEdge" />
+      <nest:Edge id="e_77" pre="r_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_78" pre="r_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_79" pre="11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_80" pre="11" post="13" c="NESTControlflowEdge" />
+      <nest:Edge id="e_81" pre="DATA_23" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_82" pre="DATA_23" post="11" c="NESTDataflowEdge" />
+      <nest:Edge id="e_83" pre="r_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_84" pre="12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_85" pre="DATA_24" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_86" pre="DATA_24" post="12" c="NESTDataflowEdge" />
+      <nest:Edge id="e_87" pre="r_15" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_88" pre="13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_89" pre="13" post="14" c="NESTControlflowEdge" />
+      <nest:Edge id="e_90" pre="DATA_25" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_91" pre="DATA_25" post="13" c="NESTDataflowEdge" />
+      <nest:Edge id="e_92" pre="r_16" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_93" pre="14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_94" pre="14" post="15" c="NESTControlflowEdge" />
+      <nest:Edge id="e_95" pre="DATA_26" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_96" pre="DATA_26" post="14" c="NESTDataflowEdge" />
+      <nest:Edge id="e_97" pre="DATA_27" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_98" pre="DATA_27" post="14" c="NESTDataflowEdge" />
+      <nest:Edge id="e_99" pre="DATA_28" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_100" pre="DATA_28" post="14" c="NESTDataflowEdge" />
+      <nest:Edge id="e_101" pre="r_17" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_102" pre="r_18" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_103" pre="15" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_104" pre="DATA_29" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_105" pre="DATA_29" post="15" c="NESTDataflowEdge" />
+      <nest:Edge id="e_106" pre="DATA_30" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_107" pre="DATA_30" post="15" c="NESTDataflowEdge" />
+      <nest:Edge id="e_108" pre="DATA_31" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_109" pre="DATA_31" post="15" c="NESTDataflowEdge" />
+      <nest:Edge id="e_110" pre="r_19" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_111" pre="r_20" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W02" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="C-section" />
+          <cdol:AA n="venue" v="Major OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Anaesthesiologist Assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Gynecologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to post-surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_14" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="8" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to postpartum room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_15" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_12" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_13" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_31" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_34" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_36" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_38" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_39" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="DATA_12" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_41" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_44" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="6" post="8" c="NESTControlflowEdge" />
+      <nest:Edge id="e_46" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_47" pre="DATA_13" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_48" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_50" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_51" pre="DATA_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_52" pre="DATA_14" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_53" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_54" pre="8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_55" pre="DATA_15" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_56" pre="DATA_15" post="8" c="NESTDataflowEdge" />
+      <nest:Edge id="e_57" pre="r_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_58" pre="r_13" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W03" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Cardiothoracic surgery" />
+          <cdol:AA n="venue" v="Cardiac OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Anaesthesiologist Assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cardiologic Surgeon" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to intensive care room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_14" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_31" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_34" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_36" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_38" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_39" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="DATA_12" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_41" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_44" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="DATA_13" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_47" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_50" pre="DATA_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_51" pre="DATA_14" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_52" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W04" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Hand surgery" />
+          <cdol:AA n="venue" v="Minor OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="local anesthetic drug" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical instruments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Orthopadic surgeon" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Plastic Surgeon" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to post-surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_31" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_34" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_36" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_38" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_39" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_41" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_44" pre="DATA_12" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_45" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_47" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="DATA_13" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_50" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W05" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Knee surgery" />
+          <cdol:AA n="venue" v="Major OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Anaesthesiologist Assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Orthopadic surgeon" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to intensive care room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_14" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_31" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_34" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_36" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_38" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_39" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="DATA_12" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_41" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_44" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="DATA_13" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_47" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_50" pre="DATA_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_51" pre="DATA_14" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_52" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W06" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Hernia Surgery" />
+          <cdol:AA n="venue" v="Major OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Anaesthesiologist Assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="General surgeon" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to intensive care room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_14" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_31" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_34" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_36" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_38" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_39" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="DATA_12" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_41" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_44" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="DATA_13" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_47" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_50" pre="DATA_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_51" pre="DATA_14" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_52" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W07" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Appendectomy " />
+          <cdol:AA n="venue" v="Major OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Anaesthesiologist Assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Ventilator" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="General surgeon" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to intensive care room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_14" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_11" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_31" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_34" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_36" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_38" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_39" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="DATA_12" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_41" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_44" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="DATA_13" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_47" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_49" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_50" pre="DATA_14" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_51" pre="DATA_14" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_52" pre="r_11" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W08" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Hysteroscopy" />
+          <cdol:AA n="venue" v="Minor OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical instruments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Gynecologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to post-surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_31" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_34" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_36" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_38" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_39" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_41" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="DATA_12" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_44" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_47" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="DATA_13" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_49" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+  <nest:NESTFlexiteamsWorkflow id="W09" c="NESTFlexiteamsWorkflow">
+    <nest:Nodes>
+      <nest:Node id="WFL" c="NESTWorkflowNode">
+        <cdol:Agg c="WorkflowSemantic">
+          <cdol:AA n="name" v="Hysterectomy" />
+          <cdol:AA n="venue" v="Major OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="1" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Patient preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_1" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical dress" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_1" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="2" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery room preparation" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_2" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_3" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Anesthesia tools" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_4" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Surgical equipments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_5" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Sthethescope" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_2" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Technician" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="3" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to OT" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_6" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_3" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="4" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Anesthesia" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_7" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Anesthesia machine" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_8" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Injection syringe" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_4" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Anaesthesiologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="5" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Surgery" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_9" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Surgical instruments" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_10" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Blood pressure monitor" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_11" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v=" Pulse oximeter" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_5" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Gynecologist" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_6" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_7" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="6" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Transport to post-surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_12" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Wheelchair/Bed/Strecher" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_8" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Nurse assistant" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_9" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v=" Nurse" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="7" c="NESTTaskNode">
+        <cdol:Agg c="TaskSemantic">
+          <cdol:AA n="name" v="Cleaning surgery room" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="DATA_13" c="NESTDataNode">
+        <cdol:Agg c="DataSemantic">
+          <cdol:AA n="name" v="Cleaning items" />
+        </cdol:Agg>
+      </nest:Node>
+      <nest:Node id="r_10" c="NESTResourceNode">
+        <cdol:Agg c="ResourceSemantic">
+          <cdol:AA n="name" v="Cleaner" />
+        </cdol:Agg>
+      </nest:Node>
+    </nest:Nodes>
+    <nest:Edges>
+      <nest:Edge id="e_1" pre="1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_2" pre="1" post="2" c="NESTControlflowEdge" />
+      <nest:Edge id="e_3" pre="DATA_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_4" pre="DATA_1" post="1" c="NESTDataflowEdge" />
+      <nest:Edge id="e_5" pre="r_1" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_6" pre="2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_7" pre="2" post="3" c="NESTControlflowEdge" />
+      <nest:Edge id="e_8" pre="DATA_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_9" pre="DATA_2" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_10" pre="DATA_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_11" pre="DATA_3" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_12" pre="DATA_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_13" pre="DATA_4" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_14" pre="DATA_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_15" pre="DATA_5" post="2" c="NESTDataflowEdge" />
+      <nest:Edge id="e_16" pre="r_2" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_17" pre="3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_18" pre="3" post="4" c="NESTControlflowEdge" />
+      <nest:Edge id="e_19" pre="DATA_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_20" pre="DATA_6" post="3" c="NESTDataflowEdge" />
+      <nest:Edge id="e_21" pre="r_3" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_22" pre="4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_23" pre="4" post="5" c="NESTControlflowEdge" />
+      <nest:Edge id="e_24" pre="DATA_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_25" pre="DATA_7" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_26" pre="DATA_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_27" pre="DATA_8" post="4" c="NESTDataflowEdge" />
+      <nest:Edge id="e_28" pre="r_4" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_29" pre="5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_30" pre="5" post="6" c="NESTControlflowEdge" />
+      <nest:Edge id="e_31" pre="5" post="7" c="NESTControlflowEdge" />
+      <nest:Edge id="e_32" pre="DATA_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_33" pre="DATA_9" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_34" pre="DATA_10" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_35" pre="DATA_10" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_36" pre="DATA_11" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_37" pre="DATA_11" post="5" c="NESTDataflowEdge" />
+      <nest:Edge id="e_38" pre="r_5" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_39" pre="r_6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_40" pre="r_7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_41" pre="6" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_42" pre="DATA_12" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_43" pre="DATA_12" post="6" c="NESTDataflowEdge" />
+      <nest:Edge id="e_44" pre="r_8" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_45" pre="r_9" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_46" pre="7" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_47" pre="DATA_13" post="WFL" c="NESTPartOfEdge" />
+      <nest:Edge id="e_48" pre="DATA_13" post="7" c="NESTDataflowEdge" />
+      <nest:Edge id="e_49" pre="r_10" post="WFL" c="NESTPartOfEdge" />
+    </nest:Edges>
+  </nest:NESTFlexiteamsWorkflow>
+</cdop:ObjectPool>

@@ -1,15 +1,15 @@
-using FlexiTeams.DataClasses.Resource;
+using FlexiTeams.DataClasses.Resource.Wrapper;
 
 namespace FlexiTeams.Graph.Nodes;
 
 public class ResourceNode : Node
 {
     
-    public Resource Resource { get; }
+    public ResourceId Id { get; }
 
-    public ResourceNode(Resource resource)
+    public ResourceNode(ResourceId id)
     {
-        Resource = resource;
+        Id = id;
     }
 
 }

@@ -1,13 +1,13 @@
-using FlexiTeams.DataClasses.Data;
+using FlexiTeams.DataClasses.Data.Wrapper;
 
 namespace FlexiTeams.Graph.Nodes;
 
 public class DataNode : Node
 {
-    public Data Data;
+    public DataId Id;
 
-    public DataNode(Data data)
+    public DataNode(DataId id)
     {
-        Data = data;
+        Id = id;
     }
 }

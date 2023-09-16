@@ -24,7 +24,7 @@ namespace FlexiTeamsTests.Util.EqualityComperator
                 profession1
             };
 
-            ProfessionEqualityComperator comperator = new();
+            ProfessionEqualityComparer comperator = new();
 
             Assert.IsFalse(list.Contains(profession3, comperator));
             Assert.IsTrue(list.Contains(profession2, comperator));

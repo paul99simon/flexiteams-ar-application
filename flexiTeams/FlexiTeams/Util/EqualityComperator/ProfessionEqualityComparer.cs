@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FlexiTeams.Util.EqualityComperator
 {
-    public class ProfessionEqualityComperator : IEqualityComparer<Profession>
+    public class ProfessionEqualityComparer : IEqualityComparer<Profession>
     {
         public bool Equals(Profession x, Profession y)
         {
@@ -15,7 +15,7 @@ namespace FlexiTeams.Util.EqualityComperator
             if (x is null || y is null)
                 return false;
 
-            return y.ToString().Equals(x.ToString());
+            return x.ToString().Equals(y.ToString());
         }
 
         public int GetHashCode(Profession profession)
