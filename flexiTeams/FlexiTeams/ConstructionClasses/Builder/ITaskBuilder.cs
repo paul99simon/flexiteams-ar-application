@@ -1,5 +1,6 @@
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrappper;
+using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
@@ -13,8 +14,7 @@ public interface ITaskBuilder
     public void Set(TaskId id);
     public void Set(TaskType types);
     public void Set(Venue venues);
-    public void Set(Priority priority);
-    public void Set(Duration duration);
+    public void Set(int minutes);
     public void Set(List<Profession> requiredProfessions);
     public void Set(List<DataName> requiredDataNames);
 }

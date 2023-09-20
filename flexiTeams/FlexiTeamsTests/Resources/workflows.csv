@@ -51,7 +51,7 @@ Hernia Surgery,,Major OT,,1,Patient preparation,,,2,Surgical dress,,,Nurse assis
 ,,,,5,Surgery,,,"6,7","Ventilator, Surgical tools, Blood pressure monitor, Pulse oximeter",,,"General surgeon, Nurse, Nurse assistant",
 ,,,,6,Transport to intensive care room,,,,Wheelchair/Bed/Strecher,,,"Nurse assistant, Nurse",
 ,,,,7,Cleaning surgery room,,,,Cleaning items,,,Cleaner,
-Appendectomy ,,Major OT,,1,Patient preparation,,,2,Surgical dress,,,Nurse assistant,
+Appendectomy,,Major OT,,1,Patient preparation,,,2,Surgical dress,,,Nurse assistant,
 ,,,,2,Surgery room preparation,,,3,"Cleaning items, Anesthesia tools, Surgical equipments, Sthethescope",,,Technician,
 ,,,,3,Transport to OT,,,4,Wheelchair/Bed/Strecher,,,Nurse assistant,
 ,,,,4,Anesthesia,,,5,"Anesthesia machine, Injection syringe",,,"Anaesthesiologist, Anaesthesiologist Assistant",

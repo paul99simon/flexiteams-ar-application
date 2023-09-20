@@ -2,10 +2,10 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Overtime
 {
-    public int Get { get; }
+    public int Hours { get; }
 
-    public Overtime(int overtime)
+    public Overtime(int hours)
     {
-        Get = overtime;
+        Hours = hours;
     }
 }

@@ -84,7 +84,7 @@ namespace FlexiTeams.ConstructionClasses.Director
         //utility methods
         private static void ConstructFromXml(ResourcePool pool, XmlReader reader, IResourceBuilder builder)
         {
-            while (reader.ReadToFollowing("resource"))
+            while (reader.ReadToFollowing("Resource"))
             {
                 XmlDocument doc = new XmlDocument();
                 XmlNode node = doc.ReadNode(reader);

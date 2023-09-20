@@ -4,7 +4,7 @@ using FlexiTeams.DataClasses.Wrapper;
 
 namespace FlexiTeams.ConstructionClasses.Builder;
 
-public class SamePriorityWorkflowBuilder : IWorkflowBuilder
+public class BasicWorkflowBuilder : IWorkflowBuilder
 {
     private Workflow _workflow = new();
 
@@ -19,6 +19,7 @@ public class SamePriorityWorkflowBuilder : IWorkflowBuilder
     {
         _workflow = new Workflow();
     }
+
     public void Set(WorkflowId id)
     {
         _workflow.Id = id;
@@ -33,7 +34,7 @@ public class SamePriorityWorkflowBuilder : IWorkflowBuilder
     }
     public void Set(Priority priority)
     {
-        _workflow.Priority = new Priority(1);
+        _workflow.Priority = priority;
     }
     public void Set(Venue venues)
     {

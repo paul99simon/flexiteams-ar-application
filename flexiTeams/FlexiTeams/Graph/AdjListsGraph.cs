@@ -11,6 +11,7 @@ namespace FlexiTeams.FlexiTeamsGraph;
 public class AdjListsGraph 
 {
     private readonly Dictionary<Node, List<Node>> _adjLists = new ();
+    private readonly Dictionary<Id, Node> map = new (new AbstractIdEqualityComperator());
 
     //FlexiTeams graph methods
     public void AddNode(TaskNode v)
@@ -35,6 +36,7 @@ public class AdjListsGraph
     
     private void AddNodeBase(Node v)
     {
+        map.Add(v._id, v);
         _adjLists.Add(v, new List<Node>());
     }
 
@@ -90,6 +92,18 @@ public class AdjListsGraph
         return result;
     }
     
+    public List<Node> Nodes()
+    {
+        List<Node> nodes = new();
+
+        foreach(var u in _adjLists)
+        {
+            nodes.Add(u.Key);
+        }
+
+        return nodes;
+    }
+
     public List<DataNode> AdjDataNodes(TaskNode v)
     {
         List<Node> temp = Adj(v);
@@ -184,6 +198,12 @@ public class AdjListsGraph
     {
         RemoveEdgeBase(u, v);
         RemoveEdgeBase(v, u);
+    }
+
+    public Node? FindNode(Id id)
+    {
+        if(map.ContainsKey(id)) return map[id];
+        return null;
     }
 
     /// <summary>

@@ -26,7 +26,7 @@ public class BasicResourceBuilder : IResourceBuilder
     }
     public void Set(List<Photo> photos)
     {
-        _resource.Photos.AddRange(photos);
+        _resource.Photos = photos;
     }
     public void Set(Age age)
     {
@@ -50,23 +50,23 @@ public class BasicResourceBuilder : IResourceBuilder
     }
     public void Set(List<Child> children)
     {
-        _resource.Children.AddRange(children);
+        _resource.Children = children;
     }
     public void Set(List<Stressor> stressors)
     {
-        _resource.Stressors.AddRange(stressors);
+        _resource.Stressors = stressors;
     }
     public void Set(List<PersonalInfo> personalInfos)
     {
-        _resource.PersonalInfos.AddRange(personalInfos);
+        _resource.PersonalInfos = personalInfos;
     }
     public void Set(List<Profession> professions)
     {
-        _resource.Professions.AddRange(professions);
+        _resource.Professions = professions;
     }
     public void Set(List<Department> departments)
     {
-        _resource.Departments.AddRange(departments);
+        _resource.Departments = departments;
     }
     public void Set(WorkExperience workExperience)
     {
@@ -94,11 +94,11 @@ public class BasicResourceBuilder : IResourceBuilder
     }
     public void Set(List<Training> trainings)
     {
-        _resource.Trainings.AddRange(trainings);
+        _resource.Trainings = trainings;
     }
     public void Set(List<Qualification> qualifications)
     {
-        _resource.Qualifications.AddRange(qualifications);
+        _resource.Qualifications = qualifications;
     }
     public void Set(List<TimeInterval>[] workAgreement)
     {
@@ -106,23 +106,23 @@ public class BasicResourceBuilder : IResourceBuilder
     }
     public void Set(List<Studies> studies)
     {
-        _resource.Studies.AddRange(studies);
+        _resource.Studies = studies;
     }
     public void Set(List<AdditionalJob> additionalJobs)
     {
-        _resource.AdditionalJobs.AddRange(additionalJobs);
+        _resource.AdditionalJobs = additionalJobs;
     }
-    public void Set(ArrivalTime arrivalTime)
+    public void Set(CommuteTime arrivalTime)
     {
-        _resource.ArrivalTime = arrivalTime;
+        _resource.CommuteTime = arrivalTime;
     }
     public void Set(List<Vehicle> meansOfTransport)
     {
-        _resource.MeansOfTransport.AddRange(meansOfTransport);
+        _resource.MeansOfTransport = meansOfTransport;
     }
     public void Set(List<ProfessionalInfo> professionalInfos)
     {
-        _resource.ProfessionalInfos.AddRange(professionalInfos);
+        _resource.ProfessionalInfos = professionalInfos;
     }
     public void Set(List<Skill> skills)
     {

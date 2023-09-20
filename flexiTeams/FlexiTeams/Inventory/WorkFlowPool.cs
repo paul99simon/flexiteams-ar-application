@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace FlexiTeams.Inventory
 {
-    public class WorkFlowPool : IEnumerable<Workflow>
+    public class WorkflowPool : IEnumerable<Workflow>
     {
         public List<Workflow> List
         {

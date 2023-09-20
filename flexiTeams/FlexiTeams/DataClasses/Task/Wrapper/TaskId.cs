@@ -1,16 +1,16 @@
+using FlexiTeams.DataClasses.Wrapper;
+
 namespace FlexiTeams.DataClasses.Task.Wrappper;
 
-public class TaskId
+public class TaskId : Id
 {
-    private readonly string Get;
-
     public TaskId(string id)
     {
-        Get = id;
+        _id = id;
     }
 
     public override string ToString()
     {
-        return Get;
+        return base.ToString();
     }
 }

@@ -8,7 +8,8 @@ public class Workflow
 {
     public WorkflowId Id { get; set; }
     public WorkflowType Type { get; set; }
-    public Duration? Duration { get; set; }
-    public Venue? Venue { get; set; }
-    public Procedures? Procedures { get; set; }
+    public Priority Priority { get; set; }
+    public int Minutes { get; set; }
+    public Venue Venue { get; set; }
+    public Procedures Procedures { get; set; }
 }

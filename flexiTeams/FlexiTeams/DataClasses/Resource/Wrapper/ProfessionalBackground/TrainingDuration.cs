@@ -2,10 +2,10 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class TrainingDuration
 {
-    public int Get { get; }
+    public int Years { get; }
 
     public TrainingDuration(int trainingDuration)
     {
-        Get = trainingDuration;
+        Years = trainingDuration;
     }
 }

@@ -32,13 +32,9 @@ public class BasicTaskBuilder : ITaskBuilder
     {
         _task.Venue = venue;
     }
-    public void Set(Priority priority)
+    public void Set(int minutes)
     {
-        _task.Priority = priority;
-    }
-    public void Set(Duration duration)
-    {
-        _task.Duration = duration;
+        _task.Minutes = minutes;
     }
     public void Set(List<Profession> requiredProfessions)
     {

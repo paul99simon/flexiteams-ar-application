@@ -10,7 +10,8 @@ public interface IWorkflowBuilder
 
     public void Set(WorkflowId id);
     public void Set(WorkflowType types);
-    public void Set(Duration duration);
+    public void Set(Priority priority);
+    public void Set(int minutes);
     public void Set(Venue venues);
     public void Set(Procedures procedures);
 }

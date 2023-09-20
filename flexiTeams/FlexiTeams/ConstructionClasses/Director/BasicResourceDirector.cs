@@ -15,9 +15,13 @@ public class BasicResourceDirector
         builder.Set(GetAge());
         builder.Set(GetFirstNames());
         builder.Set(GetLastNames());
+        builder.Set(GetMaritalState());
         builder.Set(GetProfessions());
         builder.Set(GetDepartments());
         builder.Set(GetWeeklyHours());
+        builder.Set(GetYearlyTimeOf());
+        builder.Set(GetCommuteTime());
+        builder.Set(GetMeansOfTransport());
         builder.Set(GetWorkAgreement());
         builder.Set(GetSkills());
         builder.Set(GetTraits());
@@ -25,9 +29,6 @@ public class BasicResourceDirector
         //Nullable Types
         var photos = GetPhotos();
         if(photos != null) builder.Set(photos);
-
-        var maritalState = GetMaritalState();
-        if (maritalState != null) builder.Set(maritalState); 
 
         var children = GetChildren();
         if (children != null) builder.Set(children);
@@ -68,7 +69,7 @@ public class BasicResourceDirector
         var additionalJobs = GetAdditionalJobs();
         if (additionalJobs != null) builder.Set(additionalJobs);
 
-        var arrivalTime = GetArrivalTime();
+        var arrivalTime = GetCommuteTime();
         if (arrivalTime != null) builder.Set(arrivalTime);
 
         var meansOfTransport = GetMeansOfTransport();
@@ -85,39 +86,39 @@ public class BasicResourceDirector
         }
         List<Photo>? GetPhotos()
         {
-            var nodes = resource.SelectNodes("photo");
+            var nodes = resource.SelectNodes("Photo");
             var temp = new List<Photo>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    var URI = node.SelectSingleNode("URI");
-                    temp.Add(new Photo(URI.InnerText));
+                    string path = node.Attributes.GetNamedItem("path").InnerXml;
+                    temp.Add(new Photo(path));
                 }
             }
             return temp.Any() ? temp : null;
         }
         Age GetAge()
         {
-            var node = resource.SelectSingleNode("age");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
+            var node = resource.Attributes.GetNamedItem("age");
+            var years = new ISO8601(node.InnerText).Years;
 
-            return new Age(timespan.Days / 365);
+            return new Age(years);
         }
         Prefix? GetPrefix()
         {
-            var node = resource.SelectSingleNode("prefix");
+            var node = resource.Attributes.GetNamedItem("prefix");
             return node == null ? null : new Prefix(node.InnerText);
         }
         List<FirstName> GetFirstNames()
         {
-            var nodes = resource.SelectNodes("firstName");
+            var nodes = resource.SelectNodes("FirstName");
             var temp = new List<FirstName>();
             
             foreach (XmlNode node in nodes)
             {
-                string value = node.InnerText;
+                string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new FirstName(value));
             }
             
@@ -125,74 +126,74 @@ public class BasicResourceDirector
         }
         List<LastName> GetLastNames()
         {
-            var nodes = resource.SelectNodes("lastName");
+            var nodes = resource.SelectNodes("LastName");
             var temp = new List<LastName>();
             
             foreach (XmlNode node in nodes)
             {
-                string value = node.InnerText;
+                string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new LastName(value));
             }
             
             return temp;
         }
-        MaritalState? GetMaritalState()
+        MaritalState GetMaritalState()
         {
-            var node = resource.SelectSingleNode("maritalStatus");
-            return node is null ? null : new MaritalState(node.InnerText);
+            var node = resource.Attributes.GetNamedItem("maritalState");
+            return new MaritalState(node.InnerText);
         }
         List<Child>? GetChildren()
         {
-            var nodes = resource.SelectNodes("child");
+            var nodes = resource.SelectNodes("Child");
             var temp = new List<Child>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    var ageNode = node.SelectSingleNode("age");
+                    var ageNode = node.Attributes.GetNamedItem("age");
                     var timespan = XmlConvert.ToTimeSpan(ageNode.InnerText);
                     temp.Add(new Child(timespan.Days/365));
                 }
             }
             return temp.Any() ? temp : null;
         }
-        List<Stressor> GetStressors()
+        List<Stressor>? GetStressors()
         {
-            var nodes = resource.SelectNodes("stressor");
+            var nodes = resource.SelectNodes("Stressor");
             var temp = new List<Stressor>();
             
             foreach (XmlNode node in nodes)
             {
-                string value = node.InnerText;
+                string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new Stressor(value));
             }
             
-            return temp;
+            return temp.Any() ? temp : null;
         }
-        List<PersonalInfo> GetPersonalInfos()
+        List<PersonalInfo>? GetPersonalInfos()
         {
-            var nodes = resource.SelectNodes("personalInfo");
+            var nodes = resource.SelectNodes("PersonalInfo");
             var temp = new List<PersonalInfo>();
 
             foreach (XmlNode node in nodes)
             {
-                string value = node.InnerText;
+                string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new PersonalInfo(value));
             }
             
-            return temp;
+            return temp.Any() ? temp : null;
         }
         List<Profession> GetProfessions()
         {
-            var nodes = resource.SelectNodes("profession");
+            var nodes = resource.SelectNodes("Profession");
             var temp = new List<Profession>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new Profession(value));
                 }
             }
@@ -200,14 +201,14 @@ public class BasicResourceDirector
         }
         List<Department> GetDepartments()
         {
-            var nodes = resource.SelectNodes("department");
+            var nodes = resource.SelectNodes("Department");
             var temp = new List<Department>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new Department(value));
                 }
             }
@@ -215,79 +216,67 @@ public class BasicResourceDirector
         }
         WorkExperience? GetWorkExperience()
         {
-            var node = resource.SelectSingleNode("workExperience");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new WorkExperience(timespan.Days / 365);
+            var node = resource.Attributes.GetNamedItem("workExperience");
+            return node is null ? null :  new WorkExperience(new ISO8601(node.InnerText).Years);
         }
         TrainingDuration? GetTrainingDuration()
         {
-            var node = resource.SelectSingleNode("trainingDuration");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new TrainingDuration(timespan.Days / 365);
+            var node = resource.Attributes.GetNamedItem("trainingDuration");
+            return node is null ? null : new TrainingDuration(new ISO8601(node.InnerText).Years);
         }
         WeeklyHours GetWeeklyHours()
         {
-            var node = resource.SelectSingleNode("weeklyHours");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new WeeklyHours((int) timespan.TotalHours);
+            var node = resource.Attributes.GetNamedItem("weeklyHours");
+            return new WeeklyHours(new ISO8601(node.InnerText).Hours);
         }
         Overtime? GetOvertime()
         {
-            var node = resource.SelectSingleNode("overtime");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new Overtime((int)timespan.TotalHours);
+            var node = resource.Attributes.GetNamedItem("overtime");
+            return node is null ? null : new Overtime(new ISO8601(node.InnerText).Hours);
         }
-        YearlyTimeOf? GetYearlyTimeOf()
+        YearlyTimeOf GetYearlyTimeOf()
         {
-            var node = resource.SelectSingleNode("yearlyTimeOf");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new YearlyTimeOf((int)timespan.TotalDays);
+            var node = resource.Attributes.GetNamedItem("yearlyTimeOf");
+            return new YearlyTimeOf(new ISO8601(node.InnerText).Days);
         }
         YearlyEducation? GetYearlyEducation()
         {
-            var node = resource.SelectSingleNode("yearlyEducation");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new YearlyEducation((int)timespan.TotalDays);
+            var node = resource.Attributes.GetNamedItem("yearlyEducation");
+            return node is null ? null : new YearlyEducation(new ISO8601(node.InnerText).Days);
         }
-        List<Training> GetTrainings()
+        List<Training>? GetTrainings()
         {
-            var nodes = resource.SelectNodes("training");
+            var nodes = resource.SelectNodes("Training");
             var temp = new List<Training>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new Training(value));
                 }
             }
-            return temp;
+            return temp.Any() ? temp : null;
         }
-        List<Qualification> GetQualifications()
+        List<Qualification>? GetQualifications()
         {
-            var nodes = resource.SelectNodes("qualification");
+            var nodes = resource.SelectNodes("Qualification");
             var temp = new List<Qualification>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new Qualification(value));
                 }
             }
-            return temp;
+            return temp.Any() ? temp : null;
         }
         List<TimeInterval>[] GetWorkAgreement()
         {
-            var nodes = resource.SelectNodes("workAgreement");
+            var nodes = resource.SelectNodes("WorkAgreement");
             var temp = new List<TimeInterval>[]
             {
                 new List<TimeInterval>(),
@@ -303,7 +292,7 @@ public class BasicResourceDirector
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string[] xml = node.InnerText.Split('-');
+                    string[] xml = node.Attributes.GetNamedItem("value").InnerText.Split('-');
                     int index = int.Parse(xml[0]);
                     var dt1 = new DayTime(xml[1]);
                     var dt2 = new DayTime(xml[2]);
@@ -313,80 +302,87 @@ public class BasicResourceDirector
             }
             return temp;
         }
-        List<Studies> GetStudies()
+        List<Studies>? GetStudies()
         {
-            var nodes = resource.SelectNodes("studies");
+            var nodes = resource.SelectNodes("Studies");
             var temp = new List<Studies>();
 
             foreach (XmlNode node in nodes)
             {
-                string name = node.SelectSingleNode("name").InnerText;
-                string location = node.SelectSingleNode("location").InnerText;
-                temp.Add(new Studies(name, location));
+                var name = node.Attributes.GetNamedItem("name").InnerText;
+                var locationNode = node.Attributes.GetNamedItem("location");
+
+                if (locationNode != null) temp.Add(new Studies(name, locationNode.InnerText));
+                else temp.Add(new Studies(name)); 
             }
 
-            return temp;
+            return temp.Any() ? temp : null;
         }
-        List<AdditionalJob> GetAdditionalJobs()
+        List<AdditionalJob>? GetAdditionalJobs()
         {
-            var nodes = resource.SelectNodes("additionalJob");
+            var nodes = resource.SelectNodes("AdditionalJob");
             var temp = new List<AdditionalJob>();
 
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
-                    temp.Add(new AdditionalJob(value));
+                    var name = node.Attributes.GetNamedItem("name").InnerText;
+                    var yearlyRequiredDaysNode = node.Attributes.GetNamedItem("yearlyRequiredDays");
+
+                    if (yearlyRequiredDaysNode != null)
+                    {
+                        string yearlyRequiredDays = yearlyRequiredDaysNode.InnerText;
+                        int days = (int) XmlConvert.ToTimeSpan(yearlyRequiredDays).TotalDays;
+                        temp.Add(new AdditionalJob(name, days));
+                    } else temp.Add(new AdditionalJob(name));
                 }
             
-            return temp;
+            return temp.Any() ? temp : null;
         }
-        ArrivalTime? GetArrivalTime()
+        CommuteTime GetCommuteTime()
         {
-            var node = resource.SelectSingleNode("arrivalTime");
-            var timespan = XmlConvert.ToTimeSpan(node.InnerText);
-
-            return new ArrivalTime((int)timespan.TotalMinutes);
+            var node = resource.Attributes.GetNamedItem("commuteTime");
+            return new CommuteTime(new ISO8601(node.InnerText).Minutes);
         }
         List<Vehicle> GetMeansOfTransport()
         {
-            var nodes = resource.SelectNodes("meansOfTransport");
+            var nodes = resource.SelectNodes("MeansOfTransport");
             var temp = new List<Vehicle>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new Vehicle(value));
                 }
             }
             return temp;
         }
-        List<ProfessionalInfo> GetProfessionalInfos()
+        List<ProfessionalInfo>? GetProfessionalInfos()
         {
-            var nodes = resource.SelectNodes("professionalInfo");
+            var nodes = resource.SelectNodes("ProfessionalInfo");
             var temp = new List<ProfessionalInfo>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new ProfessionalInfo(value));
                 }
             }
-            return temp;
+            return temp.Any() ? temp : null;
         }
         List<Skill> GetSkills()
         {
-            var nodes = resource.SelectNodes("skill");
+            var nodes = resource.SelectNodes("Skill");
             var temp = new List<Skill>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string value = node.InnerText;
+                    string value = node.Attributes.GetNamedItem("value").InnerText;
                     temp.Add(new Skill(value));
                 }
             }
@@ -394,16 +390,16 @@ public class BasicResourceDirector
         }
         List<Trait> GetTraits()
         {
-            var nodes = resource.SelectNodes("trait");
+            var nodes = resource.SelectNodes("Trait");
             var temp = new List<Trait>();
 
             if (nodes != null)
             {
                 foreach (XmlNode node in nodes)
                 {
-                    string name = node.SelectSingleNode("name").InnerText;
-                    int value = int.Parse(node.SelectSingleNode("value").InnerText);
-                    temp.Add(new Trait(new KeyValuePair<string, int>(name, value)));
+                    string name = node.Attributes.GetNamedItem("name").InnerText;
+                    int value = int.Parse(node.Attributes.GetNamedItem("value").InnerText);
+                    temp.Add(new Trait(name, value));
                 }
             }
             return temp;

@@ -2,10 +2,10 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class WorkExperience
 {
-    public int Get { get; }
+    public int Years { get; }
 
     public WorkExperience(int workExperience)
     {
-        Get = workExperience;
+        Years = workExperience;
     }
 }

@@ -1,16 +1,16 @@
+using FlexiTeams.DataClasses.Wrapper;
+
 namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
-public class ResourceId
+public class ResourceId : Id
 {
-    private readonly string Get;
-
     public ResourceId(string id)
     {
-        Get = id;
+       _id = id;
     }
 
     public override string ToString()
     {
-        return Get;
+        return base.ToString();
     }
 }

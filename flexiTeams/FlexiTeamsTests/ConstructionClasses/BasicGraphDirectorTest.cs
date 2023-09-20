@@ -16,7 +16,7 @@ public class BasicGraphDirectorTest
     {
         string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/workflows.csv";
         
-        var wPool = new WorkFlowPool();
+        var wPool = new WorkflowPool();
         var tPool = new TaskPool();
 
 

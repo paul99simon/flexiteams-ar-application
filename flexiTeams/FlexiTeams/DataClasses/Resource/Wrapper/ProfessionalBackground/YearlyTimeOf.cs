@@ -2,10 +2,10 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class YearlyTimeOf
 {
-    public int Get { get; }
+    public int Days { get; }
 
     public YearlyTimeOf(int yearlyTimeOf)
     {
-        Get = yearlyTimeOf;
+        Days = yearlyTimeOf;
     }
 }

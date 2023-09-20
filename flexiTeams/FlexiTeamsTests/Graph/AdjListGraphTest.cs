@@ -16,7 +16,7 @@ namespace FlexiTeamsTests.Graph
         [Test]
         public void GetLongestPathTest()
         {
-            var wPool = new WorkFlowPool();
+            var wPool = new WorkflowPool();
             var tPool = new TaskPool();
             var graph = BasicGraphDirector.ConstructFromCsv(path, wPool, tPool);
 
@@ -42,7 +42,7 @@ namespace FlexiTeamsTests.Graph
         public void GetWorkflowNodeTest()
         {
 
-            var wPool = new WorkFlowPool();
+            var wPool = new WorkflowPool();
             var tPool = new TaskPool();
             var graph = BasicGraphDirector.ConstructFromCsv(path, wPool, tPool);
 
@@ -56,7 +56,7 @@ namespace FlexiTeamsTests.Graph
         [Test]
         public void GetPreviousTasksTest()
         {
-            var wPool = new WorkFlowPool();
+            var wPool = new WorkflowPool();
             var tPool = new TaskPool();
             var graph = BasicGraphDirector.ConstructFromCsv(path, wPool, tPool);
 

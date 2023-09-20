@@ -1,16 +1,16 @@
+using FlexiTeams.DataClasses.Wrapper;
+
 namespace FlexiTeams.DataClasses.Workflow.Wrapper;
 
-public class WorkflowId
+public class WorkflowId : Id
 {
-    private readonly string Get;
-
     public WorkflowId(string id)
     {
-        Get = id;
+        _id = id;
     }
 
     public override string ToString()
     {
-        return Get;
+        return base.ToString();
     }
 }

@@ -10,8 +10,7 @@ public class Task
 
     public TaskType Type { get; set; }
     public Venue? Venue { get; set; }
-    public Priority Priority { get; set; }
-    public Duration Duration { get; set; }
+    public int Minutes { get; set; }
 
     public List<Profession> RequiredProfessions { get; } = new();
     public List<DataName> RequiredData { get; } = new();

@@ -18,12 +18,12 @@ public class BasicGraphDirector
     private static  Dictionary<TaskId, TaskNode> tMap = new(new TaskIdEqualityComparer());
     private static  Dictionary<WorkflowId, WorkflowNode> wMap = new(new WorkflowIdEqualityComparer());
 
-    private static WorkFlowPool _wPool;
+    private static WorkflowPool _wPool;
     private static TaskPool _tPool;
 
     private static WorkflowNode currentNode = null;
 
-    public static void ConstructFromCsv(string path, AdjListsGraph graph, WorkFlowPool wPool, TaskPool tPool, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
+    public static void ConstructFromCsv(string path, AdjListsGraph graph, WorkflowPool wPool, TaskPool tPool, IWorkflowBuilder wBuilder, ITaskBuilder tBuilder)
     {
         _wPool = wPool;
         _tPool = tPool;
@@ -33,7 +33,7 @@ public class BasicGraphDirector
 
         Reset();
     }
-    public static AdjListsGraph ConstructFromCsv(string path, WorkFlowPool wPool, TaskPool tPool)
+    public static AdjListsGraph ConstructFromCsv(string path, WorkflowPool wPool, TaskPool tPool)
     {
         var graph = new AdjListsGraph();
         var wBuilder = new BasicWorkflowBuilder();
@@ -86,7 +86,7 @@ public class BasicGraphDirector
             {
 
                 //workflow properties
-                string workflowId = "WORKFLOW_" + wCount;
+                string workflowId = "Workflow_" + wCount;
                 string type = reader.GetField(0);
                 string venue = reader.GetField(2);
 
@@ -95,11 +95,11 @@ public class BasicGraphDirector
                 wBuilder.Set(GetVenues(venue));
 
                 //task properties
-                string taskId = "TASK_" + tCount;
+                string taskId = "Task_" + tCount;
                 string taskType = reader.GetField(5);
                 string duration = reader.GetField(7); ;
-                string professions = reader.GetField(13);
-                string dataNames = reader.GetField(10);
+                string professions = reader.GetField(12);
+                string dataNames = reader.GetField(9);
                 string taskNumber = reader.GetField(4);
 
                 tBuilder.Set(GetTaskId(taskId));
@@ -131,11 +131,11 @@ public class BasicGraphDirector
             private static void GetTask(CsvReader reader, ITaskBuilder tBuilder, AdjListsGraph graph, int tCount)
             {
                 //task properties
-                string taskId = "TASK_" + tCount;
+                string taskId = "Task_" + tCount;
                 string taskType = reader.GetField(5);
                 string duration = reader.GetField(7); ;
-                string professions = reader.GetField(13);
-                string dataNames = reader.GetField(10);
+                string professions = reader.GetField(12);
+                string dataNames = reader.GetField(9);
                 string taskNumber = reader.GetField(4);
 
                 tBuilder.Set(GetTaskId(taskId));
@@ -175,10 +175,10 @@ public class BasicGraphDirector
                 {
                     return new TaskType(type);
                 }
-                private static Duration? GetDuration(string duration)
+                private static int GetDuration(string duration)
                 {
-                    if (duration.Equals("")) return null;
-                    return new Duration(int.Parse(duration));
+                    if (duration.Equals("")) return 0;
+                    return int.Parse(duration);
                 }
                 private static List<Profession> GetProfessions(string professions)
                 {
@@ -188,9 +188,9 @@ public class BasicGraphDirector
 
                     foreach (string s in temp)
                     {
-                        s.Trim('"', ' ');
+                        string s2 = s.Trim('"', ' ');
 
-                        result.Add(new Profession(s));
+                        result.Add(new Profession(s2));
                     }
 
                     return result;
@@ -203,8 +203,8 @@ public class BasicGraphDirector
 
                     foreach (string s in temp)
                     {
-                        s.Trim('"', ' ');
-                        result.Add(new DataName(s));
+                        string s2 = s.Trim('"', ' ');
+                        result.Add(new DataName(s2));
                     }
 
                     return result;
@@ -228,8 +228,8 @@ public class BasicGraphDirector
             string taskId;
             if (!temp.Equals(""))
             {
-                workflowId = "WORKFLOW_" + wCount++;
-                taskId = "TASK_" + tCount++;
+                workflowId = "Workflow_" + wCount++;
+                taskId = "Task_" + tCount++;
 
                 WorkflowNode wNode = wMap[new WorkflowId(workflowId)];
                 TaskNode tNode = tMap[new TaskId(taskId)];
@@ -250,7 +250,7 @@ public class BasicGraphDirector
             }
             else
             {
-                taskId = "TASK_" + tCount++;
+                taskId = "Task_" + tCount++;
 
                 WorkflowNode wNode = wMap[new WorkflowId(workflowId)];
                 TaskNode tNode = tMap[new TaskId(taskId)];
@@ -283,7 +283,7 @@ public class BasicGraphDirector
         {
             List<TaskNode> tNodes = graph.GetTaskNodes(wNode);
             var p = new Procedures(0);
-            Duration d = new(0);
+            int min = 0;
             foreach(var tNode in tNodes)
             {
                 p++;
@@ -293,11 +293,11 @@ public class BasicGraphDirector
                 {
                     _tPool[tNode.Id].Venue = venue;
                 }
-                d += _tPool[tNode.Id].Duration;
+                min += _tPool[tNode.Id].Minutes;
             }
 
             _wPool[wNode.Id].Procedures = p;
-            _wPool[wNode.Id].Duration = d; 
+            _wPool[wNode.Id].Minutes = min; 
         }
     }
 }

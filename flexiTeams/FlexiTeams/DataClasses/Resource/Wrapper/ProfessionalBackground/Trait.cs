@@ -2,10 +2,18 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Trait
 {
-    public KeyValuePair<string, int> Get { get; }
+    public string Name { get; }
+    public int Value { get; }
 
-    public Trait(KeyValuePair<string, int> trait)
+    public Trait(string name, int value)
     {
-        Get = trait;
+        Name = name;
+        Value = value;
     }
+
+    public override string ToString()
+    {
+        return "[" + Name + ", " + Value +"]";
+    }
+
 }

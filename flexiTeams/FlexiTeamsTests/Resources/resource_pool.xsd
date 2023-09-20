@@ -3,10 +3,10 @@
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"
         schemaLocation="xml.xsd"/>
 	
-	<xs:element name= "resourcePool">
+	<xs:element name= "ResourcePool">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="resource" type="resourceType" maxOccurs="unbounded"/>
+				<xs:element name="Resource" type="resourceType" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -14,89 +14,77 @@
 	<xs:complexType name="resourceType">
 		<xs:sequence>
 			<!--Personal Background-->
-			<xs:element name="photo" type="photoType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="age" type="xs:duration"/>
-			<xs:element name="prefix" type="xs:string" minOccurs="0"/>
-			<xs:element name="firstName" type="xs:string" maxOccurs="unbounded"/>
-			<xs:element name="lastName" type="xs:string" maxOccurs="unbounded"/>
-			<xs:element name="maritalStatus" type="textWithLangType"/>
-			<xs:element name="child" type="childType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="stressor" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="personalInfo" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Photo" type="photoType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FirstName" type="valueAttributeType" maxOccurs="unbounded"/>
+			<xs:element name="LastName" type="valueAttributeType" maxOccurs="unbounded"/>
+			<xs:element name="Child" type="childType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Stressor" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PersonalInfo" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
 
 			<!--Professional Background-->
-			<xs:element name="profession" type="textWithLangType" maxOccurs="unbounded"/>
-			<xs:element name="department" type="textWithLangType" maxOccurs="unbounded"/>
-			<xs:element name="workExperience" type="xs:duration" minOccurs="0"/>
-			<xs:element name="trainingDuration" type="xs:duration" minOccurs="0"/>
-			<xs:element name="weeklyHours" type="xs:duration"/>
-			<xs:element name="overtime" type="xs:duration"/>
-			<xs:element name="yearlyTimeOf" type="xs:duration"/>
-			<xs:element name="yearlyEducation" type="xs:duration"/>
-			<xs:element name="training" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="qualification" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="workAgreement" type="workAgreementType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="studies" type ="studieType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="additionalJob" type="additionalJobType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="arrivalTime" type="xs:duration"/>
-			<xs:element name="meansOfTransport" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="professionalInfo" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Profession" type="valueAttributeType" maxOccurs="unbounded"/>
+			<xs:element name="Department" type="valueAttributeType" maxOccurs="unbounded"/>
+			<xs:element name="Training" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Qualification" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WorkAgreement" type="workAgreementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Studies" type ="studieType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdditionalJob" type="additionalJobType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MeansOfTransport" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ProfessionalInfo" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
 			<!--Skills-->
-			<xs:element name="skill" type="textWithLangType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Skill" type="valueAttributeType" minOccurs="0" maxOccurs="unbounded"/>
 			<!--Character Traits-->
-			<xs:element name="trait" type="traitType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Trait" type="traitType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute ref="xml:id"/>
+		<xs:attribute name="age" type="xs:duration" use="required"/>
+		<xs:attribute name="prefix" type="xs:string" use="optional"/>
+		<xs:attribute name="maritalState" type="xs:string" use="required"/>
+		<xs:attribute name="workExperience" type="xs:duration" use="optional"/>
+		<xs:attribute name="trainingDuration" type="xs:duration" use="optional"/>
+		<xs:attribute name="weeklyHours" type="xs:duration" use="required"/>
+		<xs:attribute name="overtime" type="xs:duration" use="optional"/>
+		<xs:attribute name="yearlyTimeOf" type="xs:duration" use="required"/>
+		<xs:attribute name="yearlyEducation" type="xs:duration" use="optional"/>
+		<xs:attribute name="commuteTime" type="xs:duration" use="required"/>
 	</xs:complexType>
 
 	<xs:complexType name="photoType">
-		<xs:sequence>
-			<xs:element name="URI" type="xs:anyURI"/>
-		</xs:sequence>
+		<xs:attribute name="path" type="xs:anyURI"/>
 	</xs:complexType>
 
 	<xs:complexType name="childType">
-		<xs:sequence>
-			<xs:element name="age" type="xs:duration"/>
-		</xs:sequence>
+		<xs:attribute name="age" type="xs:duration" use="required"/>
 	</xs:complexType>
 
-	<xs:simpleType name="workAgreementType">
+	<xs:complexType name="workAgreementType">
+		<xs:attribute name="value" type="workAgreementStringType" use="required"/>
+	</xs:complexType>
+
+	<xs:simpleType name="workAgreementStringType">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-6]-(0\d|1\d|2[0-3]):[0-5]\d-(0\d|1\d|2[0-3]):[0-5]\d"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:complexType name ="studieType">
-		<xs:sequence>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="location" type="xs:string" minOccurs="0"/>
-		</xs:sequence>
-		<xs:attribute ref="xml:lang" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="location" type="xs:string" use="optional"/>
 	</xs:complexType>
 
+
 	<xs:complexType name="additionalJobType">
-		<xs:sequence>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="yearlyRequiredDays" type="xs:duration" minOccurs="0"/>
-		</xs:sequence>
-		<xs:attribute ref="xml:lang" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="yearlyRequiredDays" type="xs:duration" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name ="valueAttributeType">
+		<xs:attribute name="value" type="xs:string" use="required"/>
 	</xs:complexType>
 
 	<xs:complexType name ="traitType">
-		<xs:sequence>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="value" type="percentageType"/>
-		</xs:sequence>
-		<xs:attribute ref="xml:lang" use="required"/>
-	</xs:complexType>
-
-	<xs:complexType name="textWithLangType">
-		<xs:simpleContent>
-			<xs:extension base="xs:string">
-				<xs:attribute ref="xml:lang" use="required"/>
-			</xs:extension>
-		</xs:simpleContent>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="value" type="percentageType" use="required"/>
 	</xs:complexType>
 
 	<xs:simpleType name ="percentageType">

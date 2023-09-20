@@ -17,18 +17,18 @@ public class BasicResourceDirectorTest
         var builder = new BasicResourceBuilder();
         var doc = new XmlDocument();
         doc.Load("C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/resource_pool_draft.xml");
-        var node = doc.DocumentElement.SelectSingleNode("//resourcePool/resource");
+        var node = doc.DocumentElement.SelectSingleNode("//ResourcePool/Resource");
 
         //Act
         BasicResourceDirector.ConstructFromXmlNode(builder, node);
         var resource = builder.GetResource();
         
         //Assert
-        Assert.AreEqual("RESOURCE_1", resource.Id.ToString());
+        Assert.AreEqual("Resource_1", resource.Id.ToString());
         
-        Assert.AreEqual("../images/Resource_1.jpg", resource.Photos[0].ToString());
+        Assert.AreEqual("../images/Resource_1.jpg", resource.Photos[0].Path);
 
-        Assert.AreEqual(32, resource.Age.Get);
+        Assert.AreEqual(32, resource.Age.Years);
         
         Assert.AreEqual(null, resource.Prefix);
         
@@ -36,12 +36,12 @@ public class BasicResourceDirectorTest
         
         Assert.AreEqual("Schmidt", resource.LastNames[0].ToString());
         
-        Assert.AreEqual("Verheiratet", resource.MaritalState.ToString());
+        Assert.AreEqual("verheiratet", resource.MaritalState.ToString());
         
         Assert.AreEqual(5, resource.Children[0].Age);
         Assert.AreEqual(3, resource.Children[1].Age);
         
-        Assert.AreEqual(false, resource.Stressors.Any());
+        Assert.AreEqual(null, resource.Stressors);
 
         Assert.AreEqual("Beide Kinder gehen in die Krankenhaus-Kita", resource.PersonalInfos[0].ToString());
 
@@ -49,17 +49,17 @@ public class BasicResourceDirectorTest
 
         Assert.AreEqual("Onkologie", resource.Departments[0].ToString());
 
-        Assert.AreEqual(13, resource.WorkExperience.Get);
+        Assert.AreEqual(13, resource.WorkExperience.Years);
 
-        Assert.AreEqual(3, resource.TrainingDuration.Get);
+        Assert.AreEqual(3, resource.TrainingDuration.Years);
         
-        Assert.AreEqual(35, resource.WeeklyHours.Get);
+        Assert.AreEqual(35, resource.WeeklyHours.Hours);
 
-        Assert.AreEqual(50, resource.Overtime.Get);
+        Assert.AreEqual(50, resource.Overtime.Hours);
         
-        Assert.AreEqual(28, resource.YearlyTimeOf.Get);
+        Assert.AreEqual(28, resource.YearlyTimeOf.Days);
         
-        Assert.AreEqual(5, resource.YearlyEducation.Get);
+        Assert.AreEqual(5, resource.YearlyEducation.Days);
         
         Assert.AreEqual("Notfall Medizin", resource.Trainings[0].ToString());
         Assert.AreEqual("Anästhesie", resource.Trainings[1].ToString());
@@ -71,20 +71,20 @@ public class BasicResourceDirectorTest
         
         Assert.AreEqual("Mitglied im Personalrat", resource.AdditionalJobs[0].ToString());
         
-        Assert.AreEqual(20, resource.ArrivalTime.Get);
+        Assert.AreEqual(20, resource.CommuteTime.Minutes);
         
         Assert.AreEqual("öffentliche Verkehrsmittel", resource.MeansOfTransport[0].ToString());
         Assert.AreEqual("Fahrrad", resource.MeansOfTransport[1].ToString());
         
-        Assert.AreEqual(false, resource.ProfessionalInfos.Any());
+        Assert.AreEqual(null, resource.ProfessionalInfos);
         
         Assert.AreEqual("Medikamentierung", resource.Skills[0].ToString());
         Assert.AreEqual("Diagn. Schnelltest", resource.Skills[1].ToString());
         Assert.AreEqual("Dokumentation", resource.Skills[2].ToString());
         
-        Assert.AreEqual("[Zuverlässigkeit, 85]", resource.Traits[0].Get.ToString());
-        Assert.AreEqual("[Entscheidungsvermögen, 25]",resource.Traits[1].Get.ToString());
-        Assert.AreEqual("[Belastungsfähigkeit, 65]", resource.Traits[2].Get.ToString());
-        Assert.AreEqual("[Veränderungsbereitschaft, 85]", resource.Traits[3].Get.ToString());
+        Assert.AreEqual("[Zuverlässigkeit, 85]", resource.Traits[0].ToString());
+        Assert.AreEqual("[Entscheidungsvermögen, 25]",resource.Traits[1].ToString());
+        Assert.AreEqual("[Belastungsfähigkeit, 65]", resource.Traits[2].ToString());
+        Assert.AreEqual("[Veränderungsbereitschaft, 85]", resource.Traits[3].ToString());
     }
 }

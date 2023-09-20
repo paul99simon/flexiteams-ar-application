@@ -2,10 +2,10 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class Age
 {
-    public int Get{ get; }
+    public int Years{ get; }
 
     public Age(int age)
     {
-        Get = age;
+        Years = age;
     }
 }

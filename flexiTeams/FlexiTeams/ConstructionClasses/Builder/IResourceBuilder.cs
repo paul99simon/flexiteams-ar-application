@@ -33,7 +33,7 @@ public interface IResourceBuilder
     public void Set(List<TimeInterval>[] workAgreement);
     public void Set(List<Studies> studies);
     public void Set(List<AdditionalJob> additionalJobs);
-    public void Set(ArrivalTime arrivalTime);
+    public void Set(CommuteTime arrivalTime);
     public void Set(List<Vehicle> meansOfTransport);
     public void Set(List<ProfessionalInfo> professionalInfos);
     public void Set(List<Skill> skills);
