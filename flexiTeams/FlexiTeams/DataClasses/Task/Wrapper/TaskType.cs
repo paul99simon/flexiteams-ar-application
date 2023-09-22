@@ -1,4 +1,4 @@
-namespace FlexiTeams.DataClasses.Task.Wrappper;
+namespace FlexiTeams.DataClasses.Task.Wrapper;
 
 public class TaskType
 {

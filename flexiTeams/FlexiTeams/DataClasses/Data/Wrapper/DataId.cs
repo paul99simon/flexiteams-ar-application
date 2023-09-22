@@ -4,11 +4,7 @@ namespace FlexiTeams.DataClasses.Data.Wrapper;
 
 public class DataId : Id
 {
-    
-    public DataId(string dataId)
-    {
-        _id = dataId;
-    }
+    public DataId(string dataId) : base(dataId) { }
 
     public override string ToString()
     {

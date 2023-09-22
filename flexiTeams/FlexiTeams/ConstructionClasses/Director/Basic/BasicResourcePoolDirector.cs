@@ -1,11 +1,11 @@
 ﻿using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
+using FlexiTeams.ConstructionClasses.Builder.Interface;
 using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.Exceptions;
 using System.Xml;
 using System.Xml.Schema;
 
-namespace FlexiTeams.ConstructionClasses.Director
+namespace FlexiTeams.ConstructionClasses.Director.Basic
 {
     public class BasicResourcePoolDirector
     {
@@ -25,7 +25,7 @@ namespace FlexiTeams.ConstructionClasses.Director
             using var reader = XmlReader.Create(xmlPath, setting);
             ConstructFromXml(pool, reader, builder);
         }
-        
+
         /// <summary>
         /// This method adds data from a xml file to a ResourcePool <see cref="ResourcePool"/>.
         /// The xml file is validated against the specified xsd schema
@@ -35,7 +35,8 @@ namespace FlexiTeams.ConstructionClasses.Director
         /// <param name="xmlPath">path to xml file</param>
         /// <param name="builder">ResourceBuilder which specifies how a resource is constructed</param>
         /// <exception cref="InvalidXmlInstanceException"></exception>
-        public static void ConstructFromXml(ResourcePool pool, string xmlPath, IResourceBuilder builder) {
+        public static void ConstructFromXml(ResourcePool pool, string xmlPath, IResourceBuilder builder)
+        {
 
             var setting = GetXmlReaderSettings(GetSchemaLocations(xmlPath));
             using var reader = XmlReader.Create(xmlPath, setting);
@@ -108,17 +109,17 @@ namespace FlexiTeams.ConstructionClasses.Director
             return list;
         }
         private static KeyValuePair<string, string> GetNoNamespaceSchemaLocation(string xmlPath)
-        { 
-        using XmlReader reader = XmlReader.Create(xmlPath);
-        XmlDocument document = new XmlDocument();
-        document.Load(reader);
+        {
+            using XmlReader reader = XmlReader.Create(xmlPath);
+            XmlDocument document = new XmlDocument();
+            document.Load(reader);
 
-        XmlNode root = document.DocumentElement;
-        string path = root.Attributes["xsi:noNamespaceSchemaLocation"].Value;
+            XmlNode root = document.DocumentElement;
+            string path = root.Attributes["xsi:noNamespaceSchemaLocation"].Value;
 
-        if (path is null) throw new InvalidXmlInstanceException("'noNamespaceSchemaLocation' atribute is not declared");
-        return new KeyValuePair<string, string>("", GetParentDirectory(xmlPath) + "/" + path);
-    }
+            if (path is null) throw new InvalidXmlInstanceException("'noNamespaceSchemaLocation' atribute is not declared");
+            return new KeyValuePair<string, string>("", GetParentDirectory(xmlPath) + "/" + path);
+        }
         private static KeyValuePair<string, string> GetSchemaLocation(string xmlPath)
         {
             using XmlReader reader = XmlReader.Create(xmlPath);
@@ -133,7 +134,7 @@ namespace FlexiTeams.ConstructionClasses.Director
             string nameSpace = importNode.Attributes["namespace"].Value;
 
             if (path is null) throw new InvalidXmlInstanceException("'schemaLocation' atribute is not declared");
-            if(nameSpace == null) throw new InvalidXmlInstanceException("'namespace' atribute is not declared");
+            if (nameSpace == null) throw new InvalidXmlInstanceException("'namespace' atribute is not declared");
 
             return new KeyValuePair<string, string>(nameSpace, GetParentDirectory(xmlPath) + "/" + path);
         }

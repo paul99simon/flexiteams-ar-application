@@ -4,10 +4,7 @@ namespace FlexiTeams.DataClasses.Workflow.Wrapper;
 
 public class WorkflowId : Id
 {
-    public WorkflowId(string id)
-    {
-        _id = id;
-    }
+    public WorkflowId(string id) : base(id) {}
 
     public override string ToString()
     {

@@ -1,7 +1,7 @@
 using FlexiTeams.DataClasses.Workflow;
 using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
-namespace FlexiTeams.ConstructionClasses;
+namespace FlexiTeams.ConstructionClasses.Builder.Interface;
 
 public interface IWorkflowBuilder
 {

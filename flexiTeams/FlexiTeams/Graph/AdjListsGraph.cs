@@ -13,64 +13,36 @@ public class AdjListsGraph
     private readonly Dictionary<Node, List<Node>> _adjLists = new ();
     private readonly Dictionary<Id, Node> map = new (new AbstractIdEqualityComperator());
 
+    public List<Node> Nodes { 
+        get
+        {
+            List<Node> nodes = new();
+            foreach (var u in _adjLists) { nodes.Add(u.Key); }
+            return nodes;
+        }
+    }
+
     //FlexiTeams graph methods
-    public void AddNode(TaskNode v)
-    {
-        AddNodeBase(v);
-    }
 
-    public void AddNode(WorkflowNode v)
-    {
-        AddNodeBase(v);
-    }
-
-    public void AddNode(ResourceNode v)
-    {
-        AddNodeBase(v);
-    }
-
-    public void AddNode(DataNode v)
-    {
-        AddNodeBase(v);
-    }
-    
-    private void AddNodeBase(Node v)
+    public void AddNode(Node v)
     {
         map.Add(v._id, v);
         _adjLists.Add(v, new List<Node>());
     }
 
-    public void AddEdge(TaskNode v, TaskNode u)
+    public void AddEdge(Node v, Node u)
     {
-        AddEdgeBase(v, u);
-    }
-
-    public void AddEdge(ResourceNode v, TaskNode u)
-    {
-        AddEdgeBase(v, u);
-        AddEdgeBase(u, v);
-    }
-
-    public void AddEdge(DataNode v, TaskNode u)
-    {
-        AddEdgeBase(v, u);
-        AddEdgeBase(u, v);
-    }
-
-    public void AddEdge(TaskNode v, WorkflowNode u)
-    {
-        AddEdgeBase(v, u);
-        AddEdgeBase(u, v);
-    }
-
-    private void AddEdgeBase(Node v, Node u)
-    {
-        if(!_adjLists.ContainsKey(v)) AddNodeBase(v);
-        if(!_adjLists.ContainsKey(u)) AddNodeBase(u);
+        if(!_adjLists.ContainsKey(v)) AddNode(v);
+        if(!_adjLists.ContainsKey(u)) AddNode(u);
         
         _adjLists[v].Add(u);
     }
-    
+
+    public void RemoveEdge(Node u, Node v)
+    {
+        _adjLists[u].Remove(v);
+    }
+
     public List<Node> Adj(Node v)
     {
         return _adjLists[v];
@@ -92,18 +64,6 @@ public class AdjListsGraph
         return result;
     }
     
-    public List<Node> Nodes()
-    {
-        List<Node> nodes = new();
-
-        foreach(var u in _adjLists)
-        {
-            nodes.Add(u.Key);
-        }
-
-        return nodes;
-    }
-
     public List<DataNode> AdjDataNodes(TaskNode v)
     {
         List<Node> temp = Adj(v);
@@ -151,7 +111,7 @@ public class AdjListsGraph
         return prevTasks;
     }
 
-    public WorkflowNode? GetWorkflowNode(TaskNode v)
+    public WorkflowNode GetWorkflowNode(TaskNode v)
     {
         var adj = Adj(v);
         foreach (var j in adj)
@@ -185,20 +145,6 @@ public class AdjListsGraph
         return temp;
     }
 
-    private void RemoveEdgeBase(Node u, Node v)
-    {
-        _adjLists[u].Remove(v);
-    }
-    public void RemoveEdge(TaskNode u, ResourceNode v)
-    {
-        RemoveEdgeBase(u, v);
-        RemoveEdgeBase(v, u);
-    }
-    public void RemoveEdge(TaskNode u, DataNode v)
-    {
-        RemoveEdgeBase(u, v);
-        RemoveEdgeBase(v, u);
-    }
 
     public Node? FindNode(Id id)
     {

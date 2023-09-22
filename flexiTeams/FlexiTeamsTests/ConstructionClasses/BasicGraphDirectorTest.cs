@@ -1,8 +1,6 @@
 using System;
-using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
+using FlexiTeams.ConstructionClasses.Director.Basic;
 using FlexiTeams.FlexiTeamsGraph;
-using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Inventory;
 using NUnit.Framework;
 

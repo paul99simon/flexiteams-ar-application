@@ -1,6 +1,6 @@
 using FlexiTeams;
 using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Director;
+using FlexiTeams.ConstructionClasses.Director.Basic;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources;
 using NUnit.Framework;
 using static System.Net.Mime.MediaTypeNames;

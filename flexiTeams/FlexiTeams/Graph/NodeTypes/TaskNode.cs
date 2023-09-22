@@ -1,6 +1,6 @@
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Resource.Wrapper;
-using FlexiTeams.DataClasses.Task.Wrappper;
+using FlexiTeams.DataClasses.Task.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 
 namespace FlexiTeams.Graph.Nodes;

@@ -1,10 +1,10 @@
 using FlexiTeams.DataClasses.Data.Wrapper;
-using FlexiTeams.DataClasses.Task.Wrappper;
+using FlexiTeams.DataClasses.Task.Wrapper;
 using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
-namespace FlexiTeams.ConstructionClasses;
+namespace FlexiTeams.ConstructionClasses.Builder.Interface;
 
 public interface ITaskBuilder
 {

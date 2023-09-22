@@ -4,10 +4,7 @@ namespace FlexiTeams.DataClasses.Resource.Wrapper;
 
 public class ResourceId : Id
 {
-    public ResourceId(string id)
-    {
-       _id = id;
-    }
+    public ResourceId(string id) : base(id) {}
 
     public override string ToString()
     {

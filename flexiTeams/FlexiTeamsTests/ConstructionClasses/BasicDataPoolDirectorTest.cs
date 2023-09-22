@@ -1,13 +1,8 @@
-﻿using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams;
+﻿
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using FlexiTeams.Inventory;
-using FlexiTeams.ConstructionClasses.Director;
+using FlexiTeams.ConstructionClasses.Director.Basic;
 
 namespace FlexiTeamsTests.ConstructionClasses
 {

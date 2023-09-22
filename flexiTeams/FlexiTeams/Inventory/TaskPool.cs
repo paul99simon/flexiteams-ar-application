@@ -3,7 +3,7 @@ using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Util.EqualityComperator;
 using System.Collections;
 using Task = FlexiTeams.DataClasses.Task.Task;
-using FlexiTeams.DataClasses.Task.Wrappper;
+using FlexiTeams.DataClasses.Task.Wrapper;
 
 namespace FlexiTeams.Inventory
 {

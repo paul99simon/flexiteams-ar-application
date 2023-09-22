@@ -1,12 +1,15 @@
 using System.Xml;
-using FlexiTeams.ConstructionClasses.Builder;
+using System.Xml.Linq;
+using FlexiTeams.ConstructionClasses.Builder.Interface;
+using FlexiTeams.ConstructionClasses.Director.Interface;
+using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Util;
 
-namespace FlexiTeams.ConstructionClasses.Diretor;
+namespace FlexiTeams.ConstructionClasses.Director.Basic;
 
-public class BasicResourceDirector
+public class BasicResourceDirector : IResourceDirector
 {
     //Xml-Construction
     public static void ConstructFromXmlNode(IResourceBuilder builder, XmlNode resource)
@@ -28,34 +31,34 @@ public class BasicResourceDirector
 
         //Nullable Types
         var photos = GetPhotos();
-        if(photos != null) builder.Set(photos);
+        if (photos != null) builder.Set(photos);
 
         var children = GetChildren();
         if (children != null) builder.Set(children);
 
         var stressors = GetStressors();
-        if(stressors != null) builder.Set(stressors);
+        if (stressors != null) builder.Set(stressors);
 
         var personalInfos = GetPersonalInfos();
-        if(personalInfos != null) builder.Set(personalInfos);
+        if (personalInfos != null) builder.Set(personalInfos);
 
         var prefix = GetPrefix();
-        if(prefix != null) builder.Set(prefix);
+        if (prefix != null) builder.Set(prefix);
 
         var workExperience = GetWorkExperience();
-        if(workExperience != null) builder.Set(workExperience);
+        if (workExperience != null) builder.Set(workExperience);
 
         var trainingDuration = GetTrainingDuration();
-        if(trainingDuration != null) builder.Set(trainingDuration);
+        if (trainingDuration != null) builder.Set(trainingDuration);
 
         var overtime = GetOvertime();
-        if(overtime != null) builder.Set(overtime);
+        if (overtime != null) builder.Set(overtime);
 
         var yearlyTimeOf = GetYearlyTimeOf();
-        if(yearlyTimeOf != null) builder.Set(yearlyTimeOf);
+        if (yearlyTimeOf != null) builder.Set(yearlyTimeOf);
 
         var yearlyEducation = GetYearlyEducation();
-        if(yearlyEducation != null) builder.Set(yearlyEducation);
+        if (yearlyEducation != null) builder.Set(yearlyEducation);
 
         var traingings = GetTrainings();
         if (traingings != null) builder.Set(traingings);
@@ -115,26 +118,26 @@ public class BasicResourceDirector
         {
             var nodes = resource.SelectNodes("FirstName");
             var temp = new List<FirstName>();
-            
+
             foreach (XmlNode node in nodes)
             {
                 string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new FirstName(value));
             }
-            
+
             return temp;
         }
         List<LastName> GetLastNames()
         {
             var nodes = resource.SelectNodes("LastName");
             var temp = new List<LastName>();
-            
+
             foreach (XmlNode node in nodes)
             {
                 string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new LastName(value));
             }
-            
+
             return temp;
         }
         MaritalState GetMaritalState()
@@ -153,7 +156,7 @@ public class BasicResourceDirector
                 {
                     var ageNode = node.Attributes.GetNamedItem("age");
                     var timespan = XmlConvert.ToTimeSpan(ageNode.InnerText);
-                    temp.Add(new Child(timespan.Days/365));
+                    temp.Add(new Child(timespan.Days / 365));
                 }
             }
             return temp.Any() ? temp : null;
@@ -162,13 +165,13 @@ public class BasicResourceDirector
         {
             var nodes = resource.SelectNodes("Stressor");
             var temp = new List<Stressor>();
-            
+
             foreach (XmlNode node in nodes)
             {
                 string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new Stressor(value));
             }
-            
+
             return temp.Any() ? temp : null;
         }
         List<PersonalInfo>? GetPersonalInfos()
@@ -181,7 +184,7 @@ public class BasicResourceDirector
                 string value = node.Attributes.GetNamedItem("value").InnerText;
                 temp.Add(new PersonalInfo(value));
             }
-            
+
             return temp.Any() ? temp : null;
         }
         List<Profession> GetProfessions()
@@ -217,7 +220,7 @@ public class BasicResourceDirector
         WorkExperience? GetWorkExperience()
         {
             var node = resource.Attributes.GetNamedItem("workExperience");
-            return node is null ? null :  new WorkExperience(new ISO8601(node.InnerText).Years);
+            return node is null ? null : new WorkExperience(new ISO8601(node.InnerText).Years);
         }
         TrainingDuration? GetTrainingDuration()
         {
@@ -313,7 +316,7 @@ public class BasicResourceDirector
                 var locationNode = node.Attributes.GetNamedItem("location");
 
                 if (locationNode != null) temp.Add(new Studies(name, locationNode.InnerText));
-                else temp.Add(new Studies(name)); 
+                else temp.Add(new Studies(name));
             }
 
             return temp.Any() ? temp : null;
@@ -323,19 +326,20 @@ public class BasicResourceDirector
             var nodes = resource.SelectNodes("AdditionalJob");
             var temp = new List<AdditionalJob>();
 
-                foreach (XmlNode node in nodes)
-                {
-                    var name = node.Attributes.GetNamedItem("name").InnerText;
-                    var yearlyRequiredDaysNode = node.Attributes.GetNamedItem("yearlyRequiredDays");
+            foreach (XmlNode node in nodes)
+            {
+                var name = node.Attributes.GetNamedItem("name").InnerText;
+                var yearlyRequiredDaysNode = node.Attributes.GetNamedItem("yearlyRequiredDays");
 
-                    if (yearlyRequiredDaysNode != null)
-                    {
-                        string yearlyRequiredDays = yearlyRequiredDaysNode.InnerText;
-                        int days = (int) XmlConvert.ToTimeSpan(yearlyRequiredDays).TotalDays;
-                        temp.Add(new AdditionalJob(name, days));
-                    } else temp.Add(new AdditionalJob(name));
+                if (yearlyRequiredDaysNode != null)
+                {
+                    string yearlyRequiredDays = yearlyRequiredDaysNode.InnerText;
+                    int days = (int)XmlConvert.ToTimeSpan(yearlyRequiredDays).TotalDays;
+                    temp.Add(new AdditionalJob(name, days));
                 }
-            
+                else temp.Add(new AdditionalJob(name));
+            }
+
             return temp.Any() ? temp : null;
         }
         CommuteTime GetCommuteTime()
@@ -404,5 +408,10 @@ public class BasicResourceDirector
             }
             return temp;
         }
+    }
+
+    public Resource Construct(XElement resourceNode, IResourceBuilder rBuilder)
+    {
+        throw new NotImplementedException();
     }
 }

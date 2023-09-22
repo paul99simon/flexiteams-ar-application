@@ -1,9 +1,14 @@
 ﻿
 namespace FlexiTeams.DataClasses.Wrapper
 {
-    public abstract class Id
+    public class Id
     {
         public string _id { get; set; }
+
+        public Id(string id)
+        {
+            _id = id;
+        }
 
         public override string ToString()
         {

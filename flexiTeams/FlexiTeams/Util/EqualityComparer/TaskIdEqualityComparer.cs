@@ -1,4 +1,4 @@
-﻿using FlexiTeams.DataClasses.Task.Wrappper;
+﻿using FlexiTeams.DataClasses.Task.Wrapper;
 
 namespace FlexiTeams.Util.EqualityComperator
 {

@@ -1,5 +1,6 @@
+using FlexiTeams.ConstructionClasses.Builder.Interface;
 using FlexiTeams.DataClasses.Data.Wrapper;
-using FlexiTeams.DataClasses.Task.Wrappper;
+using FlexiTeams.DataClasses.Task.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
@@ -38,10 +39,10 @@ public class BasicTaskBuilder : ITaskBuilder
     }
     public void Set(List<Profession> requiredProfessions)
     {
-        _task.RequiredProfessions.AddRange(requiredProfessions);
+        _task.RequiredProfessions = requiredProfessions;
     }
     public void Set(List<DataName> requiredDataNames)
     {
-        _task.RequiredData.AddRange(requiredDataNames);
+        _task.RequiredData = requiredDataNames;
     }
 }

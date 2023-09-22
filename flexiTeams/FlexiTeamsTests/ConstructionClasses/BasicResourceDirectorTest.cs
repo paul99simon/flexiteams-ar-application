@@ -2,7 +2,7 @@ using System.Linq;
 using System.Xml;
 using FlexiTeams.ConstructionClasses;
 using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
+using FlexiTeams.ConstructionClasses.Director.Basic;
 using NUnit.Framework;
 
 namespace FlexiTeamsTests.ConstructionClasses;

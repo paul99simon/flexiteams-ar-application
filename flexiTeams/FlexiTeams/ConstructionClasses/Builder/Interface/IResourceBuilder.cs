@@ -3,7 +3,7 @@ using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Util;
 
-namespace FlexiTeams.ConstructionClasses.Builder;
+namespace FlexiTeams.ConstructionClasses.Builder.Interface;
 
 public interface IResourceBuilder
 {

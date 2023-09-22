@@ -1,16 +1,12 @@
 ﻿using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
+using FlexiTeams.ConstructionClasses.Builder.Interface;
 using FlexiTeams.DataClasses.Data;
-using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.Exceptions;
 using FlexiTeams.Inventory;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 
-namespace FlexiTeams.ConstructionClasses.Director
+namespace FlexiTeams.ConstructionClasses.Director.Basic
 {
     public class BasicDataPoolDirector
     {
@@ -51,7 +47,7 @@ namespace FlexiTeams.ConstructionClasses.Director
 
         private static void ConstructFromXml(DataPool pool, XmlReader reader, IDataBuilder builder)
         {
-            while (reader.ReadToFollowing("Data"))
+            /*while (reader.ReadToFollowing("Data"))
             {
                 XmlDocument doc = new XmlDocument();
                 XmlNode node = doc.ReadNode(reader);
@@ -59,7 +55,7 @@ namespace FlexiTeams.ConstructionClasses.Director
 
                 Data data = builder.GetData();
                 pool.Add(data);
-            }
+            }*/
         }
         private static void ValidationCallBack(object sender, ValidationEventArgs e)
         {

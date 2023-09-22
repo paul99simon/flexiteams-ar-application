@@ -5,12 +5,13 @@ using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Inventory;
+using FlexiTeams.Util;
 using System.Net.Http.Headers;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace FlexiTeams.Util
+namespace FlexiTeams.IO
 {
     public class Export
     {
@@ -21,7 +22,7 @@ namespace FlexiTeams.Util
             settings.IndentChars = "  ";
             settings.OmitXmlDeclaration = true;
 
-            if (document == null) throw new System.ArgumentNullException();
+            if (document == null) throw new ArgumentNullException();
             using var writer = XmlWriter.Create(new StreamWriter(path + fileName), settings);
 
             document.Save(writer);
@@ -47,7 +48,7 @@ namespace FlexiTeams.Util
                         )
                     )
                 );
-            
+
             ToXml(document, rPool);
             ToXml(document, dPool);
             ToXml(document, wPool);
@@ -73,33 +74,33 @@ namespace FlexiTeams.Util
                 //required Attributes
                 resourceNode.Add(
                     new XAttribute(XNamespace.Xml + "id", resource.Id.ToString()),
-                    new XAttribute("age", ISO8601.ToXml(resource.Age.Years,0,0,0,0,0)),
+                    new XAttribute("age", ISO8601.ToXml(resource.Age.Years, 0, 0, 0, 0, 0)),
                     new XAttribute("maritalState", resource.MaritalState.ToString()),
-                    new XAttribute("weeklyHours", ISO8601.ToXml(0,0,0,resource.WeeklyHours.Hours,0,0)),
-                    new XAttribute("yearlyTimeOf", ISO8601.ToXml(0,0,resource.YearlyTimeOf.Days,0,0,0)),
-                    new XAttribute("commuteTime", ISO8601.ToXml(0,0,0,0,resource.CommuteTime.Minutes,0))
+                    new XAttribute("weeklyHours", ISO8601.ToXml(0, 0, 0, resource.WeeklyHours.Hours, 0, 0)),
+                    new XAttribute("yearlyTimeOf", ISO8601.ToXml(0, 0, resource.YearlyTimeOf.Days, 0, 0, 0)),
+                    new XAttribute("commuteTime", ISO8601.ToXml(0, 0, 0, 0, resource.CommuteTime.Minutes, 0))
                 );
 
                 //optionalAttributes
-                if(resource.Prefix != null)
+                if (resource.Prefix != null)
                 {
                     resourceNode.Add(new XAttribute("prefix", resource.Prefix.ToString()));
                 }
-                if(resource.WorkExperience != null)
+                if (resource.WorkExperience != null)
                 {
-                    resourceNode.Add(new XAttribute("workExperience", ISO8601.ToXml(resource.WorkExperience.Years,0,0,0,0,0)));
+                    resourceNode.Add(new XAttribute("workExperience", ISO8601.ToXml(resource.WorkExperience.Years, 0, 0, 0, 0, 0)));
                 }
-                if(resource.TrainingDuration != null)
+                if (resource.TrainingDuration != null)
                 {
                     resourceNode.Add(new XAttribute("trainingDuration", ISO8601.ToXml(resource.TrainingDuration.Years, 0, 0, 0, 0, 0)));
                 }
-                if(resource.Overtime != null)
+                if (resource.Overtime != null)
                 {
-                    resourceNode.Add(new XAttribute("overtime", ISO8601.ToXml(0,0,0,resource.Overtime.Hours,0,0)));
+                    resourceNode.Add(new XAttribute("overtime", ISO8601.ToXml(0, 0, 0, resource.Overtime.Hours, 0, 0)));
                 }
-                if(resource.YearlyEducation != null)
+                if (resource.YearlyEducation != null)
                 {
-                    resourceNode.Add(new XAttribute("yearlyEducation", ISO8601.ToXml(0,0,resource.YearlyEducation.Days,0, 0, 0)));
+                    resourceNode.Add(new XAttribute("yearlyEducation", ISO8601.ToXml(0, 0, resource.YearlyEducation.Days, 0, 0, 0)));
                 }
             }
 
@@ -162,9 +163,9 @@ namespace FlexiTeams.Util
                         )
                     );
                 });
-                
+
                 //optional ELements
-                if(resource.Photos != null)
+                if (resource.Photos != null)
                 {
                     resource.Photos.ForEach(photo =>
                     {
@@ -173,16 +174,16 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.Children != null)
+                if (resource.Children != null)
                 {
                     resource.Children.ForEach(child =>
                     {
                         resourceNode.Add(new XElement("Child",
-                            new XAttribute("age", ISO8601.ToXml(child.Age,0,0,0,0,0))));
+                            new XAttribute("age", ISO8601.ToXml(child.Age, 0, 0, 0, 0, 0))));
                     });
                 }
 
-                if(resource.Stressors != null)
+                if (resource.Stressors != null)
                 {
                     resource.Stressors.ForEach(stressor =>
                     {
@@ -191,7 +192,7 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.PersonalInfos != null)
+                if (resource.PersonalInfos != null)
                 {
                     resource.PersonalInfos.ForEach(personalInfo =>
                     {
@@ -200,7 +201,7 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.Trainings != null)
+                if (resource.Trainings != null)
                 {
                     resource.Trainings.ForEach(training =>
                     {
@@ -209,7 +210,7 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.Qualifications != null)
+                if (resource.Qualifications != null)
                 {
                     resource.Qualifications.ForEach(qualification =>
                     {
@@ -218,7 +219,7 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.Studies != null)
+                if (resource.Studies != null)
                 {
                     resource.Studies.ForEach(study =>
                     {
@@ -226,7 +227,7 @@ namespace FlexiTeams.Util
                             new XAttribute("name", study.ToString())
                             );
 
-                        if(study.Location != null)
+                        if (study.Location != null)
                         {
                             studyElement.Add(new XAttribute("location", study.Location));
                             resourceNode.Add(studyElement);
@@ -239,7 +240,7 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.AdditionalJobs != null)
+                if (resource.AdditionalJobs != null)
                 {
                     resource.Qualifications.ForEach(qualification =>
                     {
@@ -248,7 +249,7 @@ namespace FlexiTeams.Util
                     });
                 }
 
-                if(resource.ProfessionalInfos != null)
+                if (resource.ProfessionalInfos != null)
                 {
                     resource.ProfessionalInfos.ForEach(professionalInfo =>
                     {
@@ -263,12 +264,12 @@ namespace FlexiTeams.Util
         {
             var poolNode = document.XPathSelectElement("//DataPool");
 
-            foreach(var data in pool)
+            foreach (var data in pool)
             {
                 poolNode.Add(
                     new XElement("Data",
-                        new XAttribute(XNamespace.Xml + "id" , data.Id.ToString()),
-                        new XAttribute("type" , data.Name.ToString())
+                        new XAttribute(XNamespace.Xml + "id", data.Id.ToString()),
+                        new XAttribute("type", data.Name.ToString())
 
                         )
                     );
@@ -289,8 +290,8 @@ namespace FlexiTeams.Util
                         new XAttribute("type", workflow.Type.ToString()),
                         new XAttribute("venue", workflow.Venue.ToString())
                 );
-                
-                if (workflow.Minutes != 0) workflowNode.Add(new XAttribute("duration", ISO8601.ToXml(0,0,0,workflow.Minutes,0,0)));
+
+                if (workflow.Minutes != 0) workflowNode.Add(new XAttribute("duration", ISO8601.ToXml(0, 0, 0, 0,workflow.Minutes, 0)));
 
                 poolNode.Add(workflowNode);
 
@@ -309,7 +310,7 @@ namespace FlexiTeams.Util
                         new XAttribute("venue", task.Venue.ToString())
                         );
 
-                if (task.Minutes != 0) taskNode.Add(new XAttribute("duration", ISO8601.ToXml(0,0,0,task.Minutes,0,0)));
+                if (task.Minutes != 0) taskNode.Add(new XAttribute("duration", ISO8601.ToXml(0, 0, 0, 0, task.Minutes, 0)));
 
                 if (task.RequiredData.Any())
                 {
@@ -319,7 +320,7 @@ namespace FlexiTeams.Util
                         new XAttribute("type", name.ToString()));
                         taskNode.Add(ConsumedDataNode);
 
-                        
+
 
                     }
                 }
@@ -349,7 +350,7 @@ namespace FlexiTeams.Util
             {
                 var nodesNode = document.XPathSelectElement("//Graph/Nodes");
 
-                foreach (var node in graph.Nodes())
+                foreach (var node in graph.Nodes)
                 {
                     if (node is WorkflowNode)
                     {
@@ -377,8 +378,8 @@ namespace FlexiTeams.Util
             void AddEdges(AdjListsGraph graph)
             {
                 var edgesNode = document.XPathSelectElement("//Graph/Edges");
-                
-                foreach (var u in graph.Nodes())
+
+                foreach (var u in graph.Nodes)
                 {
                     foreach (var v in graph.Adj(u))
                     {
@@ -386,7 +387,7 @@ namespace FlexiTeams.Util
                             new XAttribute("ref1", u._id),
                             new XAttribute("ref2", v._id))
                             );
-                        
+
                     }
                 }
             }
