@@ -1,5 +1,4 @@
 using FlexiTeams.DataClasses.Wrapper;
-using FlexiTeams.Exceptions;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Util.EqualityComperator;
 
@@ -111,15 +110,16 @@ public class AdjListsGraph
         return prevTasks;
     }
 
-    public WorkflowNode GetWorkflowNode(TaskNode v)
+    public WorkflowNode? GetWorkflowNode(TaskNode v)
     {
         var adj = Adj(v);
+        WorkflowNode wNode = null;
         foreach (var j in adj)
         {
-            if (j is WorkflowNode node) return node;
+            if (j is WorkflowNode node) wNode =  node;
         }
 
-        return null;
+        return wNode;
     }
     public List<TaskNode> GetTaskNodes(WorkflowNode u)
     {
@@ -158,10 +158,14 @@ public class AdjListsGraph
     /// </summary>
     /// <param name="wNode">represents a WorkflowNode <see cref="WorkflowNode"/></param>
     /// <returns></returns>
-    public List<TaskNode> GetLongestPath(WorkflowNode wNode)
+    public List<TaskNode>? GetLongestPath(WorkflowNode wNode)
     {
-        if(wNode.StartNode == null) return new List<TaskNode>();
-        return GetLongestPathRecursive(wNode.StartNode);
+        if(wNode.StartNodeId == null) return null;
+        if (map[wNode.StartNodeId]is TaskNode tNode)
+        {
+            return GetLongestPathRecursive(tNode);
+        }
+        return null;
     }
     private List<TaskNode> GetLongestPathRecursive(TaskNode taskNode)
     {

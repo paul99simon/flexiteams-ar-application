@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs= "http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+
+    <xs:complexType name= "WorkflowPool">
+        <xs:sequence>
+            <xs:element name="Workflow" type="WorkflowType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WorkflowType">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="venue" type="xs:string" use="required"/>
+        <xs:attribute name="duration" type="xs:duration"/>
+    </xs:complexType>
+</xs:schema>

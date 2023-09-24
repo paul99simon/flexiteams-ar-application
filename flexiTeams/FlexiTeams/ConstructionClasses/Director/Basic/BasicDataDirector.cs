@@ -22,7 +22,7 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
             
             DataId GetDataId()
             {
-                string id = dataNode.Attribute(XNamespace.Xml + "id").Value;
+                string id = dataNode.Attribute("id").Value;
                 return new DataId(id);
             }
             DataName GetName()

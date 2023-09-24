@@ -12,6 +12,11 @@
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Inventory\**" />
+    <EmbeddedResource Remove="Inventory\**" />
+    <None Remove="Inventory\**" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\FlexiTeams\FlexiTeams.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -22,13 +27,5 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Inventory\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Resources\data_pool.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
 </Project>

@@ -58,18 +58,18 @@ public class TimeIntervalTest
         const string param5 = "[12:00:15, 13:00:15]";
 
         //Act
-        TimeInterval ti1 = new TimeInterval(param1);
-        TimeInterval ti2 = new TimeInterval(param2);
-        TimeInterval ti3 = new TimeInterval(param3);
-        TimeInterval ti4 = new TimeInterval(param4);
-        TimeInterval ti5 = new TimeInterval(param5);
+        TimeInterval ti1 = new(param1);
+        TimeInterval ti2 = new(param2);
+        TimeInterval ti3 = new(param3);
+        TimeInterval ti4 = new(param4);
+        TimeInterval ti5 = new(param5);
         
         //Assert
-        Assert.AreEqual("[12:00, 13:00]", ti1.ToString());
-        Assert.AreEqual("[12:00, 13:00]", ti2.ToString());
-        Assert.AreEqual("[12:00:15, 13:00]", ti3.ToString());
-        Assert.AreEqual("[12:00, 13:00:15]", ti4.ToString());
-        Assert.AreEqual("[12:00:15, 13:00:15]", ti5.ToString());
+        Assert.AreEqual("12:00-13:00", ti1.ToString());
+        Assert.AreEqual("12:00-13:00", ti2.ToString());
+        Assert.AreEqual("12:00:15-13:00", ti3.ToString());
+        Assert.AreEqual("12:00-13:00:15", ti4.ToString());
+        Assert.AreEqual("12:00:15-13:00:15", ti5.ToString());
     }
     
     [Test]

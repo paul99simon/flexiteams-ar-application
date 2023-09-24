@@ -26,7 +26,7 @@ public class TimeInterval
 
         if (Regex.IsMatch(param, pattern1) | Regex.IsMatch(param, pattern2) | Regex.IsMatch(param, pattern3) | Regex.IsMatch(param, pattern4))
         {
-            param = param.Substring(1, param.Length - 2);
+            param = param[1..^1];
             splits = param.Split(',');
             for (int i = 0; i < splits.Length; i++)
             {
@@ -35,8 +35,8 @@ public class TimeInterval
         }
         else throw new ArgumentException("param format must either be [hh:mm, hh:mm] or [hh:mm:ss, hh:mm:ss] or [hh:mm, hh:mm:ss] or [hh:mm:ss, hh:mm]");
         
-        DayTime begin = new DayTime(splits[0]);
-        DayTime end = new DayTime(splits[1]);
+        DayTime begin = new(splits[0]);
+        DayTime end = new(splits[1]);
         
         _begin = begin;
         _end = end;
@@ -44,7 +44,7 @@ public class TimeInterval
     
     public override string ToString()
     {
-        return "[" + _begin + ", " + _end + "]";
+        return _begin + "-" + _end;
     }
 
     public bool Contains(TimeInterval other)

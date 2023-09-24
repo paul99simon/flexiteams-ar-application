@@ -5,6 +5,7 @@ using FlexiTeams.ConstructionClasses.Director.Interface;
 using FlexiTeams.DataClasses.Resource;
 using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
+using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Util;
 
 namespace FlexiTeams.ConstructionClasses.Director.Basic;
@@ -412,6 +413,189 @@ public class BasicResourceDirector : IResourceDirector
 
     public Resource Construct(XElement resourceNode, IResourceBuilder rBuilder)
     {
-        throw new NotImplementedException();
+        //required Attributes
+        string id           = resourceNode.Attribute("id").Value;
+        string age          = resourceNode.Attribute("age").Value;
+        string maritalState = resourceNode.Attribute("maritalState").Value;
+        string weeklyHours  = resourceNode.Attribute("weeklyHours").Value;
+        string yearlyTimeOf = resourceNode.Attribute("yearlyTimeOf").Value;
+        string commuteTime  = resourceNode.Attribute("commuteTime").Value;
+
+        rBuilder.Set(new ResourceId(id));
+        rBuilder.Set(new Age(new ISO8601(age).Years));
+        rBuilder.Set(new MaritalState(maritalState));
+        rBuilder.Set(new WeeklyHours(new ISO8601(weeklyHours).Hours));
+        rBuilder.Set(new YearlyTimeOf(new ISO8601(yearlyTimeOf).Days));
+        rBuilder.Set(new CommuteTime(new ISO8601(commuteTime).Minutes));
+
+        //optional Attributes
+        var prefixAttr = resourceNode.Attribute("prefix");
+        var workExperienceAttr = resourceNode.Attribute("workExperience");
+        var trainingDurationAttr = resourceNode.Attribute("trainingDuration");
+        var overtimeAttr = resourceNode.Attribute("overtime");
+        var yearlyEducationAttr = resourceNode.Attribute("yearlyEducation");
+
+        if (prefixAttr != null)             rBuilder.Set(new Prefix(prefixAttr.Value));
+        if (workExperienceAttr != null)     rBuilder.Set(new WorkExperience(new ISO8601(workExperienceAttr.Value).Years));
+        if (trainingDurationAttr != null)   rBuilder.Set(new TrainingDuration(new ISO8601(trainingDurationAttr.Value).Years));
+        if (overtimeAttr != null)           rBuilder.Set(new Overtime(new ISO8601(overtimeAttr.Value).Hours));
+        if(yearlyEducationAttr != null)     rBuilder.Set(new YearlyEducation(new ISO8601(yearlyEducationAttr.Value).Days));
+
+        //required Elements
+        var firstNames = resourceNode.Descendants("FirstName");
+        var firstNameList = new List<FirstName>();
+        foreach ( var firstName in firstNames)
+        {
+            firstNameList.Add(new FirstName(firstName.Attribute("value").Value));
+        }
+        rBuilder.Set(firstNameList);
+
+        var lastNames = resourceNode.Descendants("LastName");
+        var lastNameList = new List<LastName>();
+        foreach (var lastName in lastNames)
+        {
+            lastNameList.Add(new LastName(lastName.Attribute("value").Value));
+        }
+        rBuilder.Set(lastNameList);
+
+        var professions = resourceNode.Descendants("Profession");
+        var professionList = new List<Profession>();
+        foreach (var profession in professions)
+        {
+            professionList.Add(new Profession(profession.Attribute("value").Value));
+        }
+        rBuilder.Set(professionList);
+
+        var departments = resourceNode.Descendants("Department");
+        var departmentList = new List<Department>();
+        foreach (var department in departments)
+        {
+            departmentList.Add(new Department(department.Attribute("value").Value));
+        }
+        rBuilder.Set(departmentList);
+
+        var meansOfTransport = resourceNode.Descendants("MeansOfTransport");
+        var meansOfTransportList = new List<Vehicle>();
+        foreach (var vehicle in meansOfTransport)
+        {
+            meansOfTransportList.Add(new Vehicle(vehicle.Attribute("value").Value));
+        }
+        rBuilder.Set(meansOfTransportList);
+
+        var skills = resourceNode.Descendants("Skill");
+        var skillsList = new List<Skill>();
+        foreach (var skill in skills)
+        {
+            skillsList.Add(new Skill(skill.Attribute("value").Value));
+        }
+        rBuilder.Set(skillsList);
+
+        var traits = resourceNode.Descendants("Trait");
+        var traitList = new List<Trait>();
+        foreach (var trait in traits)
+        {
+            traitList.Add(new Trait(trait.Attribute("name").Value, int.Parse(trait.Attribute("value").Value)));
+        }
+        rBuilder.Set(traitList);
+
+        var workAgreements = resourceNode.Descendants("WorkAgreement");
+        List<TimeInterval>[] schedule = new List<TimeInterval>[]
+        {
+            new (), new (), new (), new (), new (), new (),new()
+        };
+        foreach(var node in workAgreements)
+        {
+            string[] xml = node.Attribute("value").Value.Split('-');
+            int index = int.Parse(xml[0]);
+            var dt1 = new DayTime(xml[1]);
+            var dt2 = new DayTime(xml[2]);
+            var ti = new TimeInterval(dt1, dt2);
+            schedule[index].Add(ti);
+        }
+        rBuilder.Set(schedule);
+
+        //optional Elements
+        var photos = resourceNode.Descendants("Photo");
+        var photoList = new List<Photo>();
+        foreach (var photo in photos)
+        {
+            photoList.Add(new Photo(photo.Attribute("path").Value));
+        }
+        if (photoList.Any()) rBuilder.Set(photoList);
+
+        var children = resourceNode.Descendants("Child");
+        var childList = new List<Child>();
+        foreach (var child in children)
+        {
+            childList.Add(new Child(new ISO8601(child.Attribute("age").Value).Years));
+        }
+        if (childList.Any()) rBuilder.Set(childList);
+
+        var stressors = resourceNode.Descendants("Stressor");
+        var stressorList = new List<Stressor>();
+        foreach (var stressor in stressors)
+        {
+            stressorList.Add(new Stressor(stressor.Attribute("value").Value));
+        }
+        if (stressorList.Any()) rBuilder.Set(stressorList);
+
+        var personalInfos = resourceNode.Descendants("PersonalInfo");
+        var personalInfoList = new List<PersonalInfo>();
+        foreach (var personalInfo in personalInfos)
+        {
+            personalInfoList.Add(new PersonalInfo(personalInfo.Attribute("value").Value));
+        }
+        if (personalInfoList.Any()) rBuilder.Set(personalInfoList);
+
+        var trainings = resourceNode.Descendants("Training");
+        var trainingList = new List<Training>();
+        foreach (var training in trainings)
+        {
+            trainingList.Add(new Training(training.Attribute("value").Value));
+        }
+        if (trainingList.Any()) rBuilder.Set(trainingList);
+
+        var qualifications = resourceNode.Descendants("Qualification");
+        var qualificationList = new List<Qualification>();
+        foreach (var qualification in qualifications)
+        {
+            qualificationList.Add(new Qualification(qualification.Attribute("value").Value));
+        }
+        if (qualificationList.Any()) rBuilder.Set(qualificationList);
+
+        var professionalInfos = resourceNode.Descendants("ProfessionalInfo");
+        var professionalInfosList = new List<ProfessionalInfo>();
+        foreach (var professionalInfo in professionalInfos)
+        {
+            professionalInfosList.Add(new ProfessionalInfo(professionalInfo.Attribute("value").Value));
+        }
+        if (professionalInfosList.Any()) rBuilder.Set(professionalInfosList);
+
+        var studies = resourceNode.Descendants("Studies");
+        var studiesList = new List<Studies>();
+        foreach (var study in studies)
+        {
+            var locationAttr = study.Attribute("location");
+            if (locationAttr != null) 
+            {
+                studiesList.Add(new Studies(study.Attribute("name").Value, locationAttr.Value));
+            }
+            else
+            {
+                studiesList.Add(new Studies(study.Attribute("name").Value));
+            }
+        }
+        if (studiesList.Any()) rBuilder.Set(studiesList);
+
+        var additionalJobs = resourceNode.Descendants("AdditionalJob");
+        var additionalJobsList = new List<AdditionalJob>();
+        foreach (var additionalJob in additionalJobs)
+        {
+
+            additionalJobsList.Add(new AdditionalJob(additionalJob.Attribute("name").Value));
+        }
+        if (additionalJobsList.Any()) rBuilder.Set(additionalJobsList);
+
+        return rBuilder.GetResource();
     }
 }

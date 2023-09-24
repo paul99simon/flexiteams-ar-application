@@ -121,7 +121,7 @@ public class BasicGraphDirector
         graph.AddNode(wNode);
         graph.AddNode(tNode);
 
-        wNode.StartNode = tNode;
+        wNode.StartNodeId = tNode.Id;
         currentNode = wNode;
 
         map.Add(wNode.Id, new Dictionary<int, TaskNode>());

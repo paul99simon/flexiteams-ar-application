@@ -16,7 +16,7 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
         public Task Construct(XElement taskNode, ITaskBuilder tBuilder)
         {
 
-            string id = taskNode.Attribute(XNamespace.Xml + "id").Value;
+            string id = taskNode.Attribute("id").Value;
             string type = taskNode.Attribute("type").Value;
             string venue = taskNode.Attribute("venue").Value;
 
@@ -35,7 +35,7 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
 
             var consumedData = taskNode.Descendants("ConsumedData");
 
-            List<DataName> dataNames = new List<DataName>();
+            List<DataName> dataNames = new();
             foreach(var node in consumedData)
             {
                 string temp = node.Attribute("type").Value;
@@ -46,7 +46,7 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
             
 
             var consumedResources = taskNode.Descendants("ConsumedResource");
-            List<Profession> professions = new List<Profession>();
+            List<Profession> professions = new();
 
             foreach (var node in consumedResources)
             {

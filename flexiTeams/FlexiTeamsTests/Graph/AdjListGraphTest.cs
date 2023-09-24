@@ -1,8 +1,5 @@
-﻿using FlexiTeams.ConstructionClasses.Director.Basic;
-using FlexiTeams.FlexiTeamsGraph;
-using FlexiTeams.Graph.Nodes;
-using FlexiTeams.Inventory;
-using Microsoft.VisualBasic;
+﻿using FlexiTeams.Graph.Nodes;
+using FlexiTeams.IO;
 using NUnit.Framework;
 
 
@@ -11,14 +8,15 @@ namespace FlexiTeamsTests.Graph
     [TestFixture]
     public class AdjListGraphTest
     {
-        private const string path = "C:\\Users\\paul9\\OneDrive\\FlexiTeams\\flexiteams_ar-application\\flexiTeams\\FlexiTeamsTests\\Resources\\workflows.csv";
+        private const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest.xml";
         
         [Test]
         public void GetLongestPathTest()
         {
-            var wPool = new WorkflowPool();
-            var tPool = new TaskPool();
-            var graph = BasicGraphDirector.ConstructFromCsv(path, wPool, tPool);
+            var import = new Import(path);
+
+            var tPool = import.TaskPool;
+            var graph = import.Graph;
 
             var result = graph.GetLongestPath(graph.GetWorkflowNodes()[0]);
 
@@ -41,36 +39,39 @@ namespace FlexiTeamsTests.Graph
         [Test]
         public void GetWorkflowNodeTest()
         {
+            var import = new Import(path);
+            var wPool = import.WorkflowPool;
+            var graph = import.Graph;
 
-            var wPool = new WorkflowPool();
-            var tPool = new TaskPool();
-            var graph = BasicGraphDirector.ConstructFromCsv(path, wPool, tPool);
+            if(graph.FindNode(graph.GetWorkflowNodes()[0].StartNodeId) is TaskNode tNode)
+            {
+                WorkflowNode wNode = graph.GetWorkflowNode(tNode);
 
-            TaskNode tNode = graph.GetWorkflowNodes()[0].StartNode;
-            WorkflowNode wNode = graph.GetWorkflowNode(tNode);
-
-            Assert.AreEqual("General Surgery", wPool[wNode.Id].Type.ToString());
-
+                Assert.AreEqual("General Surgery", wPool[wNode.Id].Type.ToString());
+                return;
+            }
+            Assert.Fail();
         }
 
         [Test]
         public void GetPreviousTasksTest()
         {
-            var wPool = new WorkflowPool();
-            var tPool = new TaskPool();
-            var graph = BasicGraphDirector.ConstructFromCsv(path, wPool, tPool);
+            var import = new Import(path);
 
+            var graph = import.Graph;
+            if(graph.FindNode(graph.GetWorkflowNodes()[0].StartNodeId) is TaskNode tNode)
+            {
+                tNode = graph.GetNextTasks(tNode)[0];
+                tNode = graph.GetNextTasks(tNode)[0];
+                tNode = graph.GetNextTasks(tNode)[0];
 
-            var tNode = graph.GetWorkflowNodes()[0].StartNode;
+                var prevNodes = graph.GetPrevTasks(tNode);
 
+                Assert.AreEqual(prevNodes.Count, 2);
+                return;
+            }
 
-            tNode = graph.GetNextTasks(tNode)[0];
-            tNode = graph.GetNextTasks(tNode)[0];
-            tNode = graph.GetNextTasks(tNode)[0];
-
-            var prevNodes = graph.GetPrevTasks(tNode);
-
-            Assert.AreEqual(prevNodes.Count, 2);
+            Assert.Fail();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
         public Workflow Construct(XElement workflowNode, IWorkflowBuilder wBuilder)
         {
 
-            string id       = workflowNode.Attribute(XNamespace.Xml + "id").Value;
+            string id       = workflowNode.Attribute("id").Value;
             string type     = workflowNode.Attribute("type").Value;
             string venue    = workflowNode.Attribute("venue").Value;
             XAttribute durationAttribute = workflowNode.Attribute("duration");

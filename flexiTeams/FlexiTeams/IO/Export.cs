@@ -1,14 +1,11 @@
 ﻿using FlexiTeams.DataClasses.Resource;
-using FlexiTeams.DataClasses.Resource.Wrapper;
-using FlexiTeams.DataClasses.Workflow;
-using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Inventory;
 using FlexiTeams.Util;
-using System.Net.Http.Headers;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Schema;
 using System.Xml.XPath;
 
 namespace FlexiTeams.IO
@@ -17,10 +14,12 @@ namespace FlexiTeams.IO
     {
         public static void Save(string path, string fileName, XDocument document)
         {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.IndentChars = "  ";
-            settings.OmitXmlDeclaration = true;
+            XmlWriterSettings settings = new()
+            {
+                Indent = true,
+                IndentChars = "  ",
+                OmitXmlDeclaration = true
+            };
 
             if (document == null) throw new ArgumentNullException();
             using var writer = XmlWriter.Create(new StreamWriter(path + fileName), settings);
@@ -29,15 +28,15 @@ namespace FlexiTeams.IO
 
         }
 
-        public static XDocument ToXml(ResourcePool rPool, DataPool dPool, WorkflowPool wPool, TaskPool tPool, AdjListsGraph graph)
+        public static XDocument ToXml(ResourcePool rPool, DataPool dPool, WorkflowPool wPool, TaskPool tPool, AdjListsGraph graph, XmlSchemaSet schemaSet)
         {
-            XNamespace ns = XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance");
+            XNamespace xsi = XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance");
 
-            XDocument document = new XDocument(
+            XDocument document = new(
                     new XDeclaration("1.0", "UTF-8", "yes"),
                     new XElement("Scenario",
-                        new XAttribute(XNamespace.Xmlns + "xsi", ns),
-                        new XAttribute(XNamespace.Xml + "lang", "en"),
+                        new XAttribute(XNamespace.Xmlns + "xsi", xsi),
+                        new XAttribute("lang", "en"),
                         new XElement("ResourcePool"),
                         new XElement("DataPool"),
                         new XElement("WorkflowPool"),
@@ -54,6 +53,8 @@ namespace FlexiTeams.IO
             ToXml(document, wPool);
             ToXml(document, tPool);
             ToXml(document, graph);
+
+            Validation.Validate(document, schemaSet);
             return document;
         }
 
@@ -73,7 +74,7 @@ namespace FlexiTeams.IO
             {
                 //required Attributes
                 resourceNode.Add(
-                    new XAttribute(XNamespace.Xml + "id", resource.Id.ToString()),
+                    new XAttribute("id", resource.Id.ToString()),
                     new XAttribute("age", ISO8601.ToXml(resource.Age.Years, 0, 0, 0, 0, 0)),
                     new XAttribute("maritalState", resource.MaritalState.ToString()),
                     new XAttribute("weeklyHours", ISO8601.ToXml(0, 0, 0, resource.WeeklyHours.Hours, 0, 0)),
@@ -157,106 +158,78 @@ namespace FlexiTeams.IO
 
                 resource.Traits.ForEach(trait =>
                 {
-                    resourceNode.Add(new XElement("Skill",
+                    resourceNode.Add(new XElement("Trait",
                         new XAttribute("name", trait.Name),
                         new XAttribute("value", trait.Value)
                         )
                     );
                 });
 
-                //optional ELements
-                if (resource.Photos != null)
+                for(int i = 0; i < 7; i++)
                 {
-                    resource.Photos.ForEach(photo =>
+                    foreach(var timeIntervall in resource.WorkAgreement[i])
+                    {
+                        var workAgreementElement = new XElement("WorkAgreement",
+                            new XAttribute("value", i + "-" + timeIntervall.ToString()));
+
+                        resourceNode.Add(workAgreementElement);
+                    }
+                }
+
+
+                //optional ELements
+                resource.Photos?.ForEach(photo =>
                     {
                         resourceNode.Add(new XElement("Photo",
                             new XAttribute("path", photo.Path)));
                     });
-                }
 
-                if (resource.Children != null)
-                {
-                    resource.Children.ForEach(child =>
+                resource.Children?.ForEach(child =>
                     {
                         resourceNode.Add(new XElement("Child",
                             new XAttribute("age", ISO8601.ToXml(child.Age, 0, 0, 0, 0, 0))));
                     });
-                }
 
-                if (resource.Stressors != null)
-                {
-                    resource.Stressors.ForEach(stressor =>
-                    {
-                        resourceNode.Add(new XElement("Stressor",
-                            new XAttribute("value", stressor.ToString())));
-                    });
-                }
+                resource.Stressors?.ForEach(stressor => { resourceNode.Add(new XElement("Stressor", new XAttribute("value", stressor.ToString()))); });
 
-                if (resource.PersonalInfos != null)
-                {
-                    resource.PersonalInfos.ForEach(personalInfo =>
-                    {
-                        resourceNode.Add(new XElement("PersonalInfo",
-                            new XAttribute("value", personalInfo.ToString())));
-                    });
-                }
+                resource.PersonalInfos?.ForEach(personalInfo => { resourceNode.Add(new XElement("PersonalInfo", new XAttribute("value", personalInfo.ToString()))); });
 
-                if (resource.Trainings != null)
+                resource.Studies?.ForEach(study =>
                 {
-                    resource.Trainings.ForEach(training =>
-                    {
-                        resourceNode.Add(new XElement("Training",
-                            new XAttribute("value", training.ToString())));
-                    });
-                }
+                    var studyElement = new XElement("Studies",
+                        new XAttribute("name", study.ToString())
+                        );
 
-                if (resource.Qualifications != null)
-                {
-                    resource.Qualifications.ForEach(qualification =>
+                    if (study.Location != null)
                     {
-                        resourceNode.Add(new XElement("Qualification",
-                            new XAttribute("value", qualification.ToString())));
-                    });
-                }
+                        studyElement.Add(new XAttribute("location", study.Location));
+                        resourceNode.Add(studyElement);
+                    }
+                    else
+                    {
+                        resourceNode.Add(studyElement);
+                    }
+                });
 
-                if (resource.Studies != null)
-                {
-                    resource.Studies.ForEach(study =>
+                resource.Trainings?.ForEach(training => { resourceNode.Add(new XElement("Training", new XAttribute("value", training.ToString()))); });
+
+                resource.Qualifications?.ForEach(qualification => { resourceNode.Add(new XElement("Qualification", new XAttribute("value", qualification.ToString()))); });
+
+                resource.AdditionalJobs?.ForEach(additionalJob =>
                     {
-                        var studyElement = new XElement("Studies",
-                            new XAttribute("name", study.ToString())
+                        var additionalJobElement = new XElement("AdditionalJob",
+                            new XAttribute("name", additionalJob.ToString())
                             );
-
-                        if (study.Location != null)
+                        if (additionalJob.YearlyRequiredDays != null)
                         {
-                            studyElement.Add(new XAttribute("location", study.Location));
-                            resourceNode.Add(studyElement);
+                            var locationAttribute = new XAttribute("location", ISO8601.ToXml(0, 0, (int) additionalJob.YearlyRequiredDays, 0, 0, 0));
+                            additionalJobElement.Add(locationAttribute);
                         }
-                        else
-                        {
-                            resourceNode.Add(studyElement);
 
-                        }
+                        resourceNode.Add(additionalJobElement);
                     });
-                }
 
-                if (resource.AdditionalJobs != null)
-                {
-                    resource.Qualifications.ForEach(qualification =>
-                    {
-                        resourceNode.Add(new XElement("Qualification",
-                            new XAttribute("value", qualification.ToString())));
-                    });
-                }
-
-                if (resource.ProfessionalInfos != null)
-                {
-                    resource.ProfessionalInfos.ForEach(professionalInfo =>
-                    {
-                        resourceNode.Add(new XElement("ProfessionalInfo",
-                            new XAttribute("value", professionalInfo.ToString())));
-                    });
-                }
+                resource.ProfessionalInfos?.ForEach(professionalInfo => { resourceNode.Add(new XElement("ProfessionalInfo", new XAttribute("value", professionalInfo.ToString()))); });
             }
         }
 
@@ -268,7 +241,7 @@ namespace FlexiTeams.IO
             {
                 poolNode.Add(
                     new XElement("Data",
-                        new XAttribute(XNamespace.Xml + "id", data.Id.ToString()),
+                        new XAttribute("id", data.Id.ToString()),
                         new XAttribute("type", data.Name.ToString())
 
                         )
@@ -286,7 +259,7 @@ namespace FlexiTeams.IO
             {
 
                 var workflowNode = new XElement("Workflow",
-                        new XAttribute(XNamespace.Xml + "id", workflow.Id.ToString()),
+                        new XAttribute("id", workflow.Id.ToString()),
                         new XAttribute("type", workflow.Type.ToString()),
                         new XAttribute("venue", workflow.Venue.ToString())
                 );
@@ -305,7 +278,7 @@ namespace FlexiTeams.IO
             foreach (var task in pool)
             {
                 var taskNode = new XElement("Task",
-                        new XAttribute(XNamespace.Xml + "id", task.Id.ToString()),
+                        new XAttribute("id", task.Id.ToString()),
                         new XAttribute("type", task.Type.ToString()),
                         new XAttribute("venue", task.Venue.ToString())
                         );
@@ -319,9 +292,6 @@ namespace FlexiTeams.IO
                         var ConsumedDataNode = new XElement("ConsumedData",
                         new XAttribute("type", name.ToString()));
                         taskNode.Add(ConsumedDataNode);
-
-
-
                     }
                 }
 
@@ -335,9 +305,7 @@ namespace FlexiTeams.IO
                     }
                 }
 
-                poolNode.Add(
-                    taskNode
-                );
+                poolNode.Add(taskNode);
             }
         }
 
@@ -352,25 +320,28 @@ namespace FlexiTeams.IO
 
                 foreach (var node in graph.Nodes)
                 {
-                    if (node is WorkflowNode)
+                    if (node is WorkflowNode wNode)
                     {
                         nodesNode.Add(new XElement("WorkflowNode",
-                            new XAttribute("ref", node._id)));
+                            new XAttribute("idref", wNode._id),
+                            new XAttribute("startNode", wNode.StartNodeId)
+                            )
+                        );
                     }
                     if (node is TaskNode)
                     {
                         nodesNode.Add(new XElement("TaskNode",
-                            new XAttribute("ref", node._id)));
+                            new XAttribute("idref", node._id)));
                     }
                     if (node is ResourceNode)
                     {
                         nodesNode.Add(new XElement("ResourceNode",
-                            new XAttribute("ref", node._id)));
+                            new XAttribute("idref", node._id)));
                     }
                     if (node is DataNode)
                     {
                         nodesNode.Add(new XElement("DataNode",
-                            new XAttribute("ref", node._id)));
+                            new XAttribute("idref", node._id)));
                     }
                 }
 
@@ -384,10 +355,9 @@ namespace FlexiTeams.IO
                     foreach (var v in graph.Adj(u))
                     {
                         edgesNode.Add(new XElement("Edge",
-                            new XAttribute("ref1", u._id),
-                            new XAttribute("ref2", v._id))
+                            new XAttribute("idref1", u._id),
+                            new XAttribute("idref2", v._id))
                             );
-
                     }
                 }
             }

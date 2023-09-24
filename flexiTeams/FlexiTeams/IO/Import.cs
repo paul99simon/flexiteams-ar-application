@@ -7,48 +7,102 @@ using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Inventory;
 using System.Xml.Linq;
+using System.Xml.Schema;
 
 namespace FlexiTeams.IO
 {
     public class Import
     {
-
         public ResourcePool ResourcePool = new();
         public DataPool DataPool = new();
         public WorkflowPool WorkflowPool = new();
         public TaskPool TaskPool = new();
         public AdjListsGraph Graph = new();
 
-        private ImportSettings _importSettings = new();
+        private readonly ImportSettings _importSettings = new();
 
+        /// <summary>
+        /// Import class which holds the following Datastructures <see cref="ResourcePool"/>, <see cref="DataPool"/>, <see cref="WorkflowPool"/>, <see cref="TaskPool"/>./>
+        /// Import class takes the xml file path and validates it against the schemas <see cref="XmlSchemaSet"/> specified in the xml file.
+        /// <see cref="ImportSettings"/> specifies the Builder and Director classes for the Datastructures
+        /// </summary>
+        /// <param name="path"></param>
+        /// <exception cref="XmlSchemaValidationException"/>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="FileNotFoundException"/>
+        /// <exception cref="XmlSchemaException"
         public Import(string path)
         {
-            XDocument document = XDocument.Load(path);
+            XDocument document = Validation.Validate(path);
+            Create(document);
+        }
 
+        /// <summary>
+        /// Import class which holds the following Datastructures <see cref="ResourcePool"/>, <see cref="DataPool"/>, <see cref="WorkflowPool"/>, <see cref="TaskPool"/>./>
+        /// Import class takes the xml file path and validates it against the schemas <see cref="XmlSchemaSet"/> specified in the xml file.
+        /// <see cref="ImportSettings"/> specifies the Builder and Director classes for the Datastructures
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="settings"></param>
+        /// <exception cref="XmlSchemaValidationException"/>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="FileNotFoundException"/>
+        /// <exception cref="XmlSchemaException"
+        public Import(string path, ImportSettings settings) {
+            _importSettings = settings;
+            XDocument document = Validation.Validate(path);
+            Create(document);
+        }
+
+        /// <summary>
+        /// Import class which holds the following Datastructures <see cref="ResourcePool"/>, <see cref="DataPool"/>, <see cref="WorkflowPool"/>, <see cref="TaskPool"/>./>
+        /// Import class takes a <see cref="XDocument"/> and validates it against a <see cref="XmlSchemaSet"/>
+        /// for this method the client is responsible for matching schemas
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="schemaSet"></param>
+        /// <exception cref="XmlSchemaValidationException"/>
+        public Import(XDocument document, XmlSchemaSet schemaSet)
+        {
+            Validation.Validate(document, schemaSet);
+            Create(document);
+        }
+
+        /// <summary>
+        /// Import class which holds the following Datastructures <see cref="ResourcePool"/>, <see cref="DataPool"/>, <see cref="WorkflowPool"/>, <see cref="TaskPool"/>./>
+        /// Import class takes a <see cref="XDocument"/> and validates it against a <see cref="XmlSchemaSet"/>
+        /// <see cref="ImportSettings"/> specifies the Builder and Director classes for the Datastructures
+        /// for this method the client is responsible for matching schemas
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="schemaSet"></param>
+        /// <param name="settings"></param>
+        /// <exception cref="XmlSchemaValidationException"/>
+        public Import(XDocument document, XmlSchemaSet schemaSet, ImportSettings settings)
+        {
+            Validation.Validate(document, schemaSet);
+            _importSettings = settings; 
+            Create(document);
+        }
+
+        private void Create(XDocument document) {
+            
+            GetResourcePool(document.Descendants("ResourcePool").First());
             GetDataPool(document.Descendants("DataPool").First());
             GetWorkflowPool(document.Descendants("WorkflowPool").First());
             GetTaskPool(document.Descendants("TaskPool").First());
             GetGraph(document.Descendants("Graph").First());
         }
 
-        public Import(string path, ImportSettings settings) {
-            
-            _importSettings = settings;
-        }
-
-        public Import(XDocument document)
+        private  void GetResourcePool(XElement resourcePoolNode)
         {
+            var nodes = resourcePoolNode.Descendants("Resource");
 
-        }
-
-        public Import(XDocument document, ImportSettings settings)
-        {
-            _importSettings = settings; 
-        }
-
-        private  void GetResourcePool()
-        {
-            
+            foreach (var node in nodes)
+            {
+                var resource = _importSettings.ResourceDirector.Construct(node, _importSettings.ResourceBuilder);
+                ResourcePool.Add(resource);
+            }
         }
 
         private void GetDataPool(XElement dataPoolNode) {
@@ -102,28 +156,32 @@ namespace FlexiTeams.IO
 
             foreach (var node in wNodes)
             {
-                var id = new WorkflowId(node.Attribute("ref").Value);
-                var wNode = new WorkflowNode(id);
+                var id = new WorkflowId(node.Attribute("idref").Value);
+                var startID = node.Attribute("startNode").Value;
+                var wNode = new WorkflowNode(id)
+                {
+                    StartNodeId = new TaskId(startID)
+                };
                 Graph.AddNode(wNode);
             }
 
             foreach (var node in tNodes)
             {
-                var id = new TaskId(node.Attribute("ref").Value);
+                var id = new TaskId(node.Attribute("idref").Value);
                 var tNode = new TaskNode(id);
                 Graph.AddNode(tNode);
             }
 
             foreach(var node in rNodes)
             {
-                var id = new ResourceId(node.Attribute("ref").Value);
+                var id = new ResourceId(node.Attribute("idref").Value);
                 var rNode = new ResourceNode(id);
                 Graph.AddNode(rNode);
             }
 
             foreach(var node in dNodes)
             {
-                var id = new DataId(node.Attribute("ref").Value);
+                var id = new DataId(node.Attribute("idref").Value);
                 var dNode = new DataNode(id);
                 Graph.AddNode(dNode);
             }
@@ -135,8 +193,8 @@ namespace FlexiTeams.IO
 
             foreach (var edge in edgeNodes)
             {
-                string ref1 = edge.Attribute("ref1").Value;
-                string ref2 = edge.Attribute("ref2").Value;
+                string ref1 = edge.Attribute("idref1").Value;
+                string ref2 = edge.Attribute("idref2").Value;
 
                 var node1 = Graph.FindNode(new Id(ref1));
                 var Node2 = Graph.FindNode(new Id(ref2));

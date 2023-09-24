@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using FlexiTeams.DataClasses.Resource;
-using FlexiTeams.DataClasses.Resource.Wrapper;
 using FlexiTeams.Util;
 using NUnit.Framework;
 

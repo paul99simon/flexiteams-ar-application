@@ -1,9 +1,6 @@
-﻿using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Director.Basic;
-using FlexiTeams.FlexiTeamsGraph;
-using FlexiTeams.Inventory;
-using FlexiTeams.IO;
+﻿using FlexiTeams.IO;
 using NUnit.Framework;
+using System.Xml.Schema;
 
 namespace FlexiTeamsTests.IO
 {
@@ -14,26 +11,29 @@ namespace FlexiTeamsTests.IO
         [Test]
         public void ToXmlTest()
         {
+            const string importPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest.xml";
+            const string scenarioXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/scenario.xsd";
+            const string resourcePoolXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/resourcePool.xsd";
+            const string dataPoolXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/dataPool.xsd";
+            const string workflowPoolXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/workflowPool.xsd";
+            const string taskPoolXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/taskPool.xsd";
+            const string graphXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/graph.xsd";
 
-            const string xmlDataPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/20DataPool.xml";
-            const string xmlResourcePath = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/resource_pool_draft.xml";
-            const string csvPath = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/workflows.csv";
+            const string exportPath = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/";
+            const string fileName = "exportTest.xml";
 
-            var rPool = BasicResourcePoolDirector.ConstructFromXml(xmlResourcePath);
-            var dPool = BasicDataPoolDirector.ConstructFromXml(xmlDataPath);
+            var import = new Import(importPath);
 
-            var wPool = new WorkflowPool();
-            var tPool = new TaskPool();
-            var graph = new AdjListsGraph();
+            var schemaSet = new XmlSchemaSet();
+            schemaSet.Add("", scenarioXsdPath);
+            schemaSet.Add("", resourcePoolXsdPath);
+            schemaSet.Add("", dataPoolXsdPath);
+            schemaSet.Add("", workflowPoolXsdPath);
+            schemaSet.Add("", taskPoolXsdPath);
+            schemaSet.Add("", graphXsdPath);
 
-            BasicGraphDirector.ConstructFromCsv(csvPath, graph, wPool, tPool, new SamePriorityWorkflowBuilder(), new BasicTaskBuilder());
-
-
-            const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/";
-            const string fileName = "Test.xml";
-
-            var doc = Export.ToXml(rPool, dPool, wPool, tPool, graph);
-            Export.Save(path, fileName, doc);
+            var doc = Export.ToXml(import.ResourcePool, import.DataPool, import.WorkflowPool, import.TaskPool, import.Graph, schemaSet);
+            Export.Save(exportPath, fileName, doc);
         }
     }
 
