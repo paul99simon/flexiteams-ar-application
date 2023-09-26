@@ -7,25 +7,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceManager : MonoBehaviour
+public class ResourcePoolUI : MonoBehaviour
 {
-   
-    [SerializeField] private string path;
+
+    [SerializeField]
+    public GameObject importManagerObject;
+    private ImportManager importManager;
 
     [SerializeField] private Sprite nameSprite;
     [SerializeField] private Sprite roleSprite;
     [SerializeField] private Sprite backgroundSprite;
     [SerializeField] private GameObject content;
 
-    private ResourcePool pool;
+    private ResourcePool _pool;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        var pool = BasicResourcePoolDirector.ConstructFromXml(path);
-        pool.SetLanguage("de");
-        pool.List.ForEach(resource => AddResourceButtonObject(resource));
+        importManager = importManagerObject.GetComponent<ImportManager>();
+        _pool = importManager.ResourcePool;
+        _pool.List.ForEach(resource => AddResourceButtonObject(resource));
 
     }
 
@@ -71,7 +72,7 @@ public class ResourceManager : MonoBehaviour
 
             //ButtonComponent
             ResourceButton button = resourceObject.AddComponent<ResourceButton>();
-            button.resource = resource;
+            button.Id = resource.Id;
             button.interactable = true;
             button.image = image;
             button.transition = Selectable.Transition.ColorTint;

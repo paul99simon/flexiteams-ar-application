@@ -1,5 +1,4 @@
 using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.ConstructionClasses.Diretor;
 using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
 
@@ -14,8 +13,15 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class Workflow3DManager : MonoBehaviour
+public class Workflow3DUI : MonoBehaviour
 {
+    [Header("Import Manager")]
+    [Space(5)]
+    [SerializeField]
+    private GameObject importManagerObject;
+    private ImportManager importManager;
+    
+    [Space(5)]
     [Header("Layout")]
     [Space(5)]
 
@@ -39,12 +45,6 @@ public class Workflow3DManager : MonoBehaviour
     private float edgeWidth;
 
     [Space(5)]
-    [Header("Csv Path")]
-    [Space(5)]
-    [SerializeField]
-    private string path;
-
-    [Space(5)]
     [Header("Font")]
     [Space(5)]
 
@@ -64,33 +64,15 @@ public class Workflow3DManager : MonoBehaviour
     private Material edgeMaterial;
 
     private const double meterToMillimeter = 1000;
-    private readonly AdjListsGraph _graph = new();
+    private  AdjListsGraph _graph;
 
     // Start is called before the first frame update
     void Start()
     {
-        BasicGraphDirector.ConstructFromCsv(path, _graph, new BasicWorkflowBuilder(), new BasicTaskBuilder());
+        importManager = importManagerObject.GetComponent<ImportManager>();
+        _graph = importManager.Graph;
+
         Create3DWorkflowLayout();
-        var cornerObject = new GameObject("Corner");
-        var meshFilter1 = cornerObject.AddComponent<MeshFilter>();
-        var meshRenderer1 = cornerObject.AddComponent<MeshRenderer>();
-
-        var tubeObject = new GameObject("Tube");
-        var meshFilter2 = tubeObject.AddComponent<MeshFilter>();
-        var meshRenderer2 = tubeObject.AddComponent<MeshRenderer>();
-
-        var uObject = new GameObject("U-Profil");
-        var meshFilter3 = uObject.AddComponent<MeshFilter>();
-        var meshRenderer3 = uObject.AddComponent<MeshRenderer>();
-
-        var planeObject = new GameObject("Planes");
-        var meshFilter4 = planeObject.AddComponent<MeshFilter>();
-        var meshRenderer4 = planeObject.AddComponent<MeshRenderer>();
-
-        meshFilter1.mesh = CreateCornerMesh(0.05f);
-        meshFilter2.mesh = CreateTubeMesh(new Vector2(0.05f, 1));
-        meshFilter3.mesh = CreateUMesh(0.05f);
-        meshFilter4.mesh = CreateParallelSquarePlaneMesh(0.05f);
     }
 
     private void Create3DWorkflowLayout()
@@ -172,8 +154,8 @@ public class Workflow3DManager : MonoBehaviour
         layout.Run();
 
         //PlaneTransformation
-        double startNodeLeft = graph.FindNodeByUserData(wNode.StartNode).BoundingBox.Left;
-        double startNodeTop = graph.FindNodeByUserData(wNode.StartNode).BoundingBox.Top;
+        double startNodeLeft = graph.FindNodeByUserData(_graph.FindNode(wNode.StartNodeId)).BoundingBox.Left;
+        double startNodeTop = graph.FindNodeByUserData(_graph.FindNode(wNode.StartNodeId)).BoundingBox.Top;
 
         var pT = PlaneTransformation.Rotation(1.57079633) * new PlaneTransformation(1, 0, -startNodeLeft, 0, 1, -startNodeTop);
         graph.Transform(pT);
@@ -187,7 +169,7 @@ public class Workflow3DManager : MonoBehaviour
     
     private GameObject CreateWorkflowObject(WorkflowNode wNode)
     {
-        var workflowObject = new GameObject(wNode.Workflow.Id.ToString());
+        var workflowObject = new GameObject(wNode.Id.ToString());
 
         var layout = SugiyamaGraph(wNode);
 
@@ -248,7 +230,7 @@ public class Workflow3DManager : MonoBehaviour
     private GameObject CreateTaskObject(TaskNode taskNode)
     {
         //Gameobject
-        var cuboidObject = new GameObject(taskNode.Task.Id.ToString());
+        var cuboidObject = new GameObject(taskNode.Id.ToString());
 
         //meshfilter
         var meshFilter = cuboidObject.AddComponent<MeshFilter>();
@@ -258,7 +240,7 @@ public class Workflow3DManager : MonoBehaviour
         var meshRenderer = cuboidObject.AddComponent<MeshRenderer>();
         meshRenderer.material = taskMaterial;
 
-        var textObject = CreateTextObject(taskNode.Task.Type.ToString());
+        var textObject = CreateTextObject(importManager.TaskPool[taskNode.Id].Type.ToString());
         textObject.transform.SetParent(cuboidObject.transform, false);
 
         return cuboidObject;
