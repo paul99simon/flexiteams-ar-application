@@ -8,14 +8,14 @@ public class TitleBarSettings
 
     public Color BackgroundColor { get; set; } = Color.black;
 
-    public ColorBlock NormalButtonColors = new ColorBlock()
+    public ColorBlock NormalButtonColors = new()
     {
         normalColor = Color.black,
         highlightedColor = new Color(55f / _byte, 55f / _byte, 55f / _byte),
         pressedColor = new Color(200f / _byte, 200f / _byte, 200f / _byte)
     };
 
-    public ColorBlock CloseButtonColors = new ColorBlock()
+    public ColorBlock CloseButtonColors = new()
     {
         normalColor = Color.black,
         highlightedColor = Color.red,
