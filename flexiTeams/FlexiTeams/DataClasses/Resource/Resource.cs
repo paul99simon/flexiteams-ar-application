@@ -46,7 +46,7 @@ public class Resource
 
     public List<Training>? Trainings { get; set;}
     
-    public List<Qualification>? Qualifications { get; set; } = new();
+    public List<Qualification>? Qualifications { get; set; }
 
     public List<TimeInterval>[] WorkAgreement { get; } = new List<TimeInterval>[]
     {

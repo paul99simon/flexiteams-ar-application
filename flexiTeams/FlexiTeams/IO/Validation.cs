@@ -74,18 +74,15 @@ namespace FlexiTeams.IO
         /// <exception cref="XmlSchemaException"></exception>
         private static string GetParentSchemaFileName(XDocument xDocument)
         {
-            var xmlnsAttr = xDocument.Root.Attribute(XNamespace.Xmlns + "xsi");
-
-            if (xmlnsAttr == null) throw new XmlSchemaException("'xmlns:xsi' Attribute not declared");
-
+            var xmlnsAttr = xDocument.Root.Attribute(XNamespace.Xmlns + "xsi") ?? throw new XmlSchemaException("'xmlns:xsi' Attribute not declared");
             string xmlns = xmlnsAttr.Value;
 
             XNamespace xsi = XNamespace.Get(xmlns);
 
             var schemaLocationAttr = xDocument.Root.Attribute(xsi + "noNamespaceSchemaLocation");
-            if (schemaLocationAttr == null) throw new XmlSchemaException("'xsi:noNamespaceSchemaLocation' Attribute not declared");
-            
-            return schemaLocationAttr.Value;
+            return schemaLocationAttr == null
+                ? throw new XmlSchemaException("'xsi:noNamespaceSchemaLocation' Attribute not declared")
+                : schemaLocationAttr.Value;
         }
 
         /// <summary>
@@ -96,7 +93,7 @@ namespace FlexiTeams.IO
         /// <returns></returns>
         private static XmlSchemaSet GetSchemas(string directoryPath, string parentSchemaPath)
         {
-            List<string> schemaNames = new List<string>()
+            List<string> schemaNames = new()
             {
                 parentSchemaPath
             };
@@ -111,7 +108,7 @@ namespace FlexiTeams.IO
                 schemaNames.Add(include.Attribute("schemaLocation").Value);
             }
             
-            XmlSchemaSet schemaSet = new XmlSchemaSet();
+            XmlSchemaSet schemaSet = new();
             schemaNames.ForEach(schema =>
             {
                 schemaSet.Add("", directoryPath + "/" + schema);
