@@ -15,8 +15,10 @@ public class Test : MonoBehaviour
 
         int i = 2;
 
+        //_ = new ResourceUI(pool.List[0], new Vector3(-3, 1.5f, 1), Quaternion.Euler(new Vector3(0,-90,0)), new Vector2(1000, 760));
+        
         pool.List.ForEach(resource => {
-            ResourceUI.Create(resource, new Vector3(-2, i++, 0), Quaternion.identity, new UISettings());
+            _ = new ResourceUI(resource, new Vector3(-2, i++, 0), Quaternion.identity, new Vector2(1000, 760));
             });
     }
 }

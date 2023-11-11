@@ -72,22 +72,26 @@ public class Workflow3DUI : MonoBehaviour
         importManager = importManagerObject.GetComponent<ImportManager>();
         _graph = importManager.Graph;
 
-        Create3DWorkflowLayout();
+        List<WorkflowNode> wNodes = new List<WorkflowNode>
+        {
+            _graph.GetWorkflowNodes()[1],
+            _graph.GetWorkflowNodes()[2]
+        };
+
+
+        Create3DWorkflowLayout(wNodes);
     }
 
-    private void Create3DWorkflowLayout()
+    private void Create3DWorkflowLayout(List<WorkflowNode> wNodes)
     {
-        List<WorkflowNode> wNodes = _graph.GetWorkflowNodes();
-
         //Increment for the workflows position
         float positionincrement = workflowSpacing + taskDimensions.z;
-        float startingPosition = - (((wNodes.Count-1) * positionincrement) / 2);
-        float position = startingPosition;
+        float position = -(((wNodes.Count - 1) * positionincrement) / 2); ;
         wNodes.ForEach(node =>
         {
             var workflowObject = CreateWorkflowObject(node);
             var transform = workflowObject.GetComponent<Transform>();
-            transform.SetParent(workflow3D.transform, false);
+            transform.SetParent(workflow3D.transform);
             transform.SetLocalPositionAndRotation(new Vector3(0,0,position), Quaternion.identity);
             position += positionincrement;
         });
@@ -182,7 +186,7 @@ public class Workflow3DUI : MonoBehaviour
             float y = RoundAndConvert(layoutNode.BoundingBox.Center.Y);
 
             var taskObject = CreateTaskObject(taskNode);
-            taskObject.transform.SetParent(workflowObject.transform, false);
+            taskObject.transform.SetParent(workflowObject.transform);
             taskObject.transform.SetLocalPositionAndRotation(new Vector3(x, y, 0), Quaternion.identity);
 
         });
@@ -221,7 +225,7 @@ public class Workflow3DUI : MonoBehaviour
 
             var edgeObject = CreateEdgeObject(edge, frontLinePositions, backLinePositions);
 
-            edgeObject.transform.SetParent(workflowObject.transform, false);
+            edgeObject.transform.SetParent(workflowObject.transform);
             edgeObject.transform.SetLocalPositionAndRotation(new Vector3(xPos, yPos, 0), Quaternion.identity);
         }
 
@@ -241,7 +245,7 @@ public class Workflow3DUI : MonoBehaviour
         meshRenderer.material = taskMaterial;
 
         var textObject = CreateTextObject(importManager.TaskPool[taskNode.Id].Type.ToString());
-        textObject.transform.SetParent(cuboidObject.transform, false);
+        textObject.transform.SetParent(cuboidObject.transform);
 
         return cuboidObject;
     }
@@ -274,10 +278,10 @@ public class Workflow3DUI : MonoBehaviour
         var edgeObject = new GameObject("Edge");
         var frontLineObject = new GameObject("Line");
         var backLineObject = new GameObject("Line");
-
+                    
         //Transform        
-        frontLineObject.transform.SetParent(edgeObject.transform, false);
-        backLineObject.transform.SetParent(edgeObject.transform, false);
+        frontLineObject.transform.SetParent(edgeObject.transform);
+        backLineObject.transform.SetParent(edgeObject.transform);
         frontLineObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
         backLineObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0, 180, 0)));
 
