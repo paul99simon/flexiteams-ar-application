@@ -104,12 +104,13 @@ namespace Assets.Scripts.UI.ResourceUI.ContentFiller
 
             if(_resource.Qualifications != null)
             {
-                string qualification = "- ";
+                string qualifications = "- ";
                 _resource.Qualifications.ForEach(s =>
                 {
-                    qualification += s + " / ";
+                    qualifications += s + " / ";
                 });
-                //qualification = qualification[..^3];
+                qualifications = qualifications[..^3];
+                TextObj(qualifications);
             }
 
             if(_resource.AdditionalJobs != null)
