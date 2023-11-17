@@ -65,6 +65,8 @@ public class Workflow3DUI : MonoBehaviour
 
     private const double meterToMillimeter = 1000;
     private  AdjListsGraph _graph;
+    private float _xOffset = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +74,7 @@ public class Workflow3DUI : MonoBehaviour
         importManager = importManagerObject.GetComponent<ImportManager>();
         _graph = importManager.Graph;
 
-        List<WorkflowNode> wNodes = new List<WorkflowNode>
+        List<WorkflowNode> wNodes = new()
         {
             _graph.GetWorkflowNodes()[1],
             _graph.GetWorkflowNodes()[2]
@@ -87,6 +89,19 @@ public class Workflow3DUI : MonoBehaviour
         //Increment for the workflows position
         float positionincrement = workflowSpacing + taskDimensions.z;
         float position = -(((wNodes.Count - 1) * positionincrement) / 2); ;
+
+        int maxPathCount = 0;
+        wNodes.ForEach(wNode =>
+        {
+            int pathCount = _graph.GetLongestPath(wNode).Count;
+            if (maxPathCount < pathCount) maxPathCount = pathCount;
+        });
+
+        int maxEdgeCount = maxPathCount - 1;
+        float totalLength = maxPathCount * taskDimensions.x + maxEdgeCount * taskSpacing.x;
+        _xOffset = - totalLength / 2;
+
+
         wNodes.ForEach(node =>
         {
             var workflowObject = CreateWorkflowObject(node);
@@ -154,7 +169,7 @@ public class Workflow3DUI : MonoBehaviour
         settings.NodeSeparation = nodeSeperation;
 
         //Layered Layout
-        LayeredLayout layout = new LayeredLayout(graph, settings);
+        LayeredLayout layout = new(graph, settings);
         layout.Run();
 
         //PlaneTransformation
@@ -187,7 +202,7 @@ public class Workflow3DUI : MonoBehaviour
 
             var taskObject = CreateTaskObject(taskNode);
             taskObject.transform.SetParent(workflowObject.transform);
-            taskObject.transform.SetLocalPositionAndRotation(new Vector3(x, y, 0), Quaternion.identity);
+            taskObject.transform.SetLocalPositionAndRotation(new Vector3(x + _xOffset, y, 0), Quaternion.identity);
 
         });
 
@@ -198,7 +213,7 @@ public class Workflow3DUI : MonoBehaviour
             float targetX = RoundAndConvert(edge.TargetPort.Location.X);
             float targetY = RoundAndConvert(edge.TargetPort.Location.Y);
 
-            float xPos = (sourceX + targetX) / 2;
+            float xPos = (sourceX + targetX) / 2 + _xOffset;
             float yPos = (sourceY + targetY) / 2;
 
             float edgeLength = (targetX - sourceX) - taskDimensions.x;
@@ -223,7 +238,7 @@ public class Workflow3DUI : MonoBehaviour
                 new Vector3(-edgeLength / 2, -edgeHeigth/2 ,  0)
             };
 
-            var edgeObject = CreateEdgeObject(edge, frontLinePositions, backLinePositions);
+            var edgeObject = CreateEdgeObject(frontLinePositions, backLinePositions);
 
             edgeObject.transform.SetParent(workflowObject.transform);
             edgeObject.transform.SetLocalPositionAndRotation(new Vector3(xPos, yPos, 0), Quaternion.identity);
@@ -246,6 +261,7 @@ public class Workflow3DUI : MonoBehaviour
 
         var textObject = CreateTextObject(importManager.TaskPool[taskNode.Id].Type.ToString());
         textObject.transform.SetParent(cuboidObject.transform);
+        textObject.transform.position = new Vector3(0, 0, - (taskDimensions.z / 2) - 0.001f);
 
         return cuboidObject;
     }
@@ -272,7 +288,7 @@ public class Workflow3DUI : MonoBehaviour
 
         return textObject;
     }
-    private GameObject CreateEdgeObject(Edge edge, Vector3[] frontPositions, Vector3[] backPositions)
+    private GameObject CreateEdgeObject(Vector3[] frontPositions, Vector3[] backPositions)
     {
         //GameObjects
         var edgeObject = new GameObject("Edge");
@@ -293,12 +309,12 @@ public class Workflow3DUI : MonoBehaviour
         frontLineRenderer.useWorldSpace = false;
         frontLineRenderer.material = edgeMaterial;
 
-        AnimationCurve frontCurve = new AnimationCurve();
+        AnimationCurve frontCurve = new();
         frontCurve.AddKey(0, edgeWidth);
         frontCurve.AddKey(1, edgeWidth);
         frontLineRenderer.widthCurve = frontCurve;
-        frontLineRenderer.numCapVertices = 5;
-        frontLineRenderer.numCornerVertices = 5;
+        //frontLineRenderer.numCapVertices = 5;
+        //frontLineRenderer.numCornerVertices = 5;
 
         //backLineObject LineRenderer
         var backLineRenderer = backLineObject.AddComponent<LineRenderer>();
@@ -308,7 +324,7 @@ public class Workflow3DUI : MonoBehaviour
         backLineRenderer.useWorldSpace = false;
         backLineRenderer.material = edgeMaterial;
 
-        AnimationCurve backCurve = new AnimationCurve();
+        AnimationCurve backCurve = new();
         backCurve.AddKey(0, edgeWidth);
         backCurve.AddKey(1, edgeWidth);
         backLineRenderer.widthCurve = backCurve;

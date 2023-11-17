@@ -2,15 +2,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.UI.ResourceUI
+namespace Assets.Scripts.UI.DataUI
 {
-    internal class ResourceUIStyle
+    internal class DataUIStyle
     {
-        private readonly ResourceUILayout _layout;
-        private readonly ResourceUIData _data;
+        private readonly DataUILayout _layout;
+        private readonly DataUIData _data;
         private readonly UISettings _settings;
 
-        public ResourceUIStyle(ResourceUILayout layout,ResourceUIData data, UISettings settings) {
+        public DataUIStyle(DataUILayout layout,DataUIData data, UISettings settings) {
 
             _layout = layout;
             _data = data;
@@ -26,35 +26,25 @@ namespace Assets.Scripts.UI.ResourceUI
 
             WindowStyle();
 
-            PortraitViewStyle(_layout.PortraitViewObj);
-            PortraitImageStyle(_layout.PortraitImageObj);
+            PortraitViewStyle(_layout.IconViewObj);
+            PortraitImageStyle(_layout.IconImageObj);
 
-            HeaderStyle(_layout.PortraitHeaderObj);
-            HeaderStyle(_layout.PersonalInfoHeaderObj);
-            HeaderStyle(_layout.ProfessionalInfoHeaderObj);
-            HeaderStyle(_layout.SkillsHeaderObj);
-            HeaderStyle(_layout.TraitsHeaderObj);
+            HeaderStyle(_layout.IconHeaderObj);
+            HeaderStyle(_layout.DataHeaderObj);
+            HeaderStyle(_layout.TasksHeaderObj);
 
-            HeaderTextStyle(_layout.PortraitHeaderTextObj);
-            HeaderTextStyle(_layout.PersonalInfoHeaderTextObj);
-            HeaderTextStyle(_layout.ProfessionalInfoHeaderTextObj);
-            HeaderTextStyle(_layout.SkillsHeaderTextObj);
-            HeaderTextStyle(_layout.TraitsHeaderTextObj);
+            HeaderTextStyle(_layout.IconHeaderTextObj);
+            HeaderTextStyle(_layout.DataHeaderTextObj);
+            HeaderTextStyle(_layout.TasksHeaderTextObj);
 
-            ViewportStyle(_layout.PersonalInfoViewPortObj);
-            ViewportStyle(_layout.ProfessionalInfoViewPortObj);
-            ViewportStyle(_layout.SkillsViewPortObj);
-            ViewportStyle(_layout.TraitsViewPortObj);
+            ViewportStyle(_layout.DataViewPortObj);
+            ViewportStyle(_layout.TasksViewPortObj);
 
-            ScrollbarVerticalStyle(_layout.PersonalInfoScrollbarVerticalObj);
-            ScrollbarVerticalStyle(_layout.ProfessionalInfoScrollbarVerticalObj);
-            ScrollbarVerticalStyle(_layout.SkillsScrollbarVerticalObj);
-            ScrollbarVerticalStyle(_layout.TraitsScrollbarVerticalObj);
+            ScrollbarVerticalStyle(_layout.DataScrollbarVerticalObj);
+            ScrollbarVerticalStyle(_layout.TasksScrollbarVerticalObj);
 
-            HandleStyle(_layout.PersonalInfoHandleObj);
-            HandleStyle(_layout.ProfessionalInfoHandleObj);
-            HandleStyle(_layout.SkillsHandleObj);
-            HandleStyle(_layout.TraitsHandleObj);
+            HandleStyle(_layout.DataHandleObj);
+            HandleStyle(_layout.TasksHandleObj);
 
             DataStyle();
         }
@@ -121,7 +111,7 @@ namespace Assets.Scripts.UI.ResourceUI
         {
             //image
             var portrait = image.AddComponent<Image>();
-            portrait.sprite = _settings.ResourceUISettings.PortraitSettings.PortraitSprite;
+            portrait.sprite = _settings.DataUISettings.IconSettings.IconSprite;
             portrait.color = Color.black;
         }
 
@@ -176,10 +166,8 @@ namespace Assets.Scripts.UI.ResourceUI
 
         private void DataStyle()
         {
-            _data.PersonalInfoFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
-            _data.ProfessionalInfoFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
-            _data.SkillsFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
-            _data.TraitsFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
+            _data.DataFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
+            _data.TasksFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
         }
 
         private void TextStyle(GameObject textObj)

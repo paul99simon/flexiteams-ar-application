@@ -18,5 +18,4 @@ public class HeaderSettings
     //Font
     public FontStyles FontStyles { get; set; } = FontStyles.Normal;
     public float FontSize { get; set; } = 36;
-    
 }

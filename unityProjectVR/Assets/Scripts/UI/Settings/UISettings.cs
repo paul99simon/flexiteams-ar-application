@@ -1,18 +1,21 @@
+using Assets.Scripts.UI.Settings.DataUI;
 using Assets.Scripts.UI.Settings.ResourceUI;
+using Assets.Scripts.UI.Settings.TaskUI;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UISettings
 {
     //Constants
     private const float Byte = 255;
 
-   
     //Settings
     public TitleBarSettings TitleBarSettings { get; set; } = new();
+    public HeaderSettings HeaderSettings { get; set; } = new();
     public ResourceUISettings ResourceUISettings { get; set; } = new();
+    public DataUISettings DataUISettings { get; set; } = new();
+    public TaskUISettings TaskUISettings { get; set; } = new();
     public LanguageSettings Language { get; set; } = new();
 
     //Sprites

@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.UI.ResourceUI
 {
-    internal class ResourceUIStyle
+    internal class TaskUIStyle
     {
-        private readonly ResourceUILayout _layout;
-        private readonly ResourceUIData _data;
+        private readonly TaskUILayout _layout;
+        private readonly TaskUIData _data;
         private readonly UISettings _settings;
 
-        public ResourceUIStyle(ResourceUILayout layout,ResourceUIData data, UISettings settings) {
+        public TaskUIStyle(TaskUILayout layout,TaskUIData data, UISettings settings) {
 
             _layout = layout;
             _data = data;
@@ -26,35 +26,30 @@ namespace Assets.Scripts.UI.ResourceUI
 
             WindowStyle();
 
-            PortraitViewStyle(_layout.PortraitViewObj);
-            PortraitImageStyle(_layout.PortraitImageObj);
+            IconViewStyle(_layout.IconViewObj);
+            IconImageStyle(_layout.IconImageObj);
 
-            HeaderStyle(_layout.PortraitHeaderObj);
-            HeaderStyle(_layout.PersonalInfoHeaderObj);
-            HeaderStyle(_layout.ProfessionalInfoHeaderObj);
-            HeaderStyle(_layout.SkillsHeaderObj);
-            HeaderStyle(_layout.TraitsHeaderObj);
+            HeaderStyle(_layout.IconHeaderObj);
+            HeaderStyle(_layout.InfoHeaderObj);
+            HeaderStyle(_layout.AssignedResourcesHeaderObj);
+            HeaderStyle(_layout.AssignedDataHeaderObj);
 
-            HeaderTextStyle(_layout.PortraitHeaderTextObj);
-            HeaderTextStyle(_layout.PersonalInfoHeaderTextObj);
-            HeaderTextStyle(_layout.ProfessionalInfoHeaderTextObj);
-            HeaderTextStyle(_layout.SkillsHeaderTextObj);
-            HeaderTextStyle(_layout.TraitsHeaderTextObj);
+            HeaderTextStyle(_layout.IconHeaderTextObj);
+            HeaderTextStyle(_layout.InfoHeaderTextObj);
+            HeaderTextStyle(_layout.AssignedResourcesHeaderTextObj);
+            HeaderTextStyle(_layout.AssignedDataHeaderTextObj);
 
-            ViewportStyle(_layout.PersonalInfoViewPortObj);
-            ViewportStyle(_layout.ProfessionalInfoViewPortObj);
-            ViewportStyle(_layout.SkillsViewPortObj);
-            ViewportStyle(_layout.TraitsViewPortObj);
+            ViewportStyle(_layout.InfoViewPortObj);
+            ViewportStyle(_layout.AssignedResourcesViewPortObj);
+            ViewportStyle(_layout.AssignedDataViewPortObj);
 
-            ScrollbarVerticalStyle(_layout.PersonalInfoScrollbarVerticalObj);
-            ScrollbarVerticalStyle(_layout.ProfessionalInfoScrollbarVerticalObj);
-            ScrollbarVerticalStyle(_layout.SkillsScrollbarVerticalObj);
-            ScrollbarVerticalStyle(_layout.TraitsScrollbarVerticalObj);
+            ScrollbarVerticalStyle(_layout.InfoScrollbarVerticalObj);
+            ScrollbarVerticalStyle(_layout.AssignedResourcesScrollbarVerticalObj);
+            ScrollbarVerticalStyle(_layout.AssignedDataScrollbarVerticalObj);
 
-            HandleStyle(_layout.PersonalInfoHandleObj);
-            HandleStyle(_layout.ProfessionalInfoHandleObj);
-            HandleStyle(_layout.SkillsHandleObj);
-            HandleStyle(_layout.TraitsHandleObj);
+            HandleStyle(_layout.InfoHandleObj);
+            HandleStyle(_layout.AssignedResourcesHandleObj);
+            HandleStyle(_layout.AssignedDataHandleObj);
 
             DataStyle();
         }
@@ -108,7 +103,7 @@ namespace Assets.Scripts.UI.ResourceUI
             image.color = _settings.BackgroundColor;
         }
 
-        private void PortraitViewStyle(GameObject view)
+        private void IconViewStyle(GameObject view)
         {
             //Image
             var image = view.AddComponent<Image>();
@@ -117,11 +112,11 @@ namespace Assets.Scripts.UI.ResourceUI
             image.type = Image.Type.Sliced;
         }
 
-        private void PortraitImageStyle(GameObject image)
+        private void IconImageStyle(GameObject image)
         {
             //image
             var portrait = image.AddComponent<Image>();
-            portrait.sprite = _settings.ResourceUISettings.PortraitSettings.PortraitSprite;
+            portrait.sprite = _settings.TaskUISettings.IconSettings.IconSprite;
             portrait.color = Color.black;
         }
 
@@ -176,10 +171,7 @@ namespace Assets.Scripts.UI.ResourceUI
 
         private void DataStyle()
         {
-            _data.PersonalInfoFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
-            _data.ProfessionalInfoFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
-            _data.SkillsFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
-            _data.TraitsFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
+            _data.TaskFiller.TextObjects.ForEach(obj => { TextStyle(obj); });
         }
 
         private void TextStyle(GameObject textObj)
