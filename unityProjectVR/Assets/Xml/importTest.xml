@@ -26,7 +26,7 @@
       <WorkAgreement value="3-06:00-12:00" />
       <WorkAgreement value="4-22:00-06:00" />
       <WorkAgreement value="4-06:00-12:00" />
-      <Photo path="../images/Resource_1.jpg" />
+      <Photo path="Images/Portraits/Resource_1"/>
       <Child age="P5Y" />
       <Child age="P3Y" />
       <PersonalInfo value="Beide Kinder gehen in die Krankenhaus-Kita" />
@@ -57,7 +57,7 @@
       <WorkAgreement value="4-06:00-12:00" />
       <WorkAgreement value="5-06:00-12:00" />
       <WorkAgreement value="6-06:00-12:00" />
-      <Photo path=".\\images\\Resource_2.jpg" />
+      <Photo path="Images/Portraits/Resource_2"/>
       <Child age="P11Y" />
       <Stressor value="Pflege der kranken Eltern" />
       <AdditionalJob name="Wissenschaftlicher Beirat" />
@@ -79,7 +79,7 @@
       <WorkAgreement value="0-06:00-12:00" />
       <WorkAgreement value="1-06:00-12:00" />
       <WorkAgreement value="2-06:00-12:00" />
-      <Photo path="..\\images\\Resource_3.jpg" />
+      <Photo path="Images/Portraits/Resource_3"/>
       <Child age="P21Y" />
     </Resource>
   </ResourcePool>

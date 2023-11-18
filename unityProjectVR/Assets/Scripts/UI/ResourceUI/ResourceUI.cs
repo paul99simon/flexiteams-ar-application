@@ -50,7 +50,7 @@ public class ResourceUI
 
         var layout = new ResourceUILayout(ResourceUIObj, _settings);
         var data = new ResourceUIData(layout, _resource, _settings);
-        var style = new ResourceUIStyle(layout, data, _settings);
+        var style = new ResourceUIStyle(layout, data, _resource, _settings);
     }
 
 

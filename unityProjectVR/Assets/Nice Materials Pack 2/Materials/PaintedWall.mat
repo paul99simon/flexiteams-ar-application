@@ -90,11 +90,11 @@ Material:
     - _OcclusionStrength: 1
     - _Occulsion: 0.78
     - _Parallax: 0.02
-    - _Sharpness: 0.586
+    - _Sharpness: 0.652
     - _Shine: 0.023
-    - _Specularity: 0.25
+    - _Specularity: 0.19
     - _SrcBlend: 1
-    - _TrueTiling: 1.46
+    - _TrueTiling: 1.38
     - _UVSec: 0
     - _ZWrite: 1
     - _node_3978: 0

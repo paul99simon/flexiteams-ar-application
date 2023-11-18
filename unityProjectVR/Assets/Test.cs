@@ -1,18 +1,18 @@
+using Assets.Scripts.Application;
 using Assets.Scripts.UI.DataUI;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject importManagerObject;
+    private VR_AR_Application application;
 
     // Start is called before the first frame update
     void Start()
     {
-        var importManager = importManagerObject.GetComponent<ImportManager>();
-        var rPool = importManager.ResourcePool;
-        var dPool = importManager.DataPool;
-        var tPool = importManager.TaskPool;
+        application = GameObject.Find("Application").GetComponent<VR_AR_Application>();
+        var rPool = application.ResourcePool;
+        var dPool = application.DataPool;
+        var tPool = application.TaskPool;
 
         int i = 2;
 
@@ -32,7 +32,7 @@ public class Test : MonoBehaviour
         heigth = 2;
         for (int j = 0; j <= 4; j++)
         {
-            _ = new TaskUI(tPool.List[j], new Vector3(0, heigth++, 0), Quaternion.identity, new Vector2(1000, 760));
+            _ = new TaskUI1(tPool.List[j], new Vector3(0, heigth++, 0), Quaternion.identity, new Vector2(1000, 760));
         }
 
     }

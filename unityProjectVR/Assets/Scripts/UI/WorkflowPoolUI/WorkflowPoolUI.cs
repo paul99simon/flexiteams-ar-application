@@ -1,9 +1,7 @@
+using Assets.Scripts.Application;
 using FlexiTeams.DataClasses.Workflow;
-using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.Inventory;
-using System.Runtime.CompilerServices;
 using TMPro;
-using UnityEditor.Build.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
@@ -11,24 +9,18 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 public class WorkflowPoolUI : MonoBehaviour
 {
 
-    [SerializeField]
-    public GameObject importManagerObject;
-    private ImportManager importManager;
-
-    [SerializeField] private Sprite nameSprite;
-    [SerializeField] private Sprite roleSprite;
-    [SerializeField] private Sprite backgroundSprite;
-    [SerializeField] private Sprite visibilitySprite;
-    [SerializeField] private Sprite deleteSprite;
-    [SerializeField] private GameObject content;
-
+    private VR_AR_Application appplication;
+    private Transform content;
+    private UISettings settings;
     private WorkflowPool _pool;
 
     // Start is called before the first frame update
     void Start()
     {
-        importManager = importManagerObject.GetComponent<ImportManager>();
-        _pool = importManager.WorkflowPool;
+        appplication = GameObject.Find("Application").GetComponent<VR_AR_Application>();
+        settings = appplication.Settings;
+        content = GameObject.Find("WorkflowPoolUI").transform.Find("Panel_List/Scroll View/Viewport/Content");
+        _pool = appplication.WorkflowPool;
         _pool.List.ForEach(workflow => AddWorkflowButtonObject(workflow));
     }
 
@@ -69,7 +61,7 @@ public class WorkflowPoolUI : MonoBehaviour
 
         //Image
         Image image = workflowObj.AddComponent<Image>();
-        image.sprite = backgroundSprite;
+        image.sprite = settings.BackgroundSprite;
         image.type = Image.Type.Sliced;
 
         //ButtonComponent
@@ -115,8 +107,8 @@ public class WorkflowPoolUI : MonoBehaviour
         var visibilityImageObj = new GameObject("Image");
         var deleteImageObj = new GameObject("Image");
         
-        SetButtonImageComponents(visibilityButtonObj.transform, visibilityImageObj, visibilitySprite);
-        SetButtonImageComponents(deleteButtonObj.transform, deleteImageObj, deleteSprite);
+        SetButtonImageComponents(visibilityButtonObj.transform, visibilityImageObj, settings.WorkflowPoolUISettings.VisibilityOnSprite);
+        SetButtonImageComponents(deleteButtonObj.transform, deleteImageObj, settings.WorkflowPoolUISettings.DeleteSprite);
     }
 
     private void SetChildrenComponents(Transform parent, GameObject obj)
@@ -208,7 +200,7 @@ public class WorkflowPoolUI : MonoBehaviour
 
         //Image
         var image = buttonObj.AddComponent<Image>();
-        image.sprite = backgroundSprite;
+        image.sprite = settings.BackgroundSprite;
 
         //Button
         var button = buttonObj.AddComponent<Button>();

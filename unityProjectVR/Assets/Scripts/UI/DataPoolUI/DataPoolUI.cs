@@ -1,3 +1,4 @@
+using Assets.Scripts.Application;
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.Inventory;
 using TMPro;
@@ -7,21 +8,18 @@ using UnityEngine.UI;
 public class DataPoolUI : MonoBehaviour
 {
 
-    [SerializeField]
-    public GameObject importManagerObject;
-    private ImportManager importManager;
-
-    [SerializeField] private Sprite toolSprite;
-    [SerializeField] private Sprite backgroundSprite;
-    [SerializeField] private GameObject content;
-
+    private VR_AR_Application application;
+    private Transform content;
+    private UISettings settings;
     private DataPool _pool;
 
     // Start is called before the first frame update
     void Start()
     {
-        importManager = importManagerObject.GetComponent<ImportManager>();
-        _pool = importManager.DataPool;
+        application = GameObject.Find("Application").GetComponent<VR_AR_Application>();
+        settings = application.Settings;
+        content = GameObject.Find("DataPoolUI").transform.Find("Panel_List/Scroll View/Viewport/Content");
+        _pool = application.DataPool;
         foreach(var pair in _pool.Stock)
         {
             AddDataButtonObject(pair.Key, pair.Value);
@@ -38,7 +36,7 @@ public class DataPoolUI : MonoBehaviour
             
             //Rect Transform
             var transform = dataObject.AddComponent<RectTransform>();
-            transform.SetParent(content.transform, false);
+            transform.SetParent(content, false);
             transform.sizeDelta = new Vector2(100, 50);
 
             //UILayer
@@ -59,7 +57,7 @@ public class DataPoolUI : MonoBehaviour
 
             //Image
             Image image = dataObject.AddComponent<Image>();
-            image.sprite = backgroundSprite;
+            image.sprite = settings.BackgroundSprite;
             image.type = Image.Type.Sliced;
 
             //ButtonComponent
@@ -134,7 +132,7 @@ public class DataPoolUI : MonoBehaviour
 
                 //Image
                 Image image = nameImageObject.AddComponent<Image>();
-                image.sprite = toolSprite;
+                image.sprite = settings.DataPoolUISettings.ToolSprite;
                 image.type = Image.Type.Simple;
                 image.color = Color.black;
         }

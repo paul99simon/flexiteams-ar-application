@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using FlexiTeams.DataClasses.Resource;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +10,13 @@ namespace Assets.Scripts.UI.ResourceUI
         private readonly ResourceUILayout _layout;
         private readonly ResourceUIData _data;
         private readonly UISettings _settings;
+        private readonly Resource _resource;
 
-        public ResourceUIStyle(ResourceUILayout layout,ResourceUIData data, UISettings settings) {
+        public ResourceUIStyle(ResourceUILayout layout,ResourceUIData data, Resource resource, UISettings settings) {
 
             _layout = layout;
             _data = data;
+            _resource = resource;
             _settings = settings;
             Style();
         }
@@ -121,8 +124,8 @@ namespace Assets.Scripts.UI.ResourceUI
         {
             //image
             var portrait = image.AddComponent<Image>();
-            portrait.sprite = _settings.ResourceUISettings.PortraitSettings.PortraitSprite;
-            portrait.color = Color.black;
+            portrait.sprite = Resources.Load<Sprite>(_resource.Photos[0].Path);
+            portrait.type = Image.Type.Sliced;
         }
 
         private void HeaderStyle(GameObject header)
