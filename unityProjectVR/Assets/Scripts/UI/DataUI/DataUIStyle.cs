@@ -77,8 +77,8 @@ namespace Assets.Scripts.UI.DataUI
             button = _layout.LanguageButtonObj.GetComponent<Button>();
             button.colors = _settings.TitleBarSettings.ButtonColors;
 
-            button = _layout.CloseButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.CloseButtonColors;
+            var closeButton = _layout.CloseButtonObj.GetComponent<Button>();
+            closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
 
             //Image
             var image = _layout.DragButtonImageObj.AddComponent<Image>();
@@ -89,6 +89,9 @@ namespace Assets.Scripts.UI.DataUI
 
             image = _layout.CloseButtonImageObj.AddComponent<Image>();
             image.sprite = _settings.TitleBarSettings.CloseSprite;
+
+            closeButton.image = _layout.CloseButtonImageObj.GetComponent<Image>();
+            closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
         }
 
         private void WindowStyle()

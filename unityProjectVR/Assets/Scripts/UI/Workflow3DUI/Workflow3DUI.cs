@@ -14,6 +14,7 @@ using TMPro;
 using UnityEngine;
 using Assets.Scripts.Application;
 using Assets.Scripts.UI.Workflow3DUI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Workflow3DUI : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class Workflow3DUI : MonoBehaviour
         Create3DWorkflowLayout(wNodes);
     }
 
-    private void Create3DWorkflowLayout(List<WorkflowNode> wNodes)
+    public void Create3DWorkflowLayout(List<WorkflowNode> wNodes)
     {
         //Increment for the workflows position
         float positionincrement = settings.Workflow3DSettings.WorkflowSpacing + settings.Workflow3DSettings.TaskDimensions.z;
@@ -223,10 +224,15 @@ public class Workflow3DUI : MonoBehaviour
 
         //meshRenderer
         var meshRenderer = cuboidObject.AddComponent<MeshRenderer>();
-        meshRenderer.material = settings.Workflow3DSettings.TaskMaterial;
+        meshRenderer.material = settings.Workflow3DSettings.TaskNormalMaterial;
 
         //Collider
         var collider = cuboidObject.AddComponent<BoxCollider>();
+
+        //XR-Simple Interactable
+        var interactable = cuboidObject.AddComponent<XRSimpleInteractable>();
+        interactable.interactionLayers = InteractionLayerMask.GetMask("UI");
+        
 
         //Button
         var taskButton3D = cuboidObject.AddComponent<TaskButton3D>();
@@ -275,50 +281,89 @@ public class Workflow3DUI : MonoBehaviour
         {
             layer = 5
         };
-        var frontLineObject = new GameObject("Line")
+        var frontOutLineObj = new GameObject("Line")
         {
             layer = 5
         };
-        var backLineObject = new GameObject("Line")
+        var backOutLineObj = new GameObject("Line")
         {
             layer = 5
         };
-                    
+
+        var frontFillLineObj = new GameObject("Line")
+        {
+            layer = 5
+        };
+
+        var backFillLineObj = new GameObject("Line")
+        {
+            layer = 5
+        };
+
+
+
         //Transform        
-        frontLineObject.transform.SetParent(edgeObject.transform);
-        backLineObject.transform.SetParent(edgeObject.transform);
-        frontLineObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
-        backLineObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0, 180, 0)));
+        frontOutLineObj.transform.SetParent(edgeObject.transform);
+        frontOutLineObj.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+        backOutLineObj.transform.SetParent(edgeObject.transform);
+        backOutLineObj.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.Euler(new Vector3(0, 180, 0)));
+        frontFillLineObj.transform.SetParent(edgeObject.transform);
+        frontFillLineObj.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -0.001f), Quaternion.identity);
+        backFillLineObj.transform.SetParent(edgeObject.transform);
+        backFillLineObj.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0.001f), Quaternion.Euler(new Vector3(0, 180, 0)));
 
-        //FrontLineObject LineRenderer
-        var frontLineRenderer = frontLineObject.AddComponent<LineRenderer>();
-        frontLineRenderer.positionCount = 4;
-        frontLineRenderer.SetPositions(frontPositions);
-        frontLineRenderer.alignment = LineAlignment.TransformZ;
-        frontLineRenderer.useWorldSpace = false;
-        frontLineRenderer.material = settings.Workflow3DSettings.EdgeMaterial;
+        //frontOutLine-Renderer
+        var frontOutLineRenderer = frontOutLineObj.AddComponent<LineRenderer>();
+        frontOutLineRenderer.positionCount = 4;
+        frontOutLineRenderer.SetPositions(frontPositions);
+        frontOutLineRenderer.alignment = LineAlignment.TransformZ;
+        frontOutLineRenderer.useWorldSpace = false;
+        frontOutLineRenderer.material = settings.Workflow3DSettings.EdgeOutlineMaterial;
 
-        AnimationCurve frontCurve = new();
-        frontCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z);
-        frontCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z);
-        frontLineRenderer.widthCurve = frontCurve;
-        //frontLineRenderer.numCapVertices = 5;
-        //frontLineRenderer.numCornerVertices = 5;
+        AnimationCurve frontOutLineCurve = new();
+        frontOutLineCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z);
+        frontOutLineCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z);
+        frontOutLineRenderer.widthCurve = frontOutLineCurve;
 
-        //backLineObject LineRenderer
-        var backLineRenderer = backLineObject.AddComponent<LineRenderer>();
-        backLineRenderer.positionCount = 4;
-        backLineRenderer.SetPositions(backPositions);
-        backLineRenderer.alignment = LineAlignment.TransformZ;
-        backLineRenderer.useWorldSpace = false;
-        backLineRenderer.material = settings.Workflow3DSettings.EdgeMaterial;
+        //frontFillLine-Renderer
+        var frontFillLineRenderer = frontFillLineObj.AddComponent<LineRenderer>();
+        frontFillLineRenderer.positionCount = 4;
+        frontFillLineRenderer.SetPositions(frontPositions);
+        frontFillLineRenderer.alignment = LineAlignment.TransformZ;
+        frontFillLineRenderer.useWorldSpace = false;
+        frontFillLineRenderer.material = settings.Workflow3DSettings.EdgeFillMaterial;
+
+        AnimationCurve frontFillLineCurve = new();
+        frontFillLineCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z - 0.0075f);
+        frontFillLineCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z - 0.0075f);
+        frontFillLineRenderer.widthCurve = frontFillLineCurve;
+
+        //backOutLineObjLine-Renderer
+        var backOutLineRenderer = backOutLineObj.AddComponent<LineRenderer>();
+        backOutLineRenderer.positionCount = 4;
+        backOutLineRenderer.SetPositions(backPositions);
+        backOutLineRenderer.alignment = LineAlignment.TransformZ;
+        backOutLineRenderer.useWorldSpace = false;
+        backOutLineRenderer.material = settings.Workflow3DSettings.EdgeOutlineMaterial;
 
         AnimationCurve backCurve = new();
         backCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z);
         backCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z);
-        backLineRenderer.widthCurve = backCurve;
-        backLineRenderer.numCapVertices = 5;
-        backLineRenderer.numCornerVertices = 5;
+        backOutLineRenderer.widthCurve = backCurve;
+
+        //backFillLine-Renderer
+        var backFillLineRenderer = backFillLineObj.AddComponent<LineRenderer>();
+        backFillLineRenderer.positionCount = 4;
+        backFillLineRenderer.SetPositions(frontPositions);
+        backFillLineRenderer.alignment = LineAlignment.TransformZ;
+        backFillLineRenderer.useWorldSpace = false;
+        backFillLineRenderer.material = settings.Workflow3DSettings.EdgeFillMaterial;
+
+        AnimationCurve backFillLineCurve = new();
+        backFillLineCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z - 0.01f);
+        backFillLineCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z - 0.01f);
+        backFillLineRenderer.widthCurve = backFillLineCurve;
+
 
         return edgeObject;
     }

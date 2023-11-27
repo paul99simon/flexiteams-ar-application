@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Application;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -21,65 +22,84 @@ namespace Assets.Scripts.UI.Workflow3DUI
         private bool rightTriggerPressPrev = false;
         private bool rightTriggerPressCurrent = false;
 
+        public VR_AR_Application application;
+
         public void AddListener(Action method)
         {
             onClick = new Action(method);
         }
 
-        public void OnClick()
-        {
-            onClick();
-        }
-
         public void Update()
         {
-            //Test selection
-            if(leftRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit lhit))
+            GetData();
+            ToggleSelection();
+            Evaluate();
+            CleanUp();
+        }
+
+        private void GetData()
+        {
+            if (leftRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit lhit))
             {
                 if (lhit.collider == GetComponent<Collider>()) leftSelected = true;
             }
 
-            if(rightRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit rhit))
+            if (rightRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit rhit))
             {
                 if (rhit.collider == GetComponent<Collider>()) rightSelected = true;
             }
 
             var leftControllers = new List<UnityEngine.XR.InputDevice>();
-            var lcharachteristic = UnityEngine.XR.InputDeviceCharacteristics.Left;
+            var lcharachteristic = UnityEngine.XR.InputDeviceCharacteristics.Left | UnityEngine.XR.InputDeviceCharacteristics.Controller;
 
             var rightControllers = new List<UnityEngine.XR.InputDevice>();
-            var rcharachteristic = UnityEngine.XR.InputDeviceCharacteristics.Right;
+            var rcharachteristic = UnityEngine.XR.InputDeviceCharacteristics.Right | UnityEngine.XR.InputDeviceCharacteristics.Controller;
 
             UnityEngine.XR.InputDevices.GetDevicesWithCharacteristics(lcharachteristic, leftControllers);
             UnityEngine.XR.InputDevices.GetDevicesWithCharacteristics(rcharachteristic, rightControllers);
 
-            if (leftControllers.Count == 1 & !leftTriggerPressPrev)
+            if (leftControllers.Count == 1)
             {
                 leftControllers[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTriggerPressCurrent);
             }
 
-            if(rightControllers.Count == 1 & !rightTriggerPressPrev)
+            if (rightControllers.Count == 1)
             {
                 rightControllers[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTriggerPressCurrent);
             }
-
-            if (leftSelected && !leftTriggerPressPrev && leftTriggerPressCurrent)
+        }
+        private void ToggleSelection()
+        {
+            if (rightSelected | leftSelected)
             {
-                OnClick();
+                GetComponent<Renderer>().material = application.Settings.Workflow3DSettings.TaskHighlightedMaterial;
             }
 
-            if (rightSelected && !rightTriggerPressPrev && rightTriggerPressCurrent)
+            if (!rightSelected & !leftSelected)
             {
-                OnClick();
+                GetComponent<Renderer>().material = application.Settings.Workflow3DSettings.TaskNormalMaterial;
             }
-
+        }
+        private void Evaluate()
+        {
+            if (rightSelected & !rightTriggerPressPrev & rightTriggerPressCurrent)
+            {
+                onClick();
+            }
+            if (leftSelected & !leftTriggerPressPrev & leftTriggerPressCurrent)
+            {
+                onClick();
+            }
+        }
+        private void CleanUp()
+        {
             leftSelected = false;
             rightSelected = false;
 
             leftTriggerPressPrev = leftTriggerPressCurrent;
             leftTriggerPressCurrent = false;
 
-            rightTriggerPressPrev = leftTriggerPressCurrent;
+            rightTriggerPressPrev = rightTriggerPressCurrent;
             rightTriggerPressCurrent = false;
         }
     }

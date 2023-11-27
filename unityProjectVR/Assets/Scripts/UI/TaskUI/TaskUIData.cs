@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.UI.ResourceUI.ContentFiller;
-using Assets.Scripts.UI.TaskUI.ContentFIller;
+﻿using Assets.Scripts.UI.TaskUI.ContentFiller;
 using FlexiTeams.DataClasses.Task;
 using TMPro;
 
-namespace Assets.Scripts.UI.ResourceUI
+namespace Assets.Scripts.UI.TaskUI
 {
     internal class TaskUIData
     {

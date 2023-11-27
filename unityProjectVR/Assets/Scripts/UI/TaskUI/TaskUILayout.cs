@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI.Common;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
-namespace Assets.Scripts.UI.ResourceUI
+namespace Assets.Scripts.UI.TaskUI
 {
     internal class TaskUILayout
     {
@@ -82,6 +83,9 @@ namespace Assets.Scripts.UI.ResourceUI
             var canvas = TaskUIObj.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
             canvas.worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+            //Tracked Device Graphic Raycaster
+            _ = TaskUIObj.AddComponent<TrackedDeviceGraphicRaycaster>();
 
             TitleBar();
             Window();
@@ -179,6 +183,9 @@ namespace Assets.Scripts.UI.ResourceUI
             //Canvas
             ButtonsObj.AddComponent<Canvas>();
 
+            //Tracked Device Graphic Raycaster
+            _ = ButtonsObj.AddComponent<TrackedDeviceGraphicRaycaster>();
+
             //Layout ELement
             var layoutElement = ButtonsObj.AddComponent<LayoutElement>();
             layoutElement.preferredWidth = 300;
@@ -196,6 +203,14 @@ namespace Assets.Scripts.UI.ResourceUI
             DragButtonImageObj = TitleBarButtonImage(DragButtonObj.transform);
             LanguageButtonImageObj = TitleBarButtonImage(LanguageButtonObj.transform);
             CloseButtonImageObj = TitleBarButtonImage(CloseButtonObj.transform);
+
+            var dragButton = DragButtonObj.AddComponent<Button>();
+            var languageButton = LanguageButtonObj.AddComponent<Button>();
+
+
+            var closeButton = CloseButtonObj.AddComponent<CloseButton>();
+            closeButton.Obj = TaskUIObj;
+            closeButton.onClick.AddListener(closeButton.OnClick);
         }
 
         private GameObject TitleBarButton(string name)
@@ -215,9 +230,6 @@ namespace Assets.Scripts.UI.ResourceUI
             var layoutElement = button.AddComponent<LayoutElement>();
             layoutElement.preferredWidth = 100;
             layoutElement.preferredHeight = 100;
-
-            //Button
-            button.AddComponent<Button>();
 
             //Tracked Device Graphics Raycaster
             button.AddComponent<TrackedDeviceGraphicRaycaster>();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI.Common;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
@@ -92,6 +93,9 @@ namespace Assets.Scripts.UI.ResourceUI
             var canvas = ResourceUIObj.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
             canvas.worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+            //Tracked DEvice Graphic Raycaster
+            var _ = ResourceUIObj.AddComponent<TrackedDeviceGraphicRaycaster>();
 
             TitleBar();
             Window();
@@ -189,6 +193,9 @@ namespace Assets.Scripts.UI.ResourceUI
             //Canvas
             ButtonsObj.AddComponent<Canvas>();
 
+            //tracked Device Raycaster
+            ButtonsObj.AddComponent<TrackedDeviceGraphicRaycaster>();
+
             //Layout ELement
             var layoutElement = ButtonsObj.AddComponent<LayoutElement>();
             layoutElement.preferredWidth = 300;
@@ -206,6 +213,19 @@ namespace Assets.Scripts.UI.ResourceUI
             DragButtonImageObj = TitleBarButtonImage(DragButtonObj.transform);
             LanguageButtonImageObj = TitleBarButtonImage(LanguageButtonObj.transform);
             CloseButtonImageObj = TitleBarButtonImage(CloseButtonObj.transform);
+
+            var button = DragButtonObj.AddComponent<Button>();
+            var image = DragButtonObj.AddComponent<Image>();
+            button.image = DragButtonObj.GetComponent<Image>();
+
+            button = LanguageButtonObj.AddComponent<Button>();
+            image = LanguageButtonObj.AddComponent<Image>();
+            button.image = LanguageButtonObj.GetComponent<Image>();
+
+            var closeButton = CloseButtonObj.AddComponent<CloseButton>();
+            closeButton.Obj = ResourceUIObj;
+            closeButton.onClick.AddListener(closeButton.OnClick);
+
         }
 
         private GameObject TitleBarButton(string name)
@@ -225,12 +245,6 @@ namespace Assets.Scripts.UI.ResourceUI
             var layoutElement = button.AddComponent<LayoutElement>();
             layoutElement.preferredWidth = 100;
             layoutElement.preferredHeight = 100;
-
-            //Button
-            button.AddComponent<Button>();
-
-            //Tracked Device Graphics Raycaster
-            button.AddComponent<TrackedDeviceGraphicRaycaster>();
 
             return button;
         }

@@ -1,9 +1,12 @@
 using Assets.Scripts.Application;
+using Assets.Scripts.UI.ResourceUI;
 using FlexiTeams.DataClasses.Resource.Wrapper;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceButton  : Button
+
+
+public class ResourceButton : Button
 {
     public ResourceId Id { get; set; }
     public VR_AR_Application application { get; set; }

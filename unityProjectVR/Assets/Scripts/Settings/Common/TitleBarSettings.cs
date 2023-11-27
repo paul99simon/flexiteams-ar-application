@@ -15,14 +15,16 @@ public class TitleBarSettings
     {
         normalColor = Color.black,
         highlightedColor = new Color(55f / Byte, 55f / Byte, 55f / Byte),
-        pressedColor = new Color(200f / Byte, 200f / Byte, 200f / Byte)
+        pressedColor = new Color(200f / Byte, 200f / Byte, 200f / Byte),
+        colorMultiplier = 1
     };
 
     public ColorBlock CloseButtonColors = new()
     {
-        normalColor = Color.black,
+        normalColor = Color.white,
         highlightedColor = Color.red,
-        pressedColor = new Color(200f / Byte, 200f / Byte, 200f / Byte)
+        pressedColor = new Color(200f / Byte, 200f / Byte, 200f / Byte),
+        colorMultiplier = 1
     };
 
     //Sprite

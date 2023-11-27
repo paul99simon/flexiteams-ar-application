@@ -1,4 +1,5 @@
-﻿using FlexiTeams.DataClasses.Resource;
+﻿using Assets.Scripts.UI.Common;
+using FlexiTeams.DataClasses.Resource;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -84,14 +85,14 @@ namespace Assets.Scripts.UI.ResourceUI
         private void TitleBarButtonsStyle()
         {
             //Colors
-            var button = _layout.DragButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.ButtonColors;
+            var dragButton = _layout.DragButtonObj.GetComponent<Button>();
+            dragButton.colors = _settings.TitleBarSettings.ButtonColors;
 
-            button = _layout.LanguageButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.ButtonColors;
+            var languageButton = _layout.LanguageButtonObj.GetComponent<Button>();
+            languageButton.colors = _settings.TitleBarSettings.ButtonColors;
 
-            button = _layout.CloseButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.CloseButtonColors;
+            var closeButton = _layout.CloseButtonObj.GetComponent<CloseButton>();
+            closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
 
             //Image
             var image = _layout.DragButtonImageObj.AddComponent<Image>();
@@ -102,6 +103,8 @@ namespace Assets.Scripts.UI.ResourceUI
 
             image = _layout.CloseButtonImageObj.AddComponent<Image>();
             image.sprite = _settings.TitleBarSettings.CloseSprite;
+
+            closeButton.image = _layout.CloseButtonImageObj.GetComponent<Image>();
         }
 
         private void WindowStyle()

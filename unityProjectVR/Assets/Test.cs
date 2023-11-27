@@ -1,5 +1,7 @@
 using Assets.Scripts.Application;
 using Assets.Scripts.UI.DataUI;
+using Assets.Scripts.UI.ResourceUI;
+using Assets.Scripts.UI.TaskUI;
 using UnityEngine;
 
 public class Test : MonoBehaviour

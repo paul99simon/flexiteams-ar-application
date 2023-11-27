@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI.Common;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
@@ -73,6 +74,9 @@ namespace Assets.Scripts.UI.DataUI
             var canvas = DataUIObj.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
             canvas.worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+            //Tracked Device Graphic Raycaster
+            _ = DataUIObj.AddComponent<TrackedDeviceGraphicRaycaster>();
 
             TitleBar();
             Window();
@@ -170,6 +174,9 @@ namespace Assets.Scripts.UI.DataUI
             //Canvas
             ButtonsObj.AddComponent<Canvas>();
 
+            //Tracked Device Graphics Raycaster
+            var raycaster = ButtonsObj.AddComponent<TrackedDeviceGraphicRaycaster>();
+
             //Layout ELement
             var layoutElement = ButtonsObj.AddComponent<LayoutElement>();
             layoutElement.preferredWidth = 300;
@@ -187,6 +194,10 @@ namespace Assets.Scripts.UI.DataUI
             DragButtonImageObj = TitleBarButtonImage(DragButtonObj.transform);
             LanguageButtonImageObj = TitleBarButtonImage(LanguageButtonObj.transform);
             CloseButtonImageObj = TitleBarButtonImage(CloseButtonObj.transform);
+
+            var closeButton = CloseButtonObj.AddComponent<CloseButton>();
+            closeButton.Obj = DataUIObj;
+            closeButton.onClick.AddListener(closeButton.OnClick);
         }
 
         private GameObject TitleBarButton(string name)

@@ -1,58 +1,61 @@
-using Assets.Scripts.UI.ResourceUI;
 using FlexiTeams.DataClasses.Task;
 using UnityEngine;
 
-public class TaskUI1
-{
-    private Task _task;
-    private Vector3 _position;
-    private Quaternion _rotation;
-    private UISettings _settings;
-    private Vector2 _size;
+namespace Assets.Scripts.UI.TaskUI {
 
-    public GameObject TaskUIObj;
-
-    public TaskUI1(Task task,Vector3 position, Quaternion rotation, Vector2 size, UISettings settings) {
-        
-        this._task = task;
-        this._position = position;
-        this._rotation = rotation;
-        this._size = size;
-        this._settings = settings;
-
-        Create();
-    }
-
-    public TaskUI1(Task task, Vector3 position, Quaternion rotation, Vector2 size) {
-        
-        this._task = task;
-        this._position = position;
-        this._rotation = rotation;
-        this._size = size;
-        _settings = new();
-
-        Create();
-    }
-
-    private void Create()
+    public class TaskUI1
     {
-        TaskUIObj = new GameObject(_task.Id.ToString())
+        private Task _task;
+        private Vector3 _position;
+        private Quaternion _rotation;
+        private UISettings _settings;
+        private Vector2 _size;
+
+        public GameObject TaskUIObj;
+
+        public TaskUI1(Task task, Vector3 position, Quaternion rotation, Vector2 size, UISettings settings)
         {
-            layer = 5
-        };
 
-        //Rect Transform
-        var rectTransform = TaskUIObj.AddComponent<RectTransform>();
-        rectTransform.SetPositionAndRotation(_position, _rotation);
-        rectTransform.sizeDelta = _size;
-        rectTransform.pivot = new Vector2(0.5f, 0.5f);
-        rectTransform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
+            this._task = task;
+            this._position = position;
+            this._rotation = rotation;
+            this._size = size;
+            this._settings = settings;
 
-        var layout = new TaskUILayout(TaskUIObj, _settings);
-        var data = new TaskUIData(layout, _task, _settings);
-        var style = new TaskUIStyle(layout, data, _settings);
+            Create();
+        }
+
+        public TaskUI1(Task task, Vector3 position, Quaternion rotation, Vector2 size)
+        {
+
+            this._task = task;
+            this._position = position;
+            this._rotation = rotation;
+            this._size = size;
+            _settings = new();
+
+            Create();
+        }
+
+        private void Create()
+        {
+            TaskUIObj = new GameObject(_task.Id.ToString())
+            {
+                layer = 5
+            };
+
+            //Rect Transform
+            var rectTransform = TaskUIObj.AddComponent<RectTransform>();
+            rectTransform.SetPositionAndRotation(_position, _rotation);
+            rectTransform.sizeDelta = _size;
+            rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            rectTransform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
+
+            var layout = new TaskUILayout(TaskUIObj, _settings);
+            var data = new TaskUIData(layout, _task, _settings);
+            var style = new TaskUIStyle(layout, data, _settings);
+        }
     }
-
 
 /*
 

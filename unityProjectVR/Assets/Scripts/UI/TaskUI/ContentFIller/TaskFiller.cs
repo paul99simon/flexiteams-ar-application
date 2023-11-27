@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
-namespace Assets.Scripts.UI.TaskUI.ContentFIller
+namespace Assets.Scripts.UI.TaskUI.ContentFiller
 {
     public class TaskFiller
     {

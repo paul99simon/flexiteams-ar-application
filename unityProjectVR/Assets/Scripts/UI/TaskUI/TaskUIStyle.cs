@@ -1,8 +1,9 @@
-﻿using TMPro;
+﻿using Assets.Scripts.UI.Common;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.UI.ResourceUI
+namespace Assets.Scripts.UI.TaskUI
 {
     internal class TaskUIStyle
     {
@@ -82,8 +83,7 @@ namespace Assets.Scripts.UI.ResourceUI
             button = _layout.LanguageButtonObj.GetComponent<Button>();
             button.colors = _settings.TitleBarSettings.ButtonColors;
 
-            button = _layout.CloseButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.CloseButtonColors;
+            var closeButton = _layout.CloseButtonObj.GetComponent<CloseButton>();
 
             //Image
             var image = _layout.DragButtonImageObj.AddComponent<Image>();
@@ -94,6 +94,10 @@ namespace Assets.Scripts.UI.ResourceUI
 
             image = _layout.CloseButtonImageObj.AddComponent<Image>();
             image.sprite = _settings.TitleBarSettings.CloseSprite;
+
+            closeButton.image = _layout.CloseButtonImageObj.GetComponent<Image>();
+            closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
+
         }
 
         private void WindowStyle()

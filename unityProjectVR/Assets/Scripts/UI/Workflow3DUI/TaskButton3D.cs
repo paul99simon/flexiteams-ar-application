@@ -1,13 +1,12 @@
-﻿using Assets.Scripts.Application;
-using FlexiTeams.DataClasses.Task.Wrapper;
+﻿using FlexiTeams.DataClasses.Task.Wrapper;
 using UnityEngine;
+using Assets.Scripts.UI.TaskUI;
 
 namespace Assets.Scripts.UI.Workflow3DUI
 {
     public class TaskButton3D : Button3D
     {
         public TaskId ID;
-        public VR_AR_Application application;
 
         public void onClicK()
         {
