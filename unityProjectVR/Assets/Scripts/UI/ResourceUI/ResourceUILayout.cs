@@ -214,13 +214,14 @@ namespace Assets.Scripts.UI.ResourceUI
             LanguageButtonImageObj = TitleBarButtonImage(LanguageButtonObj.transform);
             CloseButtonImageObj = TitleBarButtonImage(CloseButtonObj.transform);
 
-            var button = DragButtonObj.AddComponent<Button>();
+            var dragbutton = DragButtonObj.AddComponent<DragButton>();
+            dragbutton.Obj = ResourceUIObj;
             var image = DragButtonObj.AddComponent<Image>();
-            button.image = DragButtonObj.GetComponent<Image>();
+            dragbutton.image = DragButtonObj.GetComponent<Image>();
 
-            button = LanguageButtonObj.AddComponent<Button>();
+            var langauageButton = LanguageButtonObj.AddComponent<Button>();
             image = LanguageButtonObj.AddComponent<Image>();
-            button.image = LanguageButtonObj.GetComponent<Image>();
+            langauageButton.image = LanguageButtonObj.GetComponent<Image>();
 
             var closeButton = CloseButtonObj.AddComponent<CloseButton>();
             closeButton.Obj = ResourceUIObj;

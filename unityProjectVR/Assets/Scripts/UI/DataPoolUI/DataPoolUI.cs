@@ -20,10 +20,11 @@ public class DataPoolUI : MonoBehaviour
         settings = application.Settings;
         content = GameObject.Find("DataPoolUI").transform.Find("Panel_List/Scroll View/Viewport/Content");
         _pool = application.DataPool;
-        foreach(var pair in _pool.Stock)
+        foreach (var pair in _pool.Stock)
         {
             AddDataButtonObject(pair.Key, pair.Value);
         }
+
     }
 
     private void AddDataButtonObject(DataName dataName, int count)
@@ -65,6 +66,10 @@ public class DataPoolUI : MonoBehaviour
             button.interactable = true;
             button.image = image;
             button.transition = Selectable.Transition.ColorTint;
+            button.onClick.AddListener(button.OnClick);
+            button.colors = settings.ButtonColors;
+
+
             var navigation = new Navigation
             {
                 mode = Navigation.Mode.Automatic

@@ -23,7 +23,6 @@ public class ResourcePoolUI : MonoBehaviour
         content = GameObject.Find("ResourcePoolUI").transform.Find("Panel_List/Scroll View/Viewport/Content");
         _pool = application.ResourcePool;
         _pool.List.ForEach(resource => AddResourceButtonObject(resource));
-
     }
 
     // Update is called once per frame

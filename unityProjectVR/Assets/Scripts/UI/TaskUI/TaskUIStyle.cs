@@ -77,16 +77,16 @@ namespace Assets.Scripts.UI.TaskUI
         private void TitleBarButtonsStyle()
         {
             //Colors
-            var button = _layout.DragButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.ButtonColors;
+            var dragButton = _layout.DragButtonObj.GetComponent<DragButton>();
 
-            button = _layout.LanguageButtonObj.GetComponent<Button>();
+            var button = _layout.LanguageButtonObj.GetComponent<Button>();
             button.colors = _settings.TitleBarSettings.ButtonColors;
 
             var closeButton = _layout.CloseButtonObj.GetComponent<CloseButton>();
 
             //Image
-            var image = _layout.DragButtonImageObj.AddComponent<Image>();
+            var image = _layout.DragButtonObj.AddComponent<Image>();
+            image = _layout.DragButtonImageObj.AddComponent<Image>();
             image.sprite = _settings.TitleBarSettings.DragSprite;
 
             image = _layout.LanguageButtonImageObj.AddComponent<Image>();
@@ -95,9 +95,11 @@ namespace Assets.Scripts.UI.TaskUI
             image = _layout.CloseButtonImageObj.AddComponent<Image>();
             image.sprite = _settings.TitleBarSettings.CloseSprite;
 
+            dragButton.image = _layout.DragButtonObj.GetComponent<Image>();
+            dragButton.colors = _settings.TitleBarSettings.ButtonColors;
+
             closeButton.image = _layout.CloseButtonImageObj.GetComponent<Image>();
             closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
-
         }
 
         private void WindowStyle()

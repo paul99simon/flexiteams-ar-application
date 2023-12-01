@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.UI.Common
@@ -9,7 +10,13 @@ namespace Assets.Scripts.UI.Common
 
         public void OnClick()
         {
+            DeSelect();
             Destroy(Obj);
+        }
+
+        private void DeSelect()
+        {
+            if (currentSelectionState == SelectionState.Selected) EventSystem.current.SetSelectedGameObject(null);
         }
     }
 }

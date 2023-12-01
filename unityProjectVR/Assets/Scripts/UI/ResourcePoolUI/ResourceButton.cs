@@ -4,8 +4,6 @@ using FlexiTeams.DataClasses.Resource.Wrapper;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class ResourceButton : Button
 {
     public ResourceId Id { get; set; }
@@ -13,6 +11,9 @@ public class ResourceButton : Button
 
     public void OnClick()
     {
-        _ = new ResourceUI(application.ResourcePool[Id], new Vector3(-2.5f, 1.6f, -1), Quaternion.Euler(new Vector3(0,-90, 0 )), new Vector2(1000, 760), application.Settings);
+        var position = application.GetInFrontOfCameraPosition(1.5f, 1.6f);
+        var rotation = application.GetCameraOrientation();
+
+        _ = new ResourceUI(application.ResourcePool[Id], position, Quaternion.Euler(rotation), new Vector2(1000, 760), application.Settings);
     }
 }

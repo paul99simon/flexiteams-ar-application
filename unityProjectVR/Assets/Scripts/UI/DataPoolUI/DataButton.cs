@@ -1,15 +1,18 @@
+using Assets.Scripts.Application;
+using Assets.Scripts.UI.DataUI;
 using FlexiTeams.DataClasses.Data.Wrapper;
-using FlexiTeams.DataClasses.Resource;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DataButton  : Button
+public class DataButton : Button
 {
-    public DataId Id { get; set; }
+    public VR_AR_Application application;
 
-    public DataButton() : base()
+    public void OnClick()
     {
+        var position = application.GetInFrontOfCameraPosition(1.5f, 1.6f);
+        var rotation = application.GetCameraOrientation();
 
+        //_ = new DataUI(application.DataPool[Id], position, Quaternion.Euler(rotation), new Vector2(1000, 760), application.Settings);
     }
 }

@@ -204,9 +204,10 @@ namespace Assets.Scripts.UI.TaskUI
             LanguageButtonImageObj = TitleBarButtonImage(LanguageButtonObj.transform);
             CloseButtonImageObj = TitleBarButtonImage(CloseButtonObj.transform);
 
-            var dragButton = DragButtonObj.AddComponent<Button>();
-            var languageButton = LanguageButtonObj.AddComponent<Button>();
+            var dragButton = DragButtonObj.AddComponent<DragButton>();
+            dragButton.Obj = TaskUIObj;
 
+            var languageButton = LanguageButtonObj.AddComponent<Button>();
 
             var closeButton = CloseButtonObj.AddComponent<CloseButton>();
             closeButton.Obj = TaskUIObj;
