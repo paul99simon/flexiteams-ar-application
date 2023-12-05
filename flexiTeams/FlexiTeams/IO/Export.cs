@@ -257,17 +257,12 @@ namespace FlexiTeams.IO
 
             foreach (var workflow in pool)
             {
-
                 var workflowNode = new XElement("Workflow",
                         new XAttribute("id", workflow.Id.ToString()),
                         new XAttribute("type", workflow.Type.ToString()),
-                        new XAttribute("venue", workflow.Venue.ToString())
+                        new XAttribute("date", workflow.Begin.ToString("s"))
                 );
-
-                if (workflow.Minutes != 0) workflowNode.Add(new XAttribute("duration", ISO8601.ToXml(0, 0, 0, 0,workflow.Minutes, 0)));
-
                 poolNode.Add(workflowNode);
-
             }
         }
 
@@ -280,10 +275,9 @@ namespace FlexiTeams.IO
                 var taskNode = new XElement("Task",
                         new XAttribute("id", task.Id.ToString()),
                         new XAttribute("type", task.Type.ToString()),
-                        new XAttribute("venue", task.Venue.ToString())
+                        new XAttribute("venue", task.Venue.ToString()),
+                        new XAttribute("duration", ISO8601.ToXml(0, 0, 0, 0, task.Duration.TotalMinutes(), 0))
                         );
-
-                if (task.Minutes != 0) taskNode.Add(new XAttribute("duration", ISO8601.ToXml(0, 0, 0, 0, task.Minutes, 0)));
 
                 if (task.RequiredData.Any())
                 {

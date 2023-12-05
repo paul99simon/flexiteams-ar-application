@@ -1,5 +1,7 @@
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Graph.Nodes;
+using FlexiTeams.Inventory;
+using FlexiTeams.Util;
 using FlexiTeams.Util.EqualityComperator;
 
 namespace FlexiTeams.FlexiTeamsGraph;
@@ -201,5 +203,62 @@ public class AdjListsGraph
         }
 
         return null;
+    }
+
+    public List<TaskNode>? GetLongestDurationPath(WorkflowNode wNode, TaskPool taskPool)
+    {
+        if (wNode.StartNodeId == null) return null;
+        if (map[wNode.StartNodeId] is TaskNode tNode)
+        {
+            return GetLongestDurationPathRecursive(tNode, taskPool);
+        }
+        return null;
+    }
+    private List<TaskNode> GetLongestDurationPathRecursive(TaskNode taskNode, TaskPool taskPool)
+    {
+        List<TaskNode> nextTasks = GetNextTasks(taskNode);
+
+        if (nextTasks.Count == 0) return new List<TaskNode>() { taskNode };
+        if (nextTasks.Count == 1)
+        {
+            var result = new List<TaskNode>() { taskNode };
+            var nextTask = nextTasks[0];
+
+            result.AddRange(GetLongestPathRecursive(nextTask));
+            return result;
+        };
+        if (nextTasks.Count > 1)
+        {
+            var result = new List<TaskNode>() { taskNode };
+            var temp = new List<TaskNode>();
+            Duration max = new();
+
+            nextTasks.ForEach(taskNode =>
+            {
+                var longestPath = GetLongestPathRecursive(taskNode);
+                if (GetPathDuration(longestPath, taskPool) > max)
+                {
+                    temp = longestPath;
+                    max = GetPathDuration(longestPath, taskPool);
+                }
+            });
+
+            result.AddRange(temp);
+            return result;
+        }
+
+        return null;
+    }
+
+    public Duration GetPathDuration(List<TaskNode> tasks, TaskPool taskPool)
+    {
+        Duration result = new();
+
+        tasks.ForEach(taskNode =>
+        {
+            result = result + taskPool[taskNode.Id].Duration;
+        });
+
+        return result;
     }
 }

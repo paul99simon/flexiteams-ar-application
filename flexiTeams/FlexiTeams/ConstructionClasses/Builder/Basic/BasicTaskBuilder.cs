@@ -2,6 +2,7 @@ using FlexiTeams.ConstructionClasses.Builder.Interface;
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
+using FlexiTeams.Util;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
 namespace FlexiTeams.ConstructionClasses.Builder;
@@ -33,9 +34,9 @@ public class BasicTaskBuilder : ITaskBuilder
     {
         _task.Venue = venue;
     }
-    public void Set(int minutes)
+    public void Set(Duration duration)
     {
-        _task.Minutes = minutes;
+        _task.Duration = duration;
     }
     public void Set(List<Profession> requiredProfessions)
     {

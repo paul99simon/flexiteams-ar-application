@@ -11,7 +11,7 @@ namespace FlexiTeamsTests.IO
     [TestFixture]
     public class ValidationTest
     {
-        const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest.xml";
+        const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest2.xml";
 
         [Test]
         public void ValidateTest()

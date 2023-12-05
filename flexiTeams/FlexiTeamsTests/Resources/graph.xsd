@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs= "http://www.w3.org/2001/XMLSchema">
-
     <xs:complexType name= "Graph">
         <xs:sequence>
             <xs:element name="Nodes" type="NodesType"/>
             <xs:element name="Edges" type="EdgesType"/>
         </xs:sequence>
     </xs:complexType>
-
     <xs:complexType name="NodesType">
         <xs:choice maxOccurs="unbounded">
             <xs:element name="WorkflowNode" type="WorkflowNodeType"/>
@@ -16,22 +14,18 @@
             <xs:element name="DataNode" type="NodeType"/>
         </xs:choice>
     </xs:complexType>
-
     <xs:complexType name="NodeType">
         <xs:attribute name="idref" type="xs:IDREF" use="required"/>
     </xs:complexType>
-
     <xs:complexType name="WorkflowNodeType">
         <xs:attribute name="idref" type="xs:IDREF" use="required"/>
         <xs:attribute name="startNode" type="xs:IDREF" use="required"/>
     </xs:complexType>
-
     <xs:complexType name="EdgesType">
         <xs:sequence>
             <xs:element name="Edge" type="EdgeType" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-
     <xs:complexType name="EdgeType">
         <xs:attribute name="idref1" type="xs:IDREF" use="required"/>
         <xs:attribute name="idref2" type="xs:IDREF" use="required"/>

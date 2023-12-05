@@ -1,4 +1,6 @@
-<Scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" lang="en">
+<Scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" lang="de"
+          xsi:noNamespaceSchemaLocation="scenario.xsd">
+
   <ResourcePool>
     <Resource id="Resource_1" age="P32Y" maritalState="verheiratet" weeklyHours="PT35H" yearlyTimeOf="P28D" commuteTime="PT20M" workExperience="P13Y" trainingDuration="P3Y" overtime="PT50H" yearlyEducation="P5D">
       <FirstName value="Anna" />
@@ -39,7 +41,7 @@
       <LastName value="Müller" />
       <Profession value="Oberärztin" />
       <Department value="Onkologie" />
-      <MeansOfTransport value="Auto" />
+      <MeansOfTransport value="Auto"/>
       <Skill value="Tumorentfernung" />
       <Skill value="Anamese" />
       <Skill value="Nachkontrolle" />
@@ -66,7 +68,7 @@
       <Profession value="Verwaltungsfachangestellte" />
       <Department value="Onkologie" />
       <Department value="Geriatrie" />
-      <MeansOfTransport value="Auto" />
+      <MeansOfTransport value="Auto"/>
       <Skill value="Schichtplanerstellung" />
       <Skill value="Registratur" />
       <Skill value="SAP-Abrechnungssystem Medikamente" />
@@ -564,9 +566,9 @@
     <Data id="Data_479" type="Surgical instruments" />
   </DataPool>
   <WorkflowPool>
-    <Workflow id="Workflow_0" type="General Surgery" date="2023-01-01T09:00:00" />
-    <Workflow id="Workflow_1" type="C-section" date="2023-01-01T09:00:00" />
-    <Workflow id="Workflow_2" type="Cardiothoracic surgery" date="2023-01-01T09:00:00" />
+    <Workflow id="Workflow_0" type="General Surgery" date="2023-01-01T09:00:00"/>
+    <Workflow id="Workflow_1" type="C-section" date="2023-01-01T09:00:00"/>
+    <Workflow id="Workflow_2" type="Cardiothoracic surgery" date="2023-01-01T09:00:00"/>
   </WorkflowPool>
   <TaskPool>
     <Task id="Task_0" type="Medical examination" venue="Major OT" duration="PT30M">

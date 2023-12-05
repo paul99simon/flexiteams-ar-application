@@ -5,7 +5,6 @@
     <xs:include schemaLocation="workflowPool.xsd"/>
     <xs:include schemaLocation="TaskPool.xsd"/>
     <xs:include schemaLocation="graph.xsd"/>
-
     <xs:element name="Scenario">
         <xs:complexType>
             <xs:sequence>

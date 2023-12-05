@@ -6,7 +6,7 @@ namespace FlexiTeamsTests.IO
     [TestFixture]
     public class ImportTest
     {
-        const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest.xml";
+        const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest2.xml";
 
         [Test]
         public void ResourcePoolTest()
@@ -32,7 +32,7 @@ namespace FlexiTeamsTests.IO
         {
             var import = new Import(path);
 
-            Assert.AreEqual(9, import.WorkflowPool.Count);
+            Assert.AreEqual(3, import.WorkflowPool.Count);
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace FlexiTeamsTests.IO
         {
             var import = new Import(path);
 
-            Assert.AreEqual(72, import.TaskPool.Count);
+            Assert.AreEqual(30, import.TaskPool.Count);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace FlexiTeamsTests.IO
         {
             var import = new Import(path);
 
-            Assert.AreEqual(81, import.Graph.Nodes.Count);
+            Assert.AreEqual(33, import.Graph.Nodes.Count);
         }
 
         [Test]

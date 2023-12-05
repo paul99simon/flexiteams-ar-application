@@ -11,7 +11,7 @@ namespace FlexiTeamsTests.IO
         [Test]
         public void ToXmlTest()
         {
-            const string importPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest.xml";
+            const string importPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest2.xml";
             const string scenarioXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/scenario.xsd";
             const string resourcePoolXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/resourcePool.xsd";
             const string dataPoolXsdPath = "C://Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/dataPool.xsd";

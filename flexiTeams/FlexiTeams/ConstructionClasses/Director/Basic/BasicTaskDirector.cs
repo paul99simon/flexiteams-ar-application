@@ -25,8 +25,8 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
             if(durationAttribute != null)
             {
                 string duration = durationAttribute.Value;
-                int minutes = new ISO8601(duration).Minutes;
-                tBuilder.Set(minutes);
+                var iso = new ISO8601(duration);
+                tBuilder.Set(new Duration(iso.Hours, iso.Minutes));
             }
 
             tBuilder.Set(new TaskId(id));

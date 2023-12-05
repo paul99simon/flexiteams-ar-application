@@ -29,7 +29,7 @@ public class ISO8601
         }
 
         void GetPString(string pString){
-            pString = pString.Substring(1);
+            pString = pString[1..];
             
             var temp = pString.Split('Y');
             if(temp.Length == 2 )
