@@ -38,9 +38,9 @@ namespace Assets.Scripts.UI.TaskUI.ContentFiller
             TextObj(type);
             TextObj(venue);
 
-            if(_task.Minutes != 0 )
+            if(_task.Duration.TotalMinutes() != 0 )
             {
-                string duration ="- " + _settings.Language.Duration + ": " + _task.Minutes.ToString() + " " + _settings.Language.Minutes;
+                string duration ="- " + _settings.Language.Duration + ": " + _task.Duration.TotalMinutes() + " " + _settings.Language.Minutes;
                 TextObj(duration);
             }
         }

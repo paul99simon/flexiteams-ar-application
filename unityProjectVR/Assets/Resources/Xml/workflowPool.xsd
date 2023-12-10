@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs= "http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name= "WorkflowPool">
+        <xs:sequence>
+            <xs:element name="Workflow" type="WorkflowType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WorkflowType">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+		<xs:attribute name="date" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+</xs:schema>

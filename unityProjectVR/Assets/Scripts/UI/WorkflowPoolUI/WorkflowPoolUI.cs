@@ -24,12 +24,6 @@ public class WorkflowPoolUI : MonoBehaviour
         _pool.List.ForEach(workflow => AddWorkflowButtonObject(workflow));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void AddWorkflowButtonObject(Workflow workflow)
     {
         var workflowObject = new GameObject("Workflow");
@@ -81,22 +75,16 @@ public class WorkflowPoolUI : MonoBehaviour
     {
 
         var typeObj = new GameObject("Type");
-        var venueObj = new GameObject("Venue");
         var durationObj = new GameObject("Duration");
         var buttonsObj = new GameObject("Buttons");
         
         SetButtonsComponents(parent, buttonsObj);
         SetChildrenComponents(parent, typeObj);
-        SetChildrenComponents(parent, venueObj);
         SetChildrenComponents(parent, durationObj);
 
         var typeTextObj = new GameObject("Text");
-        var venueTextObj = new GameObject("Text");
-        var durationTextObj = new GameObject("Text");
 
         SetTextComponents(typeObj.transform, typeTextObj, workflow.Type.ToString());
-        SetTextComponents(venueObj.transform, venueTextObj, workflow.Venue.ToString());
-        SetTextComponents(durationObj.transform, durationTextObj, workflow.Minutes.ToString());
 
         var visibilityButtonObj = new GameObject("Button");
         var deleteButtonObj = new GameObject("Button");

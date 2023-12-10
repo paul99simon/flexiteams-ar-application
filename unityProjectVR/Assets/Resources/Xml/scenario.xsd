@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs= "http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="resourcePool.xsd"/>
+    <xs:include schemaLocation="dataPool.xsd"/>
+    <xs:include schemaLocation="workflowPool.xsd"/>
+    <xs:include schemaLocation="TaskPool.xsd"/>
+    <xs:include schemaLocation="graph.xsd"/>
+    <xs:element name="Scenario">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ResourcePool" type="ResourcePool"/>
+                <xs:element name="DataPool" type="DataPool"/>
+                <xs:element name="WorkflowPool" type="WorkflowPool"/>
+                <xs:element name="TaskPool" type="TaskPool"/>
+                <xs:element name="Graph" type="Graph"/>
+            </xs:sequence>
+            <xs:attribute name="lang" type="xs:language" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
