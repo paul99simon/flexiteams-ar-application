@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.UI.Settings.Workflow3D
+namespace Assets.Scripts.UI.Settings.Layout3D
 {
-    public class WorkfLow3DSettings
+    public class Layout3DSettings
     {
-        public float WorkflowSpacing { get; set; } = 1f;
+        public float LayerSpacing { get; set; } = 1f;
         public Vector3 TaskDimensions { get; set; } = new Vector3(0.2f, 0.1f, 0.05f);
 
         public Vector3 EdgeDimensions { get; set; } = new Vector3(0.1f, 0.2f, 0.015f);

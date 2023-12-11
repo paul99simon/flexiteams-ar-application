@@ -2,9 +2,9 @@ using Assets.Scripts.Settings.DataPoolUI;
 using Assets.Scripts.Settings.ResourcePoolUISettings;
 using Assets.Scripts.UI.Settings;
 using Assets.Scripts.UI.Settings.DataUI;
+using Assets.Scripts.UI.Settings.Layout3D;
 using Assets.Scripts.UI.Settings.ResourceUI;
 using Assets.Scripts.UI.Settings.TaskUI;
-using Assets.Scripts.UI.Settings.Workflow3D;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -25,7 +25,7 @@ public class UISettings
     public ResourcePoolUISettings ResourcePoolUISettings { get; set; } = new();
     public DataPoolUISettings DataPoolUISettings { get; set; } = new();
     public WorkflowPoolUISettings WorkflowPoolUISettings { get; set; } = new();
-    public WorkfLow3DSettings Workflow3DSettings { get; set; } = new();
+    public Layout3DSettings Layout3DSettings { get; set; } = new();
 
     //Sprites
     public Sprite BackgroundSprite { get; set; } = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");

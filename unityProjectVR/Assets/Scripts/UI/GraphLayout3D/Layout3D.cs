@@ -1,26 +1,23 @@
-using FlexiTeams.ConstructionClasses.Builder;
-using FlexiTeams.FlexiTeamsGraph;
 using FlexiTeams.Graph.Nodes;
-
 using Microsoft.Msagl.Core.Layout;
 using Microsoft.Msagl.Core.Geometry;
 using Microsoft.Msagl.Core.Geometry.Curves;
 using Microsoft.Msagl.Layout.Layered;
-
 using System.Collections.Generic;
 using System;
-
 using TMPro;
 using UnityEngine;
 using Assets.Scripts.Application;
 using Assets.Scripts.UI.Workflow3DUI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Workflow3DUI : MonoBehaviour
+public class Layout3D : MonoBehaviour
 {
     private VR_AR_Application application;
     
-    private GameObject workflow3DObj;
+    private GameObject Layout3DObj;
+
+    private readonly List<Layer3D> Layers = new();
 
     private UISettings settings;
     
@@ -33,23 +30,59 @@ public class Workflow3DUI : MonoBehaviour
     void Start()
     {
         application = GameObject.Find("Application").GetComponent<VR_AR_Application>();
-        workflow3DObj = GameObject.Find("Workflow 3D");
+        Layout3DObj = GameObject.Find("Layout 3D");
         settings = application.Settings;
-        
-        List<WorkflowNode> wNodes = new()
-        {
-            application.Graph.GetWorkflowNodes()[1],
-            application.Graph.GetWorkflowNodes()[2]
-        };
 
+        var wNodes = application.Graph.GetWorkflowNodes();
 
-        Create3DWorkflowLayout(wNodes);
+        int wCount = 0;
+        float zIncrement = settings.Layout3DSettings.LayerSpacing + settings.Layout3DSettings.TaskDimensions.z;
+        float position = -(((wNodes.Count - 1) * zIncrement) / 2);
+
+        wNodes.ForEach(node => {
+            
+            var layerObj = new GameObject("Layer_" + wCount++);
+            
+            //Transform
+            var transform = layerObj.AddComponent<Transform>();
+            transform.SetParent(Layout3DObj.transform);
+            transform.localPosition = new Vector3(0, 0, position);
+
+            //Layer3D
+            var layer = layerObj.AddComponent<Layer3D>();
+            layer.Application = application;
+            layer.Layer = layerObj;
+            layer.Layout = this;
+            layer.ZOffset = position;
+            layer.Workflows.Add(node.Id, null);
+            position += zIncrement;
+        });
+
+        Draw();
     }
 
-    public void Create3DWorkflowLayout(List<WorkflowNode> wNodes)
+
+
+    public void MoveWorkflow()
     {
+
+    }
+
+    public void Remove()
+    {
+
+    }
+
+    public void Delete()
+    {
+
+    }
+
+    public void Draw()
+    {
+        Layers.ForEach(layer => layer.Draw());
         //Increment for the workflows position
-        float positionincrement = settings.Workflow3DSettings.WorkflowSpacing + settings.Workflow3DSettings.TaskDimensions.z;
+        /*float positionincrement = settings.Layout3DSettings.LayerSpacing + settings.Layout3DSettings.TaskDimensions.z;
         float position = -(((wNodes.Count - 1) * positionincrement) / 2); ;
 
         int maxPathCount = 0;
@@ -60,7 +93,7 @@ public class Workflow3DUI : MonoBehaviour
         });
 
         int maxEdgeCount = maxPathCount - 1;
-        float totalLength = maxPathCount * settings.Workflow3DSettings.TaskDimensions.x + maxEdgeCount * settings.Workflow3DSettings.EdgeDimensions.x;
+        float totalLength = maxPathCount * settings.Layout3DSettings.TaskDimensions.x + maxEdgeCount * settings.Layout3DSettings.EdgeDimensions.x;
         xOffset = - totalLength / 2;
 
 
@@ -68,10 +101,11 @@ public class Workflow3DUI : MonoBehaviour
         {
             var workflowObject = CreateWorkflowObject(node);
             var transform = workflowObject.GetComponent<Transform>();
-            transform.SetParent(workflow3DObj.transform);
+            transform.SetParent(Layout3DObj.transform);
             transform.SetLocalPositionAndRotation(new Vector3(0,0,position), Quaternion.identity);
             position += positionincrement;
         });
+        */
     }
 
     //----------------------------------------------------------------
@@ -81,10 +115,10 @@ public class Workflow3DUI : MonoBehaviour
     private GeometryGraph SugiyamaGraph(WorkflowNode wNode)
     {
         //Layout variables
-        double width = Convert.ToDouble(settings.Workflow3DSettings.TaskDimensions.y * meterToMillimeter);
-        double heigth = Convert.ToDouble(settings.Workflow3DSettings.TaskDimensions.x * meterToMillimeter);
-        double layerSeperation = Convert.ToDouble(settings.Workflow3DSettings.EdgeDimensions.x * meterToMillimeter);
-        double nodeSeperation = Convert.ToDouble(settings.Workflow3DSettings.EdgeDimensions.y * meterToMillimeter);
+        double width = Convert.ToDouble(settings.Layout3DSettings.TaskDimensions.y * meterToMillimeter);
+        double heigth = Convert.ToDouble(settings.Layout3DSettings.TaskDimensions.x * meterToMillimeter);
+        double layerSeperation = Convert.ToDouble(settings.Layout3DSettings.EdgeDimensions.x * meterToMillimeter);
+        double nodeSeperation = Convert.ToDouble(settings.Layout3DSettings.EdgeDimensions.y * meterToMillimeter);
 
         //Graph-Data
         var nodes = application.Graph.GetTaskNodes(wNode);
@@ -181,7 +215,7 @@ public class Workflow3DUI : MonoBehaviour
             float xPos = (sourceX + targetX) / 2 + xOffset;
             float yPos = (sourceY + targetY) / 2;
 
-            float edgeLength = (targetX - sourceX) - settings.Workflow3DSettings.TaskDimensions.x;
+            float edgeLength = (targetX - sourceX) - settings.Layout3DSettings.TaskDimensions.x;
             float edgeHeigth = (sourceY - targetY);
 
             var sourcePort = new Vector3(0,0,0);
@@ -220,11 +254,11 @@ public class Workflow3DUI : MonoBehaviour
 
         //meshfilter
         var meshFilter = cuboidObject.AddComponent<MeshFilter>();
-        meshFilter.mesh = CreateCuboidMesh(settings.Workflow3DSettings.TaskDimensions);
+        meshFilter.mesh = CreateCuboidMesh(settings.Layout3DSettings.TaskDimensions);
 
         //meshRenderer
         var meshRenderer = cuboidObject.AddComponent<MeshRenderer>();
-        meshRenderer.material = settings.Workflow3DSettings.TaskNormalMaterial;
+        meshRenderer.material = settings.Layout3DSettings.TaskNormalMaterial;
 
         //Collider
         var collider = cuboidObject.AddComponent<BoxCollider>();
@@ -244,7 +278,7 @@ public class Workflow3DUI : MonoBehaviour
 
         var textObject = CreateTextObject(application.TaskPool[taskNode.Id].Type.ToString());
         textObject.transform.SetParent(cuboidObject.transform);
-        textObject.transform.position = new Vector3(0, 0, - (settings.Workflow3DSettings.TaskDimensions.z / 2) - 0.001f);
+        textObject.transform.position = new Vector3(0, 0, - (settings.Layout3DSettings.TaskDimensions.z / 2) - 0.001f);
 
         return cuboidObject;
     }
@@ -258,13 +292,13 @@ public class Workflow3DUI : MonoBehaviour
 
         //RectTansform
         var tranform = textObject.AddComponent<RectTransform>();
-        tranform.sizeDelta = new Vector2(settings.Workflow3DSettings.TaskDimensions.x - settings.Workflow3DSettings.EdgeDimensions.z, settings.Workflow3DSettings.TaskDimensions.y);
+        tranform.sizeDelta = new Vector2(settings.Layout3DSettings.TaskDimensions.x - settings.Layout3DSettings.EdgeDimensions.z, settings.Layout3DSettings.TaskDimensions.y);
 
         //TextMesh
         var textMesh = textObject.AddComponent<TextMeshPro>();
         textMesh.text = text;
-        textMesh.color = settings.Workflow3DSettings.TextColor;
-        textMesh.fontSize = settings.Workflow3DSettings.FontSize;
+        textMesh.color = settings.Layout3DSettings.TextColor;
+        textMesh.fontSize = settings.Layout3DSettings.FontSize;
         textMesh.fontStyle = settings.FontStyle;
 
         textMesh.verticalAlignment = VerticalAlignmentOptions.Middle;
@@ -318,11 +352,11 @@ public class Workflow3DUI : MonoBehaviour
         frontOutLineRenderer.SetPositions(frontPositions);
         frontOutLineRenderer.alignment = LineAlignment.TransformZ;
         frontOutLineRenderer.useWorldSpace = false;
-        frontOutLineRenderer.material = settings.Workflow3DSettings.EdgeOutlineMaterial;
+        frontOutLineRenderer.material = settings.Layout3DSettings.EdgeOutlineMaterial;
 
         AnimationCurve frontOutLineCurve = new();
-        frontOutLineCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z);
-        frontOutLineCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z);
+        frontOutLineCurve.AddKey(0, settings.Layout3DSettings.EdgeDimensions.z);
+        frontOutLineCurve.AddKey(1, settings.Layout3DSettings.EdgeDimensions.z);
         frontOutLineRenderer.widthCurve = frontOutLineCurve;
 
         //frontFillLine-Renderer
@@ -331,11 +365,11 @@ public class Workflow3DUI : MonoBehaviour
         frontFillLineRenderer.SetPositions(frontPositions);
         frontFillLineRenderer.alignment = LineAlignment.TransformZ;
         frontFillLineRenderer.useWorldSpace = false;
-        frontFillLineRenderer.material = settings.Workflow3DSettings.EdgeFillMaterial;
+        frontFillLineRenderer.material = settings.Layout3DSettings.EdgeFillMaterial;
 
         AnimationCurve frontFillLineCurve = new();
-        frontFillLineCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z - 0.0075f);
-        frontFillLineCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z - 0.0075f);
+        frontFillLineCurve.AddKey(0, settings.Layout3DSettings.EdgeDimensions.z - 0.0075f);
+        frontFillLineCurve.AddKey(1, settings.Layout3DSettings.EdgeDimensions.z - 0.0075f);
         frontFillLineRenderer.widthCurve = frontFillLineCurve;
 
         //backOutLineObjLine-Renderer
@@ -344,11 +378,11 @@ public class Workflow3DUI : MonoBehaviour
         backOutLineRenderer.SetPositions(backPositions);
         backOutLineRenderer.alignment = LineAlignment.TransformZ;
         backOutLineRenderer.useWorldSpace = false;
-        backOutLineRenderer.material = settings.Workflow3DSettings.EdgeOutlineMaterial;
+        backOutLineRenderer.material = settings.Layout3DSettings.EdgeOutlineMaterial;
 
         AnimationCurve backCurve = new();
-        backCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z);
-        backCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z);
+        backCurve.AddKey(0, settings.Layout3DSettings.EdgeDimensions.z);
+        backCurve.AddKey(1, settings.Layout3DSettings.EdgeDimensions.z);
         backOutLineRenderer.widthCurve = backCurve;
 
         //backFillLine-Renderer
@@ -357,11 +391,11 @@ public class Workflow3DUI : MonoBehaviour
         backFillLineRenderer.SetPositions(frontPositions);
         backFillLineRenderer.alignment = LineAlignment.TransformZ;
         backFillLineRenderer.useWorldSpace = false;
-        backFillLineRenderer.material = settings.Workflow3DSettings.EdgeFillMaterial;
+        backFillLineRenderer.material = settings.Layout3DSettings.EdgeFillMaterial;
 
         AnimationCurve backFillLineCurve = new();
-        backFillLineCurve.AddKey(0, settings.Workflow3DSettings.EdgeDimensions.z - 0.01f);
-        backFillLineCurve.AddKey(1, settings.Workflow3DSettings.EdgeDimensions.z - 0.01f);
+        backFillLineCurve.AddKey(0, settings.Layout3DSettings.EdgeDimensions.z - 0.01f);
+        backFillLineCurve.AddKey(1, settings.Layout3DSettings.EdgeDimensions.z - 0.01f);
         backFillLineRenderer.widthCurve = backFillLineCurve;
 
 
