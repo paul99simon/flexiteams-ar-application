@@ -259,8 +259,7 @@ namespace FlexiTeams.IO
             {
                 var workflowNode = new XElement("Workflow",
                         new XAttribute("id", workflow.Id.ToString()),
-                        new XAttribute("type", workflow.Type.ToString()),
-                        new XAttribute("date", workflow.Begin.ToString("s"))
+                        new XAttribute("type", workflow.Type.ToString())
                 );
                 poolNode.Add(workflowNode);
             }
@@ -276,7 +275,8 @@ namespace FlexiTeams.IO
                         new XAttribute("id", task.Id.ToString()),
                         new XAttribute("type", task.Type.ToString()),
                         new XAttribute("venue", task.Venue.ToString()),
-                        new XAttribute("duration", ISO8601.ToXml(0, 0, 0, 0, task.Duration.TotalMinutes(), 0))
+                        new XAttribute("begin", XmlConvert.ToString(task.begin, XmlDateTimeSerializationMode.Local)),
+                        new XAttribute("end", XmlConvert.ToString(task.end, XmlDateTimeSerializationMode.Local))
                         );
 
                 if (task.RequiredData.Any())

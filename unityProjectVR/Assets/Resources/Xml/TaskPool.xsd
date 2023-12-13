@@ -12,11 +12,12 @@
             <xs:element name="ConsumedData" type="ConsumedType"/>
             <xs:element name="ConsumedResource" type="ConsumedType"/>
         </xs:choice>
-        <xs:attribute name="id" type="xs:ID" use="required"/>
-        <xs:attribute name="type" type="xs:string" use="required"/>
-        <xs:attribute name="venue" type="xs:string" use="required"/>
-        <xs:attribute name="duration" type="xs:duration" use="required"/>
-    </xs:complexType>
+        <xs:attribute name="id"     type="xs:ID"        use="required"/>
+        <xs:attribute name="type"   type="xs:string"    use="required"/>
+        <xs:attribute name="venue"  type="xs:string"    use="required"/>
+        <xs:attribute name="begin"  type="xs:dateTime"  use="required"/>
+		<xs:attribute name="end"    type="xs:dateTime"  use="required"/>
+	</xs:complexType>
 
     <xs:complexType name="ConsumedType">
         <xs:attribute name="type" type="xs:string" use="required"/>

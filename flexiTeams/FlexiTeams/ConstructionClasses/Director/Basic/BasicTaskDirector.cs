@@ -3,8 +3,7 @@ using FlexiTeams.ConstructionClasses.Director.Interface;
 using FlexiTeams.DataClasses.Data.Wrapper;
 using FlexiTeams.DataClasses.Task.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
-using FlexiTeams.Graph.Nodes;
-using FlexiTeams.Util;
+using System.Xml;
 using System.Xml.Linq;
 using Task = FlexiTeams.DataClasses.Task.Task;
 
@@ -12,29 +11,20 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
 {
     public class BasicTaskDirector : ITaskDirector
     {
-
         public Task Construct(XElement taskNode, ITaskBuilder tBuilder)
         {
-
             string id = taskNode.Attribute("id").Value;
             string type = taskNode.Attribute("type").Value;
             string venue = taskNode.Attribute("venue").Value;
-
-            XAttribute durationAttribute = taskNode.Attribute("duration");
-
-            if(durationAttribute != null)
-            {
-                string duration = durationAttribute.Value;
-                var iso = new ISO8601(duration);
-                tBuilder.Set(new Duration(iso.Hours, iso.Minutes));
-            }
+            string begin = taskNode.Attribute("begin").Value;
+            string end = taskNode.Attribute("end").Value;
 
             tBuilder.Set(new TaskId(id));
             tBuilder.Set(new TaskType(type));
             tBuilder.Set(new Venue(venue));
+            tBuilder.Set(XmlConvert.ToDateTime(begin, XmlDateTimeSerializationMode.Local), XmlConvert.ToDateTime(end, XmlDateTimeSerializationMode.Local));
 
             var consumedData = taskNode.Descendants("ConsumedData");
-
             List<DataName> dataNames = new();
             foreach(var node in consumedData)
             {
@@ -43,7 +33,6 @@ namespace FlexiTeams.ConstructionClasses.Director.Basic
             }
 
             if(dataNames.Count > 0) tBuilder.Set(dataNames);
-            
 
             var consumedResources = taskNode.Descendants("ConsumedResource");
             List<Profession> professions = new();

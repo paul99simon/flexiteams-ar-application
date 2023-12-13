@@ -137,7 +137,7 @@ public class DataPoolUI : MonoBehaviour
 
                 //Image
                 Image image = nameImageObject.AddComponent<Image>();
-                image.sprite = settings.DataPoolUISettings.ToolSprite;
+                image.sprite = settings.DataPoolUI.ToolSprite;
                 image.type = Image.Type.Simple;
                 image.color = Color.black;
         }

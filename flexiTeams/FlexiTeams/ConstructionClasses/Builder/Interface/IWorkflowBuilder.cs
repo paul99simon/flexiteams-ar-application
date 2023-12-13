@@ -10,5 +10,4 @@ public interface IWorkflowBuilder
 
     public void Set(WorkflowId id);
     public void Set(WorkflowType types);
-    public void Set(DateTime begin);
 }

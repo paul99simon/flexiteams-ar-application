@@ -52,46 +52,46 @@ namespace Assets.Scripts.UI.DataUI
         private void TitleBarStyle()
         {
             var image = _layout.TitleBarObj.AddComponent<Image>();
-            image.color = _settings.TitleBarSettings.BackgroundColor;
+            image.color = _settings.TitleBar.BackgroundColor;
         }
 
         private void TitleBarTextStyle()
         {
             var tmp = _layout.TitleBarTextObj.GetComponent<TextMeshProUGUI>();
             tmp.font = _settings.TMP_FontAsset;
-            tmp.color = _settings.TitleBarSettings.TextColor;
-            tmp.fontSize = _settings.TitleBarSettings.FontSize;
+            tmp.color = _settings.TitleBar.TextColor;
+            tmp.fontSize = _settings.TitleBar.FontSize;
             tmp.fontStyle = _settings.FontStyle;
             tmp.horizontalAlignment = HorizontalAlignmentOptions.Left;
             tmp.verticalAlignment = VerticalAlignmentOptions.Middle;
             tmp.overflowMode = TextOverflowModes.Truncate;
-            tmp.margin = new Vector4(_settings.ResourceUISettings.Spacing, 0, 0, 0);
+            tmp.margin = new Vector4(_settings.ResourceUI.Spacing, 0, 0, 0);
         }
 
         private void TitleBarButtonsStyle()
         {
             //Colors
             var button = _layout.DragButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.ButtonColors;
+            button.colors = _settings.TitleBar.ButtonColors;
 
             button = _layout.LanguageButtonObj.GetComponent<Button>();
-            button.colors = _settings.TitleBarSettings.ButtonColors;
+            button.colors = _settings.TitleBar.ButtonColors;
 
             var closeButton = _layout.CloseButtonObj.GetComponent<Button>();
-            closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
+            closeButton.colors = _settings.TitleBar.CloseButtonColors;
 
             //Image
             var image = _layout.DragButtonImageObj.AddComponent<Image>();
-            image.sprite = _settings.TitleBarSettings.DragSprite;
+            image.sprite = _settings.TitleBar.DragSprite;
 
             image = _layout.LanguageButtonImageObj.AddComponent<Image>();
-            image.sprite = _settings.TitleBarSettings.LanguageSprite;
+            image.sprite = _settings.TitleBar.LanguageSprite;
 
             image = _layout.CloseButtonImageObj.AddComponent<Image>();
-            image.sprite = _settings.TitleBarSettings.CloseSprite;
+            image.sprite = _settings.TitleBar.CloseSprite;
 
             closeButton.image = _layout.CloseButtonImageObj.GetComponent<Image>();
-            closeButton.colors = _settings.TitleBarSettings.CloseButtonColors;
+            closeButton.colors = _settings.TitleBar.CloseButtonColors;
         }
 
         private void WindowStyle()
@@ -114,7 +114,7 @@ namespace Assets.Scripts.UI.DataUI
         {
             //image
             var portrait = image.AddComponent<Image>();
-            portrait.sprite = _settings.DataUISettings.IconSettings.IconSprite;
+            portrait.sprite = _settings.DataUI.IconSettings.IconSprite;
             portrait.color = Color.black;
         }
 
@@ -122,8 +122,8 @@ namespace Assets.Scripts.UI.DataUI
         {
             //Image
             var image = header.AddComponent<Image>();
-            image.sprite = _settings.HeaderSettings.BackgroundSprite;
-            image.color = _settings.HeaderSettings.BackgroundColor;
+            image.sprite = _settings.Header.BackgroundSprite;
+            image.color = _settings.Header.BackgroundColor;
             image.type = Image.Type.Sliced;
         }
 
@@ -132,12 +132,12 @@ namespace Assets.Scripts.UI.DataUI
             //TMP
             var tmp = headerText.GetComponent<TextMeshProUGUI>();
             tmp.font = _settings.TMP_FontAsset;
-            tmp.fontStyle = _settings.HeaderSettings.FontStyles;
-            tmp.fontSize = _settings.HeaderSettings.FontSize;
+            tmp.fontStyle = _settings.Header.FontStyles;
+            tmp.fontSize = _settings.Header.FontSize;
             tmp.verticalAlignment = VerticalAlignmentOptions.Middle;
             tmp.horizontalAlignment = HorizontalAlignmentOptions.Center;
             tmp.enableWordWrapping = false;
-            tmp.color = _settings.HeaderSettings.TextColor;
+            tmp.color = _settings.Header.TextColor;
         }
 
         private void ViewportStyle(GameObject viewport)

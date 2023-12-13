@@ -16,16 +16,16 @@ public class UISettings
     private const float Byte = 255;
 
     //Settings
-    public TitleBarSettings TitleBarSettings { get; set; } = new();
-    public HeaderSettings HeaderSettings { get; set; } = new();
-    public ResourceUISettings ResourceUISettings { get; set; } = new();
-    public DataUISettings DataUISettings { get; set; } = new();
-    public TaskUISettings TaskUISettings { get; set; } = new();
+    public TitleBarSettings TitleBar { get; set; } = new();
+    public HeaderSettings Header { get; set; } = new();
+    public ResourceUISettings ResourceUI { get; set; } = new();
+    public DataUISettings DataUI { get; set; } = new();
+    public TaskUISettings TaskUI { get; set; } = new();
     public LanguageSettings Language { get; set; } = new();
-    public ResourcePoolUISettings ResourcePoolUISettings { get; set; } = new();
-    public DataPoolUISettings DataPoolUISettings { get; set; } = new();
-    public WorkflowPoolUISettings WorkflowPoolUISettings { get; set; } = new();
-    public Layout3DSettings Layout3DSettings { get; set; } = new();
+    public ResourcePoolUISettings ResourcePoolUI { get; set; } = new();
+    public DataPoolUISettings DataPoolUI { get; set; } = new();
+    public WorkflowPoolUISettings WorkflowPoolUI { get; set; } = new();
+    public Layout3DSettings Layout3D { get; set; } = new();
 
     //Sprites
     public Sprite BackgroundSprite { get; set; } = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");

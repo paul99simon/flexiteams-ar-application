@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6d9e8f29af9bc4ba2aa2e835e8cdc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScenarioPath: Assets/Resources/Xml/importTest2.xml
+  ScenarioPath: Assets/Resources/Xml/scenario.xml
   MainCamera: {fileID: 1408379107}
   leftRayInteractor: {fileID: 671225534}
   rightRayInteractor: {fileID: 1015607423}
@@ -33532,7 +33532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.000109, y: 0}
+  m_AnchoredPosition: {x: 17.000305, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956165036
@@ -33987,7 +33987,7 @@ GameObject:
   - component: {fileID: 1978324001}
   - component: {fileID: 1978324000}
   m_Layer: 5
-  m_Name: Workflow 3D
+  m_Name: Layout 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

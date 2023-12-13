@@ -72,12 +72,12 @@ namespace Assets.Scripts.UI.Workflow3DUI
         {
             if (rightSelected | leftSelected)
             {
-                GetComponent<Renderer>().material = application.Settings.Layout3DSettings.TaskHighlightedMaterial;
+                GetComponent<Renderer>().material = application.Settings.Layout3D.Workflow.TaskHighlightedMaterial;
             }
 
             if (!rightSelected & !leftSelected)
             {
-                GetComponent<Renderer>().material = application.Settings.Layout3DSettings.TaskNormalMaterial;
+                GetComponent<Renderer>().material = application.Settings.Layout3D.Workflow.TaskNormalMaterial;
             }
         }
         private void Evaluate()

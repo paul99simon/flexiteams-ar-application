@@ -4,7 +4,6 @@ using FlexiTeams.Inventory;
 using FlexiTeams.IO;
 using NUnit.Framework;
 
-
 namespace FlexiTeamsTests.Graph
 {
     [TestFixture]
@@ -12,7 +11,6 @@ namespace FlexiTeamsTests.Graph
     {
         private const string path = "C:/Users/paul9/OneDrive/FlexiTeams/flexiteams_ar-application/flexiTeams/FlexiTeamsTests/Resources/importTest2.xml";
         Import import = new Import(path);
-
 
         [Test]
         public void GetLongestPathTest()
@@ -33,7 +31,7 @@ namespace FlexiTeamsTests.Graph
 
             var result = graph.GetLongestDurationPath(graph.GetWorkflowNodes()[0], tPool);
 
-            Assert.AreEqual("10:45", graph.GetPathDuration(result, tPool).ToString());
+            Assert.AreEqual("07:45", graph.GetPathDuration(result, tPool).ToString("HH:mm"));
         }
 
         [Test]

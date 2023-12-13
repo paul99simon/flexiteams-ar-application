@@ -15,11 +15,21 @@ public class Test : MonoBehaviour
         var rPool = application.ResourcePool;
         var dPool = application.DataPool;
         var tPool = application.TaskPool;
+        var wNodes = application.Graph.GetWorkflowNodes();
 
+        var layout3D = GameObject.Find("Layout 3D").GetComponent<Layout3D>();
+        
+        var layer = layout3D.workflowMap[wNodes[0].Id].Layer;
+        var node = layout3D.workflowMap[wNodes[1].Id];
+
+        node.ChangeLayer(layer);
+
+
+        /*
         int i = 2;
 
-        //_ = new ResourceUI(pool.List[0], new Vector3(-3, 1.5f, 1), Quaternion.Euler(new Vector3(0,-90,0)), new Vector2(1000, 760));
-
+        _ = new ResourceUI(pool.List[0], new Vector3(-3, 1.5f, 1), Quaternion.Euler(new Vector3(0,-90,0)), new Vector2(1000, 760));
+        
         rPool.List.ForEach(resource =>
         {
             _ = new ResourceUI(resource, new Vector3(-2, i++, 0), Quaternion.identity, new Vector2(1000, 760));
@@ -36,6 +46,10 @@ public class Test : MonoBehaviour
         {
             _ = new TaskUI1(tPool.List[j], new Vector3(0, heigth++, 0), Quaternion.identity, new Vector2(1000, 760));
         }
+        */
 
     }
+
+
+
 }

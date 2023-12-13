@@ -15,7 +15,7 @@ public interface ITaskBuilder
     public void Set(TaskId id);
     public void Set(TaskType types);
     public void Set(Venue venues);
-    public void Set(Duration duration);
+    public void Set(DateTime begin, DateTime end);
     public void Set(List<Profession> requiredProfessions);
     public void Set(List<DataName> requiredDataNames);
 }

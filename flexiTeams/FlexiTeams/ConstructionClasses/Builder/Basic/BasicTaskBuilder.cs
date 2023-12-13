@@ -34,10 +34,13 @@ public class BasicTaskBuilder : ITaskBuilder
     {
         _task.Venue = venue;
     }
-    public void Set(Duration duration)
+
+    public void Set(DateTime begin, DateTime end)
     {
-        _task.Duration = duration;
+        _task.begin = begin;
+        _task.end = end;
     }
+
     public void Set(List<Profession> requiredProfessions)
     {
         _task.RequiredProfessions = requiredProfessions;

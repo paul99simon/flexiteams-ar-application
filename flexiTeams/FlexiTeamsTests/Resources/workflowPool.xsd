@@ -10,6 +10,5 @@
     <xs:complexType name="WorkflowType">
         <xs:attribute name="id" type="xs:ID" use="required"/>
         <xs:attribute name="type" type="xs:string" use="required"/>
-		<xs:attribute name="date" type="xs:dateTime" use="required"/>
     </xs:complexType>
 </xs:schema>

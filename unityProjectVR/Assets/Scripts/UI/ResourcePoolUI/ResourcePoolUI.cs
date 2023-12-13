@@ -143,7 +143,7 @@ public class ResourcePoolUI : MonoBehaviour
 
                 //Image
                 Image image = nameImageObject.AddComponent<Image>();
-                image.sprite = settings.ResourcePoolUISettings.NameSprite;
+                image.sprite = settings.ResourcePoolUI.NameSprite;
                 image.type = Image.Type.Simple;
                 image.color = Color.black;
         }
@@ -207,7 +207,7 @@ public class ResourcePoolUI : MonoBehaviour
 
                 //Image
                 Image image = roleImageObject.AddComponent<Image>();
-                image.sprite = settings.ResourcePoolUISettings.RoleSprite;
+                image.sprite = settings.ResourcePoolUI.RoleSprite;
                 image.type = Image.Type.Simple;
                 image.color = Color.black;
             }

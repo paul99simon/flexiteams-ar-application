@@ -11,8 +11,8 @@ public class Task
 
     public TaskType Type { get; set; }
     public Venue Venue { get; set; }
-    public Duration Duration { get; set; }
-
+    public DateTime begin { get; set; }
+    public DateTime end { get; set; }
     public List<Profession>? RequiredProfessions { get; set; }
     public List<DataName>? RequiredData { get; set; }
 }

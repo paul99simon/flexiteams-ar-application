@@ -95,8 +95,8 @@ public class WorkflowPoolUI : MonoBehaviour
         var visibilityImageObj = new GameObject("Image");
         var deleteImageObj = new GameObject("Image");
         
-        SetButtonImageComponents(visibilityButtonObj.transform, visibilityImageObj, settings.WorkflowPoolUISettings.VisibilityOnSprite);
-        SetButtonImageComponents(deleteButtonObj.transform, deleteImageObj, settings.WorkflowPoolUISettings.DeleteSprite);
+        SetButtonImageComponents(visibilityButtonObj.transform, visibilityImageObj, settings.WorkflowPoolUI.VisibilityOnSprite);
+        SetButtonImageComponents(deleteButtonObj.transform, deleteImageObj, settings.WorkflowPoolUI.DeleteSprite);
     }
 
     private void SetChildrenComponents(Transform parent, GameObject obj)

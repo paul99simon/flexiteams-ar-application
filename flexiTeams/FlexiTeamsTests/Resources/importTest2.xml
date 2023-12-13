@@ -566,58 +566,58 @@
     <Data id="Data_479" type="Surgical instruments" />
   </DataPool>
   <WorkflowPool>
-    <Workflow id="Workflow_0" type="General Surgery" date="2023-01-01T09:00:00"/>
-    <Workflow id="Workflow_1" type="C-section" date="2023-01-01T09:00:00"/>
-    <Workflow id="Workflow_2" type="Cardiothoracic surgery" date="2023-01-01T09:00:00"/>
+    <Workflow id="Workflow_0" type="General Surgery"/>
+    <Workflow id="Workflow_1" type="C-section"/>
+    <Workflow id="Workflow_2" type="Cardiothoracic surgery"/>
   </WorkflowPool>
   <TaskPool>
-    <Task id="Task_0" type="Medical examination" venue="Major OT" duration="PT30M">
+    <Task id="Task_0" type="Medical examination" venue="Major OT" begin="2023-01-01T06:00:00" end="2023-01-01T06:30:00">
       <ConsumedData type="Sthethescope" />
       <ConsumedResource type="Doctor" />
     </Task>
-    <Task id="Task_1" type="Instructions to patient" venue="Major OT" duration="PT15M">
+    <Task id="Task_1" type="Instructions to patient" venue="Major OT" begin="2023-01-01T06:30:00" end="2023-01-01T06:45:00">
       <ConsumedData type="Diet details" />
       <ConsumedData type="Admission details" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_2" type="Pre-operative test" venue="Major OT" duration="PT60M">
+    <Task id="Task_2" type="Pre-operative test" venue="Major OT" begin="2023-01-01T06:45:00" end="2023-01-01T07:45:00">
       <ConsumedData type="X-ray machine" />
       <ConsumedData type="lab test" />
       <ConsumedResource type="Nurse" />
       <ConsumedResource type="Lab technician" />
     </Task>
-    <Task id="Task_3" type="Review patient's health history" venue="Major OT" duration="PT30M">
+    <Task id="Task_3" type="Review patient's health history" venue="Major OT" begin="2023-01-01T07:15:00" end="2023-01-01T07:45:00">
       <ConsumedData type="Patient's file" />
       <ConsumedData type="Allergy details" />
       <ConsumedData type="Present medications" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_4" type="Pre-operative counselling and get consent from patient " venue="Major OT" duration="PT30M">
+    <Task id="Task_4" type="Pre-operative counselling and get consent from patient" venue="Major OT" begin="2023-01-01T07:45:00" end="2023-01-01T08:15:00">
       <ConsumedData type="Consent form" />
       <ConsumedResource type="Counsellor" />
     </Task>
-    <Task id="Task_5" type="Patient preparation" venue="Major OT" duration="PT30M">
+    <Task id="Task_5" type="Patient preparation" venue="Major OT" begin="2023-01-01T08:15:00" end="2023-01-01T08:45:00">
       <ConsumedData type="Surgical dress" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_6" type="Surgery preparation" venue="Major OT" duration="PT60M">
+    <Task id="Task_6" type="Surgery preparation" venue="Major OT" begin="2023-01-01T07:45:00" end="2023-01-01T08:45:00">
       <ConsumedData type="Cleaning items" />
       <ConsumedData type="Anesthesia tools" />
       <ConsumedData type="Surgical equipments" />
       <ConsumedData type="Sthethescope" />
       <ConsumedResource type="Doctor" />
     </Task>
-    <Task id="Task_7" type="Transport to OT" venue="Major OT" duration="PT15M">
+    <Task id="Task_7" type="Transport to OT" venue="Major OT" begin="2023-01-01T08:45:00" end="2023-01-01T09:00:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_8" type="Anesthesia" venue="Major OT" duration="PT15M">
+    <Task id="Task_8" type="Anesthesia" venue="Major OT" begin="2023-01-01T09:00:00" end="2023-01-01T09:15:00">
       <ConsumedData type="Anesthesia machine" />
       <ConsumedData type="Injection syringe" />
       <ConsumedResource type="Anaesthesiologist" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_9" type="Surgery" venue="Major OT" duration="PT360M">
+    <Task id="Task_9" type="Surgery" venue="Major OT" begin="2023-01-01T09:15:00" end="2023-01-01T12:15:00">
       <ConsumedData type="Ventilator" />
       <ConsumedData type="Surgical tools" />
       <ConsumedData type="Blood pressure monitor" />
@@ -625,54 +625,54 @@
       <ConsumedResource type="Doctor" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_10" type="Transport to post-surgery room" venue="Major OT" duration="PT15M">
+    <Task id="Task_10" type="Transport to post-surgery room" venue="Major OT" begin="2023-01-01T12:15:00" end="2023-01-01T12:30:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_11" type="Cleaning surgery room" venue="Major OT" duration="PT20M">
+    <Task id="Task_11" type="Cleaning surgery room" venue="Major OT" begin="2023-01-01T12:15:00" end="2023-01-01T12:35:00">
       <ConsumedData type="Cleaning items" />
       <ConsumedResource type="Cleaner" />
     </Task>
-    <Task id="Task_12" type="Transport to intensive care room" venue="Major OT" duration="PT15M">
+    <Task id="Task_12" type="Transport to intensive care room" venue="Major OT" begin="2023-01-01T12:30:00" end="2023-01-01T12:45:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_13" type="Medical examination" venue="Major OT" duration="PT30M">
+    <Task id="Task_13" type="Medical examination" venue="Major OT" begin="2023-01-01T12:45:00" end="2023-01-01T13:15:00">
       <ConsumedData type="Ventilator" />
       <ConsumedData type="Blood pressure monitor" />
       <ConsumedData type="Pulse oximeter" />
       <ConsumedResource type="Doctor" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_14" type="Post-surgery instructions to Patient" venue="Major OT" duration="PT30M">
+    <Task id="Task_14" type="Post-surgery instructions to Patient" venue="Major OT" begin="2023-01-01T13:15:00" end="2023-01-01T13:45:00">
       <ConsumedData type="Diet details" />
       <ConsumedData type="Exercise details" />
       <ConsumedData type="Medications" />
       <ConsumedResource type="Doctor" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_15" type="Patient preparation" venue="Major OT" duration="PT30M">
+    <Task id="Task_15" type="Patient preparation" venue="Major OT" begin="2023-01-01T06:00:00" end="2023-01-01T06:30:00">
       <ConsumedData type="Surgical dress" />
       <ConsumedResource type="Nurse assistant" />
     </Task>
-    <Task id="Task_16" type="Surgery room preparation" venue="Major OT" duration="PT30M">
+    <Task id="Task_16" type="Surgery room preparation" venue="Major OT" begin="2023-01-01T06:30:00" end="2023-01-01T07:00:00">
       <ConsumedData type="Cleaning items" />
       <ConsumedData type="Anesthesia tools" />
       <ConsumedData type="Surgical equipments" />
       <ConsumedData type="Sthethescope" />
       <ConsumedResource type="Technician" />
     </Task>
-    <Task id="Task_17" type="Transport to OT" venue="Major OT" duration="PT15M">
+    <Task id="Task_17" type="Transport to OT" venue="Major OT" begin="2023-01-01T07:00:00" end="2023-01-01T07:15:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse assistant" />
     </Task>
-    <Task id="Task_18" type="Anesthesia" venue="Major OT" duration="PT15M">
+    <Task id="Task_18" type="Anesthesia" venue="Major OT" begin="2023-01-01T07:15:00" end="2023-01-01T07:30:00">
       <ConsumedData type="Anesthesia machine" />
       <ConsumedData type="Injection syringe" />
       <ConsumedResource type="Anaesthesiologist" />
       <ConsumedResource type="Anaesthesiologist Assistant" />
     </Task>
-    <Task id="Task_19" type="Surgery" venue="Major OT" duration="PT300M">
+    <Task id="Task_19" type="Surgery" venue="Major OT" begin="2023-01-01T07:30:00" end="2023-01-01T12:30:00">
       <ConsumedData type="Ventilator" />
       <ConsumedData type="Surgical tools" />
       <ConsumedData type="Blood pressure monitor" />
@@ -681,42 +681,42 @@
       <ConsumedResource type="Nurse" />
       <ConsumedResource type="Nurse assistant" />
     </Task>
-    <Task id="Task_20" type="Transport to post-surgery room" venue="Major OT" duration="PT15M">
+    <Task id="Task_20" type="Transport to post-surgery room" venue="Major OT" begin="2023-01-01T12:30:00" end="2023-01-01T12:45:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse assistant" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_21" type="Cleaning surgery room" venue="Major OT" duration="PT20M">
+    <Task id="Task_21" type="Cleaning surgery room" venue="Major OT" begin="2023-01-01T12:30:00" end="2023-01-01T12:50:00">
       <ConsumedData type="Cleaning items" />
       <ConsumedResource type="Cleaner" />
     </Task>
-    <Task id="Task_22" type="Transport to postpartum room" venue="Major OT" duration="PT15M">
+    <Task id="Task_22" type="Transport to postpartum room" venue="Major OT" begin="2023-01-01T12:45:00" end="2023-01-01T13:00:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse assistant" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_23" type="Patient preparation" venue="Cardiac OT" duration="PT30M">
+    <Task id="Task_23" type="Patient preparation" venue="Cardiac OT" begin="2023-01-01T06:00:00" end="2023-01-01T06:30:00">
       <ConsumedData type="Surgical dress" />
       <ConsumedResource type="Nurse assistant" />
     </Task>
-    <Task id="Task_24" type="Surgery room preparation" venue="Cardiac OT" duration="PT30M">
+    <Task id="Task_24" type="Surgery room preparation" venue="Cardiac OT" begin="2023-01-01T06:30:00" end="2023-01-01T07:00:00">
       <ConsumedData type="Cleaning items" />
       <ConsumedData type="Anesthesia tools" />
       <ConsumedData type="Surgical equipments" />
       <ConsumedData type="Sthethescope" />
       <ConsumedResource type="Technician" />
     </Task>
-    <Task id="Task_25" type="Transport to OT" venue="Cardiac OT" duration="PT15M">
+    <Task id="Task_25" type="Transport to OT" venue="Cardiac OT" begin="2023-01-01T07:00:00" end="2023-01-01T07:15:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse assistant" />
     </Task>
-    <Task id="Task_26" type="Anesthesia" venue="Cardiac OT" duration="PT15M">
-      <ConsumedData type="Anesthesia machine" />
-      <ConsumedData type="Injection syringe" />
-      <ConsumedResource type="Anaesthesiologist" />
-      <ConsumedResource type="Anaesthesiologist Assistant" />
-    </Task>
-    <Task id="Task_27" type="Surgery" venue="Cardiac OT" duration="PT540M">
+	<Task id="Task_26" type="Anesthesia" venue="Cardiac OT" begin="2023-01-01T07:15:00" end="2023-01-01T07:30:00">
+		<ConsumedData type="Anesthesia machine" />
+		<ConsumedData type="Injection syringe" />
+		<ConsumedResource type="Anaesthesiologist" />
+		<ConsumedResource type="Anaesthesiologist Assistant" />
+	  </Task>
+    <Task id="Task_27" type="Surgery" venue="Cardiac OT" begin="2023-01-01T07:30:00" end="2023-01-01T11:30:00">
       <ConsumedData type="Ventilator" />
       <ConsumedData type="Surgical tools" />
       <ConsumedData type="Blood pressure monitor" />
@@ -725,12 +725,12 @@
       <ConsumedResource type="Nurse" />
       <ConsumedResource type="Nurse assistant" />
     </Task>
-    <Task id="Task_28" type="Transport to intensive care room" venue="Cardiac OT" duration="PT15M">
+    <Task id="Task_28" type="Transport to intensive care room" venue="Cardiac OT" begin="2023-01-01T11:30:00" end="2023-01-01T11:45:00">
       <ConsumedData type="Wheelchair/Bed/Strecher" />
       <ConsumedResource type="Nurse assistant" />
       <ConsumedResource type="Nurse" />
     </Task>
-    <Task id="Task_29" type="Cleaning surgery room" venue="Cardiac OT" duration="PT20M">
+    <Task id="Task_29" type="Cleaning surgery room" venue="Cardiac OT" begin="2023-01-01T11:30:00" end="2023-01-01T11:50:00">
       <ConsumedData type="Cleaning items" />
       <ConsumedResource type="Cleaner" />
     </Task>

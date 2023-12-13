@@ -267,7 +267,7 @@ namespace Assets.Scripts.UI.DataUI
             layoutGroup.childForceExpandHeight = true;
             layoutGroup.childForceExpandWidth = true;
 
-            int spacing = (int)_settings.ResourceUISettings.Spacing;
+            int spacing = (int)_settings.ResourceUI.Spacing;
             layoutGroup.padding = new RectOffset(spacing, spacing, spacing, spacing);
             layoutGroup.spacing = spacing;
 
@@ -293,7 +293,7 @@ namespace Assets.Scripts.UI.DataUI
             layoutGroup.childControlHeight = true;
             layoutGroup.childForceExpandHeight = true;
             layoutGroup.childForceExpandWidth = false;
-            layoutGroup.spacing = _settings.ResourceUISettings.Spacing;
+            layoutGroup.spacing = _settings.ResourceUI.Spacing;
 
             IconObj = IconPanel();
             IconHeaderObj = IconHeader(IconObj.transform);
@@ -399,7 +399,7 @@ namespace Assets.Scripts.UI.DataUI
             layoutGroup.childControlWidth = true;
             layoutGroup.childForceExpandHeight = true;
             layoutGroup.childForceExpandWidth = true;
-            layoutGroup.spacing = _settings.ResourceUISettings.Spacing;
+            layoutGroup.spacing = _settings.ResourceUI.Spacing;
 
             TasksObj = Panel(BottomPanelObj.transform, "ProfessionalInfo");
             TasksHeaderObj = Header(TasksObj.transform);

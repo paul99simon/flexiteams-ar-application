@@ -290,7 +290,7 @@ namespace Assets.Scripts.UI.ResourceUI
             layoutGroup.childForceExpandHeight = true;
             layoutGroup.childForceExpandWidth = true;
 
-            int spacing = (int)_settings.ResourceUISettings.Spacing;
+            int spacing = (int)_settings.ResourceUI.Spacing;
             layoutGroup.padding = new RectOffset(spacing, spacing, spacing, spacing);
             layoutGroup.spacing = spacing;
 
@@ -316,7 +316,7 @@ namespace Assets.Scripts.UI.ResourceUI
             layoutGroup.childControlHeight = true;
             layoutGroup.childForceExpandHeight = true;
             layoutGroup.childForceExpandWidth = false;
-            layoutGroup.spacing = _settings.ResourceUISettings.Spacing;
+            layoutGroup.spacing = _settings.ResourceUI.Spacing;
 
             PortraitObj = PortraitPanel();
             PortraitHeaderObj = PortraitHeader(PortraitObj.transform);
@@ -422,7 +422,7 @@ namespace Assets.Scripts.UI.ResourceUI
             layoutGroup.childControlWidth = true;
             layoutGroup.childForceExpandHeight = true;
             layoutGroup.childForceExpandWidth = true;
-            layoutGroup.spacing = _settings.ResourceUISettings.Spacing;
+            layoutGroup.spacing = _settings.ResourceUI.Spacing;
 
             ProfessionalInfoObj = Panel(BottomPanelObj.transform, "ProfessionalInfo");
             ProfessionalInfoHeaderObj = Header(ProfessionalInfoObj.transform);

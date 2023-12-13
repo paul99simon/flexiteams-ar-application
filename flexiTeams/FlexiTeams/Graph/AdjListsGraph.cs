@@ -1,3 +1,7 @@
+using FlexiTeams.DataClasses.Data.Wrapper;
+using FlexiTeams.DataClasses.Resource.Wrapper;
+using FlexiTeams.DataClasses.Task.Wrapper;
+using FlexiTeams.DataClasses.Workflow.Wrapper;
 using FlexiTeams.DataClasses.Wrapper;
 using FlexiTeams.Graph.Nodes;
 using FlexiTeams.Inventory;
@@ -153,6 +157,26 @@ public class AdjListsGraph
         if(map.ContainsKey(id)) return map[id];
         return null;
     }
+    public WorkflowNode? FindNode(WorkflowId id)
+    {
+        if (map.ContainsKey(id)) return (WorkflowNode) map[id];
+        return null;
+    }
+    public TaskNode? FindNode(TaskId id)
+    {
+        if (map.ContainsKey(id)) return (TaskNode) map[id];
+        return null;
+    }
+    public DataNode? FindNode(DataId id) 
+    {
+        if (map.ContainsKey(id)) return (DataNode) map[id];
+        return null;
+    }
+    public ResourceNode? FindNode(ResourceId id)
+    {
+        if (map.ContainsKey(id)) return (ResourceNode)map[id];
+        return null;
+    }
 
     /// <summary>
     /// returns the <see cref="TaskNode"/>'s from a <see cref="WorkflowNode"/> that make up the longestPath
@@ -231,15 +255,16 @@ public class AdjListsGraph
         {
             var result = new List<TaskNode>() { taskNode };
             var temp = new List<TaskNode>();
-            Duration max = new();
+            DateTime max = DateTime.MinValue;
 
             nextTasks.ForEach(taskNode =>
             {
                 var longestPath = GetLongestPathRecursive(taskNode);
-                if (GetPathDuration(longestPath, taskPool) > max)
+                var currentDuration = GetPathDuration(longestPath, taskPool);
+                if (currentDuration > max)
                 {
                     temp = longestPath;
-                    max = GetPathDuration(longestPath, taskPool);
+                    max = currentDuration;
                 }
             });
 
@@ -250,13 +275,13 @@ public class AdjListsGraph
         return null;
     }
 
-    public Duration GetPathDuration(List<TaskNode> tasks, TaskPool taskPool)
+    public DateTime GetPathDuration(List<TaskNode> tasks, TaskPool taskPool)
     {
-        Duration result = new();
+        DateTime result = new();
 
         tasks.ForEach(taskNode =>
         {
-            result = result + taskPool[taskNode.Id].Duration;
+            result += taskPool[taskNode.Id].end - taskPool[taskNode.Id].begin;
         });
 
         return result;

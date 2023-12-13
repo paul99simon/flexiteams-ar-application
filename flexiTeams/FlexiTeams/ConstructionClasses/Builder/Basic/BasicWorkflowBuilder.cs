@@ -26,8 +26,4 @@ public class BasicWorkflowBuilder : IWorkflowBuilder
     {
         _workflow.Type = type;
     }
-    public void Set(DateTime begin)
-    {
-        _workflow.Begin = begin;
-    }
 }
