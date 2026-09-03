@@ -9,7 +9,7 @@ FlexiTeams is a workforce and workflow modeling project for organizing resources
 ![VR interface](images/vr-interface.png)
 -->
 
-<video src="./images/FlexiTeams-VR-Mockup.mp4" controls="controls" muted="muted" width="100%"></video>
+![Demo animation](images/mockup.gif)
 
 
 ## What it includes
