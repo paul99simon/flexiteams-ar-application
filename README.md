@@ -8,8 +8,7 @@ FlexiTeams is a workforce and workflow modeling project for organizing resources
 ![Workflow graph](images/workflow-graph.png)
 ![VR interface](images/vr-interface.png)
 -->
-
-![Demo animation](images/mockup.gif)
+![Demo animation](https://raw.githubusercontent.com/paul99simon/flexiteams-ar-application/main/images/mockup.gif)
 
 
 ## What it includes
